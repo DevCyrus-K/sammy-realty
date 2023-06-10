@@ -1,7 +1,8 @@
+import { useState } from "react";
 import Link from "next/link";
+import Slider from "react-slick";
 
 import { FaPlay, FaHome } from "react-icons/fa";
-import Slider from "react-slick";
 
 function HeroSectionStyleOne({ data }) {
   const settings = {
@@ -12,18 +13,13 @@ function HeroSectionStyleOne({ data }) {
     slidesToScroll: 1,
   };
 
+  const [sliderRef, setSliderRef] = useState(null);
 
-  function next() {
-    this.slider.slickNext();
-  }
-  function previous() {
-    this.slider.slickPrev();
-  }
   return (
     <>
       <div className="ltn__slider-area ltn__slider-3  section-bg-1">
         <Slider
-        ref={setSliderRef}
+          ref={setSliderRef}
           className="ltn__slide-one-active slick-slide-arrow-1 slick-slide-dots-1"
           {...settings}
         >
@@ -89,17 +85,12 @@ function HeroSectionStyleOne({ data }) {
               </div>
             );
           })}
+
+          <div style={{ textAlign: "center" }}>
+            <button onClick={sliderRef?.slickPrev}>textPrev</button>
+            <button onClick={sliderRef?.slickNext}>Next</button>
+          </div>
         </Slider>
-
-        <div style={{ textAlign: "center" }}>
-        <button onCLick={sliderRef?.slickPrev}>
-       textPrev
-      </button>
-      <button onCLick={sliderRef?.slickNext}>
-      Next
-      </button>
-        </div>
-
       </div>
     </>
   );

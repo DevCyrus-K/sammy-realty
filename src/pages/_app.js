@@ -8,8 +8,8 @@ import 'animate.css'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "@/styles/sass/style.scss";
-import "@/styles/responsive.css";
+import "@/assets/sass/style.scss";
+import "@/assets/responsive.css";
 
 export default function App({ Component, pageProps }) {
   return (
