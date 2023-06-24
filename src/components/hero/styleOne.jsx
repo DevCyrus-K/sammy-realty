@@ -15,6 +15,16 @@ function HeroSectionStyleOne({ data }) {
 
   const [sliderRef, setSliderRef] = useState(null);
 
+  const productsettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+  };
+
+  const [productref, setproductref] = useState(null);
+
   return (
     <>
       <div className="ltn__slider-area ltn__slider-3  section-bg-1">
@@ -426,7 +436,10 @@ function HeroSectionStyleOne({ data }) {
                     </div>
                 </div>
             </div>
-            <div class="row ltn__product-slider-item-four-active-full-width slick-arrow-1">
+
+
+
+            <Slider  ref={setproductref}  {...productsettings}  class="row ltn__product-slider-item-four-active-full-width slick-arrow-1">
                 {/* <!-- ltn__product-item --> */}
                 <div class="col-lg-12">
                     <div class="ltn__product-item ltn__product-item-4 text-center---">
@@ -838,7 +851,9 @@ function HeroSectionStyleOne({ data }) {
                     </div>
                 </div>
                 {/* <!--  --> */}
-            </div>
+            </Slider>
+
+          
         </div>
     </div>
     {/* <!-- PRODUCT SLIDER AREA END -->
