@@ -2,16 +2,19 @@ import { useState } from "react";
 import Link from "next/link";
 import Slider from "react-slick";
 
-import { FaPlay, FaHome } from "react-icons/fa";
+import { FaPlay, FaHome ,FaArrowRight,FaArrowLeft} from "react-icons/fa";
 
 function HeroSectionStyleOne({ data }) {
   const [sliderRef, setSliderRef] = useState(null);
   const settings = {
     dots: true,
+    arrow:false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    prevArrow: <FaArrowLeft />,
+    nextArrow: <FaArrowRight />,
   };
 
   const [productref, setproductref] = useState(null);
@@ -113,10 +116,6 @@ function HeroSectionStyleOne({ data }) {
           })}
         </Slider>
 
-        <div style={{ textAlign: "center" }}>
-          <button onClick={sliderRef?.slickPrev}>textPrev</button>
-          <button onClick={sliderRef?.slickNext}>Next</button>
-        </div>
       </div>
 
       {/* <!-- CAR DEALER FORM AREA START --> */}
