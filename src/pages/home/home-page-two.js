@@ -5,7 +5,6 @@ import Slider from "react-slick";
 import path from "path";
 import fs from "fs/promises";
 import { LayoutOne } from "@/layouts";
-import HeroSectionStyleOne from "@/components/hero/styleOne";
 
 function HomeVersion2(props) {
     const { data } = props;
@@ -65,10 +64,6 @@ function HomeVersion2(props) {
     return (
         <LayoutOne>
 
-
-            {/* <Slider
-                ref={setSliderRef}
-                {...settings}></Slider> */}
             {/* <!-- SLIDER AREA START (slider-11) --> */}
             <div class="ltn__slider-area ltn__slider-11  ltn__slider-11-slide-item-count-show--- ltn__slider-11-pagination-count-show--- section-bg-1">
                 <div class="ltn__slider-11-inner position-relative">
@@ -720,7 +715,7 @@ function HomeVersion2(props) {
                         <div class="col-lg-4">
                             <div class="ltn__search-by-place-item">
                                 <div class="search-by-place-img">
-                                    <a href="product-details.html"><img src="../img/product-3/1.jpg" alt="#" /></a>
+                                    <a href="product-details"><img src="../img/product-3/1.jpg" alt="#" /></a>
                                     <div class="search-by-place-badge">
                                         <ul>
                                             <li>2 Properties</li>
@@ -729,9 +724,9 @@ function HomeVersion2(props) {
                                 </div>
                                 <div class="search-by-place-info">
                                     <h6><a href="locations.html">San Francisco</a></h6>
-                                    <h4><a href="product-details.html">Mission District Area</a></h4>
+                                    <h4><a href="product-details">Mission District Area</a></h4>
                                     <div class="search-by-place-btn">
-                                        <a href="product-details.html">View Property <i class="flaticon-right-arrow"></i></a>
+                                        <a href="product-details">View Property <i class="flaticon-right-arrow"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -739,7 +734,7 @@ function HomeVersion2(props) {
                         <div class="col-lg-4">
                             <div class="ltn__search-by-place-item">
                                 <div class="search-by-place-img">
-                                    <a href="product-details.html"><img src="../img/product-3/2.jpg" alt="#" /></a>
+                                    <a href="product-details"><img src="../img/product-3/2.jpg" alt="#" /></a>
                                     <div class="search-by-place-badge">
                                         <ul>
                                             <li>5 Properties</li>
@@ -748,9 +743,9 @@ function HomeVersion2(props) {
                                 </div>
                                 <div class="search-by-place-info">
                                     <h6><a href="locations.html">New York</a></h6>
-                                    <h4><a href="product-details.html">Pacific Heights Area</a></h4>
+                                    <h4><a href="product-details">Pacific Heights Area</a></h4>
                                     <div class="search-by-place-btn">
-                                        <a href="product-details.html">View Property <i class="flaticon-right-arrow"></i></a>
+                                        <a href="product-details">View Property <i class="flaticon-right-arrow"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -758,7 +753,7 @@ function HomeVersion2(props) {
                         <div class="col-lg-4">
                             <div class="ltn__search-by-place-item">
                                 <div class="search-by-place-img">
-                                    <a href="product-details.html"><img src="../img/product-3/3.jpg" alt="#" /></a>
+                                    <a href="product-details"><img src="../img/product-3/3.jpg" alt="#" /></a>
                                     <div class="search-by-place-badge">
                                         <ul>
                                             <li>9 Properties</li>
@@ -767,9 +762,9 @@ function HomeVersion2(props) {
                                 </div>
                                 <div class="search-by-place-info">
                                     <h6><a href="locations.html">Sedona, Arizona</a></h6>
-                                    <h4><a href="product-details.html">Noe Valley Zones</a></h4>
+                                    <h4><a href="product-details">Noe Valley Zones</a></h4>
                                     <div class="search-by-place-btn">
-                                        <a href="product-details.html">View Property <i class="flaticon-right-arrow"></i></a>
+                                        <a href="product-details">View Property <i class="flaticon-right-arrow"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -777,7 +772,7 @@ function HomeVersion2(props) {
                         <div class="col-lg-4">
                             <div class="ltn__search-by-place-item">
                                 <div class="search-by-place-img">
-                                    <a href="product-details.html"><img src="../img/product-3/2.jpg" alt="#" /></a>
+                                    <a href="product-details"><img src="../img/product-3/2.jpg" alt="#" /></a>
                                     <div class="search-by-place-badge">
                                         <ul>
                                             <li>5 Properties</li>
@@ -786,9 +781,9 @@ function HomeVersion2(props) {
                                 </div>
                                 <div class="search-by-place-info">
                                     <h6><a href="locations.html">New York</a></h6>
-                                    <h4><a href="product-details.html">Pacific Heights Area</a></h4>
+                                    <h4><a href="product-details">Pacific Heights Area</a></h4>
                                     <div class="search-by-place-btn">
-                                        <a href="product-details.html">View Property <i class="flaticon-right-arrow"></i></a>
+                                        <a href="product-details">View Property <i class="flaticon-right-arrow"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -828,7 +823,7 @@ function HomeVersion2(props) {
                                         <li>3</li>
                                         <li>1,200 </li>
                                         <li>$3,500</li>
-                                        <li><a href="product-details.html">+ Available</a></li>
+                                        <li><a href="product-details">+ Available</a></li>
                                     </ul>
                                     <ul class="ltn__select-availability-table-row">
                                         <li class="tower-name">Tower Name</li>
@@ -836,7 +831,7 @@ function HomeVersion2(props) {
                                         <li>3</li>
                                         <li>1,200 </li>
                                         <li>$3,500</li>
-                                        <li><a href="product-details.html">+ Available</a></li>
+                                        <li><a href="product-details">+ Available</a></li>
                                     </ul>
                                     <ul class="ltn__select-availability-table-row">
                                         <li class="tower-name">Tower Name</li>
@@ -844,7 +839,7 @@ function HomeVersion2(props) {
                                         <li>3</li>
                                         <li>1,200 </li>
                                         <li>$3,500</li>
-                                        <li><a href="product-details.html">+ Available</a></li>
+                                        <li><a href="product-details">+ Available</a></li>
                                     </ul>
                                     <ul class="ltn__select-availability-table-row">
                                         <li class="tower-name">Tower Name</li>
@@ -852,7 +847,7 @@ function HomeVersion2(props) {
                                         <li>3</li>
                                         <li>1,200 </li>
                                         <li>$3,500</li>
-                                        <li><a href="product-details.html">+ Available</a></li>
+                                        <li><a href="product-details">+ Available</a></li>
                                     </ul>
                                     <ul class="ltn__select-availability-table-row">
                                         <li class="tower-name">Tower Name</li>
@@ -860,7 +855,7 @@ function HomeVersion2(props) {
                                         <li>3</li>
                                         <li>1,200 </li>
                                         <li>$3,500</li>
-                                        <li><a href="product-details.html">+ Available</a></li>
+                                        <li><a href="product-details">+ Available</a></li>
                                     </ul>
                                     <ul class="ltn__select-availability-table-row">
                                         <li class="tower-name">Tower Name</li>
@@ -868,7 +863,7 @@ function HomeVersion2(props) {
                                         <li>3</li>
                                         <li>1,200 </li>
                                         <li>$3,500</li>
-                                        <li><a href="product-details.html">+ Available</a></li>
+                                        <li><a href="product-details">+ Available</a></li>
                                     </ul>
                                     <ul class="ltn__select-availability-table-row">
                                         <li class="tower-name">Tower Name</li>
@@ -876,7 +871,7 @@ function HomeVersion2(props) {
                                         <li>3</li>
                                         <li>1,200 </li>
                                         <li>$3,500</li>
-                                        <li><a href="product-details.html">+ Available</a></li>
+                                        <li><a href="product-details">+ Available</a></li>
                                     </ul>
                                     <ul class="ltn__select-availability-table-row">
                                         <li class="tower-name">Tower Name</li>
@@ -884,7 +879,7 @@ function HomeVersion2(props) {
                                         <li>3</li>
                                         <li>1,200 </li>
                                         <li>$3,500</li>
-                                        <li><a href="product-details.html">+ Available</a></li>
+                                        <li><a href="product-details">+ Available</a></li>
                                     </ul>
                                 </div>
                                 <div class="ltn__select-availability-table-responsive d-md-none">
@@ -894,7 +889,7 @@ function HomeVersion2(props) {
                                         <li><span>Bathroom</span> <span>3</span></li>
                                         <li><span>SQ.FT</span> <span>1,200</span></li>
                                         <li><span>Rent Price</span> <span>$3,500</span></li>
-                                        <li><span>Details</span> <span><a href="product-details.html">+ Available</a></span></li>
+                                        <li><span>Details</span> <span><a href="product-details">+ Available</a></span></li>
                                     </ul>
                                     <ul class="ltn__select-availability-table-row-responsive-item">
                                         <li><span>Residence</span> <span class="tower-name">Tower Name</span></li>
@@ -902,7 +897,7 @@ function HomeVersion2(props) {
                                         <li><span>Bathroom</span> <span>3</span></li>
                                         <li><span>SQ.FT</span> <span>1,200</span></li>
                                         <li><span>Rent Price</span> <span>$3,500</span></li>
-                                        <li><span>Details</span> <span><a href="product-details.html">+ Available</a></span></li>
+                                        <li><span>Details</span> <span><a href="product-details">+ Available</a></span></li>
                                     </ul>
                                     <ul class="ltn__select-availability-table-row-responsive-item">
                                         <li><span>Residence</span> <span class="tower-name">Tower Name</span></li>
@@ -910,7 +905,7 @@ function HomeVersion2(props) {
                                         <li><span>Bathroom</span> <span>3</span></li>
                                         <li><span>SQ.FT</span> <span>1,200</span></li>
                                         <li><span>Rent Price</span> <span>$3,500</span></li>
-                                        <li><span>Details</span> <span><a href="product-details.html">+ Available</a></span></li>
+                                        <li><span>Details</span> <span><a href="product-details">+ Available</a></span></li>
                                     </ul>
                                 </div>
                             </div>
@@ -954,7 +949,7 @@ function HomeVersion2(props) {
                                                 <div class="col-lg-4">
                                                     <div class="ltn__search-by-place-item neighbour-apartments-item">
                                                         <div class="search-by-place-img">
-                                                            <a href="product-details.html"><img src="../img/product-3/3.jpg" alt="#" /></a>
+                                                            <a href="product-details"><img src="../img/product-3/3.jpg" alt="#" /></a>
                                                             <div class="search-by-place-badge">
                                                                 <ul>
                                                                     <li>9 Properties</li>
@@ -962,7 +957,7 @@ function HomeVersion2(props) {
                                                             </div>
                                                         </div>
                                                         <div class="search-by-place-info">
-                                                            <h4><a href="product-details.html">Shopping Center</a></h4>
+                                                            <h4><a href="product-details">Shopping Center</a></h4>
                                                             <label><span class="ltn__secondary-color">1,500m </span>/ 21 min. walk</label>
                                                             <div class="search-by-place-brief">
                                                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -970,7 +965,7 @@ function HomeVersion2(props) {
                                                                     ullamco laboris.</p>
                                                             </div>
                                                             <div class="search-by-place-btn">
-                                                                <a href="product-details.html">View Property <i class="flaticon-right-arrow"></i></a>
+                                                                <a href="product-details">View Property <i class="flaticon-right-arrow"></i></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -989,7 +984,7 @@ function HomeVersion2(props) {
                                                 <div class="col-lg-4">
                                                     <div class="ltn__search-by-place-item neighbour-apartments-item">
                                                         <div class="search-by-place-img">
-                                                            <a href="product-details.html"><img src="../img/product-3/2.jpg" alt="#" /></a>
+                                                            <a href="product-details"><img src="../img/product-3/2.jpg" alt="#" /></a>
                                                             <div class="search-by-place-badge">
                                                                 <ul>
                                                                     <li>9 Properties</li>
@@ -997,7 +992,7 @@ function HomeVersion2(props) {
                                                             </div>
                                                         </div>
                                                         <div class="search-by-place-info">
-                                                            <h4><a href="product-details.html">Medical Hospital</a></h4>
+                                                            <h4><a href="product-details">Medical Hospital</a></h4>
                                                             <label><span class="ltn__secondary-color">1,500m </span>/ 21 min. walk</label>
                                                             <div class="search-by-place-brief">
                                                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -1005,7 +1000,7 @@ function HomeVersion2(props) {
                                                                     ullamco laboris.</p>
                                                             </div>
                                                             <div class="search-by-place-btn">
-                                                                <a href="product-details.html">View Property <i class="flaticon-right-arrow"></i></a>
+                                                                <a href="product-details">View Property <i class="flaticon-right-arrow"></i></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1024,7 +1019,7 @@ function HomeVersion2(props) {
                                                 <div class="col-lg-4">
                                                     <div class="ltn__search-by-place-item neighbour-apartments-item">
                                                         <div class="search-by-place-img">
-                                                            <a href="product-details.html"><img src="../img/product-3/4.jpg" alt="#" /></a>
+                                                            <a href="product-details"><img src="../img/product-3/4.jpg" alt="#" /></a>
                                                             <div class="search-by-place-badge">
                                                                 <ul>
                                                                     <li>9 Properties</li>
@@ -1032,7 +1027,7 @@ function HomeVersion2(props) {
                                                             </div>
                                                         </div>
                                                         <div class="search-by-place-info">
-                                                            <h4><a href="product-details.html">Children Playland</a></h4>
+                                                            <h4><a href="product-details">Children Playland</a></h4>
                                                             <label><span class="ltn__secondary-color">1,500m </span>/ 21 min. walk</label>
                                                             <div class="search-by-place-brief">
                                                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -1040,7 +1035,7 @@ function HomeVersion2(props) {
                                                                     ullamco laboris.</p>
                                                             </div>
                                                             <div class="search-by-place-btn">
-                                                                <a href="product-details.html">View Property <i class="flaticon-right-arrow"></i></a>
+                                                                <a href="product-details">View Property <i class="flaticon-right-arrow"></i></a>
                                                             </div>
                                                         </div>
                                                     </div>

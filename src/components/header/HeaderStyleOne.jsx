@@ -207,7 +207,7 @@ function closeSideBar (){
                               </Link>
                             </li>
                             <li>
-                              <Link href="product-details.html">
+                              <Link href="product-details">
                                 Shop details{" "}
                               </Link>
                             </li>
@@ -356,7 +356,7 @@ function closeSideBar (){
                                   <Link href="shop-grid.html">Shop Grid</Link>
                                 </li>
                                 <li>
-                                  <Link href="product-details.html">
+                                  <Link href="product-details">
                                     Shop details{" "}
                                   </Link>
                                 </li>

@@ -133,7 +133,7 @@ const MobileMenu = function ({ offCanVastoggleBtn, closeSideBar }) {
                     <a href="shop-right-sidebar.html">Shop right sidebar</a>
                   </li>
                   <li>
-                    <a href="product-details.html">Shop details </a>
+                    <a href="product-details">Shop details </a>
                   </li>
                   <li>
                     <a href="cart.html">Cart</a>

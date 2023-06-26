@@ -91,7 +91,7 @@ function shop(props) {
                                     <div class="col-xl-6 col-sm-6 col-12">
                                         <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="img/product-3/1.jpg" alt="#"/></a>
+                                                <a href="product-details"><img src="img/product-3/1.jpg" alt="#"/></a>
                                                 <div class="real-estate-agent">
                                                     <div class="agent-img">
                                                         <a href="team-details.html"><img src="img/blog/author.jpg" alt="#"/></a>
@@ -104,7 +104,7 @@ function shop(props) {
                                                         <li class="sale-badg">For Rent</li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
+                                                <h2 class="product-title"><a href="product-details">New Apartment Nice View</a></h2>
                                                 <div class="product-img-location">
                                                     <ul>
                                                         <li>
@@ -135,7 +135,7 @@ function shop(props) {
                                                                 <i class="flaticon-heart-1"></i></a>
                                                         </li>
                                                         <li>
-                                                            <a href="product-details.html" title="Product Details">
+                                                            <a href="product-details" title="Product Details">
                                                                 <i class="flaticon-add"></i>
                                                             </a>
                                                         </li>
@@ -153,7 +153,7 @@ function shop(props) {
                                     <div class="col-xl-6 col-sm-6 col-12">
                                         <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="img/product-3/2.jpg" alt="#"/></a>
+                                                <a href="product-details"><img src="img/product-3/2.jpg" alt="#"/></a>
                                                 <div class="real-estate-agent">
                                                     <div class="agent-img">
                                                         <a href="team-details.html"><img src="img/blog/author.jpg" alt="#"/></a>
@@ -166,7 +166,7 @@ function shop(props) {
                                                         <li class="sale-badg">For Sale</li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
+                                                <h2 class="product-title"><a href="product-details">New Apartment Nice View</a></h2>
                                                 <div class="product-img-location">
                                                     <ul>
                                                         <li>
@@ -197,7 +197,7 @@ function shop(props) {
                                                                 <i class="flaticon-heart-1"></i></a>
                                                         </li>
                                                         <li>
-                                                            <a href="product-details.html" title="Product Details">
+                                                            <a href="product-details" title="Product Details">
                                                                 <i class="flaticon-add"></i>
                                                             </a>
                                                         </li>
@@ -215,7 +215,7 @@ function shop(props) {
                                     <div class="col-xl-6 col-sm-6 col-12">
                                         <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="img/product-3/3.jpg" alt="#"/></a>
+                                                <a href="product-details"><img src="img/product-3/3.jpg" alt="#"/></a>
                                                 <div class="real-estate-agent">
                                                     <div class="agent-img">
                                                         <a href="team-details.html"><img src="img/blog/author.jpg" alt="#"/></a>
@@ -228,7 +228,7 @@ function shop(props) {
                                                         <li class="sale-badg">For Rent</li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
+                                                <h2 class="product-title"><a href="product-details">New Apartment Nice View</a></h2>
                                                 <div class="product-img-location">
                                                     <ul>
                                                         <li>
@@ -259,7 +259,7 @@ function shop(props) {
                                                                 <i class="flaticon-heart-1"></i></a>
                                                         </li>
                                                         <li>
-                                                            <a href="product-details.html" title="Product Details">
+                                                            <a href="product-details" title="Product Details">
                                                                 <i class="flaticon-add"></i>
                                                             </a>
                                                         </li>
@@ -277,7 +277,7 @@ function shop(props) {
                                     <div class="col-xl-6 col-sm-6 col-12">
                                         <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="img/product-3/4.jpg" alt="#"/></a>
+                                                <a href="product-details"><img src="img/product-3/4.jpg" alt="#"/></a>
                                                 <div class="real-estate-agent">
                                                     <div class="agent-img">
                                                         <a href="team-details.html"><img src="img/blog/author.jpg" alt="#"/></a>
@@ -290,7 +290,7 @@ function shop(props) {
                                                         <li class="sale-badg">For Rent</li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
+                                                <h2 class="product-title"><a href="product-details">New Apartment Nice View</a></h2>
                                                 <div class="product-img-location">
                                                     <ul>
                                                         <li>
@@ -321,7 +321,7 @@ function shop(props) {
                                                                 <i class="flaticon-heart-1"></i></a>
                                                         </li>
                                                         <li>
-                                                            <a href="product-details.html" title="Product Details">
+                                                            <a href="product-details" title="Product Details">
                                                                 <i class="flaticon-add"></i>
                                                             </a>
                                                         </li>
@@ -339,7 +339,7 @@ function shop(props) {
                                     <div class="col-xl-6 col-sm-6 col-12">
                                         <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="img/product-3/5.jpg" alt="#"/></a>
+                                                <a href="product-details"><img src="img/product-3/5.jpg" alt="#"/></a>
                                                 <div class="real-estate-agent">
                                                     <div class="agent-img">
                                                         <a href="team-details.html"><img src="img/blog/author.jpg" alt="#"/></a>
@@ -352,7 +352,7 @@ function shop(props) {
                                                         <li class="sale-badg">For Rent</li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
+                                                <h2 class="product-title"><a href="product-details">New Apartment Nice View</a></h2>
                                                 <div class="product-img-location">
                                                     <ul>
                                                         <li>
@@ -383,7 +383,7 @@ function shop(props) {
                                                                 <i class="flaticon-heart-1"></i></a>
                                                         </li>
                                                         <li>
-                                                            <a href="product-details.html" title="Product Details">
+                                                            <a href="product-details" title="Product Details">
                                                                 <i class="flaticon-add"></i>
                                                             </a>
                                                         </li>
@@ -401,7 +401,7 @@ function shop(props) {
                                     <div class="col-xl-6 col-sm-6 col-12">
                                         <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="img/product-3/6.jpg" alt="#"/></a>
+                                                <a href="product-details"><img src="img/product-3/6.jpg" alt="#"/></a>
                                                 <div class="real-estate-agent">
                                                     <div class="agent-img">
                                                         <a href="team-details.html"><img src="img/blog/author.jpg" alt="#"/></a>
@@ -414,7 +414,7 @@ function shop(props) {
                                                         <li class="sale-badg">For Rent</li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
+                                                <h2 class="product-title"><a href="product-details">New Apartment Nice View</a></h2>
                                                 <div class="product-img-location">
                                                     <ul>
                                                         <li>
@@ -445,7 +445,7 @@ function shop(props) {
                                                                 <i class="flaticon-heart-1"></i></a>
                                                         </li>
                                                         <li>
-                                                            <a href="product-details.html" title="Product Details">
+                                                            <a href="product-details" title="Product Details">
                                                                 <i class="flaticon-add"></i>
                                                             </a>
                                                         </li>
@@ -479,7 +479,7 @@ function shop(props) {
                                     <div class="col-lg-12">
                                         <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="img/product-3/1.jpg" alt="#"/></a>
+                                                <a href="product-details"><img src="img/product-3/1.jpg" alt="#"/></a>
                                             </div>
                                             <div class="product-info">
                                                 <div class="product-badge-price">
@@ -492,7 +492,7 @@ function shop(props) {
                                                         <span>$34,900<label>/Month</label></span>
                                                     </div>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
+                                                <h2 class="product-title"><a href="product-details">New Apartment Nice View</a></h2>
                                                 <div class="product-img-location">
                                                     <ul>
                                                         <li>
@@ -534,7 +534,7 @@ function shop(props) {
                                                                 <i class="flaticon-heart-1"></i></a>
                                                         </li>
                                                         <li>
-                                                            <a href="product-details.html" title="Product Details">
+                                                            <a href="product-details" title="Product Details">
                                                                 <i class="flaticon-add"></i>
                                                             </a>
                                                         </li>
@@ -547,7 +547,7 @@ function shop(props) {
                                     <div class="col-lg-12">
                                         <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="img/product-3/2.jpg" alt="#"/></a>
+                                                <a href="product-details"><img src="img/product-3/2.jpg" alt="#"/></a>
                                             </div>
                                             <div class="product-info">
                                                 <div class="product-badge-price">
@@ -560,7 +560,7 @@ function shop(props) {
                                                         <span>$34,900<label>/Month</label></span>
                                                     </div>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
+                                                <h2 class="product-title"><a href="product-details">New Apartment Nice View</a></h2>
                                                 <div class="product-img-location">
                                                     <ul>
                                                         <li>
@@ -602,7 +602,7 @@ function shop(props) {
                                                                 <i class="flaticon-heart-1"></i></a>
                                                         </li>
                                                         <li>
-                                                            <a href="product-details.html" title="Product Details">
+                                                            <a href="product-details" title="Product Details">
                                                                 <i class="flaticon-add"></i>
                                                             </a>
                                                         </li>
@@ -615,7 +615,7 @@ function shop(props) {
                                     <div class="col-lg-12">
                                         <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="img/product-3/3.jpg" alt="#"/></a>
+                                                <a href="product-details"><img src="img/product-3/3.jpg" alt="#"/></a>
                                             </div>
                                             <div class="product-info">
                                                 <div class="product-badge-price">
@@ -628,7 +628,7 @@ function shop(props) {
                                                         <span>$34,900<label>/Month</label></span>
                                                     </div>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
+                                                <h2 class="product-title"><a href="product-details">New Apartment Nice View</a></h2>
                                                 <div class="product-img-location">
                                                     <ul>
                                                         <li>
@@ -670,7 +670,7 @@ function shop(props) {
                                                                 <i class="flaticon-heart-1"></i></a>
                                                         </li>
                                                         <li>
-                                                            <a href="product-details.html" title="Product Details">
+                                                            <a href="product-details" title="Product Details">
                                                                 <i class="flaticon-add"></i>
                                                             </a>
                                                         </li>
@@ -683,7 +683,7 @@ function shop(props) {
                                     <div class="col-lg-12">
                                         <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="img/product-3/4.jpg" alt="#"/></a>
+                                                <a href="product-details"><img src="img/product-3/4.jpg" alt="#"/></a>
                                             </div>
                                             <div class="product-info">
                                                 <div class="product-badge-price">
@@ -696,7 +696,7 @@ function shop(props) {
                                                         <span>$34,900<label>/Month</label></span>
                                                     </div>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
+                                                <h2 class="product-title"><a href="product-details">New Apartment Nice View</a></h2>
                                                 <div class="product-img-location">
                                                     <ul>
                                                         <li>
@@ -738,7 +738,7 @@ function shop(props) {
                                                                 <i class="flaticon-heart-1"></i></a>
                                                         </li>
                                                         <li>
-                                                            <a href="product-details.html" title="Product Details">
+                                                            <a href="product-details" title="Product Details">
                                                                 <i class="flaticon-add"></i>
                                                             </a>
                                                         </li>
@@ -751,7 +751,7 @@ function shop(props) {
                                     <div class="col-lg-12">
                                         <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="img/product-3/5.jpg" alt="#"/></a>
+                                                <a href="product-details"><img src="img/product-3/5.jpg" alt="#"/></a>
                                             </div>
                                             <div class="product-info">
                                                 <div class="product-badge-price">
@@ -764,7 +764,7 @@ function shop(props) {
                                                         <span>$34,900<label>/Month</label></span>
                                                     </div>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
+                                                <h2 class="product-title"><a href="product-details">New Apartment Nice View</a></h2>
                                                 <div class="product-img-location">
                                                     <ul>
                                                         <li>
@@ -806,7 +806,7 @@ function shop(props) {
                                                                 <i class="flaticon-heart-1"></i></a>
                                                         </li>
                                                         <li>
-                                                            <a href="product-details.html" title="Product Details">
+                                                            <a href="product-details" title="Product Details">
                                                                 <i class="flaticon-add"></i>
                                                             </a>
                                                         </li>
@@ -1059,7 +1059,7 @@ function shop(props) {
                                 <li>
                                     <div class="top-rated-product-item clearfix">
                                         <div class="top-rated-product-img">
-                                            <a href="product-details.html"><img src="img/product/1.png" alt="#"/></a>
+                                            <a href="product-details"><img src="img/product/1.png" alt="#"/></a>
                                         </div>
                                         <div class="top-rated-product-info">
                                             <div class="product-ratting">
@@ -1071,7 +1071,7 @@ function shop(props) {
                                                     <li><a href="#"><i class="fas fa-star"></i></a></li>
                                                 </ul>
                                             </div>
-                                            <h6><a href="product-details.html">Mixel Solid Seat Cover</a></h6>
+                                            <h6><a href="product-details">Mixel Solid Seat Cover</a></h6>
                                             <div class="product-price">
                                                 <span>$49.00</span>
                                                 <del>$65.00</del>
@@ -1082,7 +1082,7 @@ function shop(props) {
                                 <li>
                                     <div class="top-rated-product-item clearfix">
                                         <div class="top-rated-product-img">
-                                            <a href="product-details.html"><img src="img/product/2.png" alt="#"/></a>
+                                            <a href="product-details"><img src="img/product/2.png" alt="#"/></a>
                                         </div>
                                         <div class="top-rated-product-info">
                                             <div class="product-ratting">
@@ -1094,7 +1094,7 @@ function shop(props) {
                                                     <li><a href="#"><i class="fas fa-star"></i></a></li>
                                                 </ul>
                                             </div>
-                                            <h6><a href="product-details.html">3 Rooms Manhattan</a></h6>
+                                            <h6><a href="product-details">3 Rooms Manhattan</a></h6>
                                             <div class="product-price">
                                                 <span>$49.00</span>
                                                 <del>$65.00</del>
@@ -1105,7 +1105,7 @@ function shop(props) {
                                 <li>
                                     <div class="top-rated-product-item clearfix">
                                         <div class="top-rated-product-img">
-                                            <a href="product-details.html"><img src="img/product/3.png" alt="#"/></a>
+                                            <a href="product-details"><img src="img/product/3.png" alt="#"/></a>
                                         </div>
                                         <div class="top-rated-product-info">
                                             <div class="product-ratting">
@@ -1117,7 +1117,7 @@ function shop(props) {
                                                     <li><a href="#"><i class="far fa-star"></i></a></li>
                                                 </ul>
                                             </div>
-                                            <h6><a href="product-details.html">Coil Spring Conversion</a></h6>
+                                            <h6><a href="product-details">Coil Spring Conversion</a></h6>
                                             <div class="product-price">
                                                 <span>$49.00</span>
                                                 <del>$65.00</del>

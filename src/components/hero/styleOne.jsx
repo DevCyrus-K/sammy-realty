@@ -557,7 +557,7 @@ function HeroSectionStyleOne({ data }) {
             <div class="col-lg-12">
               <div class="ltn__product-item ltn__product-item-4 text-center---">
                 <div class="product-img">
-                  <a href="product-details.html">
+                  <a href="product-details">
                     <img src="img/product-3/1.jpg" alt="#" />
                   </a>
                   <div class="product-badge">
@@ -579,12 +579,12 @@ function HeroSectionStyleOne({ data }) {
                     <div class="product-img-gallery">
                       <ul>
                         <li>
-                          <a href="product-details.html">
+                          <a href="product-details">
                             <i class="fas fa-camera"></i> 4
                           </a>
                         </li>
                         <li>
-                          <a href="product-details.html">
+                          <a href="product-details">
                             <i class="fas fa-film"></i> 2
                           </a>
                         </li>
@@ -599,7 +599,7 @@ function HeroSectionStyleOne({ data }) {
                     </span>
                   </div>
                   <h2 class="product-title">
-                    <a href="product-details.html">New Apartment Nice View</a>
+                    <a href="product-details">New Apartment Nice View</a>
                   </h2>
                   <div class="product-description">
                     <p>
@@ -666,7 +666,7 @@ function HeroSectionStyleOne({ data }) {
                         </a>
                       </li>
                       <li>
-                        <a href="product-details.html" title="Product Details">
+                        <a href="product-details" title="Product Details">
                           <i class="flaticon-add"></i>
                         </a>
                       </li>
@@ -679,7 +679,7 @@ function HeroSectionStyleOne({ data }) {
             <div class="col-lg-12">
               <div class="ltn__product-item ltn__product-item-4 text-center---">
                 <div class="product-img">
-                  <a href="product-details.html">
+                  <a href="product-details">
                     <img src="img/product-3/2.jpg" alt="#" />
                   </a>
                   <div class="product-badge">
@@ -701,12 +701,12 @@ function HeroSectionStyleOne({ data }) {
                     <div class="product-img-gallery">
                       <ul>
                         <li>
-                          <a href="product-details.html">
+                          <a href="product-details">
                             <i class="fas fa-camera"></i> 4
                           </a>
                         </li>
                         <li>
-                          <a href="product-details.html">
+                          <a href="product-details">
                             <i class="fas fa-film"></i> 2
                           </a>
                         </li>
@@ -721,7 +721,7 @@ function HeroSectionStyleOne({ data }) {
                     </span>
                   </div>
                   <h2 class="product-title">
-                    <a href="product-details.html">Modern Apartments</a>
+                    <a href="product-details">Modern Apartments</a>
                   </h2>
                   <div class="product-description">
                     <p>
@@ -788,7 +788,7 @@ function HeroSectionStyleOne({ data }) {
                         </a>
                       </li>
                       <li>
-                        <a href="product-details.html" title="Product Details">
+                        <a href="product-details" title="Product Details">
                           <i class="flaticon-add"></i>
                         </a>
                       </li>
@@ -801,7 +801,7 @@ function HeroSectionStyleOne({ data }) {
             <div class="col-lg-12">
               <div class="ltn__product-item ltn__product-item-4 text-center---">
                 <div class="product-img">
-                  <a href="product-details.html">
+                  <a href="product-details">
                     <img src="img/product-3/3.jpg" alt="#" />
                   </a>
                   <div class="product-badge">
@@ -823,12 +823,12 @@ function HeroSectionStyleOne({ data }) {
                     <div class="product-img-gallery">
                       <ul>
                         <li>
-                          <a href="product-details.html">
+                          <a href="product-details">
                             <i class="fas fa-camera"></i> 4
                           </a>
                         </li>
                         <li>
-                          <a href="product-details.html">
+                          <a href="product-details">
                             <i class="fas fa-film"></i> 2
                           </a>
                         </li>
@@ -843,7 +843,7 @@ function HeroSectionStyleOne({ data }) {
                     </span>
                   </div>
                   <h2 class="product-title">
-                    <a href="product-details.html">Comfortable Apartment</a>
+                    <a href="product-details">Comfortable Apartment</a>
                   </h2>
                   <div class="product-description">
                     <p>
@@ -910,7 +910,7 @@ function HeroSectionStyleOne({ data }) {
                         </a>
                       </li>
                       <li>
-                        <a href="product-details.html" title="Product Details">
+                        <a href="product-details" title="Product Details">
                           <i class="flaticon-add"></i>
                         </a>
                       </li>
@@ -923,7 +923,7 @@ function HeroSectionStyleOne({ data }) {
             <div class="col-lg-12">
               <div class="ltn__product-item ltn__product-item-4 text-center---">
                 <div class="product-img">
-                  <a href="product-details.html">
+                  <a href="product-details">
                     <img src="img/product-3/4.jpg" alt="#" />
                   </a>
                   <div class="product-badge">
@@ -945,12 +945,12 @@ function HeroSectionStyleOne({ data }) {
                     <div class="product-img-gallery">
                       <ul>
                         <li>
-                          <a href="product-details.html">
+                          <a href="product-details">
                             <i class="fas fa-camera"></i> 4
                           </a>
                         </li>
                         <li>
-                          <a href="product-details.html">
+                          <a href="product-details">
                             <i class="fas fa-film"></i> 2
                           </a>
                         </li>
@@ -965,7 +965,7 @@ function HeroSectionStyleOne({ data }) {
                     </span>
                   </div>
                   <h2 class="product-title">
-                    <a href="product-details.html">
+                    <a href="product-details">
                       Luxury villa in Rego Park{" "}
                     </a>
                   </h2>
@@ -1034,7 +1034,7 @@ function HeroSectionStyleOne({ data }) {
                         </a>
                       </li>
                       <li>
-                        <a href="product-details.html" title="Product Details">
+                        <a href="product-details" title="Product Details">
                           <i class="flaticon-add"></i>
                         </a>
                       </li>
@@ -1047,7 +1047,7 @@ function HeroSectionStyleOne({ data }) {
             <div class="col-lg-12">
               <div class="ltn__product-item ltn__product-item-4 text-center---">
                 <div class="product-img">
-                  <a href="product-details.html">
+                  <a href="product-details">
                     <img src="img/product-3/5.jpg" alt="#" />
                   </a>
                   <div class="product-badge">
@@ -1069,12 +1069,12 @@ function HeroSectionStyleOne({ data }) {
                     <div class="product-img-gallery">
                       <ul>
                         <li>
-                          <a href="product-details.html">
+                          <a href="product-details">
                             <i class="fas fa-camera"></i> 4
                           </a>
                         </li>
                         <li>
-                          <a href="product-details.html">
+                          <a href="product-details">
                             <i class="fas fa-film"></i> 2
                           </a>
                         </li>
@@ -1089,7 +1089,7 @@ function HeroSectionStyleOne({ data }) {
                     </span>
                   </div>
                   <h2 class="product-title">
-                    <a href="product-details.html">
+                    <a href="product-details">
                       Beautiful Flat in Manhattan{" "}
                     </a>
                   </h2>
@@ -1158,7 +1158,7 @@ function HeroSectionStyleOne({ data }) {
                         </a>
                       </li>
                       <li>
-                        <a href="product-details.html" title="Product Details">
+                        <a href="product-details" title="Product Details">
                           <i class="flaticon-add"></i>
                         </a>
                       </li>
