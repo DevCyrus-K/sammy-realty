@@ -6,6 +6,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 import {
   FaPlus,
@@ -55,7 +56,8 @@ function closeSideBar (){
     SetToggleClassName(false)
   }
 
-
+  const { cartItems } = useSelector((state) => state.cart);
+  console.log(cartItems,'cartItems');
 
 
   return (
@@ -85,7 +87,7 @@ function closeSideBar (){
                       <ul>
                         <li className="menu-icon">
                           <Link href="#">
-                            Home <FaPlus />{" "}
+                            Home <FaPlus />
                           </Link>
                           <ul className="sub-menu menu-pages-img-show">
                             <li>
@@ -106,7 +108,7 @@ function closeSideBar (){
                             </li>
                             <li>
                               <Link href="index-5.html">
-                                Home Style 05{" "}
+                                Home Style 05
                                 <span className="menu-item-badge">video</span>
                               </Link>
                               <img src="/img/home-demos/home-5.jpg" alt="#" />
@@ -129,7 +131,7 @@ function closeSideBar (){
                             </li>
                             <li>
                               <Link href="index-10.html">
-                                Home Style 10{" "}
+                                Home Style 10
                                 <span className="menu-item-badge">Map</span>
                               </Link>
                               <img src="/img/home-demos/home-10.jpg" alt="#" />
@@ -142,7 +144,7 @@ function closeSideBar (){
                         </li>
                         <li className="menu-icon">
                           <Link href="#">
-                            About <FaPlus />{" "}
+                            About <FaPlus />
                           </Link>
                           <ul>
                             <li>
@@ -187,14 +189,14 @@ function closeSideBar (){
                         </li>
                         <li className="menu-icon">
                           <Link href="#">
-                            Shop <FaPlus />{" "}
+                            Shop <FaPlus />
                           </Link>
                           <ul>
                             <li>
-                              <Link href="shop.html">Shop</Link>
+                              <Link href="/shop">Shop</Link>
                             </li>
                             <li>
-                              <Link href="shop-grid.html">Shop Grid</Link>
+                              <Link href="/shop/grid">Shop Grid</Link>
                             </li>
                             <li>
                               <Link href="shop-left-sidebar.html">
@@ -206,17 +208,13 @@ function closeSideBar (){
                                 Shop right sidebar
                               </Link>
                             </li>
-                            <li>
-                              <Link href="product-details">
-                                Shop details{" "}
-                              </Link>
-                            </li>
+                            
                             <li>
                               <Link href="#">
-                                Other Pages{" "}
+                                Other Pages
                                 <span className="float-end">
-                                  {" "}
-                                  <FaAngleDoubleRight />{" "}
+                                  
+                                  <FaAngleDoubleRight />
                                 </span>
                               </Link>
                               <ul>
@@ -249,7 +247,7 @@ function closeSideBar (){
                         </li>
                         <li className="menu-icon">
                           <Link href="#">
-                            News <FaPlus />{" "}
+                            News <FaPlus />
                           </Link>
                           <ul>
                             <li>
@@ -275,7 +273,7 @@ function closeSideBar (){
                         </li>
                         <li className="menu-icon mega-menu-parent">
                           <Link href="#">
-                            Pages <FaPlus />{" "}
+                            Pages <FaPlus />
                           </Link>
                           <ul className="mega-menu mega-menu column-4">
                             <li>
@@ -357,7 +355,7 @@ function closeSideBar (){
                                 </li>
                                 <li>
                                   <Link href="product-details">
-                                    Shop details{" "}
+                                    Shop details
                                   </Link>
                                 </li>
                                 <li>
@@ -457,7 +455,14 @@ function closeSideBar (){
                     }`}
                   >
                     <FaCartArrowDown />
-                    <sup>2</sup>
+                    {/* <sup>6</sup> */}
+
+                    {cartItems.length > 0 ? (
+                    <sup>{cartItems.length}</sup>
+                  ) : (
+                    <sup>0</sup>
+                  )}
+
                   </Link>
                 </div>
                 {/* <!-- mini-cart --> */}
@@ -498,7 +503,9 @@ function closeSideBar (){
       {/* <!-- Utilize Cart Menu End --> */}
 
       {/* <!-- Utilize Mobile Menu Start --> */}
-      <MobileMenu offCanVastoggleBtn={offCanVastoggleBtn} offcanVasToggler={offcanVasToggler} closeSideBar={closeSideBar} />
+      <MobileMenu offCanVastoggleBtn={offCanVastoggleBtn} offcanVasToggler={offcanVasToggler} closeSideBar={closeSideBar}
+      cartItems={cartItems}
+      />
 
       {/* <!-- Utilize Mobile Menu End --> */}
       <div

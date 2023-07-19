@@ -7,16 +7,18 @@
     "id": "01",
     "buttonText": "Make An Enquiry",
     "videoButton": true,
-    "learnMoreButtonText": false
+    "learnMoreButtonText": false,
+    "variationLeft":false
   },
   {
     "subtitle": "Real Estate Agency",
-    "Title": "Find Your Dream House By Us",
+    "Title": "The Right Place of House Finding",
     "Desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.",
     "icon": "FaHome",
     "id": "02",
     "buttonText": "Make An Enquiry",
     "videoButton": false,
-    "learnMoreButtonText": "LEARN MORE"
+    "learnMoreButtonText": "LEARN MORE",
+    "variationLeft":true
   }
 ]

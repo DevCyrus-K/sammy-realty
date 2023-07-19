@@ -1,3 +1,4 @@
+import slugify from "slugify";
 // get products
 export const getProducts = (products, category, type, limit) => {
   const finalProducts = category
@@ -186,7 +187,7 @@ export const getIndividualCategories = (products) => {
     if (newArr.indexOf(item) !== -1) return;
     obj = {
       name: item,
-      count: count
+      count: count,
     };
     individualProductCategories.push(obj);
   });
@@ -219,7 +220,7 @@ export const getIndividualColors = (products) => {
         product.variation.map((single) => {
           return productColors.push({
             colorName: single.color,
-            colorCode: single.colorCode
+            colorCode: single.colorCode,
           });
         })
       );
@@ -286,7 +287,18 @@ export const cartItemStock = (item, color, size) => {
     return item.stock;
   } else {
     return item.variation
-      .filter(single => single.color === color)[0]
-      .size.filter(single => single.name === size)[0].stock;
+      .filter((single) => single.color === color)[0]
+      .size.filter((single) => single.name === size)[0].stock;
   }
+};
+
+export const productSlug = (text) => {
+  return slugify(text, {
+    replacement: "-", // replace spaces with replacement character, defaults to `-`
+    remove: undefined, // remove characters that match regex, defaults to `undefined`
+    lower: false, // convert to lower case, defaults to `false`
+    strict: false, // strip special characters except replacement, defaults to `false`
+    locale: "vi", // language code of the locale to use
+    trim: true, // trim leading and trailing replacement chars, defaults to `true`
+  });
 };

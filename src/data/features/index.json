@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Buy a home",
+    "description": "over 1 million+ homes for sale available on the website, we can match you with a house you will want to call home.",
+    "img": "21.png",
+    "id": "01",
+    "buttonText": "Find A Home",
+    "active": false,
+    "link": "service-details"
+  },
+  {
+    "title": "Rent a home",
+    "description": "over 1 million+ homes for sale available on the website, we can match you with a house you will want to call home.",
+    "img": "22.png",
+    "id": "02",
+    "buttonText": "Find A Home",
+    "active": true,
+    "link": "service-details"
+  },
+  {
+    "title": "Sell a home",
+    "description": "over 1 million+ homes for sale available on the website, we can match you with a house you will want to call home.",
+    "img": "23.png",
+    "id": "03",
+    "buttonText": "Find A Home",
+    "active": false,
+    "link": "service-details"
+  }
+]

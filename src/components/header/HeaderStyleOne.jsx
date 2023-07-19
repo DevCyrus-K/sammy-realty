@@ -191,10 +191,10 @@ function closeSideBar (){
                           </Link>
                           <ul>
                             <li>
-                              <Link href="shop.html">Shop</Link>
+                              <Link href="/shop">Shop</Link>
                             </li>
                             <li>
-                              <Link href="shop-grid.html">Shop Grid</Link>
+                              <Link href="/shop/grid">Shop Grid</Link>
                             </li>
                             <li>
                               <Link href="shop-left-sidebar.html">
@@ -206,11 +206,7 @@ function closeSideBar (){
                                 Shop right sidebar
                               </Link>
                             </li>
-                            <li>
-                              <Link href="product-details">
-                                Shop details{" "}
-                              </Link>
-                            </li>
+                            
                             <li>
                               <Link href="#">
                                 Other Pages{" "}
@@ -340,7 +336,7 @@ function closeSideBar (){
                               <Link href="#">Shop Pages</Link>
                               <ul>
                                 <li>
-                                  <Link href="shop.html">Shop</Link>
+                                  <Link href="/shop">Shop</Link>
                                 </li>
                                 <li>
                                   <Link href="shop-left-sidebar.html">
@@ -353,12 +349,7 @@ function closeSideBar (){
                                   </Link>
                                 </li>
                                 <li>
-                                  <Link href="shop-grid.html">Shop Grid</Link>
-                                </li>
-                                <li>
-                                  <Link href="product-details">
-                                    Shop details{" "}
-                                  </Link>
+                                  <Link href="/shop/grid">Shop Grid</Link>
                                 </li>
                                 <li>
                                   <Link href="cart.html">Cart</Link>

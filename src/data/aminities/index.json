@@ -1,0 +1,42 @@
+[
+  {
+    "id": "01",
+    "title": "Parking Space",
+    "icon": "flaticon-car"
+  },
+  {
+    "id": "02",
+    "title": "Swimming Pool",
+    "icon": "flaticon-swimming"
+  },
+  {
+    "id": "03",
+    "title": "Private Security",
+    "icon": "flaticon-secure-shield"
+  },
+  {
+    "id": "04",
+    "title": "Medical Center",
+    "icon": "flaticon-stethoscope"
+  },
+  {
+    "id": "05",
+    "title": "Library Area",
+    "icon": "flaticon-book"
+  },
+  {
+    "id": "06",
+    "title": "King Size Beds",
+    "icon": "flaticon-bed-1"
+  },
+  {
+    "id": "07",
+    "title": "Smart Homes",
+    "icon": "flaticon-home-2"
+  },
+  {
+    "id": "08",
+    "title": "Kid’s Playland",
+    "icon": "flaticon-slider"
+  }
+]

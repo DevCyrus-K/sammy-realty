@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1",
+    "admin": "Admin",
+    "title": "10 Brilliant Ways To Decorate Your Home",
+    "type": "Decorate",
+    "img": "1.jpg",
+    "date":"June 24, 2023",
+    "description": "Precious ipsum dolor sit amet consectetur adipisicing elit, sed dos mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad min veniam, quis nostrud Precious ips um dolor sit amet, consecte"
+  },
+  {
+    "id": "2",
+    "admin": "Admin",
+    "title": "10 Brilliant Ways To Decorate Your Home",
+    "type": "Decorate",
+    "img": "2.jpg",
+    "date":"June 24, 2023",
+    "description": "Precious ipsum dolor sit amet consectetur adipisicing elit, sed dos mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad min veniam, quis nostrud Precious ips um dolor sit amet, consecte"
+  },
+  {
+    "id": "3",
+    "admin": "Admin",
+    "title": "10 Brilliant Ways To Decorate Your Home",
+    "type": "Decorate",
+    "img": "33.jpg",
+    "date":"June 24, 2023",
+    "description": "Precious ipsum dolor sit amet consectetur adipisicing elit, sed dos mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad min veniam, quis nostrud Precious ips um dolor sit amet, consecte"
+  },
+  {
+    "id": "4",
+    "admin": "Admin",
+    "title": "10 Brilliant Ways To Decorate Your Home",
+    "type": "Decorate",
+    "img": "4.jpg",
+    "date":"June 24, 2023",
+    "description": "Precious ipsum dolor sit amet consectetur adipisicing elit, sed dos mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad min veniam, quis nostrud Precious ips um dolor sit amet, consecte"
+  },
+  {
+    "id": "5",
+    "admin": "Admin",
+    "title": "10 Brilliant Ways To Decorate Your Home",
+    "type": "Decorate",
+    "img": "5.jpg",
+    "date":"June 24, 2023",
+    "description": "Precious ipsum dolor sit amet consectetur adipisicing elit, sed dos mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad min veniam, quis nostrud Precious ips um dolor sit amet, consecte"
+  }
+]

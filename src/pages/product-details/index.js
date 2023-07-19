@@ -1,24 +1,32 @@
 import { useState } from "react";
 import Link from "next/link";
 import Slider from "react-slick";
-import { FaPlay, FaHome, FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import BreadCrumb from "@/components/breadCrumbs";
 
 import path from "path";
 import fs from "fs/promises";
 import { LayoutOne } from "@/layouts";
 
 function ProductDetails(props) {
-  const { data } = props;
 
-  const settings = {
+  const productDetailsCarouselSettings = {
     centerMode: true,
     infinite: true,
     centerPadding: "450px",
     slidesToShow: 1,
     dots: false,
     speed: 500,
-    prevArrow: <FaArrowLeft />,
-    nextArrow: <FaArrowRight />,
+    prevArrow: (
+      <a href="#?">
+        <FaArrowLeft />
+      </a>
+    ),
+    nextArrow: (
+      <a href="#?">
+        <FaArrowRight />
+      </a>
+    ),
   };
   const popular_product = {
     infinite: true,
@@ -30,42 +38,16 @@ function ProductDetails(props) {
   return (
     <LayoutOne>
       {/* <!-- BREADCRUMB AREA START --> */}
-      <div
-        class="ltn__breadcrumb-area text-left bg-overlay-white-30 bg-image mb-0"
-        style={{ backgroundImage: `url("../img/bg/14.jpg")` }}
-      >
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="ltn__breadcrumb-inner">
-                <h1 class="page-title">Product Details</h1>
-                <div class="ltn__breadcrumb-list">
-                  <ul>
-                    <li>
-                      <a href="index.html">
-                        <span class="ltn__secondary-color">
-                          <i class="fas fa-home"></i>
-                        </span>{" "}
-                        Home
-                      </a>
-                    </li>
-                    <li>Product Details</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
+      <BreadCrumb />
+
       {/* <!-- BREADCRUMB AREA END --> */}
-
-
 
       {/* <!-- IMAGE SLIDER AREA START (img-slider-3) --> */}
       <div class="ltn__img-slider-area mb-90">
         <div class="container-fluid">
           <Slider
-            {...settings}
+            {...productDetailsCarouselSettings}
             className="row ltn__image-slider-5-active slick-arrow-1 slick-arrow-1-inner ltn__no-gutter-all g-0"
           >
             <div class="col-lg-12">
@@ -1027,9 +1009,7 @@ function ProductDetails(props) {
                           </ul>
                         </div>
                         <h2 class="product-title">
-                          <a href="product-details">
-                            New Apartment Nice View
-                          </a>
+                          <a href="product-details">New Apartment Nice View</a>
                         </h2>
                         <div class="product-img-location">
                           <ul>
@@ -1116,9 +1096,7 @@ function ProductDetails(props) {
                           </ul>
                         </div>
                         <h2 class="product-title">
-                          <a href="product-details">
-                            New Apartment Nice View
-                          </a>
+                          <a href="product-details">New Apartment Nice View</a>
                         </h2>
                         <div class="product-img-location">
                           <ul>
@@ -1492,7 +1470,10 @@ function ProductDetails(props) {
                     Popular Properties
                   </h4>
 
-                  <Slider {...popular_product} className="row ltn__popular-product-widget-active slick-arrow-1">
+                  <Slider
+                    {...popular_product}
+                    className="row ltn__popular-product-widget-active slick-arrow-1"
+                  >
                     {/* <!-- ltn__product-item --> */}
                     <div class="col-12">
                       <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
