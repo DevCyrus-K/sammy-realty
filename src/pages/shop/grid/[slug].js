@@ -991,7 +991,7 @@ function ProductDetails({ product }) {
                           <RelatedProduct
                             productData={data}
                             slug={slug}
-                            shopBaseUrl="shop/grid"
+                            baseUrl="shop/grid"
                             showQuickViewHandle={showQuickViewHandle}
                             showWishlistHandle={showWishlistHandle}
                           />

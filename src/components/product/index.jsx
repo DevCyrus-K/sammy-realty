@@ -12,6 +12,7 @@ import { addToCompare, deleteFromCompare } from "@/store/slices/compare-slice";
 const ProductItem = ({
   productData,
   slug,
+  baseUrl,
   showQuickViewHandle,
   showWishlistHandle,
   discountedPrice,
@@ -36,7 +37,7 @@ const ProductItem = ({
     <>
       <div className="ltn__product-item ltn__product-item-4">
         <div className="product-img">
-          <Link href={"/shop/" + slug}>
+          <Link href={`/${baseUrl}/${slug}`}>
             <img
               src={`img/product-3/${productData.productImg}`}
               alt={`${productData.title}`}
@@ -67,7 +68,7 @@ const ProductItem = ({
                 <li>
                   <Link
                     className="d-flex align-items-center justify-content-center"
-                    href={"/shop/" + slug}
+                    href={`/${baseUrl}/${slug}`}
                   >
                     <FaCamera className="me-2" />
                     {productData.photo.length}
@@ -76,7 +77,7 @@ const ProductItem = ({
                 <li>
                   <Link
                     className="d-flex align-items-center justify-content-center"
-                    href={"/shop/" + slug}
+                    href={`/${baseUrl}/${slug}`}
                   >
                     <FaFilm className="me-2" />
                     {productData.video.length}
@@ -94,7 +95,7 @@ const ProductItem = ({
             </span>
           </div>
           <h2 className="product-title">
-            <Link href={"/shop/" + slug}>{productData.title}</Link>
+            <Link href={`/${baseUrl}/${slug}`}>{productData.title}</Link>
           </h2>
           <div className="product-description">
             <p>{productData.fullDescription}</p>

@@ -995,6 +995,7 @@ function ProductDetails({ product }) {
                           <RelatedProduct
                             productData={data}
                             slug={slug}
+                            baseUrl='shop'
                             showQuickViewHandle={showQuickViewHandle}
                             showWishlistHandle={showWishlistHandle}
                           />
@@ -1011,7 +1012,7 @@ function ProductDetails({ product }) {
                   <div className="widget ltn__author-widget">
                     <div className="ltn__author-widget-inner text-center">
                       <img
-                        src={`/img/team/${product.agent.img}`}
+                        src={`//img/team/${product.agent.img}`}
                         alt={`${product.agent.fullName}`}
                       />
                       <h5>{product.agent.fullName}</h5>
@@ -1308,7 +1309,7 @@ function ProductDetails({ product }) {
                         <div className="popular-post-widget-item clearfix">
                           <div className="popular-post-widget-img">
                             <a href="blog-details.html">
-                              <img src="img/team/5.jpg" alt="#" />
+                              <img src="/img/team/5.jpg" alt="#" />
                             </a>
                           </div>
                           <div className="popular-post-widget-brief">
@@ -1334,7 +1335,7 @@ function ProductDetails({ product }) {
                         <div className="popular-post-widget-item clearfix">
                           <div className="popular-post-widget-img">
                             <a href="blog-details.html">
-                              <img src="img/team/6.jpg" alt="#" />
+                              <img src="/img/team/6.jpg" alt="#" />
                             </a>
                           </div>
                           <div className="popular-post-widget-brief">
@@ -1360,7 +1361,7 @@ function ProductDetails({ product }) {
                         <div className="popular-post-widget-item clearfix">
                           <div className="popular-post-widget-img">
                             <a href="blog-details.html">
-                              <img src="img/team/7.jpg" alt="#" />
+                              <img src="/img/team/7.jpg" alt="#" />
                             </a>
                           </div>
                           <div className="popular-post-widget-brief">
@@ -1386,7 +1387,7 @@ function ProductDetails({ product }) {
                         <div className="popular-post-widget-item clearfix">
                           <div className="popular-post-widget-img">
                             <a href="blog-details.html">
-                              <img src="img/team/8.jpg" alt="#" />
+                              <img src="/img/team/8.jpg" alt="#" />
                             </a>
                           </div>
                           <div className="popular-post-widget-brief">

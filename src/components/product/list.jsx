@@ -2,7 +2,7 @@ import Link from "next/link";
 const ProductList = ({
   productData,
   slug,
-  shopBaseUrl,
+  baseUrl,
   showQuickViewHandle,
   showWishlistHandle,
 }) => {
@@ -18,7 +18,7 @@ const ProductList = ({
     <>
       <div className="ltn__product-item ltn__product-item-4 ltn__product-item-5">
         <div className="product-img">
-          <Link href={`/${shopBaseUrl}/${slug}`}>
+          <Link href={`/${baseUrl}/${slug}`}>
             <img
               src={`/img/product-3/${productData.productImg}`}
               alt={`${productData.title}`}
@@ -47,13 +47,13 @@ const ProductList = ({
           </div>
 
           <h2 className="product-title">
-            <Link href={`/${shopBaseUrl}/${slug}`}>{productData.title}</Link>
+            <Link href={`/${baseUrl}/${slug}`}>{productData.title}</Link>
           </h2>
 
           <div className="product-img-location">
             <ul>
               <li>
-                <Link href={`/${shopBaseUrl}/${slug}`}>
+                <Link href={`/${baseUrl}/${slug}`}>
                   <i className="flaticon-pin"></i>
                   {productData.locantion}
                 </Link>
@@ -79,7 +79,7 @@ const ProductList = ({
         <div className="product-info-bottom">
           <div className="real-estate-agent">
             <div className="agent-img">
-              <Link href={`/${shopBaseUrl}/${slug}`}>
+              <Link href={`/${baseUrl}/${slug}`}>
                 <img
                   src={`/img/blog/author.jpg`}
                   alt={`${productData.title}`}

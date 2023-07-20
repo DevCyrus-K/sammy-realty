@@ -170,6 +170,7 @@ function HomePage(props) {
                             key={product.id}
                             productData={product}
                             slug={slug}
+                            baseUrl="shop"
                             discountedPrice={discountedPrice}
                             productPrice={productPrice}
                             cartItem={cartItem}

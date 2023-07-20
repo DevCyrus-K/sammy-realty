@@ -124,7 +124,7 @@ function ShopGrid() {
                             <Col key={key} xs={12} sm={6} lg={4}>
                               <RelatedProduct
                                 slug={slug}
-                                shopBaseUrl="shop/grid"
+                                baseUrl="shop/grid"
                                 productData={product}
                               />
                             </Col>
@@ -142,7 +142,7 @@ function ShopGrid() {
                             <Col key={key} xs={12}>
                               <ProductList
                                 slug={slug}
-                                shopBaseUrl="shop/grid"
+                                baseUrl="shop/grid"
                                 productData={product}
                               />
                             </Col>

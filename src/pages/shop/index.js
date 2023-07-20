@@ -126,6 +126,7 @@ function Shop() {
                             <Col key={key} xs={12} sm={6}>
                               <RelatedProduct
                                 slug={slug}
+                                baseUrl="shop"
                                 productData={product}
                               />
                             </Col>
@@ -141,7 +142,7 @@ function Shop() {
                           const slug = productSlug(product.title);
                           return (
                             <Col key={key} xs={12}>
-                              <ProductList slug={slug} productData={product} />
+                              <ProductList slug={slug} baseUrl="shop" productData={product} />
                             </Col>
                           );
                         })}

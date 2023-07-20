@@ -3,6 +3,7 @@ import { FaFilm, FaCamera } from "react-icons/fa";
 const RelatedProduct = ({
   productData,
   slug,
+  baseUrl,
   showQuickViewHandle,
   showWishlistHandle,
 }) => {
@@ -18,7 +19,7 @@ const RelatedProduct = ({
     <>
       <div className="ltn__product-item ltn__product-item-4 ltn__product-item-5">
         <div className="product-img">
-          <Link href={"/shop/" + slug}>
+          <Link href={`/${baseUrl}/${slug}`}>
             <img
               src={`/img/product-3/${productData.productImg}`}
               alt={`${productData.title}`}
@@ -26,7 +27,7 @@ const RelatedProduct = ({
           </Link>
           <div className="real-estate-agent">
             <div className="agent-img">
-              <Link href={"/shop/" + slug}>
+              <Link href={`/${baseUrl}/${slug}`}>
                 <img
                   src={`/img/blog/author.jpg`}
                   alt={`${productData.title}`}
@@ -38,7 +39,7 @@ const RelatedProduct = ({
         <div className="product-info">
           <div className="product-badge">
             <ul>
-            <li
+              <li
                 className={`sale-badge ${productData.rent ? "bg-green" : ""}`}
               >
                 {badgeText}
@@ -46,13 +47,13 @@ const RelatedProduct = ({
             </ul>
           </div>
           <h2 className="product-title">
-            <Link href={"/shop/" + slug}>{productData.title}</Link>
+            <Link href={`/${baseUrl}/${slug}`}>{productData.title}</Link>
           </h2>
           <div className="product-img-location">
             <ul>
               <li>
-                <Link href={"/shop/" + slug}>
-                  <i className="flaticon-pin"></i> 
+                <Link href={`/${baseUrl}/${slug}`}>
+                  <i className="flaticon-pin"></i>
                   {productData.locantion}
                 </Link>
               </li>
@@ -61,7 +62,7 @@ const RelatedProduct = ({
           <ul className="ltn__plot-brief">
             <li>
               <span>{productData.propertyDetails.bedrooms}</span>
-             <span className="ms-1">Bedrooms</span>
+              <span className="ms-1">Bedrooms</span>
             </li>
             <li>
               <span>{productData.propertyDetails.baths}</span>
@@ -73,7 +74,7 @@ const RelatedProduct = ({
             </li>
           </ul>
           <div className="product-hover-action">
-          <ul>
+            <ul>
               <li>
                 <button onClick={showQuickViewHandle}>
                   <i className="flaticon-expand"></i>
@@ -95,7 +96,7 @@ const RelatedProduct = ({
         <div className="product-info-bottom">
           <div className="product-price">
             <span>
-            {`$ ${productData.price}`}
+              {`$ ${productData.price}`}
               <label>/Month</label>
             </span>
           </div>
