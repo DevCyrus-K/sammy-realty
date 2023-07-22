@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-
 import Paginator from "react-hooks-paginator";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
 import { getSortedProducts, productSlug } from "@/lib/product";

@@ -73,7 +73,7 @@ function closeSideBar (){
                 <div className="site-logo-wrap">
                   <div className="site-logo">
                     <Link href="/home-version1">
-                      <img src="/img/logo.png" alt="Logo" />
+                      <img src="/img/logo.svg" alt="Logo" />
                     </Link>
                   </div>
                 </div>

@@ -1,13 +1,27 @@
 import { LayoutOne } from "@/layouts";
-import { getProducts, productSlug } from "@/lib/product";
 import BlogItemTwo from "@/components/blog/blogItemTwo";
 import blogData from "@/data/blog";
-import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
+import BlogSideBar from "@/components/blog/sidebar";
+import { useSelector } from "react-redux";
+import { getProducts, productSlug } from "@/lib/product";
 
 function Blog() {
+
+  const { products } = useSelector((state) => state.product);
   const featuredBlogs = getProducts(blogData, "fashion", "featured", 7);
+  const latestdBlogs = getProducts(blogData, "fashion", "featured", 4);
+  const topRatedProducts = getProducts(products, "fashion", "featured", 3);
+  const popularProducts = getProducts(products, "fashion", "featured", 3
+  );
+
+
   return (
+
+
+
+
     <>
       <LayoutOne>
         <ShopBreadCrumb title="News Feeds" sectionPace="" currentSlug="Blog" />
@@ -18,21 +32,25 @@ function Blog() {
               <Col xs={12} lg={8}>
                 <div className="ltn__blog-list-wrap">
                   {featuredBlogs.map((blog, key) => {
-                    const slug = productSlug(blog.title);
+                    const slug = productSlug(blog.title, {
+                      lower: true, // convert to lower case, defaults to `false`
+                    });
 
                     return (
                       <BlogItemTwo
                         key={key}
                         blogData={blog}
                         slug={slug}
-                        baseUrl="shop"
+                        baseUrl="blog"
                       />
                     );
                   })}
                 </div>
               </Col>
 
-              <Col xs={12} lg={{ span: 4, order: 0 }}></Col>
+              <Col xs={12} lg={{ span: 4, order: 0 }}>
+                <BlogSideBar latestdBlogs={latestdBlogs} topRatedProducts={topRatedProducts} popularProducts={popularProducts} />
+              </Col>
             </Row>
           </Container>
         </div>
@@ -42,3 +60,4 @@ function Blog() {
 }
 
 export default Blog;
+

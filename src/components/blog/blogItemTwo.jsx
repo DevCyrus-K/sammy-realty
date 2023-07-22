@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 import ModalVideo from "react-modal-video";
 import Slider from "react-slick";
-const BlogItemTwo = ({ blogData, slug }) => {
+const BlogItemTwo = ({ blogData, slug, baseUrl }) => {
   const [isOpen, setOpen] = useState(false);
   const blogSettings = {
     dots: false,
@@ -44,21 +44,20 @@ const BlogItemTwo = ({ blogData, slug }) => {
         onClose={() => setOpen(false)}
       />
       <div
-        className={`ltn__blog-item ltn__blog-item-5 ${
-          blogData.settings.video
-            ? "ltn__blog-item-video"
-            : blogData.settings.audio
+        className={`ltn__blog-item ltn__blog-item-5 ${blogData.settings.video
+          ? "ltn__blog-item-video"
+          : blogData.settings.audio
             ? "ltn__blog-item-audio"
             : blogData.settings.gallery
-            ? "ltn__blog-item-gallery"
-            : blogData.settings.backgroundNoImage
-            ? "ltn__blog-item-no-image"
-            : blogData.settings.blockquote
-            ? "ltn__blog-item-quote bg-image bg-overlay-theme-90"
-            : blogData.settings.backgroundImage
-            ? "lltn__blog-item-bg-image bg-image bg-overlay-white-90"
-            : ""
-        }`}
+              ? "ltn__blog-item-gallery"
+              : blogData.settings.backgroundNoImage
+                ? "ltn__blog-item-no-image"
+                : blogData.settings.blockquote
+                  ? "ltn__blog-item-quote bg-image bg-overlay-theme-90"
+                  : blogData.settings.backgroundImage
+                    ? "ltn__blog-item-bg-image bg-image bg-overlay-white-90"
+                    : ""
+          }`}
       >
         {blogData.settings.video ? (
           <div className="ltn__video-img">
@@ -85,7 +84,7 @@ const BlogItemTwo = ({ blogData, slug }) => {
             {blogData.galleryImageList.map((gallery, key) => {
               return (
                 <div key={key} className="ltn__blog-gallery-item">
-                  <Link href={slug}>
+                  <Link href={`${baseUrl}/${slug}`}>
                     <img src={`/img/blog/${gallery.img}`} alt="Image" />
                   </Link>
                 </div>
@@ -97,7 +96,7 @@ const BlogItemTwo = ({ blogData, slug }) => {
         )}
         {blogData.settings.thumbNail ? (
           <div className="ltn__blog-img">
-            <Link href={slug}>
+            <Link href={`${baseUrl}/${slug}`}>
               <img
                 src={`/img/blog/${blogData.thumbImg}`}
                 alt={blogData.title}
@@ -111,7 +110,7 @@ const BlogItemTwo = ({ blogData, slug }) => {
         <div className="ltn__blog-brief">
           {blogData.settings.blockquote ? (
             <blockquote>
-              <Link href={slug}>
+              <Link href={`${baseUrl}/${slug}`}>
                 Excepteur sint occaecat cupida tat non proident, sunt in.
               </Link>
             </blockquote>
@@ -135,7 +134,7 @@ const BlogItemTwo = ({ blogData, slug }) => {
             ""
           ) : (
             <h3 className="ltn__blog-title">
-              <Link href={slug}>{blogData.title}</Link>
+              <Link href={`${baseUrl}/${slug}`}>{blogData.title}</Link>
             </h3>
           )}
           <div className="ltn__blog-meta">
@@ -182,7 +181,7 @@ const BlogItemTwo = ({ blogData, slug }) => {
                 </ul>
               </div>
               <div className="ltn__blog-btn">
-                <Link href={slug}>
+                <Link href={`${baseUrl}/${slug}`}>
                   <span>
                     <FaArrowRight />
                   </span>
