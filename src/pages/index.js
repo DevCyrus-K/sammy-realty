@@ -545,7 +545,7 @@ function HomePage(props) {
                 const slug = productSlug(data.title);
                 return (
                   <>
-                    <BlogItem key={key} data={data} slug={slug} />
+                    <BlogItem key={key} baseUrl="blog" data={data} slug={slug} />
                   </>
                 );
               })}

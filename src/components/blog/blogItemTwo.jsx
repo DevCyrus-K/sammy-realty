@@ -44,24 +44,25 @@ const BlogItemTwo = ({ blogData, slug, baseUrl }) => {
         onClose={() => setOpen(false)}
       />
       <div
-        className={`ltn__blog-item ltn__blog-item-5 ${blogData.settings.video
-          ? "ltn__blog-item-video"
-          : blogData.settings.audio
+        className={`ltn__blog-item ltn__blog-item-5 ${
+          blogData.settings.video
+            ? "ltn__blog-item-video"
+            : blogData.settings.audio
             ? "ltn__blog-item-audio"
             : blogData.settings.gallery
-              ? "ltn__blog-item-gallery"
-              : blogData.settings.backgroundNoImage
-                ? "ltn__blog-item-no-image"
-                : blogData.settings.blockquote
-                  ? "ltn__blog-item-quote bg-image bg-overlay-theme-90"
-                  : blogData.settings.backgroundImage
-                    ? "ltn__blog-item-bg-image bg-image bg-overlay-white-90"
-                    : ""
-          }`}
+            ? "ltn__blog-item-gallery"
+            : blogData.settings.backgroundNoImage
+            ? "ltn__blog-item-no-image"
+            : blogData.settings.blockquote
+            ? "ltn__blog-item-quote bg-image bg-overlay-theme-90"
+            : blogData.settings.backgroundImage
+            ? "ltn__blog-item-bg-image bg-image bg-overlay-white-90"
+            : ""
+        }`}
       >
         {blogData.settings.video ? (
           <div className="ltn__video-img">
-            <img src={`img/blog/${blogData.thumbImg}`} alt={blogData.title} />
+            <img src={`/img/blog/${blogData.thumbImg}`} alt={blogData.title} />
             <button onClick={() => setOpen(true)} className="ltn__video-icon-2">
               <FaPlay />
             </button>

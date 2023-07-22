@@ -17,12 +17,12 @@ function Blog() {
   return (
     <>
       <LayoutOne>
-        <ShopBreadCrumb title="News Feeds" sectionPace="" currentSlug="Blog" />
+        <ShopBreadCrumb title="Blog Left Sidebar" sectionPace="" currentSlug="Blog" />
 
         <div class="ltn__blog-area mb-120">
           <Container>
             <Row>
-              <Col xs={12} lg={8}>
+              <Col xs={12} lg={{ span: 8, order: 1 }}>
                 <div className="ltn__blog-list-wrap">
                   {featuredBlogs.map((blog, key) => {
                     const slug = productSlug(blog.title, {
