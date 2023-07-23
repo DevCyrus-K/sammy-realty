@@ -346,6 +346,7 @@ function BlogtDetails({ blog }) {
                     </div>
                   </div>
                   <hr />
+                  
                   {/* <!-- comment-reply --> */}
                   <div className="ltn__comment-reply-area ltn__form-box mb-60---">
                     <h4 className="title-2">Post Comment</h4>
