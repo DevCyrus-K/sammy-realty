@@ -119,6 +119,7 @@ function HomePage(props) {
 
       <!-- FEATURE AREA START ( Feature - 6) --> */}
         <Feature
+          iconTag={false}
           data={featureData}
           titleSectionData={{
             subTitle: "Our Services",

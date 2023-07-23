@@ -3,7 +3,8 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import TitleSection from "../titleSection";
-function Feature({ data, titleSectionData }) {
+import { productSlug } from "@/lib/product";
+function Feature({ data, iconTag, servicebtn, titleSectionData }) {
   return (
     <>
       <div className="ltn__feature-area section-bg-1 pt-115 pb-90 mb-120---">
@@ -15,33 +16,38 @@ function Feature({ data, titleSectionData }) {
           </Row>
           <Row className="justify-content-center">
             {data.map((item, key) => {
+              const slug = productSlug(item.title);
               return (
                 <>
                   <Col key={key} xs={12} sm={6} lg={4}>
                     <div
-                      className={`ltn__feature-item ltn__feature-item-6 text-center bg-white  box-shadow-1 ${
-                        item.active ? "active" : ""
-                      }`}
+                      className={`ltn__feature-item ltn__feature-item-6 text-center bg-white  box-shadow-1 ${item.active ? "active" : ""
+                        }`}
                     >
                       <div className="ltn__feature-icon">
-                        <img
-                          src={`img/icons/icon-img/${item.img}`}
-                          alt={`${item.title}`}
-                        />
+                        {iconTag ? <span><i className={`${item.icon}`}></i></span> :
+                          <img
+                            src={`img/icons/icon-img/${item.img}`}
+                            alt={`${item.title}`}
+                          />}
+
+
                       </div>
                       <div className="ltn__feature-info">
                         <h3>
-                          <Link href={`${item.link}`}>{item.title}</Link>
+                          <Link href={slug}>{item.title}</Link>
                         </h3>
                         <p>{item.description}</p>
-                        <Link
+
+                        {servicebtn ? <Link
                           className="ltn__service-btn"
-                          href={`${item.link}`}
+                          href={slug}
                         >
                           {item.buttonText}
 
                           <i className="flaticon-right-arrow"></i>
-                        </Link>
+                        </Link> : ''}
+
                       </div>
                     </div>
                   </Col>
