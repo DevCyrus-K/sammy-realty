@@ -12,7 +12,7 @@ import blogData from "@/data/blog";
 import CallToAction from "@/components/callToAction";
 import AboutUsStyletwo from "@/components/aboutUs/aboutUsStyletwo";
 import Feature from "@/components/features";
-import featureData from "@/data/features"
+import featureData from "@/data/service"
 
 import TeamData from '@/data/team';
 

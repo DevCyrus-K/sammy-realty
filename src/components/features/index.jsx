@@ -21,33 +21,40 @@ function Feature({ data, iconTag, servicebtn, titleSectionData }) {
                 <>
                   <Col key={key} xs={12} sm={6} lg={4}>
                     <div
-                      className={`ltn__feature-item ltn__feature-item-6 text-center bg-white  box-shadow-1 ${item.active ? "active" : ""
-                        }`}
+                      className={`ltn__feature-item ltn__feature-item-6 text-center bg-white  box-shadow-1 ${
+                        item.active ? "active" : ""
+                      }`}
                     >
                       <div className="ltn__feature-icon">
-                        {iconTag ? <span><i className={`${item.icon}`}></i></span> :
+                        {iconTag ? (
+                          <span>
+                            <i className={`${item.icon}`}></i>
+                          </span>
+                        ) : (
                           <img
                             src={`img/icons/icon-img/${item.img}`}
                             alt={`${item.title}`}
-                          />}
-
-
+                          />
+                        )}
                       </div>
                       <div className="ltn__feature-info">
                         <h3>
-                          <Link href={slug}>{item.title}</Link>
+                          <Link href={`/service/${slug}`}>{item.title}</Link>
                         </h3>
                         <p>{item.description}</p>
 
-                        {servicebtn ? <Link
-                          className="ltn__service-btn"
-                          href={slug}
-                        >
-                          {item.buttonText}
+                        {servicebtn ? (
+                          <Link
+                            className="ltn__service-btn"
+                            href={`/service/${slug}`}
+                          >
+                            {item.buttonText}
 
-                          <i className="flaticon-right-arrow"></i>
-                        </Link> : ''}
-
+                            <i className="flaticon-right-arrow"></i>
+                          </Link>
+                        ) : (
+                          ""
+                        )}
                       </div>
                     </div>
                   </Col>
