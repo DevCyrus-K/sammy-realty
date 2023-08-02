@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import HeaderTopBarOne from "./headerTopBar/headerTopBarStyleOne";
@@ -17,8 +16,6 @@ import {
   FaSearch,
   FaTimes,
 } from "react-icons/fa";
-
-
 
 const HeaderStyleOne = function ({
   toggleClassNameInBody,
@@ -61,9 +58,8 @@ const HeaderStyleOne = function ({
 
   const { cartItems } = useSelector((state) => state.cart);
 
-
   const [scroll, setScroll] = useState(0);
- const [headerHeight, setHeaderHeight] = useState(0);
+  const [headerHeight, setHeaderHeight] = useState(0);
   useEffect(() => {
     const header = document.querySelector(".ltn__header-sticky");
     setHeaderHeight(header.offsetHeight);
@@ -85,7 +81,12 @@ const HeaderStyleOne = function ({
         {/* <!-- ltn__header-top-area end --> */}
 
         {/* <!-- ltn__header-middle-area start --> */}
-        <div className={clsx("ltn__header-middle-area ltn__header-sticky ltn__sticky-bg-white",scroll > headerHeight && "sticky-active")}>
+        <div
+          className={clsx(
+            "ltn__header-middle-area ltn__header-sticky ltn__sticky-bg-white",
+            scroll > headerHeight && "sticky-active"
+          )}
+        >
           <Container>
             <Row>
               <Col>
@@ -179,9 +180,7 @@ const HeaderStyleOne = function ({
                               <Link href="/portfolio">Portfolio</Link>
                             </li>
                             <li>
-                              <Link href="/portfolio-2">
-                                Portfolio - 02
-                              </Link>
+                              <Link href="/portfolio-2">Portfolio - 02</Link>
                             </li>
                             <li>
                               <Link href="/portfolio-details">
@@ -216,12 +215,12 @@ const HeaderStyleOne = function ({
                               <Link href="/shop-grid">Shop Grid</Link>
                             </li>
                             <li>
-                              <Link href="/shop-left-sidebar">
+                              <Link href="/shop/shop-left-sidebar">
                                 Shop Left sidebar
                               </Link>
                             </li>
                             <li>
-                              <Link href="/shop-right-sidebar">
+                              <Link href="/shop/shop-right-sidebar">
                                 Shop right sidebar
                               </Link>
                             </li>
@@ -304,7 +303,7 @@ const HeaderStyleOne = function ({
                                   </Link>
                                 </li>
                                 <li>
-                                  <Link href="portfolio-details.html">
+                                  <Link href="/portfolio-details">
                                     Portfolio Details
                                   </Link>
                                 </li>
@@ -312,9 +311,7 @@ const HeaderStyleOne = function ({
                                   <Link href="/team">Team</Link>
                                 </li>
                                 <li>
-                                  <Link href="/team-details">
-                                    Team Details
-                                  </Link>
+                                  <Link href="/team-details">Team Details</Link>
                                 </li>
                                 <li>
                                   <Link href="/faq">FAQ</Link>
@@ -328,9 +325,7 @@ const HeaderStyleOne = function ({
                                   <Link href="/history">History</Link>
                                 </li>
                                 <li>
-                                  <Link href="/add-listing">
-                                    Add Listing
-                                  </Link>
+                                  <Link href="/add-listing">Add Listing</Link>
                                 </li>
                                 <li>
                                   <Link href="/locations">
@@ -344,9 +339,7 @@ const HeaderStyleOne = function ({
                                   <Link href="/contact">Contact</Link>
                                 </li>
                                 <li>
-                                  <Link href="/coming-soon">
-                                    Coming Soon
-                                  </Link>
+                                  <Link href="/coming-soon">Coming Soon</Link>
                                 </li>
                               </ul>
                             </li>

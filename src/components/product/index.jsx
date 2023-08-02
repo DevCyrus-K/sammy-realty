@@ -129,7 +129,7 @@ const ProductItem = ({
             <div className="agent-img">
               <Link href="/team-details">
                 <img
-                  src={`img/blog/${productData.agent.img}`}
+                  src={`/img/blog/${productData.agent.img}`}
                   alt={`${productData.agent.fullName}`}
                 />
               </Link>

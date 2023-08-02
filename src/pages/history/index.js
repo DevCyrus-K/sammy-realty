@@ -10,19 +10,6 @@ import { productSlug } from "@/lib/product";
 import BlogItem from "@/components/blog";
 import blogData from "@/data/blog";
 import {
-    FaDribbble,
-    FaInstagram,
-    FaTwitter,
-    FaFacebookF,
-    FaCheck,
-    FaCalendarAlt,
-    FaUserAlt,
-    FaEnvelope,
-    FaGlobe,
-    FaPencilAlt,
-    FaComments,
-    FaPhoneAlt,
-    FaArrowDown,
     FaTrophy,
     FaAward,
     FaMedal,
@@ -66,17 +53,17 @@ function HistoryPage() {
         ],
     };
     return (
-        <>
-            <LayoutOne>
-                <ShopBreadCrumb title="Our History" sectionPace="" currentSlug="History" />
+        <LayoutOne>
+            <ShopBreadCrumb title="Our History" sectionPace="" currentSlug="History" />
 
-                <div className="ltn__our-history-area pb-100">
-                    <Container>
-                        <Row>
-                            <Col xs={12}>
-                                <Tab.Container defaultActiveKey="first" className="ltn__our-history-inner">
+            <div className="ltn__our-history-area pb-100">
+                <Container>
+                    <Row>
+                        <Col xs={12}>
+                            <Tab.Container defaultActiveKey="first">
+                                <div className="ltn__our-history-inner">
                                     <div className="ltn__tab-menu text-uppercase">
-                                        <Nav classNameName="nav justify-content-center">
+                                        <Nav>
                                             <Nav.Link eventKey="first">1900</Nav.Link>
                                             <Nav.Link eventKey="second">1940</Nav.Link>
                                             <Nav.Link eventKey="third">2000</Nav.Link>
@@ -215,121 +202,123 @@ function HistoryPage() {
                                             </div>
                                         </Tab.Pane>
                                     </Tab.Content>
-                                </Tab.Container>
-                            </Col>
-                        </Row>
-                    </Container>
-                </div>
-
-                <div className="ltn__feature-area section-bg-2 pt-115 pb-90">
-                    <Container>
-                        <Row>
-                            <Col xs={12}>
-                                <div className="section-title-area text-center">
-                                    <h6 className="section-subtitle section-subtitle-2 ltn__secondary-color">Features</h6>
-                                    <h1 className="section-title">Why Choose Us</h1>
                                 </div>
-                            </Col>
-                        </Row>
-                        <Row className="justify-content-center">
-                            <Col xs={12} sm={6} xl={4}>
-                                <div className="ltn__feature-item ltn__feature-item-7 ltn__feature-item-7-color-white">
-                                    <div className="ltn__feature-icon-title">
-                                        <div className="ltn__feature-icon">
-                                            <span><i className="flaticon-house-4"></i></span>
-                                        </div>
-                                        <h3 className="animated fadeIn"><a href="service-details.html">The Perfect Residency</a></h3>
+                            </Tab.Container>
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
+
+            <div className="ltn__feature-area section-bg-2 pt-115 pb-90">
+                <Container>
+                    <Row>
+                        <Col xs={12}>
+                            <TitleSection
+                                titleSectionData={{
+                                    subTitle: "Features",
+                                    title: "Why Choose Us",
+                                }}
+                            />
+                        </Col>
+                    </Row>
+                    <Row className="justify-content-center">
+                        <Col xs={12} sm={6} xl={4}>
+                            <div className="ltn__feature-item ltn__feature-item-7 ltn__feature-item-7-color-white">
+                                <div className="ltn__feature-icon-title">
+                                    <div className="ltn__feature-icon">
+                                        <span><i className="flaticon-house-4"></i></span>
                                     </div>
-                                    <div className="ltn__feature-info">
-                                        <p>Lorem ipsum dolor sit ame it, consectetur adipisicing elit, sed do eiusmod te mp or incididunt ut labore.</p>
-                                    </div>
+                                    <h3 className="animated fadeIn"><Link href="service-details.html">The Perfect Residency</Link></h3>
                                 </div>
-                            </Col>
-                            <Col xs={12} sm={6} xl={4}>
-                                <div className="ltn__feature-item ltn__feature-item-7 ltn__feature-item-7-color-white">
-                                    <div className="ltn__feature-icon-title">
-                                        <div className="ltn__feature-icon">
-                                            <span><i className="icon-mechanic"></i></span>
-                                        </div>
-                                        <h3 className="animated fadeIn"><a href="service-details.html">Global Architect Experts</a></h3>
-                                    </div>
-                                    <div className="ltn__feature-info">
-                                        <p>Lorem ipsum dolor sit ame it, consectetur adipisicing elit, sed do eiusmod te mp or incididunt ut labore.</p>
-                                    </div>
+                                <div className="ltn__feature-info">
+                                    <p>Lorem ipsum dolor sit ame it, consectetur adipisicing elit, sed do eiusmod te mp or incididunt ut labore.</p>
                                 </div>
-                            </Col>
-                            <Col xs={12} sm={6} xl={4}>
-                                <div className="ltn__feature-item ltn__feature-item-7 ltn__feature-item-7-color-white">
-                                    <div className="ltn__feature-icon-title">
-                                        <div className="ltn__feature-icon">
-                                            <span><i className="icon-repair-1"></i></span>
-                                        </div>
-                                        <h3 className="animated fadeIn"><a href="service-details.html">Built-in Storage Cupboards</a></h3>
+                            </div>
+                        </Col>
+                        <Col xs={12} sm={6} xl={4}>
+                            <div className="ltn__feature-item ltn__feature-item-7 ltn__feature-item-7-color-white">
+                                <div className="ltn__feature-icon-title">
+                                    <div className="ltn__feature-icon">
+                                        <span><i className="icon-mechanic"></i></span>
                                     </div>
-                                    <div className="ltn__feature-info">
-                                        <p>Lorem ipsum dolor sit ame it, consectetur adipisicing elit, sed do eiusmod te mp or incididunt ut labore.</p>
+                                    <h3 className="animated fadeIn"><Link href="service-details.html">Global Architect Experts</Link></h3>
+                                </div>
+                                <div className="ltn__feature-info">
+                                    <p>Lorem ipsum dolor sit ame it, consectetur adipisicing elit, sed do eiusmod te mp or incididunt ut labore.</p>
+                                </div>
+                            </div>
+                        </Col>
+                        <Col xs={12} sm={6} xl={4}>
+                            <div className="ltn__feature-item ltn__feature-item-7 ltn__feature-item-7-color-white">
+                                <div className="ltn__feature-icon-title">
+                                    <div className="ltn__feature-icon">
+                                        <span><i className="icon-repair-1"></i></span>
                                     </div>
+                                    <h3 className="animated fadeIn"><Link href="service-details.html">Built-in Storage Cupboards</Link></h3>
                                 </div>
-                            </Col>
-                        </Row>
-                    </Container>
-                </div>
-
-
-                <div className="call-to-action-area call-to-action-5 bg-image bg-overlay-theme-90 pt-40 pb-25" data-bs-bg="img/bg/13.jpg" style="background-image: url(&quot;img/bg/13.jpg&quot;);">
-                    <div className="container">
-                        <div className="row">
-                            <Col xs={12}>
-                                <div className="call-to-action-inner call-to-action-inner-5 text-decoration text-center">
-                                    <h2 className="white-color">24/7 Availability, Make <a href="appointment.html">An Appointment</a></h2>
+                                <div className="ltn__feature-info">
+                                    <p>Lorem ipsum dolor sit ame it, consectetur adipisicing elit, sed do eiusmod te mp or incididunt ut labore.</p>
                                 </div>
-                            </Col>
-                        </div>
-                    </div>
-                </div>
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
 
 
-                {/* <!-- BLOG AREA START (blog-3) -->  */}
-                <div className="ltn__blog-area pb-70">
-                    <Container>
-                        <Row>
-                            <Col lg={12}>
-                                <TitleSection
-                                    titleSectionData={{
-                                        subTitle: "News & Blogs",
-                                        title: "Leatest News Feeds",
-                                    }}
-                                />
-                            </Col>
-                        </Row>
-                        <Slider
-                            {...blogSettings}
-                            className="ltn__blog-slider-one-active slick-arrow-1 ltn__blog-item-3-normal"
-                        >
-                            {blogData.map((data, key) => {
-                                const slug = productSlug(data.title);
-                                return (
-                                    <BlogItem key={key} baseUrl="blog" data={data} slug={slug} />
-                                );
-                            })}
-                        </Slider>
-                    </Container>
-                </div>
-                {/* <!-- BLOG AREA END --> */}
+            <div className="call-to-action-area call-to-action-5 bg-image bg-overlay-theme-90 pt-40 pb-25" style={{ backgroundImage: `url("../img/bg/13.jpg")` }}>
+                <Container>
+                    <Row>
+                        <Col xs={12}>
+                            <div className="call-to-action-inner call-to-action-inner-5 text-decoration text-center">
+                                <h2 className="white-color">24/7 Availability, Make <Link href="appointment.html">An Appointment</Link></h2>
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
+
+
+            {/* <!-- BLOG AREA START (blog-3) -->  */}
+            <div className="ltn__blog-area pt-120 pb-70">
+                <Container>
+                    <Row>
+                        <Col lg={12}>
+                            <TitleSection
+                                titleSectionData={{
+                                    subTitle: "News & Blogs",
+                                    title: "Leatest News Feeds",
+                                }}
+                            />
+                        </Col>
+                    </Row>
+                    <Slider
+                        {...blogSettings}
+                        className="ltn__blog-slider-one-active slick-arrow-1 ltn__blog-item-3-normal"
+                    >
+                        {blogData.map((data, key) => {
+                            const slug = productSlug(data.title);
+                            return (
+                                <BlogItem key={key} baseUrl="blog" data={data} slug={slug} />
+                            );
+                        })}
+                    </Slider>
+                </Container>
+            </div>
+            {/* <!-- BLOG AREA END --> */}
 
 
 
-                <div className="ltn__call-to-action-area call-to-action-6 before-bg-bottom">
-                    <Container>
-                        <Row>
-                            <Col xs={12}>
-                                <CallToAction />
-                            </Col>
-                        </Row>
-                    </Container>
-                </div>
-            </LayoutOne>
-        </>
+            <div className="ltn__call-to-action-area call-to-action-6 before-bg-bottom">
+                <Container>
+                    <Row>
+                        <Col xs={12}>
+                            <CallToAction />
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
+        </LayoutOne>
     );
 }
 
