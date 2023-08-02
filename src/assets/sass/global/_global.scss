@@ -439,6 +439,11 @@ a {
   color: var(--ltn__paragraph-color);
   transition: all 0.3s ease 0s;
 }
+.ltn__checkout-inner button {
+  font-family: var(--ltn__heading-font);
+  font-weight: 700;
+  line-height: 1.3;
+}
 a,
 a:hover,
 a:focus,
@@ -1305,10 +1310,17 @@ ul {
   padding: 0.5rem !important;
 }
 
+
+.property-details-google-map iframe{
+  width: 100%;
+  height: 100%;
+}
 /* ----------------------------------------------------
     ScrollUp
 ---------------------------------------------------- */
 #scrollUp {
+  position: fixed;
+  z-index: 2147483647;
   background-color: var(--section-bg-1);
   color: var(--ltn__heading-color);
   bottom: 70px;
@@ -1323,7 +1335,7 @@ ul {
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   box-shadow: var(--ltn__box-shadow-3);
-  i {
+  span svg{
     line-height: 40px;
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);

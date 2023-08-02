@@ -18,8 +18,7 @@ function Feature({ data, iconTag, servicebtn, titleSectionData }) {
             {data.map((item, key) => {
               const slug = productSlug(item.title);
               return (
-                <>
-                  <Col key={key} xs={12} sm={6} lg={4}>
+                <Col key={key} xs={12} sm={6} lg={4}>
                     <div
                       className={`ltn__feature-item ltn__feature-item-6 text-center bg-white  box-shadow-1 ${
                         item.active ? "active" : ""
@@ -41,7 +40,7 @@ function Feature({ data, iconTag, servicebtn, titleSectionData }) {
                         <h3>
                           <Link href={`/service/${slug}`}>{item.title}</Link>
                         </h3>
-                        <p>{item.description}</p>
+                        <p>{item.shortDescription}</p>
 
                         {servicebtn ? (
                           <Link
@@ -58,7 +57,6 @@ function Feature({ data, iconTag, servicebtn, titleSectionData }) {
                       </div>
                     </div>
                   </Col>
-                </>
               );
             })}
           </Row>

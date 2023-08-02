@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
-import { HeaderOne } from "../components/header";
-import Footer from "../components/footer/footer";
-import ScrollToTop from "../hooks/use-scroll-top";
+import { HeaderOne } from "@/components/header";
+import Footer from "@/components/footer/footer";
+import ScrollToTop from "@/components/scroll-to-top";
 
 const LayoutOne = ({ children, navPositionClass }) => {
   const [toggleClassName, SetToggleClassName] = useState(false);

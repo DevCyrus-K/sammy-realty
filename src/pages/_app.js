@@ -1,6 +1,6 @@
 import { Fragment, useEffect } from "react";
 import Head from "next/head";
-import { Nunito_Sans } from "next/font/google";
+import { Nunito_Sans,Poppins } from "next/font/google";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { wrapper } from "../store";
@@ -23,6 +23,11 @@ const nunito = Nunito_Sans({
   subsets: ["latin"],
   display: "swap",
 });
+const Poppin = Poppins({
+  weight: ["200", "300", "400", "600", "700", "800", "900"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 const MyApp = ({ Component, ...rest }) => {
   const { store, props } = wrapper.useWrappedStore(rest);
@@ -38,13 +43,18 @@ const MyApp = ({ Component, ...rest }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <style jsx global>
-        {`
-          :root {
-            --ff-nunito: ${nunito.style.fontFamily};
-          }
-        `}
-      </style>
+      <style jsx global>{`
+        html,body {
+          font-family: ${nunito.style.fontFamily};
+        }
+
+        h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+         
+          font-family: ${Poppin.style.fontFamily};
+      }
+
+
+      `}</style>
       <Provider store={store}>
         <PersistGate persistor={store.__persistor} loading={<Preloader />}>
           <Component {...props.pageProps} />

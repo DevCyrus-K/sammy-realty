@@ -1,7 +1,12 @@
 import Link from "next/link";
-
 import { FaTimes } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { getDiscountPrice, productSlug } from "@/lib/product";
+import { deleteFromCart } from "@/store/slices/cart-slice";
 const HeaderCartMenu = function ({ cartMenuOpener, closeSideBar }) {
+  let cartTotalPrice = 0;
+  const { cartItems } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
   return (
     <div
       id="ltn__utilize-cart-menu"
@@ -16,88 +21,64 @@ const HeaderCartMenu = function ({ cartMenuOpener, closeSideBar }) {
             ×
           </button>
         </div>
-        <div className="mini-cart-product-area ltn__scrollbar">
-          <div className="mini-cart-item clearfix">
-            <div className="mini-cart-img">
-              <a href="#">
-                <img src="img/product/1.png" alt="Image" />
-              </a>
-              <span className="mini-cart-item-delete">
-                <FaTimes />
-              </span>
+
+        {cartItems.length > 0 ? <>
+            <div className="mini-cart-product-area ltn__scrollbar">
+              {cartItems.map((product, key) => {
+                let imagecount = key + 1;
+                const slug = productSlug(product.title);
+                const discountedPrice = getDiscountPrice(
+                  product.price,
+                  product.discount
+                ).toFixed(2);
+                cartTotalPrice += discountedPrice * product.quantity;
+                return (
+                  <div key={key} className="mini-cart-item clearfix">
+                    <div className="mini-cart-img">
+                      <Link href={`/shop/${slug}`}>
+                        <img
+                          src={`/img/product/${imagecount}.png`}
+                          alt="Image"
+                        />
+                      </Link>
+                      <span
+                        onClick={() =>
+                          dispatch(deleteFromCart(product.cartItemId))
+                        }
+                        className="mini-cart-item-delete"
+                      >
+                        <FaTimes />
+                      </span>
+                    </div>
+                    <div className="mini-cart-info">
+                      <h6>
+                        <Link href={`/shop/${slug}`}>{product.title}</Link>
+                      </h6>
+                      <span className="mini-cart-quantity">
+                        {product.quantity} x <span>$</span> {discountedPrice}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-            <div className="mini-cart-info">
-              <h6>
-                <a href="#">Wheel Bearing Retainer</a>
-              </h6>
-              <span className="mini-cart-quantity">1 x $65.00</span>
+            <div className="mini-cart-footer">
+              <div className="mini-cart-sub-total">
+                <h5>
+                  Subtotal: <span>${cartTotalPrice.toFixed(2)}</span>
+                </h5>
+              </div>
+              <div className="btn-wrapper">
+                <Link href="/cart" className="theme-btn-1 btn btn-effect-1">
+                  View Cart
+                </Link>
+                <Link href="/checkout" className="theme-btn-2 btn btn-effect-2">
+                  Checkout
+                </Link>
+              </div>
+              <p>Free Shipping on All Orders Over $100!</p>
             </div>
-          </div>
-          <div className="mini-cart-item clearfix">
-            <div className="mini-cart-img">
-              <a href="#">
-                <img src="img/product/2.png" alt="Image" />
-              </a>
-              <span className="mini-cart-item-delete">
-                <FaTimes />
-              </span>
-            </div>
-            <div className="mini-cart-info">
-              <h6>
-                <a href="#">3 Rooms Manhattan</a>
-              </h6>
-              <span className="mini-cart-quantity">1 x $85.00</span>
-            </div>
-          </div>
-          <div className="mini-cart-item clearfix">
-            <div className="mini-cart-img">
-              <a href="#">
-                <img src="img/product/3.png" alt="Image" />
-              </a>
-              <span className="mini-cart-item-delete">
-                <FaTimes />
-              </span>
-            </div>
-            <div className="mini-cart-info">
-              <h6>
-                <a href="#">OE Replica Wheels</a>
-              </h6>
-              <span className="mini-cart-quantity">1 x $92.00</span>
-            </div>
-          </div>
-          <div className="mini-cart-item clearfix">
-            <div className="mini-cart-img">
-              <a href="#">
-                <img src="img/product/4.png" alt="Image" />
-              </a>
-              <span className="mini-cart-item-delete">
-                <FaTimes />
-              </span>
-            </div>
-            <div className="mini-cart-info">
-              <h6>
-                <a href="#">Shock Mount Insulator</a>
-              </h6>
-              <span className="mini-cart-quantity">1 x $68.00</span>
-            </div>
-          </div>
-        </div>
-        <div className="mini-cart-footer">
-          <div className="mini-cart-sub-total">
-            <h5>
-              Subtotal: <span>$310.00</span>
-            </h5>
-          </div>
-          <div className="btn-wrapper">
-            <a href="cart.html" className="theme-btn-1 btn btn-effect-1">
-              View Cart
-            </a>
-            <a href="cart.html" className="theme-btn-2 btn btn-effect-2">
-              Checkout
-            </a>
-          </div>
-          <p>Free Shipping on All Orders Over $100!</p>
-        </div>
+          </> : <p>No products in mini cart</p>}
       </div>
     </div>
   );

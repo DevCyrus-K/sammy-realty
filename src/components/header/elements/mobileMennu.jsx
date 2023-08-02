@@ -7,9 +7,52 @@ import {
   FaTwitter,
   FaLinkedin,
   FaInstagram,
+  FaSearch,
 } from "react-icons/fa";
 
+import {getSiblings,
+  getClosest,
+  slideUp,
+  slideDown,
+  slideToggle,} from '@/lib/product'
+import { useState } from "react";
+import { useSelector } from "react-redux";
+
 const MobileMenu = function ({ offCanVastoggleBtn, closeSideBar }) {
+  const { cartItems } = useSelector((state) => state.cart);
+  const { wishlistItems } = useSelector((state) => state.wishlist);
+
+  const onClickHandler = (e) => {
+    const target = e.currentTarget;
+    const parentEl = target.parentElement;
+    parentEl.classList.toggle('active')
+    if (
+        parentEl?.classList.contains("menu-expand") ||
+        target.classList.contains("menu-expand")
+    ) {
+        const element = target.classList.contains("icon")
+            ? parentEl
+            : target;
+        const parent = getClosest(element, "li");
+        const childNodes = parent.childNodes;
+        const parentSiblings = getSiblings(parent);
+        parentSiblings.forEach((sibling) => {
+          sibling.classList.remove('active')
+            const sibChildNodes = sibling.childNodes;
+            sibChildNodes.forEach((child) => {
+                if (child.nodeName === "UL") {
+                    slideUp(child, 1000);
+                }
+            });
+        });
+        childNodes.forEach((child) => {
+            if (child.nodeName === "UL") {
+                slideToggle(child, 1000);
+            }
+        });
+    }
+};
+
   return (
     <>
       <div
@@ -21,9 +64,9 @@ const MobileMenu = function ({ offCanVastoggleBtn, closeSideBar }) {
         <div className="ltn__utilize-menu-inner ltn__scrollbar">
           <div className="ltn__utilize-menu-head">
             <div className="site-logo">
-              <a href="index.html">
-                <img src="img/logo.png" alt="Logo" />
-              </a>
+              <Link href="/">
+                <img src="/img/logo.png" alt="Logo" />
+              </Link>
             </div>
             <button onClick={closeSideBar} className="ltn__utilize-close">
               ×
@@ -33,257 +76,290 @@ const MobileMenu = function ({ offCanVastoggleBtn, closeSideBar }) {
             <form action="#">
               <input type="text" placeholder="Search..." />
               <button>
-                <i className="fas fa-search"></i>
+                <FaSearch />
               </button>
             </form>
           </div>
           <div className="ltn__utilize-menu">
             <ul>
               <li>
-                <a href="#">Home</a>
+                <Link href="#">Home</Link>
+                <span
+                                className="menu-expand"
+                                onClick={onClickHandler}
+                                aria-hidden="true"
+                            ></span>
                 <ul className="sub-menu">
                   <li>
-                    <a href="index.html">Home Style 01</a>
+                    <Link href="index.html">Home Style 01</Link>
                   </li>
                   <li>
-                    <a href="index-2.html">Home Style 02</a>
+                    <Link href="index-2.html">Home Style 02</Link>
                   </li>
                   <li>
-                    <a href="index-3.html">Home Style 03</a>
+                    <Link href="index-3.html">Home Style 03</Link>
                   </li>
                   <li>
-                    <a href="index-4.html">Home Style 04</a>
+                    <Link href="index-4.html">Home Style 04</Link>
                   </li>
                   <li>
-                    <a href="index-5.html">
-                      Home Style 05{" "}
+                    <Link href="index-5.html">
+                      Home Style 05
                       <span className="menu-item-badge">video</span>
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="index-6.html">Home Style 06</a>
+                    <Link href="index-6.html">Home Style 06</Link>
                   </li>
                   <li>
-                    <a href="index-7.html">Home Style 07</a>
+                    <Link href="index-7.html">Home Style 07</Link>
                   </li>
                   <li>
-                    <a href="index-8.html">Home Style 08</a>
+                    <Link href="index-8.html">Home Style 08</Link>
                   </li>
                   <li>
-                    <a href="index-9.html">Home Style 09</a>
+                    <Link href="index-9.html">Home Style 09</Link>
                   </li>
                   <li>
-                    <a href="index-10.html">
+                    <Link href="index-10.html">
                       Home Style 10 <span className="menu-item-badge">Map</span>
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="index-11.html">Home Style 11</a>
+                    <Link href="index-11.html">Home Style 11</Link>
                   </li>
                 </ul>
               </li>
               <li>
-                <a href="#">About</a>
+                <Link href="#">About</Link>
+                <span
+                                className="menu-expand"
+                                onClick={onClickHandler}
+                                aria-hidden="true"
+                            ></span>
                 <ul className="sub-menu">
                   <li>
-                    <a href="about.html">About</a>
+                    <Link href="about.html">About</Link>
                   </li>
                   <li>
-                    <a href="service.html">Services</a>
+                    <Link href="service.html">Services</Link>
                   </li>
                   <li>
-                    <a href="service-details.html">Service Details</a>
+                    <Link href="service-details.html">Service Details</Link>
                   </li>
                   <li>
-                    <a href="portfolio.html">Portfolio</a>
+                    <Link href="portfolio.html">Portfolio</Link>
                   </li>
                   <li>
-                    <a href="portfolio-2.html">Portfolio - 02</a>
+                    <Link href="portfolio-2.html">Portfolio - 02</Link>
                   </li>
                   <li>
-                    <a href="portfolio-details.html">Portfolio Details</a>
+                    <Link href="portfolio-details.html">Portfolio Details</Link>
                   </li>
                   <li>
-                    <a href="team.html">Team</a>
+                    <Link href="team.html">Team</Link>
                   </li>
                   <li>
-                    <a href="team-details.html">Team Details</a>
+                    <Link href="team-details.html">Team Details</Link>
                   </li>
                   <li>
-                    <a href="faq.html">FAQ</a>
+                    <Link href="faq.html">FAQ</Link>
                   </li>
                   <li>
-                    <a href="locations.html">Google Map Locations</a>
+                    <Link href="locations.html">Google Map Locations</Link>
                   </li>
                 </ul>
               </li>
               <li>
-                <a href="#">Shop</a>
+                <Link href="#">Shop</Link>
+                <span
+                                className="menu-expand"
+                                onClick={onClickHandler}
+                                aria-hidden="true"
+                            ></span>
                 <ul className="sub-menu">
                   <li>
-                    <a href="shop.html">Shop</a>
+                    <Link href="/shop">Shop</Link>
                   </li>
                   <li>
-                    <a href="shop-grid.html">Shop Grid</a>
+                    <Link href="/shop-grid">Shop Grid</Link>
                   </li>
                   <li>
-                    <a href="shop-left-sidebar.html">Shop Left sidebar</a>
+                    <Link href="/shop-left-sidebar">Shop Left sidebar</Link>
                   </li>
                   <li>
-                    <a href="shop-right-sidebar.html">Shop right sidebar</a>
+                    <Link href="/shop-right-sidebar">Shop right sidebar</Link>
+                  </li>
+                  {/* <li>
+                    <Link href="product-details">Shop details </Link>
+                  </li> */}
+                  <li>
+                    <Link href="/cart">Cart</Link>
                   </li>
                   <li>
-                    <a href="product-details">Shop details </a>
+                    <Link href="/wishlist">Wishlist</Link>
                   </li>
                   <li>
-                    <a href="cart.html">Cart</a>
+                    <Link href="/checkout">Checkout</Link>
                   </li>
                   <li>
-                    <a href="wishlist.html">Wishlist</a>
+                    <Link href="/order-tracking">Order Tracking</Link>
                   </li>
                   <li>
-                    <a href="checkout.html">Checkout</a>
+                    <Link href="my-account">My Account</Link>
                   </li>
                   <li>
-                    <a href="order-tracking.html">Order Tracking</a>
+                    <Link href="/login">Sign in</Link>
                   </li>
                   <li>
-                    <a href="account.html">My Account</a>
-                  </li>
-                  <li>
-                    <a href="login.html">Sign in</a>
-                  </li>
-                  <li>
-                    <a href="register.html">Register</a>
+                    <Link href="/register">Register</Link>
                   </li>
                 </ul>
               </li>
               <li>
-                <a href="#">News</a>
+                <Link href="#">News</Link>
+                <span
+                                className="menu-expand"
+                                onClick={onClickHandler}
+                                aria-hidden="true"
+                            ></span>
                 <ul className="sub-menu">
                   <li>
-                    <a href="blog.html">News</a>
+                    <Link href="/blog">News</Link>
                   </li>
                   <li>
-                    <a href="blog-grid.html">News Grid</a>
+                    <Link href="/blog-grid">News Grid</Link>
                   </li>
                   <li>
-                    <a href="blog-left-sidebar.html">News Left sidebar</a>
+                    <Link href="/blog-left-sidebar">News Left sidebar</Link>
                   </li>
                   <li>
-                    <a href="blog-right-sidebar.html">News Right sidebar</a>
+                    <Link href="/blog-right-sidebar">News Right sidebar</Link>
                   </li>
                   <li>
-                    <a href="blog-details.html">News details</a>
+                    <Link href="/blog-details">News details</Link>
                   </li>
                 </ul>
               </li>
               <li>
-                <a href="#">Pages</a>
+                <Link href="#">Pages</Link>
+                <span
+                                className="menu-expand"
+                                onClick={onClickHandler}
+                                aria-hidden="true"
+                            ></span>
                 <ul className="sub-menu">
                   <li>
-                    <a href="about.html">About</a>
+                    <Link href="/about">About</Link>
                   </li>
                   <li>
-                    <a href="service.html">Services</a>
+                    <Link href="/service">Services</Link>
+                  </li>
+                  {/* <li>
+                    <Link href="service-details.html">Service Details</Link>
+                  </li> */}
+                  <li>
+                    <Link href="/portfolio">Portfolio</Link>
                   </li>
                   <li>
-                    <a href="service-details.html">Service Details</a>
+                    <Link href="/portfolio-2">Portfolio - 02</Link>
+                  </li>
+                  {/* <li>
+                    <Link href="portfolio-details.html">Portfolio Details</Link>
+                  </li> */}
+                  <li>
+                    <Link href="/team">Team</Link>
+                  </li>
+                  {/* <li>
+                    <Link href="team-details.html">Team Details</Link>
+                  </li> */}
+                  <li>
+                    <Link href="/faq">FAQ</Link>
                   </li>
                   <li>
-                    <a href="portfolio.html">Portfolio</a>
+                    <Link href="/history">History</Link>
                   </li>
                   <li>
-                    <a href="portfolio-2.html">Portfolio - 02</a>
+                    <Link href="/add-listing">Add Listing</Link>
                   </li>
                   <li>
-                    <a href="portfolio-details.html">Portfolio Details</a>
+                    <Link href="/locations">Google Map Locations</Link>
                   </li>
                   <li>
-                    <a href="team.html">Team</a>
+                    <Link href="/404">404</Link>
                   </li>
                   <li>
-                    <a href="team-details.html">Team Details</a>
+                    <Link href="/contact">Contact</Link>
                   </li>
                   <li>
-                    <a href="faq.html">FAQ</a>
-                  </li>
-                  <li>
-                    <a href="history.html">History</a>
-                  </li>
-                  <li>
-                    <a href="add-listing.html">Add Listing</a>
-                  </li>
-                  <li>
-                    <a href="locations.html">Google Map Locations</a>
-                  </li>
-                  <li>
-                    <a href="404.html">404</a>
-                  </li>
-                  <li>
-                    <a href="contact.html">Contact</a>
-                  </li>
-                  <li>
-                    <a href="coming-soon.html">Coming Soon</a>
+                    <Link href="/coming-soon">Coming Soon</Link>
                   </li>
                 </ul>
               </li>
               <li>
-                <a href="contact.html">Contact</a>
+                <Link href="/contact">Contact</Link>
               </li>
             </ul>
           </div>
           <div className="ltn__utilize-buttons ltn__utilize-buttons-2">
             <ul>
               <li>
-                <a href="account.html" title="My Account">
+                <Link href="/my-account" title="My Account">
                   <span className="utilize-btn-icon">
                     <FaRegUser />
                   </span>
                   My Account
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="wishlist.html" title="Wishlist">
+                <Link href="/wishlist" title="Wishlist">
                   <span className="utilize-btn-icon">
                     <FaRegHeart />
-                    <sup>3</sup>
+                    {cartItems.length > 0 ? (
+                      <sup>{cartItems.length}</sup>
+                    ) : (
+                      <sup>0</sup>
+                    )}
                   </span>
                   Wishlist
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="cart.html" title="Shoping Cart">
+                <Link href="/cart" title="Shoping Cart">
                   <span className="utilize-btn-icon">
                     <FaShoppingCart />
-                    <sup>5</sup>
+                    {cartItems.length > 0 ? (
+                      <sup>{cartItems.length}</sup>
+                    ) : (
+                      <sup>0</sup>
+                    )}
                   </span>
                   Shoping Cart
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
           <div className="ltn__social-media-2">
             <ul>
               <li>
-                <a href="#" title="Facebook">
+                <Link href="#">
                   <FaFacebookF />
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" title="Twitter">
+                <Link href="#">
                   <FaTwitter />
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" title="Linkedin">
+                <Link href="#">
                   <FaLinkedin />
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" title="Instagram">
+                <Link href="#">
                   <FaInstagram />
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

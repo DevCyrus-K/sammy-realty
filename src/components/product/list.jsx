@@ -1,10 +1,21 @@
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/store/slices/cart-slice";
+import {
+  addToWishlist,
+  deleteFromWishlist,
+} from "@/store/slices/wishlist-slice";
 const ProductList = ({
   productData,
   slug,
   baseUrl,
   showQuickViewHandle,
   showWishlistHandle,
+  discountedPrice,
+  productPrice,
+  cartItem,
+  wishlistItem,
+  compareItem,
 }) => {
   let badgeText = "";
 
@@ -13,7 +24,7 @@ const ProductList = ({
   } else {
     badgeText = "For Sale";
   }
-
+  const dispatch = useDispatch();
   return (
     <>
       <div className="ltn__product-item ltn__product-item-4 ltn__product-item-5">
@@ -96,12 +107,18 @@ const ProductList = ({
                 </button>
               </li>
               <li>
-                <button onClick={showWishlistHandle}>
+                <button
+                  onClick={
+                    wishlistItem !== undefined
+                      ? () => dispatch(deleteFromWishlist(productData.id))
+                      : () => dispatch(addToWishlist(productData))
+                  }
+                >
                   <i className="flaticon-heart-1"></i>
                 </button>
               </li>
               <li>
-                <button>
+                <button onClick={() => dispatch(addToCart(productData))}>
                   <i className="flaticon-add"></i>
                 </button>
               </li>

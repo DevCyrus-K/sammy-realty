@@ -1,15 +1,20 @@
 import Link from "next/link";
-import { FaArrowRight, FaSearch, FaRegEnvelopeOpen } from "react-icons/fa";
-import serviceData from "@/data/service";
+import {
+  FaArrowRight,
+  FaSearch,
+  FaRegEnvelopeOpen,
+  FaRegComments,
+} from "react-icons/fa";
+import portfolioData from "@/data/portfolio";
 import { LayoutOne } from "@/layouts";
 import { productSlug } from "@/lib/product";
 import { Container, Row, Col } from "react-bootstrap";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
 import CallToAction from "@/components/callToAction";
 
-function ServiceDetails({ service }) {
-  const firstLetter = service.shortDescription.slice(0, 1);
-  const firstToEnd = service.shortDescription.slice(1);
+function portfolioDetails({ portfolio }) {
+  const firstLetter = portfolio.shortDescription.slice(0, 1);
+  const firstToEnd = portfolio.shortDescription.slice(1);
 
   return (
     <>
@@ -17,22 +22,22 @@ function ServiceDetails({ service }) {
         {/* <!-- BREADCRUMB AREA START --> */}
 
         <ShopBreadCrumb
-          title="Service Details"
+          title="Portfolio Details"
           sectionPace=""
-          currentSlug="Property Management"
+          currentSlug="Portfolio Details"
         />
 
         {/* <!-- BREADCRUMB AREA END --> */}
 
         {/* <!-- PAGE DETAILS AREA START (service-details) --> */}
-        <div className="ltn__page-details-area ltn__service-details-area mb-105">
+        <div className="ltn__page-details-area ltn__portfolio-details-area mb-105">
           <Container>
             <Row>
               <Col xs={12} lg={8}>
-                <div className="ltn__page-details-inner ltn__service-details-inner">
+                <div className="ltn__page-details-inner ltn__portfolio-details-inner">
                   <div className="ltn__blog-img">
                     <img
-                      src={`/img/service/${service.thumbImage}`}
+                      src={`/img/service/${portfolio.thumbImage}`}
                       alt="Image"
                     />
                   </div>
@@ -40,24 +45,65 @@ function ServiceDetails({ service }) {
                     <span className="ltn__first-letter">{firstLetter}</span>
                     {firstToEnd}
                   </p>
-                  <p>{service.fullDescription}</p>
+
+                  <p>{portfolio.fullDescription}</p>
+
+                  <Row>
+                    {portfolio.reviews.map((review, key) => {
+                      console.log(review);
+                      return (
+                        <Col key={key} xs={12} lg={6}>
+                          <div className="ltn__testimonial-item ltn__testimonial-item-3">
+                            <div className="ltn__testimonial-img">
+                              <img
+                                src={`/img/blog/${review.author.productImage}`}
+                                alt="Image"
+                              />
+                            </div>
+                            <div className="ltn__testimoni-info">
+                              <p>{review.author.description}</p>
+                              <div className="ltn__testimoni-info-inner">
+                                <div className="ltn__testimoni-img">
+                                  <img
+                                    src={`/img/testimonial/${review.author.img}`}
+                                    alt="Image"
+                                  />
+                                </div>
+                                <div className="ltn__testimoni-name-designation">
+                                  <h4>{review.author.name}</h4>
+                                  <h6>{review.author.designation}</h6>
+                                </div>
+                              </div>
+                              <div className="ltn__testimoni-bg-icon">
+                                <span>
+                                  <FaRegComments />
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </Col>
+                      );
+                    })}
+                  </Row>
+
+                  <p>{portfolio.fullDescription}</p>
                   <Row>
                     <Col xs={12} lg={6}>
                       <img
-                        src={`/img/service/${service.captions.image1}`}
+                        src={`/img/service/${portfolio.captions.image1}`}
                         alt="image"
                       />
-                      <label>{service.captions.caption}</label>
+                      <label>{portfolio.captions.caption}</label>
                     </Col>
                     <Col xs={12} lg={6}>
                       <img
-                        src={`/img/service/${service.captions.image2}`}
+                        src={`/img/service/${portfolio.captions.image2}`}
                         alt="image"
                       />
                     </Col>
                   </Row>
-                  <p>{service.captions.captionFullDescription}</p>
-                  <p>{service.captions.captionShortDescription}</p>
+                  <p>{portfolio.captions.captionFullDescription}</p>
+                  <p>{portfolio.captions.captionShortDescription}</p>
                 </div>
               </Col>
               <Col xs={12} lg={4}>
@@ -156,20 +202,20 @@ function ServiceDetails({ service }) {
   );
 }
 
-export default ServiceDetails;
+export default portfolioDetails;
 
 export async function getStaticProps({ params }) {
   // get blog data based on slug
-  const service = serviceData.filter(
+  const portfolio = portfolioData.filter(
     (single) => productSlug(single.title) === params.slug
   )[0];
 
-  return { props: { service } };
+  return { props: { portfolio } };
 }
 
 export async function getStaticPaths() {
   // get the paths we want to pre render based on blogs
-  const paths = serviceData.map((data) => ({
+  const paths = portfolioData.map((data) => ({
     params: {
       slug: productSlug(data.title, {
         lower: true, // convert to lower case, defaults to `false`

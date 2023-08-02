@@ -58,22 +58,13 @@ function AboutUsStyleTwo() {
 
                 <div className="ltn__list-item-2 ltn__list-item-2-before--- ltn__list-item-2-img mb-50">
                   <LightGallery>
-                    <Link
-                      href="img/img-slide/11.jpg"
-                      data-src="img/img-slide/11.jpg"
-                    >
+                    <Link href="img/img-slide/11.jpg">
                       <img src="img/img-slide/11.jpg" alt="Image" />
                     </Link>
-                    <Link
-                      href="img/img-slide/12.jpg"
-                      data-src="img/img-slide/12.jpg"
-                    >
+                    <Link href="img/img-slide/12.jpg">
                       <img src="img/img-slide/12.jpg" alt="Image" />
                     </Link>
-                    <Link
-                      href="img/img-slide/13.jpg"
-                      data-src="img/img-slide/13.jpg"
-                    >
+                    <Link href="img/img-slide/13.jpg">
                       <img src="img/img-slide/13.jpg" alt="Image" />
                     </Link>
                   </LightGallery>

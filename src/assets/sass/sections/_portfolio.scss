@@ -3,6 +3,7 @@
 ---------------------------------------------- */
 .ltn__gallery-item {
   margin-bottom: 30px;
+  cursor: pointer;
   &:hover {
     .ltn__gallery-item-img {
       &::before {
@@ -17,7 +18,7 @@
       top: 50%;
       opacity: 1;
       visibility: visible;
-    }    
+    }
   }
 }
 .ltn__gallery-item-inner {
@@ -63,7 +64,8 @@
   visibility: hidden;
   transition: all 0.5s ease 0s;
   z-index: 2;
-  i {
+  span {
+    display: inline-block;
     width: 50px;
     height: 50px;
     line-height: 50px;
@@ -105,19 +107,20 @@
     opacity: 0;
     visibility: hidden;
   }
-  h4, p {
+  h4,
+  p {
     color: var(--white);
   }
   .ltn__gallery-item {
     &:hover {
-        .ltn__gallery-item-info {
-          bottom: 0px;
-          opacity: 1;
-          visibility: visible;
-        }
-        .ltn__gallery-action-icon {
-          top: 35%;
-        }
+      .ltn__gallery-item-info {
+        bottom: 0px;
+        opacity: 1;
+        visibility: visible;
+      }
+      .ltn__gallery-action-icon {
+        top: 35%;
+      }
     }
   }
 }
@@ -127,9 +130,9 @@
   }
   .ltn__gallery-item {
     &:hover {
-        .ltn__gallery-action-icon {
-          top: 50%;
-        }
+      .ltn__gallery-action-icon {
+        top: 50%;
+      }
     }
   }
 }

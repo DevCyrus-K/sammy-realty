@@ -18,6 +18,7 @@ import {
   FaEnvelope,
   FaGlobe,
   FaPencilAlt,
+  FaCalendarAlt,
 } from "react-icons/fa";
 import BreadCrumb from "@/components/breadCrumbs";
 
@@ -31,12 +32,14 @@ import QuickViewtModal from "@/components/modals/quickViewModal";
 import WishListModal from "@/components/modals/wishListModal";
 import FollowUs from "@/components/followUs";
 import Tags from "@/components/tags";
+import blogData from "@/data/blog";
 
 function ProductDetails({ product }) {
   const { products } = useSelector((state) => state.product);
   const { cartItems } = useSelector((state) => state.cart);
   const { wishlistItems } = useSelector((state) => state.wishlist);
   const { compareItems } = useSelector((state) => state.compare);
+  const latestdBlogs = getProducts(blogData, "fashion", "featured", 4);
 
   const relatedProducts = getProducts(
     products,
@@ -995,7 +998,7 @@ function ProductDetails({ product }) {
                           <RelatedProduct
                             productData={data}
                             slug={slug}
-                            baseUrl='shop'
+                            baseUrl="shop"
                             showQuickViewHandle={showQuickViewHandle}
                             showWishlistHandle={showWishlistHandle}
                           />
@@ -1012,7 +1015,7 @@ function ProductDetails({ product }) {
                   <div className="widget ltn__author-widget">
                     <div className="ltn__author-widget-inner text-center">
                       <img
-                        src={`//img/team/${product.agent.img}`}
+                        src={`/img/team/${product.agent.img}`}
                         alt={`${product.agent.fullName}`}
                       />
                       <h5>{product.agent.fullName}</h5>
@@ -1134,55 +1137,55 @@ function ProductDetails({ product }) {
                         let key = keys + 1;
                         return (
                           <li key={product.id}>
-                          <div className="top-rated-product-item clearfix">
-                            <div className="top-rated-product-img">
-                              <a href={slug}>
-                                <img
-                                  src={`/img/product/${key}.png`}
-                                  alt={product.title}
-                                />
-                              </a>
-                            </div>
-                            <div className="top-rated-product-info">
-                              <div className="product-ratting">
-                                <ul>
-                                  <li>
-                                    <a href="#">
-                                      <FaStar />
-                                    </a>
-                                  </li>
-                                  <li>
-                                    <a href="#">
-                                      <FaStar />
-                                    </a>
-                                  </li>
-                                  <li>
-                                    <a href="#">
-                                      <FaStar />
-                                    </a>
-                                  </li>
-                                  <li>
-                                    <a href="#">
-                                      <FaStar />
-                                    </a>
-                                  </li>
-                                  <li>
-                                    <a href="#">
-                                      <FaStar />
-                                    </a>
-                                  </li>
-                                </ul>
+                            <div className="top-rated-product-item clearfix">
+                              <div className="top-rated-product-img">
+                                <a href={`/shop/${slug}`}>
+                                  <img
+                                    src={`/img/product/${key}.png`}
+                                    alt={product.title}
+                                  />
+                                </a>
                               </div>
-                              <h6>
-                                <a href={slug}>{product.title}</a>
-                              </h6>
-                              <div className="product-price">
-                                <span>${product.price}</span>
-                                <del>${discountedPrice}</del>
+                              <div className="top-rated-product-info">
+                                <div className="product-ratting">
+                                  <ul>
+                                    <li>
+                                      <a href="#">
+                                        <FaStar />
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="#">
+                                        <FaStar />
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="#">
+                                        <FaStar />
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="#">
+                                        <FaStar />
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="#">
+                                        <FaStar />
+                                      </a>
+                                    </li>
+                                  </ul>
+                                </div>
+                                <h6>
+                                  <a href={`/shop/${slug}`}>{product.title}</a>
+                                </h6>
+                                <div className="product-price">
+                                  <span>${product.price}</span>
+                                  <del>${discountedPrice}</del>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </li>
+                          </li>
                         );
                       })}
                     </ul>
@@ -1236,65 +1239,64 @@ function ProductDetails({ product }) {
                         const slug = productSlug(product.title);
                         return (
                           <div
-                          key={key}
-                          className="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---"
-                        >
-                          <div className="product-img">
-                            <Link href={slug}>
-                              <img
-                                src={`/img/product-3/${product.productImg}`}
-                                alt={slug}
-                              />
-                            </Link>
-                            <div className="real-estate-agent">
-                              <div className="agent-img">
-                                <Link href={slug}>
-                                  <img
-                                    src={`/img/blog/author.jpg`}
-                                    alt="#"
-                                  />
-                                </Link>
+                            key={key}
+                            className="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---"
+                          >
+                            <div className="product-img">
+                              <Link href={`/shop/${slug}`}>
+                                <img
+                                  src={`/img/product-3/${product.productImg}`}
+                                  alt={slug}
+                                />
+                              </Link>
+                              <div className="real-estate-agent">
+                                <div className="agent-img">
+                                  <Link href="#">
+                                    <img src={`/img/blog/author.jpg`} alt="#" />
+                                  </Link>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                          <div className="product-info">
-                            <div className="product-price">
-                              <span>
-                                ${product.price}
-                                <label>/Month</label>
-                              </span>
-                            </div>
-                            <h2 className="product-title">
-                              <Link href={slug}>{product.title}</Link>
-                            </h2>
-                            <div className="product-img-location">
-                              <ul>
+                            <div className="product-info">
+                              <div className="product-price">
+                                <span>
+                                  ${product.price}
+                                  <label>/Month</label>
+                                </span>
+                              </div>
+                              <h2 className="product-title">
+                                <Link href={`/shop/${slug}`}>
+                                  {product.title}
+                                </Link>
+                              </h2>
+                              <div className="product-img-location">
+                                <ul>
+                                  <li>
+                                    <Link href="product-details">
+                                      <i className="flaticon-pin"></i>
+                                      {product.locantion}
+                                    </Link>
+                                  </li>
+                                </ul>
+                              </div>
+                              <ul className="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
                                 <li>
-                                  <Link href="product-details">
-                                    <i className="flaticon-pin"></i>
-                                    {product.locantion}
-                                  </Link>
+                                  <span>
+                                    {product.propertyDetails.bedrooms}
+                                  </span>
+                                  <span className="ms-1">Bedrooms</span>
+                                </li>
+                                <li>
+                                  <span>{product.propertyDetails.baths}</span>
+                                  <span className="ms-1">Bathrooms</span>
+                                </li>
+                                <li>
+                                  <span>{product.propertyDetails.area}</span>
+                                  <span className="ms-1">square Ft</span>
                                 </li>
                               </ul>
                             </div>
-                            <ul className="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
-                              <li>
-                                <span>
-                                  {product.propertyDetails.bedrooms}
-                                </span>
-                                <span className="ms-1">Bedrooms</span>
-                              </li>
-                              <li>
-                                <span>{product.propertyDetails.baths}</span>
-                                <span className="ms-1">Bathrooms</span>
-                              </li>
-                              <li>
-                                <span>{product.propertyDetails.area}</span>
-                                <span className="ms-1">square Ft</span>
-                              </li>
-                            </ul>
                           </div>
-                        </div>
                         );
                       })}
                     </Slider>
@@ -1305,110 +1307,44 @@ function ProductDetails({ product }) {
                       Leatest Blogs
                     </h4>
                     <ul>
-                      <li>
-                        <div className="popular-post-widget-item clearfix">
-                          <div className="popular-post-widget-img">
-                            <a href="blog-details.html">
-                              <img src="/img/team/5.jpg" alt="#" />
-                            </a>
-                          </div>
-                          <div className="popular-post-widget-brief">
-                            <h6>
-                              <a href="blog-details.html">
-                                Lorem ipsum dolor sit cing elit, sed do.
-                              </a>
-                            </h6>
-                            <div className="ltn__blog-meta">
-                              <ul>
-                                <li className="ltn__blog-date">
-                                  <a href="#">
-                                    <i className="far fa-calendar-alt"></i>June
-                                    22, 2020
-                                  </a>
-                                </li>
-                              </ul>
+                      {latestdBlogs.map((blog, key) => {
+                        const slug = productSlug(blog.title);
+                        let imagecount = key + 1;
+
+                        return (
+                          <li key={key}>
+                            <div className="popular-post-widget-item clearfix">
+                              <div className="popular-post-widget-img">
+                                <Link href={`/blog/${slug}`}>
+                                  <img
+                                    src={`/img/team/${imagecount}.jpg`}
+                                    alt="#"
+                                  />
+                                </Link>
+                              </div>
+                              <div className="popular-post-widget-brief">
+                                <h6>
+                                  <Link href={`/blog/${slug}`}>
+                                    {blog.title}
+                                  </Link>
+                                </h6>
+                                <div className="ltn__blog-meta">
+                                  <ul>
+                                    <li className="ltn__blog-date">
+                                      <Link href="#">
+                                        <span>
+                                          <FaCalendarAlt />
+                                        </span>
+                                        <span>{blog.date}</span>
+                                      </Link>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="popular-post-widget-item clearfix">
-                          <div className="popular-post-widget-img">
-                            <a href="blog-details.html">
-                              <img src="/img/team/6.jpg" alt="#" />
-                            </a>
-                          </div>
-                          <div className="popular-post-widget-brief">
-                            <h6>
-                              <a href="blog-details.html">
-                                Lorem ipsum dolor sit cing elit, sed do.
-                              </a>
-                            </h6>
-                            <div className="ltn__blog-meta">
-                              <ul>
-                                <li className="ltn__blog-date">
-                                  <a href="#">
-                                    <i className="far fa-calendar-alt"></i>June
-                                    22, 2020
-                                  </a>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="popular-post-widget-item clearfix">
-                          <div className="popular-post-widget-img">
-                            <a href="blog-details.html">
-                              <img src="/img/team/7.jpg" alt="#" />
-                            </a>
-                          </div>
-                          <div className="popular-post-widget-brief">
-                            <h6>
-                              <a href="blog-details.html">
-                                Lorem ipsum dolor sit cing elit, sed do.
-                              </a>
-                            </h6>
-                            <div className="ltn__blog-meta">
-                              <ul>
-                                <li className="ltn__blog-date">
-                                  <a href="#">
-                                    <i className="far fa-calendar-alt"></i>June
-                                    22, 2020
-                                  </a>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="popular-post-widget-item clearfix">
-                          <div className="popular-post-widget-img">
-                            <a href="blog-details.html">
-                              <img src="/img/team/8.jpg" alt="#" />
-                            </a>
-                          </div>
-                          <div className="popular-post-widget-brief">
-                            <h6>
-                              <a href="blog-details.html">
-                                Lorem ipsum dolor sit cing elit, sed do.
-                              </a>
-                            </h6>
-                            <div className="ltn__blog-meta">
-                              <ul>
-                                <li className="ltn__blog-date">
-                                  <a href="#">
-                                    <i className="far fa-calendar-alt"></i>June
-                                    22, 2020
-                                  </a>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
 

@@ -59,29 +59,29 @@ const BlogSideBar = ({
             <div className="product-ratting">
               <ul>
                 <li>
-                  <a href="#">
+                  <Link href="#">
                     <FaStar />
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#">
+                  <Link href="#">
                     <FaStar />
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#">
+                  <Link href="#">
                     <FaStar />
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#">
+                  <Link href="#">
                     <FaStar />
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#">
+                  <Link href="#">
                     <FaRegStar />
-                  </a>
+                  </Link>
                 </li>
                 <li className="review-total">
                   <Link href="#">( {product.agent.raiting} Reviews )</Link>
@@ -93,25 +93,25 @@ const BlogSideBar = ({
             <div className="ltn__social-media">
               <ul>
                 <li>
-                  <a href="#" title="Facebook">
+                  <Link href="#" title="Facebook">
                     <FaFacebookF />
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" title="Twitter">
+                  <Link href="#" title="Twitter">
                     <FaTwitter />
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" title="Linkedin">
+                  <Link href="#" title="Linkedin">
                     <FaInstagram />
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a href="#" title="Youtube">
+                  <Link href="#" title="Youtube">
                     <FaDribbble />
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -163,45 +163,45 @@ const BlogSideBar = ({
                 <li key={product.id}>
                   <div className="top-rated-product-item clearfix">
                     <div className="top-rated-product-img">
-                      <a href={`${baseUrl}/${slug}`}>
+                      <Link href={`/shop/${slug}`}>
                         <img
                           src={`/img/product/${key}.png`}
                           alt={product.title}
                         />
-                      </a>
+                      </Link>
                     </div>
                     <div className="top-rated-product-info">
                       <div className="product-ratting">
                         <ul>
                           <li>
-                            <a href="#">
+                            <Link href="#">
                               <FaStar />
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a href="#">
+                            <Link href="#">
                               <FaStar />
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a href="#">
+                            <Link href="#">
                               <FaStar />
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a href="#">
+                            <Link href="#">
                               <FaStar />
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a href="#">
+                            <Link href="#">
                               <FaStar />
-                            </a>
+                            </Link>
                           </li>
                         </ul>
                       </div>
                       <h6>
-                        <a href={`${baseUrl}/${slug}`}>{product.title}</a>
+                        <Link href={`/shop/${slug}`}>{product.title}</Link>
                       </h6>
                       <div className="product-price">
                         <span>${product.price}</span>
@@ -267,7 +267,7 @@ const BlogSideBar = ({
                   className="ltn__product-item ltn__product-item-4 ltn__product-item-5"
                 >
                   <div className="product-img">
-                    <Link href={`${baseUrl}/${slug}`}>
+                    <Link href={`/shop/${slug}`}>
                       <img
                         src={`/img/product-3/${product.productImg}`}
                         alt={slug}
@@ -275,7 +275,7 @@ const BlogSideBar = ({
                     </Link>
                     <div className="real-estate-agent">
                       <div className="agent-img">
-                        <Link href={`${baseUrl}/${slug}`}>
+                        <Link href="#">
                           <img src={`/img/blog/author.jpg`} alt="#" />
                         </Link>
                       </div>
@@ -289,12 +289,12 @@ const BlogSideBar = ({
                       </span>
                     </div>
                     <h2 className="product-title">
-                      <Link href={`${baseUrl}/${slug}`}>{product.title}</Link>
+                      <Link href={`/shop/${slug}`}>{product.title}</Link>
                     </h2>
                     <div className="product-img-location">
                       <ul>
                         <li>
-                          <Link href="product-details">
+                          <Link href="/product-details">
                             <i className="flaticon-pin"></i>
                             {product.locantion}
                           </Link>
@@ -335,13 +335,13 @@ const BlogSideBar = ({
                 <li key={key}>
                   <div className="popular-post-widget-item clearfix">
                     <div className="popular-post-widget-img">
-                      <a href={`${baseUrl}/${slug}`}>
+                      <Link href={`/blog/${slug}`}>
                         <img src={`/img/team/${imagecount}.jpg`} alt="#" />
-                      </a>
+                      </Link>
                     </div>
                     <div className="popular-post-widget-brief">
                       <h6>
-                        <a href={`${baseUrl}/${slug}`}>{blog.title}</a>
+                        <Link href={`/blog/${slug}`}>{blog.title}</Link>
                       </h6>
                       <div className="ltn__blog-meta">
                         <ul>
@@ -371,28 +371,28 @@ const BlogSideBar = ({
             <li>
               <div class="popular-post-widget-item clearfix">
                 <div class="popular-post-widget-img">
-                  <a href="blog-details.html">
+                  <Link href="blog-details.html">
                     <span>
                       <FaTwitter />
                     </span>
-                  </a>
+                  </Link>
                 </div>
                 <div class="popular-post-widget-brief">
                   <p>
                     Carsafe - #Gutenberg ready @wordpress Theme for Car Service,
                     Auto Parts, Car Dealer available on @website
-                    <a href="https://website.net">https://website.net</a>
+                    <Link href="https://website.net">https://website.net</Link>
                   </p>
                   <div class="ltn__blog-meta">
                     <ul>
                       <li class="ltn__blog-date">
-                        <a href="#">
+                        <Link href="#">
                           {" "}
                           <span>
                             <FaCalendarAlt />
                           </span>
                           June 22, 2020
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -402,28 +402,28 @@ const BlogSideBar = ({
             <li>
               <div class="popular-post-widget-item clearfix">
                 <div class="popular-post-widget-img">
-                  <a href="blog-details.html">
+                  <Link href="blog-details.html">
                     <span>
                       <FaTwitter />
                     </span>
-                  </a>
+                  </Link>
                 </div>
                 <div class="popular-post-widget-brief">
                   <p>
                     Carsafe - #Gutenberg ready @wordpress Theme for Car Service,
                     Auto Parts, Car Dealer available on @website
-                    <a href="https://website.net">https://website.net</a>
+                    <Link href="https://website.net">https://website.net</Link>
                   </p>
                   <div class="ltn__blog-meta">
                     <ul>
                       <li class="ltn__blog-date">
-                        <a href="#">
+                        <Link href="#">
                           {" "}
                           <span>
                             <FaCalendarAlt />
                           </span>
                           June 22, 2020
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -433,28 +433,28 @@ const BlogSideBar = ({
             <li>
               <div class="popular-post-widget-item clearfix">
                 <div class="popular-post-widget-img">
-                  <a href="blog-details.html">
+                  <Link href="blog-details.html">
                     <span>
                       <FaTwitter />
                     </span>
-                  </a>
+                  </Link>
                 </div>
                 <div class="popular-post-widget-brief">
                   <p>
                     Carsafe - #Gutenberg ready @wordpress Theme for Car Service,
                     Auto Parts, Car Dealer available on @website
-                    <a href="https://website.net">https://website.net</a>
+                    <Link href="https://website.net">https://website.net</Link>
                   </p>
                   <div class="ltn__blog-meta">
                     <ul>
                       <li class="ltn__blog-date">
-                        <a href="#">
+                        <Link href="#">
                           {" "}
                           <span>
                             <FaCalendarAlt />
                           </span>
                           June 22, 2020
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>

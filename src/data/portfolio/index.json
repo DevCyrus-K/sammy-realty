@@ -11,22 +11,18 @@
       "captionFullDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione.",
       "captionShortDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
     },
-    "thumbImage": "1.jpg",
+    "thumbImage": "2.jpg",
     "img": "1.png",
     "id": "01",
-    "buttonText": "Find A Home",
     "active": false,
-    "icon": "<FaArrowLeft/>",
-    "category": [
-      "fashion",
-      "women"
-    ],
+    "category": ["fashion", "women"],
     "featured": true,
     "reviews": [
       {
         "author": {
           "productImage": "7.jpg",
           "name": "Jacob William",
+          "designation": "Founder, Browni Co.",
           "img": "1.jpg",
           "description": "Lorem ipsum dolor sit amet, conse ctetur adipisicing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua."
         }
@@ -35,6 +31,7 @@
         "author": {
           "productImage": "7.jpg",
           "name": "Jacob William",
+          "designation": "Founder, Browni Co.",
           "img": "1.jpg",
           "description": "Lorem ipsum dolor sit amet, conse ctetur adipisicing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua."
         }
@@ -56,19 +53,15 @@
     "thumbImage": "2.jpg",
     "img": "2.jpg",
     "id": "02",
-    "buttonText": "Find A Home",
     "active": true,
-    "icon": "<FaArrowLeft/>",
-    "category": [
-      "fashion",
-      "women"
-    ],
+    "category": ["fashion", "women"],
     "featured": true,
     "reviews": [
       {
         "author": {
           "productImage": "7.jpg",
           "name": "Jacob William",
+          "designation": "Founder, Browni Co.",
           "img": "1.jpg",
           "description": "Lorem ipsum dolor sit amet, conse ctetur adipisicing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua."
         }
@@ -77,6 +70,7 @@
         "author": {
           "productImage": "7.jpg",
           "name": "Jacob William",
+          "designation": "Founder, Browni Co.",
           "img": "1.jpg",
           "description": "Lorem ipsum dolor sit amet, conse ctetur adipisicing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua."
         }
@@ -98,19 +92,15 @@
     "thumbImage": "3.jpg",
     "img": "3.jpg",
     "id": "03",
-    "buttonText": "Find A Home",
     "active": false,
-    "icon": "<FaArrowLeft/>",
-    "category": [
-      "fashion",
-      "women"
-    ],
+    "category": ["fashion", "women"],
     "featured": true,
     "reviews": [
       {
         "author": {
           "productImage": "7.jpg",
           "name": "Jacob William",
+          "designation": "Founder, Browni Co.",
           "img": "1.jpg",
           "description": "Lorem ipsum dolor sit amet, conse ctetur adipisicing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua."
         }
@@ -119,6 +109,7 @@
         "author": {
           "productImage": "7.jpg",
           "name": "Jacob William",
+          "designation": "Founder, Browni Co.",
           "img": "1.jpg",
           "description": "Lorem ipsum dolor sit amet, conse ctetur adipisicing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua."
         }
@@ -140,19 +131,15 @@
     "thumbImage": "4.jpg",
     "img": "4.jpg",
     "id": "04",
-    "buttonText": "Find A Home",
     "active": false,
-    "icon": "<FaArrowLeft/>",
-    "category": [
-      "fashion",
-      "women"
-    ],
+    "category": ["fashion", "women"],
     "featured": true,
     "reviews": [
       {
         "author": {
           "productImage": "7.jpg",
           "name": "Jacob William",
+          "designation": "Founder, Browni Co.",
           "img": "1.jpg",
           "description": "Lorem ipsum dolor sit amet, conse ctetur adipisicing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua."
         }
@@ -161,6 +148,7 @@
         "author": {
           "productImage": "7.jpg",
           "name": "Jacob William",
+          "designation": "Founder, Browni Co.",
           "img": "1.jpg",
           "description": "Lorem ipsum dolor sit amet, conse ctetur adipisicing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua."
         }
@@ -182,19 +170,15 @@
     "thumbImage": "5.jpg",
     "img": "5.jpg",
     "id": "05",
-    "buttonText": "Find A Home",
     "active": false,
-    "icon": "<FaArrowLeft/>",
-    "category": [
-      "fashion",
-      "women"
-    ],
+    "category": ["fashion", "women"],
     "featured": true,
     "reviews": [
       {
         "author": {
           "productImage": "7.jpg",
           "name": "Jacob William",
+          "designation": "Founder, Browni Co.",
           "img": "1.jpg",
           "description": "Lorem ipsum dolor sit amet, conse ctetur adipisicing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua."
         }
@@ -203,6 +187,7 @@
         "author": {
           "productImage": "7.jpg",
           "name": "Jacob William",
+          "designation": "Founder, Browni Co.",
           "img": "1.jpg",
           "description": "Lorem ipsum dolor sit amet, conse ctetur adipisicing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua."
         }
@@ -224,19 +209,15 @@
     "thumbImage": "6.jpg",
     "img": "6.jpg",
     "id": "06",
-    "buttonText": "Find A Home",
     "active": false,
-    "icon": "<FaArrowLeft/>",
-    "category": [
-      "fashion",
-      "women"
-    ],
+    "category": ["fashion", "women"],
     "featured": true,
     "reviews": [
       {
         "author": {
           "productImage": "7.jpg",
           "name": "Jacob William",
+          "designation": "Founder, Browni Co.",
           "img": "1.jpg",
           "description": "Lorem ipsum dolor sit amet, conse ctetur adipisicing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua."
         }
@@ -245,6 +226,7 @@
         "author": {
           "productImage": "7.jpg",
           "name": "Jacob William",
+          "designation": "Founder, Browni Co.",
           "img": "1.jpg",
           "description": "Lorem ipsum dolor sit amet, conse ctetur adipisicing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua."
         }
@@ -266,19 +248,15 @@
     "thumbImage": "7.jpg",
     "img": "7.jpg",
     "id": "07",
-    "buttonText": "Find A Home",
     "active": false,
-    "icon": "<FaArrowLeft/>",
-    "category": [
-      "fashion",
-      "women"
-    ],
+    "category": ["fashion", "women"],
     "featured": true,
     "reviews": [
       {
         "author": {
           "productImage": "7.jpg",
           "name": "Jacob William",
+          "designation": "Founder, Browni Co.",
           "img": "1.jpg",
           "description": "Lorem ipsum dolor sit amet, conse ctetur adipisicing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua."
         }
@@ -287,6 +265,7 @@
         "author": {
           "productImage": "7.jpg",
           "name": "Jacob William",
+          "designation": "Founder, Browni Co.",
           "img": "1.jpg",
           "description": "Lorem ipsum dolor sit amet, conse ctetur adipisicing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua."
         }

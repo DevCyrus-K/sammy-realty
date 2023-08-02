@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { FaPlay } from "react-icons/fa";
 import { useState } from "react";
 import ModalVideo from "react-modal-video";

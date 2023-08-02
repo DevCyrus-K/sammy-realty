@@ -1,3 +1,5 @@
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import HeaderTopBarOne from "./headerTopBar/headerTopBarStyleOne";
 import HeaderCartMenu from "./elements/headerCartMenu";
@@ -5,9 +7,8 @@ import MobileMenu from "./elements/mobileMennu";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useState } from "react";
 import { useSelector } from "react-redux";
-
+import clsx from "clsx";
 import {
   FaPlus,
   FaAngleDoubleRight,
@@ -17,7 +18,12 @@ import {
   FaTimes,
 } from "react-icons/fa";
 
-const HeaderStyleOne = function ({toggleClassNameInBody,SetToggleClassName}) {
+
+
+const HeaderStyleOne = function ({
+  toggleClassNameInBody,
+  SetToggleClassName,
+}) {
   const [searchFormOpener, searchFormOpenerSet] = useState(false);
 
   const [cartMenuOpener, cartMenuOpenerSet] = useState(false);
@@ -25,57 +31,68 @@ const HeaderStyleOne = function ({toggleClassNameInBody,SetToggleClassName}) {
   const [offCanVastoggleBtn, SetOffCanVastoggleBtn] = useState(false);
 
   function offcanVasToggler() {
-    SetToggleClassName(true)
-    SetoverlayBtn(true)
+    SetToggleClassName(true);
+    SetoverlayBtn(true);
     SetOffCanVastoggleBtn((offCanVastoggleBtn) => !offCanVastoggleBtn);
   }
-  
 
   function searchForm() {
     searchFormOpenerSet((searchFormOpener) => !searchFormOpener);
   }
 
   function cartMenu() {
-    SetoverlayBtn(true)
+    SetoverlayBtn(true);
     cartMenuOpenerSet((cartMenuOpener) => !cartMenuOpener);
-    SetToggleClassName(false)
+    SetToggleClassName(false);
   }
 
-
-function closeSideBar (){
-
-  SetoverlayBtn(false)
-  cartMenuOpenerSet(false)
-  SetOffCanVastoggleBtn(false)
-}
+  function closeSideBar() {
+    SetoverlayBtn(false);
+    cartMenuOpenerSet(false);
+    SetOffCanVastoggleBtn(false);
+  }
 
   function overlay() {
     SetoverlayBtn((overlayBtn) => !overlayBtn);
-    cartMenuOpenerSet(false)
-    SetOffCanVastoggleBtn(false)
-    SetToggleClassName(false)
+    cartMenuOpenerSet(false);
+    SetOffCanVastoggleBtn(false);
+    SetToggleClassName(false);
   }
 
   const { cartItems } = useSelector((state) => state.cart);
-  console.log(cartItems,'cartItems');
 
+
+  const [scroll, setScroll] = useState(0);
+ const [headerHeight, setHeaderHeight] = useState(0);
+  useEffect(() => {
+    const header = document.querySelector(".ltn__header-sticky");
+    setHeaderHeight(header.offsetHeight);
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleScroll = () => {
+    setScroll(window.scrollY);
+  };
 
   return (
     <>
-      <header className="ltn__header-area ltn__header-5 ltn__header-transparent--- gradient-color-4---">
+      <header className="ltn__header-area ltn__header-5">
         {/* <!-- ltn__header-top-area start --> */}
         <HeaderTopBarOne />
         {/* <!-- ltn__header-top-area end --> */}
 
         {/* <!-- ltn__header-middle-area start --> */}
-        <div className="ltn__header-middle-area ltn__header-sticky ltn__sticky-bg-white">
+        <div className={clsx("ltn__header-middle-area ltn__header-sticky ltn__sticky-bg-white",scroll > headerHeight && "sticky-active")}>
           <Container>
             <Row>
               <Col>
                 <div className="site-logo-wrap">
                   <div className="site-logo">
-                    <Link href="/home">
-                      <img src="/img/logo.svg" alt="Logo" />
+                    <Link href="/">
+                      <img src="/img/logo.png" alt="Logo" />
                     </Link>
                   </div>
                 </div>
@@ -86,7 +103,7 @@ function closeSideBar (){
                     <div className="ltn__main-menu">
                       <ul>
                         <li className="menu-icon">
-                          <Link href="#">
+                          <Link href="/">
                             Home <FaPlus />
                           </Link>
                           <ul className="sub-menu menu-pages-img-show">
@@ -148,40 +165,40 @@ function closeSideBar (){
                           </Link>
                           <ul>
                             <li>
-                              <Link href="about.html">About</Link>
+                              <Link href="/about">About</Link>
                             </li>
                             <li>
-                              <Link href="service.html">Services</Link>
+                              <Link href="/service">Services</Link>
                             </li>
                             <li>
-                              <Link href="service-details.html">
+                              <Link href="/service-details">
                                 Service Details
                               </Link>
                             </li>
                             <li>
-                              <Link href="portfolio.html">Portfolio</Link>
+                              <Link href="/portfolio">Portfolio</Link>
                             </li>
                             <li>
-                              <Link href="portfolio-2.html">
+                              <Link href="/portfolio-2">
                                 Portfolio - 02
                               </Link>
                             </li>
                             <li>
-                              <Link href="portfolio-details.html">
+                              <Link href="/portfolio-details">
                                 Portfolio Details
                               </Link>
                             </li>
                             <li>
-                              <Link href="team.html">Team</Link>
+                              <Link href="/team">Team</Link>
                             </li>
                             <li>
-                              <Link href="team-details.html">Team Details</Link>
+                              <Link href="/team-details">Team Details</Link>
                             </li>
                             <li>
-                              <Link href="faq.html">FAQ</Link>
+                              <Link href="/faq">FAQ</Link>
                             </li>
                             <li>
-                              <Link href="locations.html">
+                              <Link href="/locations">
                                 Google Map Locations
                               </Link>
                             </li>
@@ -196,50 +213,49 @@ function closeSideBar (){
                               <Link href="/shop">Shop</Link>
                             </li>
                             <li>
-                              <Link href="/shop/grid">Shop Grid</Link>
+                              <Link href="/shop-grid">Shop Grid</Link>
                             </li>
                             <li>
-                              <Link href="shop-left-sidebar.html">
+                              <Link href="/shop-left-sidebar">
                                 Shop Left sidebar
                               </Link>
                             </li>
                             <li>
-                              <Link href="shop-right-sidebar.html">
+                              <Link href="/shop-right-sidebar">
                                 Shop right sidebar
                               </Link>
                             </li>
-                            
+
                             <li>
                               <Link href="#">
                                 Other Pages
                                 <span className="float-end">
-                                  
                                   <FaAngleDoubleRight />
                                 </span>
                               </Link>
                               <ul>
                                 <li>
-                                  <Link href="cart.html">Cart</Link>
+                                  <Link href="/cart">Cart</Link>
                                 </li>
                                 <li>
-                                  <Link href="wishlist.html">Wishlist</Link>
+                                  <Link href="/wishlist">Wishlist</Link>
                                 </li>
                                 <li>
-                                  <Link href="checkout.html">Checkout</Link>
+                                  <Link href="/checkout">Checkout</Link>
                                 </li>
                                 <li>
-                                  <Link href="order-tracking.html">
+                                  <Link href="/order-tracking">
                                     Order Tracking
                                   </Link>
                                 </li>
                                 <li>
-                                  <Link href="account.html">My Account</Link>
+                                  <Link href="/my-account">My Account</Link>
                                 </li>
                                 <li>
-                                  <Link href="login.html">Sign in</Link>
+                                  <Link href="/login">Sign in</Link>
                                 </li>
                                 <li>
-                                  <Link href="register.html">Register</Link>
+                                  <Link href="/register">Register</Link>
                                 </li>
                               </ul>
                             </li>
@@ -251,23 +267,23 @@ function closeSideBar (){
                           </Link>
                           <ul>
                             <li>
-                              <Link href="blog.html">News</Link>
+                              <Link href="/blog">News</Link>
                             </li>
                             <li>
-                              <Link href="blog-grid.html">News Grid</Link>
+                              <Link href="/blog-grid">News Grid</Link>
                             </li>
                             <li>
-                              <Link href="blog-left-sidebar.html">
+                              <Link href="/blog-left-sidebar">
                                 News Left sidebar
                               </Link>
                             </li>
                             <li>
-                              <Link href="blog-right-sidebar.html">
+                              <Link href="/blog-right-sidebar">
                                 News Right sidebar
                               </Link>
                             </li>
                             <li>
-                              <Link href="blog-details.html">News details</Link>
+                              <Link href="/blog-details">News details</Link>
                             </li>
                           </ul>
                         </li>
@@ -280,10 +296,10 @@ function closeSideBar (){
                               <Link href="#">Inner Pages</Link>
                               <ul>
                                 <li>
-                                  <Link href="portfolio.html">Portfolio</Link>
+                                  <Link href="/portfolio">Portfolio</Link>
                                 </li>
                                 <li>
-                                  <Link href="portfolio-2.html">
+                                  <Link href="/portfolio-2">
                                     Portfolio - 02
                                   </Link>
                                 </li>
@@ -293,15 +309,15 @@ function closeSideBar (){
                                   </Link>
                                 </li>
                                 <li>
-                                  <Link href="team.html">Team</Link>
+                                  <Link href="/team">Team</Link>
                                 </li>
                                 <li>
-                                  <Link href="team-details.html">
+                                  <Link href="/team-details">
                                     Team Details
                                   </Link>
                                 </li>
                                 <li>
-                                  <Link href="faq.html">FAQ</Link>
+                                  <Link href="/faq">FAQ</Link>
                                 </li>
                               </ul>
                             </li>
@@ -309,26 +325,26 @@ function closeSideBar (){
                               <Link href="#">Inner Pages</Link>
                               <ul>
                                 <li>
-                                  <Link href="history.html">History</Link>
+                                  <Link href="/history">History</Link>
                                 </li>
                                 <li>
-                                  <Link href="add-listing.html">
+                                  <Link href="/add-listing">
                                     Add Listing
                                   </Link>
                                 </li>
                                 <li>
-                                  <Link href="locations.html">
+                                  <Link href="/locations">
                                     Google Map Locations
                                   </Link>
                                 </li>
                                 <li>
-                                  <Link href="404.html">404</Link>
+                                  <Link href="/404">404</Link>
                                 </li>
                                 <li>
-                                  <Link href="contact.html">Contact</Link>
+                                  <Link href="/contact">Contact</Link>
                                 </li>
                                 <li>
-                                  <Link href="coming-soon.html">
+                                  <Link href="/coming-soon">
                                     Coming Soon
                                   </Link>
                                 </li>
@@ -338,33 +354,33 @@ function closeSideBar (){
                               <Link href="#">Shop Pages</Link>
                               <ul>
                                 <li>
-                                  <Link href="shop.html">Shop</Link>
+                                  <Link href="/shop">Shop</Link>
                                 </li>
                                 <li>
-                                  <Link href="shop-left-sidebar.html">
+                                  <Link href="/shop-left-sidebar">
                                     Shop Left sidebar
                                   </Link>
                                 </li>
                                 <li>
-                                  <Link href="shop-right-sidebar.html">
+                                  <Link href="/shop-right-sidebar">
                                     Shop right sidebar
                                   </Link>
                                 </li>
                                 <li>
-                                  <Link href="shop-grid.html">Shop Grid</Link>
+                                  <Link href="/shop-grid">Shop Grid</Link>
                                 </li>
                                 <li>
-                                  <Link href="product-details">
+                                  <Link href="/product-details">
                                     Shop details
                                   </Link>
                                 </li>
                                 <li>
-                                  <Link href="cart.html">Cart</Link>
+                                  <Link href="/cart">Cart</Link>
                                 </li>
                               </ul>
                             </li>
                             <li>
-                              <Link href="shop.html">
+                              <Link href="/shop">
                                 <img
                                   src="/img/banner/menu-banner-1.jpg"
                                   alt="#"
@@ -374,7 +390,7 @@ function closeSideBar (){
                           </ul>
                         </li>
                         <li>
-                          <Link href="contact.html">Contact</Link>
+                          <Link href="/contact">Contact</Link>
                         </li>
                       </ul>
                     </div>
@@ -430,16 +446,16 @@ function closeSideBar (){
                       </Link>
                       <ul>
                         <li>
-                          <Link href="login.html">Sign in</Link>
+                          <Link href="/login">Sign in</Link>
                         </li>
                         <li>
-                          <Link href="register.html">Register</Link>
+                          <Link href="/register">Register</Link>
                         </li>
                         <li>
-                          <Link href="account.html">My Account</Link>
+                          <Link href="my-account">My Account</Link>
                         </li>
                         <li>
-                          <Link href="wishlist.html">Wishlist</Link>
+                          <Link href="/wishlist">Wishlist</Link>
                         </li>
                       </ul>
                     </li>
@@ -447,9 +463,8 @@ function closeSideBar (){
                 </div>
                 {/* <!-- mini-cart --> */}
                 <div className="mini-cart-icon">
-                  <Link
+                  <button
                     onClick={cartMenu}
-                    href="#?"
                     className={`ltn__utilize-toggle ${
                       cartMenuOpener ? "close" : ""
                     }`}
@@ -458,19 +473,17 @@ function closeSideBar (){
                     {/* <sup>6</sup> */}
 
                     {cartItems.length > 0 ? (
-                    <sup>{cartItems.length}</sup>
-                  ) : (
-                    <sup>0</sup>
-                  )}
-
-                  </Link>
+                      <sup>{cartItems.length}</sup>
+                    ) : (
+                      <sup>0</sup>
+                    )}
+                  </button>
                 </div>
                 {/* <!-- mini-cart --> */}
                 {/* <!-- Mobile Menu Button --> */}
                 <div className="mobile-menu-toggle d-xl-none">
-                  <Link
+                  <button
                     onClick={offcanVasToggler}
-                    href="#?"
                     className={`ltn__utilize-toggle ${
                       offCanVastoggleBtn ? "close" : ""
                     }`}
@@ -487,7 +500,7 @@ function closeSideBar (){
                         transform="translate(480, 320) scale(1, -1) translate(-480, -318) "
                       ></path>
                     </svg>
-                  </Link>
+                  </button>
                 </div>
               </Col>
             </Row>
@@ -498,13 +511,19 @@ function closeSideBar (){
 
       {/* <!-- Utilize Cart Menu Start --> */}
 
-      <HeaderCartMenu cartMenu={cartMenu} cartMenuOpener={cartMenuOpener} closeSideBar={closeSideBar} />
+      <HeaderCartMenu
+        cartMenu={cartMenu}
+        cartMenuOpener={cartMenuOpener}
+        closeSideBar={closeSideBar}
+      />
 
       {/* <!-- Utilize Cart Menu End --> */}
 
       {/* <!-- Utilize Mobile Menu Start --> */}
-      <MobileMenu offCanVastoggleBtn={offCanVastoggleBtn} offcanVasToggler={offcanVasToggler} closeSideBar={closeSideBar}
-      cartItems={cartItems}
+      <MobileMenu
+        offCanVastoggleBtn={offCanVastoggleBtn}
+        offcanVasToggler={offcanVasToggler}
+        closeSideBar={closeSideBar}
       />
 
       {/* <!-- Utilize Mobile Menu End --> */}

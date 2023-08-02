@@ -28,14 +28,7 @@ function TeamPage() {
           <Container>
             <Row>
               {agents.map((data, key) => {
-                const slug = productSlug(data.name, {
-                  replacement: "-", // replace spaces with replacement character, defaults to `-`
-                  remove: /[*+~.()'"!:@]/g, // remove characters that match regex, defaults to `undefined`
-                  lower: true, // convert to lower case, defaults to `false`
-                  strict: false, // strip special characters except replacement, defaults to `false`
-                  locale: "vi", // language code of the locale to use
-                  trim: true, // trim leading and trailing replacement chars, defaults to `true`
-                });
+                const slug = productSlug(data.name);
                 return (
                   <Col key={key} xs={12} sm={6} lg={4}>
                     <TeamItem

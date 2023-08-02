@@ -220,7 +220,7 @@ function BlogtDetails({ blog }) {
                           <Col xs={12} md={6} key={key}>
                             <div className="ltn__blog-item ltn__blog-item-6">
                               <div className="ltn__blog-img">
-                                <Link href={slug}>
+                                <Link href={`/blog/${slug}`}>
                                   <img
                                     src={`/img/blog/${imageCount}.jpg`}
                                     alt="Image"
@@ -237,7 +237,7 @@ function BlogtDetails({ blog }) {
                                   </ul>
                                 </div>
                                 <h3 className="ltn__blog-title">
-                                  <Link href={slug}>{blog.title}</Link>
+                                  <Link href={`/blog/${slug}`}>{blog.title}</Link>
                                 </h3>
                                 <p>{blog.shortDescription}</p>
                               </div>
@@ -405,7 +405,7 @@ function BlogtDetails({ blog }) {
                   latestdBlogs={latestdBlogs}
                   topRatedProducts={topRatedProducts}
                   popularProducts={popularProducts}
-                  baseUrl="shop"
+                  baseUrl="blog"
                 />
               </Col>
             </Row>

@@ -12,6 +12,7 @@ import Slider from "react-slick";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import CallToAction from "@/components/callToAction";
 import brandLogoData from "@/data/brand-logo";
+import LightGallery from "lightgallery/react";
 
 function Portfolio() {
   const portfolios = getProducts(portfolioData, "fashion", "featured", 6);
@@ -50,6 +51,14 @@ function Portfolio() {
     ),
   };
 
+  const icons = [
+    { icon: <FaArrowRight /> },
+    { icon: <FaArrowLeft /> },
+    { icon: <FaArrowRight /> },
+    { icon: <FaArrowRight /> },
+    { icon: <FaArrowLeft /> },
+  ];
+
   return (
     <>
       <LayoutOne>
@@ -62,7 +71,7 @@ function Portfolio() {
         {/*  <!-- Gallery area start -->  */}
         <div className="ltn__gallery-area mb-120">
           <Container>
-            <Row className="ltn__gallery-active ltn__gallery-style-2 ltn__gallery-info-hide---">
+            <LightGallery elementClassNames="row ltn__gallery-active ltn__gallery-style-2 ltn__gallery-info-hide---">
               {portfolios.map((data, key) => {
                 const slug = productSlug(data.title);
 
@@ -75,7 +84,7 @@ function Portfolio() {
                   />
                 );
               })}
-            </Row>
+            </LightGallery>
             <div className="btn-wrapper text-center">
               <button className="btn btn-transparent btn-effect-3 btn-border">
                 LOAD MORE +
