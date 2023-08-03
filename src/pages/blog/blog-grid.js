@@ -11,7 +11,7 @@ import BlogItem from "@/components/blog";
 import CallToAction from "@/components/callToAction";
 import Paginator from "react-hooks-paginator";
 
-function Blog() {
+function BlogGrid() {
   const { products } = useSelector((state) => state.product);
   const featuredBlogs = getProducts(blogData, "fashion", "featured", 7);
   const latestdBlogs = getProducts(blogData, "fashion", "featured", 4);
@@ -105,4 +105,4 @@ function Blog() {
   );
 }
 
-export default Blog;
+export default BlogGrid;

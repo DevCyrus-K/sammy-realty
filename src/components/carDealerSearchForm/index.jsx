@@ -83,7 +83,7 @@ function CarDealerSearchForm({ navMenuClass }) {
                               ]}
                             />
                           </div>
-                          <div className="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-calendar---- col-lg-3 col-md-6">
+                          <div className="ltn__car-dealer-form-item col-lg-3 col-md-6">
                             <Select
                               className="nice-select"
                               options={propertyTypeOptions}
@@ -135,7 +135,7 @@ function CarDealerSearchForm({ navMenuClass }) {
                               ]}
                             />
                           </div>
-                          <div className="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-calendar---- col-lg-3 col-md-6">
+                          <div className="ltn__car-dealer-form-item col-lg-3 col-md-6">
                             <Select
                               className="nice-select"
                               options={propertyTypeOptions}

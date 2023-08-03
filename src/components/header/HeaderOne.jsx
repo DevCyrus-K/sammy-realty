@@ -269,15 +269,15 @@ const HeaderStyleOne = function ({
                               <Link href="/blog">News</Link>
                             </li>
                             <li>
-                              <Link href="/blog-grid">News Grid</Link>
+                              <Link href="/blog/blog-grid">News Grid</Link>
                             </li>
                             <li>
-                              <Link href="/blog-left-sidebar">
+                              <Link href="/blog/blog-left-sidebar">
                                 News Left sidebar
                               </Link>
                             </li>
                             <li>
-                              <Link href="/blog-right-sidebar">
+                              <Link href="/blog/blog-right-sidebar">
                                 News Right sidebar
                               </Link>
                             </li>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-
+import Select from "react-select";
 import Paginator from "react-hooks-paginator";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
 import { getSortedProducts, productSlug } from "@/lib/product";
@@ -11,7 +11,7 @@ import SideBar from "@/components/shopSideBar";
 import RelatedProduct from "@/components/product/related-product";
 import ProductList from "@/components/product/list";
 
-function Shop() {
+function ShopRightSideBar() {
   const { products } = useSelector((state) => state.product);
   const [sortType, setSortType] = useState("");
   const [sortValue, setSortValue] = useState("");
@@ -50,6 +50,24 @@ function Shop() {
     setCurrentData(sortedProducts.slice(offset, offset + pageLimit));
   }, [offset, products, sortType, sortValue, filterSortType, filterSortValue]);
 
+
+  const defaultSorting = [
+    { value: "Default Sorting", label: "Default Sorting" },
+    { value: "Sort by popularity", label: "Sort by popularity" },
+    { value: "Sort by new arrivals", label: "Sort by new arrivals" },
+    { value: "Sort by price: low to high", label: "Sort by price: low to high" },
+    { value: "Sort by price: high to low", label: "Sort by price: high to low" },
+   
+  ];
+
+
+  const perPageOption = [
+    { value: "Per Page: 12", label: "Per Page: 12" },
+    { value: "Per Page: 21", label: "Per Page: 21" },
+    { value: "Per Page: 13", label: "Per Page: 13" },
+    { value: "Per Page: 15", label: "Per Page: 15" },
+    { value: "Per Page: 30", label: "Per Page: 30" },
+  ];
   return (
     <LayoutOne>
       {/* <!-- BREADCRUMB AREA START --> */}
@@ -84,24 +102,24 @@ function Shop() {
 
                     <li>
                       <div className="short-by text-center">
-                        <select className="nice-select">
-                          <option>Default Sorting</option>
-                          <option>Sort by popularity</option>
-                          <option>Sort by new arrivals</option>
-                          <option>Sort by price: low to high</option>
-                          <option>Sort by price: high to low</option>
-                        </select>
+                      <Select
+                              className="nice-select"
+                              options={defaultSorting}
+                              defaultValue={[
+                                { value: "Default Sorting", label: "Default Sorting" },
+                              ]}
+                            />
                       </div>
                     </li>
                     <li>
                       <div className="short-by text-center">
-                        <select className="nice-select">
-                          <option>Per Page: 12</option>
-                          <option>Per Page: 20</option>
-                          <option>Per Page: 30</option>
-                          <option>Per Page: 50</option>
-                          <option>Per Page: 100</option>
-                        </select>
+                      <Select
+                              className="nice-select"
+                              options={perPageOption}
+                              defaultValue={[
+                                { value: "Default Sorting", label: "Default Sorting" },
+                              ]}
+                            />
                       </div>
                     </li>
                   </ul>
@@ -210,4 +228,4 @@ function Shop() {
   );
 }
 
-export default Shop;
+export default ShopRightSideBar;

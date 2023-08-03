@@ -3,6 +3,7 @@ import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
 import { LayoutOne } from "@/layouts";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
 import CallToAction from "@/components/callToAction";
+import Select from "react-select";
 import {
   FaDribbble,
   FaInstagram,
@@ -21,6 +22,33 @@ import {
 
 
 function AddListingPage() {
+
+  const areaOptions = [
+    { value: "Choose Area", label: "Choose Area" },
+    { value: "chicago", label: "chicago" },
+    { value: "London", label: "London" },
+    { value: "Los Angeles", label: "Los Angeles" },
+    { value: "New York", label: "New York" },
+    { value: "New Jersey", label: "New Jersey" },
+  ];
+
+  const propertyOptions = [
+    { value: "Property Status", label: "Property Status" },
+    { value: "Open house", label: "Open house" },
+    { value: "Rent", label: "Rent" },
+    { value: "Sale", label: "Sale" },
+    { value: "Sold", label: "Sold" },
+  ];
+
+  const propertyTypeOptions = [
+    { value: "Property Type", label: "Property Type" },
+    { value: "Apartment", label: "Apartment" },
+    { value: "Co-op", label: "Co-op" },
+    { value: "Condo", label: "Condo" },
+    { value: "Single Family Home", label: "Single Family Home" },
+  ];
+
+
   return (
     <>
       <LayoutOne>
@@ -129,59 +157,41 @@ function AddListingPage() {
                           <Row>
                             <Col xs={12} md={6} lg={4}>
                               <div className="input-item ltn__custom-icon">
-                                <select className="nice-select">
-                                  <option>None</option>
-                                  <option>Apartments</option>
-                                  <option>Condos</option>
-                                  <option>Duplexes</option>
-                                  <option>Houses</option>
-                                  <option>Industrial</option>
-                                  <option>Land</option>
-                                  <option>Offices</option>
-                                  <option>Retail</option>
-                                  <option>Villas</option>
-                                </select>
-                                <span className="inline-icon">
-                                  <FaArrowDown />
-                                </span>
+                                <Select
+                                  className="nice-select"
+                                  options={areaOptions}
+                                  defaultValue={[
+                                    { value: "None", label: "None" },
+                                  ]}
+                                />
+
                               </div>
                             </Col>
                             <Col xs={12} md={6} lg={4}>
                               <div className="input-item ltn__custom-icon">
-                                <select className="nice-select">
-                                  <option>None</option>
-                                  <option>Rentals</option>
-                                  <option>Sales</option>
-                                </select>
-                                <span className="inline-icon">
-                                  <FaArrowDown />
-                                </span>
+                                <Select
+                                  className="nice-select"
+                                  options={areaOptions}
+                                  defaultValue={[
+                                    { value: "None", label: "None" },
+                                  ]}
+                                />
                               </div>
                             </Col>
                             <Col xs={12} md={6} lg={4}>
                               <div className="input-item ltn__custom-icon">
-                                <select className="nice-select">
-                                  <option>no status</option>
-                                  <option>Active</option>
-                                  <option>hot offer</option>
-                                  <option>new offer</option>
-                                  <option>open house</option>
-                                  <option>sold</option>
-                                </select>
-                                <span className="inline-icon">
-                                  <FaArrowDown />
-                                </span>
+                                <Select
+                                  className="nice-select"
+                                  options={areaOptions}
+                                  defaultValue={[
+                                    { value: "None", label: "None" },
+                                  ]}
+                                />
                               </div>
                             </Col>
                           </Row>
                           <div className="btn-wrapper  mt-0">
-                            {/* <!-- <button type="submit" className="btn theme-btn-1 btn-effect-1 text-uppercase" >Next Step</button> --> */}
-                            <Link
-                              href="#"
-                              className="btn theme-btn-1 btn-effect-1 text-uppercase"
-                            >
-                              Next Step
-                            </Link>
+                          <button type="submit" className="btn theme-btn-1 btn-effect-1 text-uppercase" >Next Step</button>
                           </div>
                         </div>
                       </Tab.Pane>
@@ -211,14 +221,13 @@ function AddListingPage() {
                           <Row>
                             <Col xs={12} md={6}>
                               <div className="input-item ltn__custom-icon">
-                                <select className="nice-select">
-                                  <option>Video from</option>
-                                  <option>vimeo</option>
-                                  <option>youtube</option>
-                                </select>
-                                <span className="inline-icon">
-                                  <FaArrowDown />
-                                </span>
+                                <Select
+                                  className="nice-select"
+                                  options={areaOptions}
+                                  defaultValue={[
+                                    { value: "None", label: "None" },
+                                  ]}
+                                />
                               </div>
                             </Col>
                             <Col xs={12} md={6}>
@@ -578,32 +587,24 @@ function AddListingPage() {
                             </Col>
                             <Col xs={12} md={6}>
                               <div className="input-item ltn__custom-icon">
-                                <select className="nice-select">
-                                  <option>Structure Type</option>
-                                  <option>Not Available</option>
-                                  <option>Brick</option>
-                                  <option>Wood</option>
-                                  <option>Cement</option>
-                                </select>
-                                <span className="inline-icon">
-                                  <FaArrowDown />
-                                </span>
+                                <Select
+                                  className="nice-select"
+                                  options={areaOptions}
+                                  defaultValue={[
+                                    { value: "None", label: "None" },
+                                  ]}
+                                />
                               </div>
                             </Col>
                             <Col xs={12} md={6}>
                               <div className="input-item ltn__custom-icon">
-                                <select className="nice-select">
-                                  <option>Floors No</option>
-                                  <option>Not Available</option>
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                                </select>
-                                <span className="inline-icon">
-                                  <FaArrowDown />
-                                </span>
+                                <Select
+                                  className="nice-select"
+                                  options={areaOptions}
+                                  defaultValue={[
+                                    { value: "None", label: "None" },
+                                  ]}
+                                />
                               </div>
                             </Col>
                             <div className="col-lg-12">
@@ -622,20 +623,13 @@ function AddListingPage() {
                           <Row>
                             <Col xs={12} md={6}>
                               <div className="input-item ltn__custom-icon">
-                                <select className="nice-select">
-                                  <option>
-                                    Select Energy Class(EU regulation)
-                                  </option>
-                                  <option>A+</option>
-                                  <option>A</option>
-                                  <option>B</option>
-                                  <option>C</option>
-                                  <option>D</option>
-                                  <option>E</option>
-                                </select>
-                                <span className="inline-icon">
-                                  <FaArrowDown />
-                                </span>
+                                <Select
+                                  className="nice-select"
+                                  options={areaOptions}
+                                  defaultValue={[
+                                    { value: "None", label: "None" },
+                                  ]}
+                                />
                               </div>
                             </Col>
                             <Col xs={12} md={6}>

@@ -7,9 +7,9 @@ import { getSortedProducts, productSlug } from "@/lib/product";
 import { LayoutOne } from "@/layouts";
 import { FaThLarge, FaThList, FaSearch } from "react-icons/fa";
 import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
-import SideBar from "@/components/shopSideBar";
 import RelatedProduct from "@/components/product/related-product";
 import ProductList from "@/components/product/list";
+import Select from "react-select";
 
 function ShopGrid() {
   const { products } = useSelector((state) => state.product);
@@ -50,6 +50,17 @@ function ShopGrid() {
     setCurrentData(sortedProducts.slice(offset, offset + pageLimit));
   }, [offset, products, sortType, sortValue, filterSortType, filterSortValue]);
 
+
+  
+  const areaOptions = [
+    { value: "Default Sorting", label: "Default Sorting" },
+    { value: "Sort by popularity", label: "Sort by popularity" },
+    { value: "Sort by new arrivals", label: "Sort by new arrivals" },
+    { value: "Sort by price: low to high", label: "Sort by price: low to high" },
+    { value: "Sort by price: high to low", label: "Sort by price: high to low" },
+   
+  ];
+
   return (
     <LayoutOne>
       {/* <!-- BREADCRUMB AREA START --> */}
@@ -84,13 +95,13 @@ function ShopGrid() {
 
                     <li>
                       <div className="short-by text-center">
-                        <select className="nice-select">
-                          <option>Default Sorting</option>
-                          <option>Sort by popularity</option>
-                          <option>Sort by new arrivals</option>
-                          <option>Sort by price: low to high</option>
-                          <option>Sort by price: high to low</option>
-                        </select>
+                        <Select
+                              className="nice-select"
+                              options={areaOptions}
+                              defaultValue={[
+                                { value: "Default Sorting", label: "Default Sorting" },
+                              ]}
+                            />
                       </div>
                     </li>
                     <li>
