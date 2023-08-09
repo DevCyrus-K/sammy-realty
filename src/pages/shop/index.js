@@ -9,7 +9,7 @@ import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
 import SideBar from "@/components/shopSideBar";
 import RelatedProduct from "@/components/product/related-product";
 import ProductList from "@/components/product/list";
-import Select from "react-select";
+// import Search from "@/components/search";
 
 function Shop() {
   const { products } = useSelector((state) => state.product);
@@ -21,10 +21,13 @@ function Shop() {
   const [currentPage, setCurrentPage] = useState(1);
   const [currentData, setCurrentData] = useState([]);
   const [sortedProducts, setSortedProducts] = useState([]);
-  const [shopTopFilterStatus, setShopTopFilterStatus] = useState(false);
 
-  const pageLimit = 12;
 
+  const [query, setQuery] = useState("");
+  console.log(query);
+  const keys = ["title"];
+
+  const pageLimit = 4;
   const getSortParams = (sortType, sortValue) => {
     setSortType(sortType);
     setSortValue(sortValue);
@@ -34,6 +37,14 @@ function Shop() {
     setFilterSortType(sortType);
     setFilterSortValue(sortValue);
   };
+
+  const Search = (data) => {
+    return data.filter((item) =>
+      keys.some((key) => item[key].toLowerCase().includes(query))
+    );
+  };
+
+
 
   useEffect(() => {
     let sortedProducts = getSortedProducts(products, sortType, sortValue);
@@ -48,25 +59,14 @@ function Shop() {
     setSortedProducts(sortedProducts);
 
     setCurrentData(sortedProducts.slice(offset, offset + pageLimit));
-  }, [offset, products, sortType, sortValue, filterSortType, filterSortValue]);
+
+    setCurrentData(Search(sortedProducts));
+
+  }, [offset, products, sortType, sortValue, filterSortType, filterSortValue,query]);
 
 
-  const areaOptions = [
-    { value: "Default Sorting", label: "Default Sorting" },
-    { value: "Sort by popularity", label: "Sort by popularity" },
-    { value: "Sort by new arrivals", label: "Sort by new arrivals" },
-    { value: "Sort by price: low to high", label: "Sort by price: low to high" },
-    { value: "Sort by price: high to low", label: "Sort by price: high to low" },
-   
-  ];
 
-  const propertyOptions = [
-    { value: "Per Page: 12", label: "Per Page: 12" },
-    { value: "Per Page: 21", label: "Per Page: 21" },
-    { value: "Per Page: 13", label: "Per Page: 13" },
-    { value: "Per Page: 15", label: "Per Page: 15" },
-    { value: "Per Page: 30", label: "Per Page: 30" },
-  ];
+
 
 
   return (
@@ -83,7 +83,7 @@ function Shop() {
             <Col xs={12} lg={8}>
               <Tab.Container defaultActiveKey="first">
                 <div className="ltn__shop-options">
-                  <ul className="justify-content-start">
+                  <ul className="justify-content-between">
                     <li>
                       <div className="ltn__grid-list-tab-menu">
                         <Nav className="nav">
@@ -96,35 +96,29 @@ function Shop() {
                         </Nav>
                       </div>
                     </li>
-                    
+
                     <li>
                       <div className="short-by text-center">
-                        <Select
-                              className="nice-select"
-                              options={areaOptions}
-                              defaultValue={[
-                                { value: "Default Sorting", label: "Default Sorting" },
-                              ]}
-                            />
-                      </div>
-                    </li>
-                    <li>
-                      <div className="short-by text-center">
-                        <Select
-                              className="nice-select"
-                              options={areaOptions}
-                              defaultValue={[
-                                { value: "Per Page: 12", label: "Per Page: 12" },
-                              ]}
-                            />
+                        <select
+                          className="form-control nice-select"
+                          onChange={(e) =>
+
+                            getFilterSortParams("filterSort", e.target.value)
+                          }
+                        >
+                          <option value="default">Default</option>
+                          <option value="priceHighToLow">Price - High to Low</option>
+                          <option value="priceLowToHigh">Price - Low to High</option>
+                        </select>
                       </div>
                     </li>
                   </ul>
                 </div>
 
-                <div className="ltn__search-widget mb-30">
+                <div className={`ltn__search-widget mb-30`}>
                   <form action="#">
                     <input
+                      onChange={(e) => setQuery(e.target.value.toLowerCase())}
                       type="text"
                       name="search"
                       placeholder="Search your keyword..."
@@ -175,7 +169,7 @@ function Shop() {
                 <Paginator
                   totalRecords={sortedProducts.length}
                   pageLimit={pageLimit}
-                  pageNeighbours={1}
+                  pageNeighbours={2}
                   setOffset={setOffset}
                   currentPage={currentPage}
                   setCurrentPage={setCurrentPage}
@@ -183,6 +177,7 @@ function Shop() {
                   pagePrevText="«"
                   pageNextText="»"
                 />
+
               </div>
             </Col>
             <Col xs={12} lg={4}>

@@ -141,10 +141,7 @@ function ProductDetails({ product }) {
                 return (
                   <div className="col-lg-12" key={key}>
                     <div className="ltn__img-slide-item-4">
-                      <Link
-                        href={`/img/img-slide/${single.img}`}
-                        data-rel="lightcase:myCollection"
-                      >
+                      <Link href="javascript:void(0)">
                         <img
                           src={`/img/img-slide/${single.img}`}
                           alt={`${single.title}`}
@@ -175,15 +172,15 @@ function ProductDetails({ product }) {
                         ) : (
                           ""
                         ),
-                        product.rent ? (
-                          <li className="ltn__blog-category">
-                            <Link className="bg-orange" href="#">
-                              For Rent
-                            </Link>
-                          </li>
-                        ) : (
-                          ""
-                        ))
+                          product.rent ? (
+                            <li className="ltn__blog-category">
+                              <Link className="bg-orange" href="#">
+                                For Rent
+                              </Link>
+                            </li>
+                          ) : (
+                            ""
+                          ))
                       }
 
                       <li className="ltn__blog-date">
@@ -1331,7 +1328,7 @@ function ProductDetails({ product }) {
                                 <div className="ltn__blog-meta">
                                   <ul>
                                     <li className="ltn__blog-date">
-                                      <Link href="#">
+                                      <Link href={`/blog/${slug}`}>
                                         <span>
                                           <FaCalendarAlt />
                                         </span>

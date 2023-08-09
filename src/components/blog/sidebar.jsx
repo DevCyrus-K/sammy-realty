@@ -346,7 +346,7 @@ const BlogSideBar = ({
                       <div className="ltn__blog-meta">
                         <ul>
                           <li className="ltn__blog-date">
-                            <Link href="#">
+                            <Link href={`/blog/${slug}`}>
                               <span>
                                 <FaCalendarAlt />
                               </span>

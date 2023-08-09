@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const SideBar = () => {
+const SideBar = ({ products, getSortParams }) => {
   return (
     <>
       <aside className="sidebar ltn__shop-sidebar ltn__right-sidebar">
@@ -16,7 +16,14 @@ const SideBar = () => {
               <Link href="shop-right-sidebar.html">
                 <label className="checkbox-item">
                   House
-                  <input type="checkbox" defaultChecked="checked" />
+                  <input
+                    onClick={(e) => {
+                      getSortParams("category", category.name);
+                      setActiveSort(e);
+                    }}
+                    type="checkbox"
+                    defaultChecked="checked"
+                  />
                   <span className="checkmark"></span>
                 </label>
                 <span className="categorey-no">3,924</span>
@@ -25,7 +32,13 @@ const SideBar = () => {
             <li>
               <label className="checkbox-item">
                 Single Family
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  onClick={(e) => {
+                    getSortParams("category", category.name);
+                    setActiveSort(e);
+                  }}
+                />
                 <span className="checkmark"></span>
               </label>
               <span className="categorey-no">3,610</span>
@@ -33,7 +46,13 @@ const SideBar = () => {
             <li>
               <label className="checkbox-item">
                 Apartment
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  onClick={(e) => {
+                    getSortParams("category", category.name);
+                    setActiveSort(e);
+                  }}
+                />
                 <span className="checkmark"></span>
               </label>
               <span className="categorey-no">2,912</span>
@@ -41,7 +60,13 @@ const SideBar = () => {
             <li>
               <label className="checkbox-item">
                 Office Villa
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  onClick={(e) => {
+                    getSortParams("category", category.name);
+                    setActiveSort(e);
+                  }}
+                />
                 <span className="checkmark"></span>
               </label>
               <span className="categorey-no">2,687</span>
@@ -49,7 +74,13 @@ const SideBar = () => {
             <li>
               <label className="checkbox-item">
                 Luxary Home
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  onClick={(e) => {
+                    getSortParams("category", category.name);
+                    setActiveSort(e);
+                  }}
+                />
                 <span className="checkmark"></span>
               </label>
               <span className="categorey-no">1,853</span>
@@ -57,7 +88,13 @@ const SideBar = () => {
             <li>
               <label className="checkbox-item">
                 Studio
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  onClick={(e) => {
+                    getSortParams("category", category.name);
+                    setActiveSort(e);
+                  }}
+                />
                 <span className="checkmark"></span>
               </label>
               <span className="categorey-no">893</span>
@@ -69,7 +106,14 @@ const SideBar = () => {
             <li>
               <label className="checkbox-item">
                 Dishwasher
-                <input type="checkbox" defaultChecked="checked" />
+                <input
+                  type="checkbox"
+                  onClick={(e) => {
+                    getSortParams("category", category.name);
+                    setActiveSort(e);
+                  }}
+                  defaultChecked="checked"
+                />
                 <span className="checkmark"></span>
               </label>
               <span className="categorey-no">3,924</span>
@@ -77,7 +121,13 @@ const SideBar = () => {
             <li>
               <label className="checkbox-item">
                 Floor Coverings
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  onClick={(e) => {
+                    getSortParams("category", category.name);
+                    setActiveSort(e);
+                  }}
+                />
                 <span className="checkmark"></span>
               </label>
               <span className="categorey-no">3,610</span>
@@ -85,7 +135,13 @@ const SideBar = () => {
             <li>
               <label className="checkbox-item">
                 Internet
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  onClick={(e) => {
+                    getSortParams("category", category.name);
+                    setActiveSort(e);
+                  }}
+                />
                 <span className="checkmark"></span>
               </label>
               <span className="categorey-no">2,912</span>
@@ -93,7 +149,13 @@ const SideBar = () => {
             <li>
               <label className="checkbox-item">
                 Build Wardrobes
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  onClick={(e) => {
+                    getSortParams("category", category.name);
+                    setActiveSort(e);
+                  }}
+                />
                 <span className="checkmark"></span>
               </label>
               <span className="categorey-no">2,687</span>
@@ -101,7 +163,13 @@ const SideBar = () => {
             <li>
               <label className="checkbox-item">
                 Supermarket
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  onClick={(e) => {
+                    getSortParams("category", category.name);
+                    setActiveSort(e);
+                  }}
+                />
                 <span className="checkmark"></span>
               </label>
               <span className="categorey-no">1,853</span>
@@ -109,7 +177,13 @@ const SideBar = () => {
             <li>
               <label className="checkbox-item">
                 Kids Zone
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  onClick={(e) => {
+                    getSortParams("category", category.name);
+                    setActiveSort(e);
+                  }}
+                />
                 <span className="checkmark"></span>
               </label>
               <span className="categorey-no">893</span>
@@ -121,7 +195,13 @@ const SideBar = () => {
             <li>
               <label className="checkbox-item">
                 Low Budget
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  onClick={(e) => {
+                    getSortParams("category", category.name);
+                    setActiveSort(e);
+                  }}
+                />
                 <span className="checkmark"></span>
               </label>
               <span className="categorey-no">$5,000 - $10,000</span>
@@ -129,7 +209,14 @@ const SideBar = () => {
             <li>
               <label className="checkbox-item">
                 Medium
-                <input type="checkbox" defaultChecked="checked" />
+                <input
+                  type="checkbox"
+                  onClick={(e) => {
+                    getSortParams("category", category.name);
+                    setActiveSort(e);
+                  }}
+                  defaultChecked="checked"
+                />
                 <span className="checkmark"></span>
               </label>
               <span className="categorey-no">$10,000 - $30,000</span>
@@ -137,7 +224,13 @@ const SideBar = () => {
             <li>
               <label className="checkbox-item">
                 High Budget
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  onClick={(e) => {
+                    getSortParams("category", category.name);
+                    setActiveSort(e);
+                  }}
+                />
                 <span className="checkmark"></span>
               </label>
               <span className="categorey-no">$30,000 Up</span>
@@ -168,7 +261,14 @@ const SideBar = () => {
             <li>
               <label className="checkbox-item">
                 Single
-                <input type="checkbox" defaultChecked="checked" />
+                <input
+                  type="checkbox"
+                  onClick={(e) => {
+                    getSortParams("category", category.name);
+                    setActiveSort(e);
+                  }}
+                  defaultChecked="checked"
+                />
                 <span className="checkmark"></span>
               </label>
               <span className="categorey-no">3,924</span>
@@ -176,7 +276,13 @@ const SideBar = () => {
             <li>
               <label className="checkbox-item">
                 Double
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  onClick={(e) => {
+                    getSortParams("category", category.name);
+                    setActiveSort(e);
+                  }}
+                />
                 <span className="checkmark"></span>
               </label>
               <span className="categorey-no">3,610</span>
@@ -184,7 +290,13 @@ const SideBar = () => {
             <li>
               <label className="checkbox-item">
                 Up To 3
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  onClick={(e) => {
+                    getSortParams("category", category.name);
+                    setActiveSort(e);
+                  }}
+                />
                 <span className="checkmark"></span>
               </label>
               <span className="categorey-no">2,912</span>
@@ -192,7 +304,13 @@ const SideBar = () => {
             <li>
               <label className="checkbox-item">
                 Up To 5
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  onClick={(e) => {
+                    getSortParams("category", category.name);
+                    setActiveSort(e);
+                  }}
+                />
                 <span className="checkmark"></span>
               </label>
               <span className="categorey-no">2,687</span>
@@ -204,7 +322,14 @@ const SideBar = () => {
             <li>
               <label className="checkbox-item">
                 Buying
-                <input type="checkbox" defaultChecked="checked" />
+                <input
+                  type="checkbox"
+                  onClick={(e) => {
+                    getSortParams("category", category.name);
+                    setActiveSort(e);
+                  }}
+                  defaultChecked="checked"
+                />
                 <span className="checkmark"></span>
               </label>
               <span className="categorey-no">3,924</span>
@@ -212,7 +337,13 @@ const SideBar = () => {
             <li>
               <label className="checkbox-item">
                 Renting
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  onClick={(e) => {
+                    getSortParams("category", category.name);
+                    setActiveSort(e);
+                  }}
+                />
                 <span className="checkmark"></span>
               </label>
               <span className="categorey-no">3,610</span>
@@ -220,7 +351,13 @@ const SideBar = () => {
             <li>
               <label className="checkbox-item">
                 Selling
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  onClick={(e) => {
+                    getSortParams("category", category.name);
+                    setActiveSort(e);
+                  }}
+                />
                 <span className="checkmark"></span>
               </label>
               <span className="categorey-no">2,912</span>
@@ -619,7 +756,6 @@ const SideBar = () => {
             </li>
           </ul>
         </div>
-        
       </aside>
     </>
   );

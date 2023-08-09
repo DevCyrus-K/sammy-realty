@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-
 import Paginator from "react-hooks-paginator";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
 import { getSortedProducts, productSlug } from "@/lib/product";
 import { LayoutOne } from "@/layouts";
 import { FaThLarge, FaThList, FaSearch } from "react-icons/fa";
 import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
+import SideBar from "@/components/shopSideBar";
 import RelatedProduct from "@/components/product/related-product";
 import ProductList from "@/components/product/list";
-import Select from "react-select";
+import Search from "@/components/search";
 
-function ShopGrid() {
+function ShopLeftSideBar() {
   const { products } = useSelector((state) => state.product);
   const [sortType, setSortType] = useState("");
   const [sortValue, setSortValue] = useState("");
@@ -23,7 +23,7 @@ function ShopGrid() {
   const [sortedProducts, setSortedProducts] = useState([]);
   const [shopTopFilterStatus, setShopTopFilterStatus] = useState(false);
 
-  const pageLimit = 12;
+  const pageLimit = 4;
 
   const getSortParams = (sortType, sortValue) => {
     setSortType(sortType);
@@ -51,24 +51,14 @@ function ShopGrid() {
   }, [offset, products, sortType, sortValue, filterSortType, filterSortValue]);
 
 
-  
-  const areaOptions = [
-    { value: "Default Sorting", label: "Default Sorting" },
-    { value: "Sort by popularity", label: "Sort by popularity" },
-    { value: "Sort by new arrivals", label: "Sort by new arrivals" },
-    { value: "Sort by price: low to high", label: "Sort by price: low to high" },
-    { value: "Sort by price: high to low", label: "Sort by price: high to low" },
-   
-  ];
-
   return (
     <LayoutOne>
       {/* <!-- BREADCRUMB AREA START --> */}
 
       <ShopBreadCrumb
-        title="Shop Grid"
+        title="Shop Left Sidebar"
         sectionPace=""
-        currentSlug="Shop Grid"
+        currentSlug="Shop Left Sidebar"
       />
       {/* <!-- BREADCRUMB AREA END -->
     
@@ -76,10 +66,10 @@ function ShopGrid() {
       <div className="ltn__product-area ltn__product-gutter mb-120">
         <Container>
           <Row>
-            <Col xs={12}>
+            <Col xs={12} lg={{ span: 8, order: 1 }}>
               <Tab.Container defaultActiveKey="first">
                 <div className="ltn__shop-options">
-                  <ul>
+                  <ul className="justify-content-between">
                     <li>
                       <div className="ltn__grid-list-tab-menu">
                         <Nav className="nav">
@@ -95,35 +85,24 @@ function ShopGrid() {
 
                     <li>
                       <div className="short-by text-center">
-                        <Select
-                              className="nice-select"
-                              options={areaOptions}
-                              defaultValue={[
-                                { value: "Default Sorting", label: "Default Sorting" },
-                              ]}
-                            />
+                        <select
+                          className="form-control nice-select"
+                          onChange={(e) =>
+
+                            getFilterSortParams("filterSort", e.target.value)
+                          }
+                        >
+                          <option value="default">Default</option>
+                          <option value="priceHighToLow">Price - High to Low</option>
+                          <option value="priceLowToHigh">Price - Low to High</option>
+                        </select>
                       </div>
                     </li>
-                    <li>
-                      <div className="showing-product-number text-right">
-                        <span>Showing 1–12 of 18 results</span>
-                      </div>
-                    </li>
+
                   </ul>
                 </div>
 
-                <div className="ltn__search-widget mb-30">
-                  <form action="#">
-                    <input
-                      type="text"
-                      name="search"
-                      placeholder="Search your keyword..."
-                    />
-                    <button type="submit">
-                      <FaSearch />
-                    </button>
-                  </form>
-                </div>
+                <Search spaceBottom="mb-30" />
 
                 <Tab.Content>
                   <Tab.Pane eventKey="first">
@@ -132,10 +111,10 @@ function ShopGrid() {
                         {currentData.map((product, key) => {
                           const slug = productSlug(product.title);
                           return (
-                            <Col key={key} xs={12} sm={6} lg={4}>
+                            <Col key={key} xs={12} sm={6}>
                               <RelatedProduct
                                 slug={slug}
-                                baseUrl="shop/grid"
+                                baseUrl="shop/left-sidebar"
                                 productData={product}
                               />
                             </Col>
@@ -153,7 +132,7 @@ function ShopGrid() {
                             <Col key={key} xs={12}>
                               <ProductList
                                 slug={slug}
-                                baseUrl="shop/grid"
+                                baseUrl="shop/left-sidebar"
                                 productData={product}
                               />
                             </Col>
@@ -169,7 +148,7 @@ function ShopGrid() {
                 <Paginator
                   totalRecords={sortedProducts.length}
                   pageLimit={pageLimit}
-                  pageNeighbours={1}
+                  pageNeighbours={2}
                   setOffset={setOffset}
                   currentPage={currentPage}
                   setCurrentPage={setCurrentPage}
@@ -178,6 +157,9 @@ function ShopGrid() {
                   pageNextText="»"
                 />
               </div>
+            </Col>
+            <Col xs={12} lg={{ span: 4, order: 0 }}>
+              <SideBar getSortParams={getSortParams} />
             </Col>
           </Row>
         </Container>
@@ -212,4 +194,4 @@ function ShopGrid() {
   );
 }
 
-export default ShopGrid;
+export default ShopLeftSideBar;

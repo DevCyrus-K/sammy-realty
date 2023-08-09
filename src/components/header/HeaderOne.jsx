@@ -212,15 +212,15 @@ const HeaderStyleOne = function ({
                               <Link href="/shop">Shop</Link>
                             </li>
                             <li>
-                              <Link href="/shop-grid">Shop Grid</Link>
+                              <Link href="/shop/grid">Shop Grid</Link>
                             </li>
                             <li>
-                              <Link href="/shop/shop-left-sidebar">
+                              <Link href="/shop/left-sidebar">
                                 Shop Left sidebar
                               </Link>
                             </li>
                             <li>
-                              <Link href="/shop/shop-right-sidebar">
+                              <Link href="/shop/right-sidebar">
                                 Shop right sidebar
                               </Link>
                             </li>
@@ -350,17 +350,17 @@ const HeaderStyleOne = function ({
                                   <Link href="/shop">Shop</Link>
                                 </li>
                                 <li>
-                                  <Link href="/shop-left-sidebar">
+                                  <Link href="/left-sidebar">
                                     Shop Left sidebar
                                   </Link>
                                 </li>
                                 <li>
-                                  <Link href="/shop-right-sidebar">
+                                  <Link href="/right-sidebar">
                                     Shop right sidebar
                                   </Link>
                                 </li>
                                 <li>
-                                  <Link href="/shop-grid">Shop Grid</Link>
+                                  <Link href="/grid">Shop Grid</Link>
                                 </li>
                                 <li>
                                   <Link href="/product-details">

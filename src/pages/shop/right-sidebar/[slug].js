@@ -2,6 +2,18 @@ import { useState } from "react";
 import ModalVideo from "react-modal-video";
 import Link from "next/link";
 import Slider from "react-slick";
+import BreadCrumb from "@/components/breadCrumbs";
+import { LayoutOne } from "@/layouts";
+import { useSelector } from "react-redux";
+import { getProducts, productSlug, getDiscountPrice } from "@/lib/product";
+import products from "@/data/products.json";
+import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
+import RelatedProduct from "@/components/product/related-product";
+import QuickViewtModal from "@/components/modals/quickViewModal";
+import WishListModal from "@/components/modals/wishListModal";
+import FollowUs from "@/components/followUs";
+import Tags from "@/components/tags";
+import blogData from "@/data/blog";
 import {
   FaArrowRight,
   FaArrowLeft,
@@ -18,18 +30,9 @@ import {
   FaEnvelope,
   FaGlobe,
   FaPencilAlt,
+  FaCalendarAlt
 } from "react-icons/fa";
-import BreadCrumb from "@/components/breadCrumbs";
-import { LayoutOne } from "@/layouts";
-import { useSelector } from "react-redux";
-import { getProducts, productSlug, getDiscountPrice } from "@/lib/product";
-import products from "@/data/products.json";
-import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
-import RelatedProduct from "@/components/product/related-product";
-import QuickViewtModal from "@/components/modals/quickViewModal";
-import WishListModal from "@/components/modals/wishListModal";
-import FollowUs from "@/components/followUs";
-import Tags from "@/components/tags";
+
 
 function ProductDetails({ product }) {
   const { products } = useSelector((state) => state.product);
@@ -61,7 +64,7 @@ function ProductDetails({ product }) {
     product.price,
     product.discount
   ).toFixed(2);
-
+  const latestdBlogs = getProducts(blogData, "fashion", "featured", 4);
   const productPrice = product.price.toFixed(2);
   const cartItem = cartItems.find((cartItem) => cartItem.id === product.id);
   const wishlistItem = wishlistItems.find(
@@ -133,18 +136,18 @@ function ProductDetails({ product }) {
               {...productDetailsCarouselSettings}
               className="row ltn__image-slider-5-active slick-arrow-1 slick-arrow-1-inner ltn__no-gutter-all g-0"
             >
-              {product.carousel.map((single,key) => {
+              {product.carousel.map((single, key) => {
                 return (
                   <div className="col-lg-12" key={key}>
-                      <div className="ltn__img-slide-item-4">
-                        <Link href="#?">
-                          <img
-                            src={`/img/img-slide/${single.img}`}
-                            alt={`${single.title}`}
-                          />
-                        </Link>
-                      </div>
+                    <div className="ltn__img-slide-item-4">
+                      <Link href="#?">
+                        <img
+                          src={`/img/img-slide/${single.img}`}
+                          alt={`${single.title}`}
+                        />
+                      </Link>
                     </div>
+                  </div>
                 );
               })}
             </Slider>
@@ -154,7 +157,7 @@ function ProductDetails({ product }) {
 
     <!-- SHOP DETAILS AREA START --> */}
         <div className="ltn__shop-details-area pb-10">
-          <div className="container">
+          <Container>
             <div className="row">
               <div className="col-lg-8 col-md-12">
                 <div className="ltn__shop-details-inner ltn__page-details-inner mb-60">
@@ -168,15 +171,15 @@ function ProductDetails({ product }) {
                         ) : (
                           ""
                         ),
-                        product.rent ? (
-                          <li className="ltn__blog-category">
-                            <Link className="bg-orange" href="#">
-                              For Rent
-                            </Link>
-                          </li>
-                        ) : (
-                          ""
-                        ))
+                          product.rent ? (
+                            <li className="ltn__blog-category">
+                              <Link className="bg-orange" href="#">
+                                For Rent
+                              </Link>
+                            </li>
+                          ) : (
+                            ""
+                          ))
                       }
 
                       <li className="ltn__blog-date">
@@ -991,7 +994,7 @@ function ProductDetails({ product }) {
                           <RelatedProduct
                             productData={data}
                             slug={slug}
-                            baseUrl="shop/grid"
+                            baseUrl="shop/right-sidebar"
                             showQuickViewHandle={showQuickViewHandle}
                             showWishlistHandle={showWishlistHandle}
                           />
@@ -1298,110 +1301,44 @@ function ProductDetails({ product }) {
                       Leatest Blogs
                     </h4>
                     <ul>
-                      <li>
-                        <div className="popular-post-widget-item clearfix">
-                          <div className="popular-post-widget-img">
-                            <a href="blog-details.html">
-                              <img src="img/team/5.jpg" alt="#" />
-                            </a>
-                          </div>
-                          <div className="popular-post-widget-brief">
-                            <h6>
-                              <a href="blog-details.html">
-                                Lorem ipsum dolor sit cing elit, sed do.
-                              </a>
-                            </h6>
-                            <div className="ltn__blog-meta">
-                              <ul>
-                                <li className="ltn__blog-date">
-                                  <a href="#">
-                                    <i className="far fa-calendar-alt"></i>June
-                                    22, 2020
-                                  </a>
-                                </li>
-                              </ul>
+                      {latestdBlogs.map((blog, key) => {
+                        const slug = productSlug(blog.title);
+                        let imagecount = key + 1;
+
+                        return (
+                          <li key={key}>
+                            <div className="popular-post-widget-item clearfix">
+                              <div className="popular-post-widget-img">
+                                <Link href={`/blog/${slug}`}>
+                                  <img
+                                    src={`/img/team/${imagecount}.jpg`}
+                                    alt="#"
+                                  />
+                                </Link>
+                              </div>
+                              <div className="popular-post-widget-brief">
+                                <h6>
+                                  <Link href={`/blog/${slug}`}>
+                                    {blog.title}
+                                  </Link>
+                                </h6>
+                                <div className="ltn__blog-meta">
+                                  <ul>
+                                    <li className="ltn__blog-date">
+                                      <Link href={`/blog/${slug}`}>
+                                        <span>
+                                          <FaCalendarAlt />
+                                        </span>
+                                        <span>{blog.date}</span>
+                                      </Link>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="popular-post-widget-item clearfix">
-                          <div className="popular-post-widget-img">
-                            <a href="blog-details.html">
-                              <img src="img/team/6.jpg" alt="#" />
-                            </a>
-                          </div>
-                          <div className="popular-post-widget-brief">
-                            <h6>
-                              <a href="blog-details.html">
-                                Lorem ipsum dolor sit cing elit, sed do.
-                              </a>
-                            </h6>
-                            <div className="ltn__blog-meta">
-                              <ul>
-                                <li className="ltn__blog-date">
-                                  <a href="#">
-                                    <i className="far fa-calendar-alt"></i>June
-                                    22, 2020
-                                  </a>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="popular-post-widget-item clearfix">
-                          <div className="popular-post-widget-img">
-                            <a href="blog-details.html">
-                              <img src="img/team/7.jpg" alt="#" />
-                            </a>
-                          </div>
-                          <div className="popular-post-widget-brief">
-                            <h6>
-                              <a href="blog-details.html">
-                                Lorem ipsum dolor sit cing elit, sed do.
-                              </a>
-                            </h6>
-                            <div className="ltn__blog-meta">
-                              <ul>
-                                <li className="ltn__blog-date">
-                                  <a href="#">
-                                    <i className="far fa-calendar-alt"></i>June
-                                    22, 2020
-                                  </a>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="popular-post-widget-item clearfix">
-                          <div className="popular-post-widget-img">
-                            <a href="blog-details.html">
-                              <img src="img/team/8.jpg" alt="#" />
-                            </a>
-                          </div>
-                          <div className="popular-post-widget-brief">
-                            <h6>
-                              <a href="blog-details.html">
-                                Lorem ipsum dolor sit cing elit, sed do.
-                              </a>
-                            </h6>
-                            <div className="ltn__blog-meta">
-                              <ul>
-                                <li className="ltn__blog-date">
-                                  <a href="#">
-                                    <i className="far fa-calendar-alt"></i>June
-                                    22, 2020
-                                  </a>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
 
@@ -1413,7 +1350,7 @@ function ProductDetails({ product }) {
                 </aside>
               </div>
             </div>
-          </div>
+          </Container>
         </div>
         {/* <!-- SHOP DETAILS AREA END -->
 
@@ -1422,26 +1359,26 @@ function ProductDetails({ product }) {
           className="ltn__call-to-action-area call-to-action-6 before-bg-bottom"
           data-bs-bg="img/1.jpg--"
         >
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-12">
+          <Container>
+            <Row>
+              <Col xs={12}>
                 <div className="call-to-action-inner call-to-action-inner-6 ltn__secondary-bg position-relative text-center---">
                   <div className="coll-to-info text-color-white">
                     <h1>Looking for a dream home?</h1>
                     <p>We can help you realize your dream of a new home</p>
                   </div>
                   <div className="btn-wrapper">
-                    <a
+                    <Link
                       className="btn btn-effect-3 btn-white"
-                      href="contact.html"
+                      href="/contact"
                     >
                       Explore Properties <i className="icon-next"></i>
-                    </a>
+                    </Link>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
+              </Col>
+            </Row>
+          </Container>
         </div>
         {/* <!-- CALL TO ACTION END --> */}
       </LayoutOne>

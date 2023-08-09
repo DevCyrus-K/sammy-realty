@@ -18,6 +18,7 @@ import {
   FaEnvelope,
   FaGlobe,
   FaPencilAlt,
+  FaCalendarAlt
 } from "react-icons/fa";
 import BreadCrumb from "@/components/breadCrumbs";
 import { LayoutOne } from "@/layouts";
@@ -30,12 +31,14 @@ import QuickViewtModal from "@/components/modals/quickViewModal";
 import WishListModal from "@/components/modals/wishListModal";
 import FollowUs from "@/components/followUs";
 import Tags from "@/components/tags";
+import blogData from "@/data/blog";
 
 function ProductDetails({ product }) {
   const { products } = useSelector((state) => state.product);
   const { cartItems } = useSelector((state) => state.cart);
   const { wishlistItems } = useSelector((state) => state.wishlist);
   const { compareItems } = useSelector((state) => state.compare);
+  const latestdBlogs = getProducts(blogData, "fashion", "featured", 4);
 
   const relatedProducts = getProducts(
     products,
@@ -1298,110 +1301,44 @@ function ProductDetails({ product }) {
                       Leatest Blogs
                     </h4>
                     <ul>
-                      <li>
-                        <div className="popular-post-widget-item clearfix">
-                          <div className="popular-post-widget-img">
-                            <a href="blog-details.html">
-                              <img src="img/team/5.jpg" alt="#" />
-                            </a>
-                          </div>
-                          <div className="popular-post-widget-brief">
-                            <h6>
-                              <a href="blog-details.html">
-                                Lorem ipsum dolor sit cing elit, sed do.
-                              </a>
-                            </h6>
-                            <div className="ltn__blog-meta">
-                              <ul>
-                                <li className="ltn__blog-date">
-                                  <a href="#">
-                                    <i className="far fa-calendar-alt"></i>June
-                                    22, 2020
-                                  </a>
-                                </li>
-                              </ul>
+                    {latestdBlogs.map((blog, key) => {
+                        const slug = productSlug(blog.title);
+                        let imagecount = key + 1;
+
+                        return (
+                          <li key={key}>
+                            <div className="popular-post-widget-item clearfix">
+                              <div className="popular-post-widget-img">
+                                <Link href={`/blog/${slug}`}>
+                                  <img
+                                    src={`/img/team/${imagecount}.jpg`}
+                                    alt="#"
+                                  />
+                                </Link>
+                              </div>
+                              <div className="popular-post-widget-brief">
+                                <h6>
+                                  <Link href={`/blog/${slug}`}>
+                                    {blog.title}
+                                  </Link>
+                                </h6>
+                                <div className="ltn__blog-meta">
+                                  <ul>
+                                    <li className="ltn__blog-date">
+                                      <Link href={`/blog/${slug}`}>
+                                        <span>
+                                          <FaCalendarAlt />
+                                        </span>
+                                        <span>{blog.date}</span>
+                                      </Link>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="popular-post-widget-item clearfix">
-                          <div className="popular-post-widget-img">
-                            <a href="blog-details.html">
-                              <img src="img/team/6.jpg" alt="#" />
-                            </a>
-                          </div>
-                          <div className="popular-post-widget-brief">
-                            <h6>
-                              <a href="blog-details.html">
-                                Lorem ipsum dolor sit cing elit, sed do.
-                              </a>
-                            </h6>
-                            <div className="ltn__blog-meta">
-                              <ul>
-                                <li className="ltn__blog-date">
-                                  <a href="#">
-                                    <i className="far fa-calendar-alt"></i>June
-                                    22, 2020
-                                  </a>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="popular-post-widget-item clearfix">
-                          <div className="popular-post-widget-img">
-                            <a href="blog-details.html">
-                              <img src="img/team/7.jpg" alt="#" />
-                            </a>
-                          </div>
-                          <div className="popular-post-widget-brief">
-                            <h6>
-                              <a href="blog-details.html">
-                                Lorem ipsum dolor sit cing elit, sed do.
-                              </a>
-                            </h6>
-                            <div className="ltn__blog-meta">
-                              <ul>
-                                <li className="ltn__blog-date">
-                                  <a href="#">
-                                    <i className="far fa-calendar-alt"></i>June
-                                    22, 2020
-                                  </a>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="popular-post-widget-item clearfix">
-                          <div className="popular-post-widget-img">
-                            <a href="blog-details.html">
-                              <img src="img/team/8.jpg" alt="#" />
-                            </a>
-                          </div>
-                          <div className="popular-post-widget-brief">
-                            <h6>
-                              <a href="blog-details.html">
-                                Lorem ipsum dolor sit cing elit, sed do.
-                              </a>
-                            </h6>
-                            <div className="ltn__blog-meta">
-                              <ul>
-                                <li className="ltn__blog-date">
-                                  <a href="#">
-                                    <i className="far fa-calendar-alt"></i>June
-                                    22, 2020
-                                  </a>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
 

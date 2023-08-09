@@ -1,21 +1,10 @@
 import { LayoutOne } from "@/layouts";
 import { Container, Row, Col } from "react-bootstrap";
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
-import Slider from "react-slick";
 import { getProducts, productSlug } from "@/lib/product";
-import TitleSection from "@/components/titleSection";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
-import TestimonialCarouselItem from "@/components/testimonialCarousel";
-import testimonialData from "@/data/testimonial";
-import BlogItem from "@/components/blog";
-import blogData from "@/data/blog";
 import CallToAction from "@/components/callToAction";
-import AboutUsStyleOne from "@/components/aboutUs/aboutUsStyleOne";
-import Feature from "@/components/features";
-import featureData from "@/data/features";
 import TeamItem from "@/components/team";
 import TeamData from "@/data/team";
-
 function TeamPage() {
   const agents = getProducts(TeamData, "fashion", "featured", 6);
 

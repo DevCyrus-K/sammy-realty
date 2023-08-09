@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import Select from "react-select";
+
 import Paginator from "react-hooks-paginator";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
 import { getSortedProducts, productSlug } from "@/lib/product";
 import { LayoutOne } from "@/layouts";
 import { FaThLarge, FaThList, FaSearch } from "react-icons/fa";
 import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
-import SideBar from "@/components/shopSideBar";
 import RelatedProduct from "@/components/product/related-product";
 import ProductList from "@/components/product/list";
+import Search from "@/components/search";
 
-function ShopRightSideBar() {
+function ShopGrid() {
   const { products } = useSelector((state) => state.product);
   const [sortType, setSortType] = useState("");
   const [sortValue, setSortValue] = useState("");
@@ -23,7 +23,7 @@ function ShopRightSideBar() {
   const [sortedProducts, setSortedProducts] = useState([]);
   const [shopTopFilterStatus, setShopTopFilterStatus] = useState(false);
 
-  const pageLimit = 12;
+  const pageLimit = 4;
 
   const getSortParams = (sortType, sortValue) => {
     setSortType(sortType);
@@ -51,42 +51,26 @@ function ShopRightSideBar() {
   }, [offset, products, sortType, sortValue, filterSortType, filterSortValue]);
 
 
-  const defaultSorting = [
-    { value: "Default Sorting", label: "Default Sorting" },
-    { value: "Sort by popularity", label: "Sort by popularity" },
-    { value: "Sort by new arrivals", label: "Sort by new arrivals" },
-    { value: "Sort by price: low to high", label: "Sort by price: low to high" },
-    { value: "Sort by price: high to low", label: "Sort by price: high to low" },
-   
-  ];
-
-
-  const perPageOption = [
-    { value: "Per Page: 12", label: "Per Page: 12" },
-    { value: "Per Page: 21", label: "Per Page: 21" },
-    { value: "Per Page: 13", label: "Per Page: 13" },
-    { value: "Per Page: 15", label: "Per Page: 15" },
-    { value: "Per Page: 30", label: "Per Page: 30" },
-  ];
   return (
     <LayoutOne>
       {/* <!-- BREADCRUMB AREA START --> */}
 
       <ShopBreadCrumb
-        title="Shop Right Sidebar"
+        title="Shop Grid"
         sectionPace=""
-        currentSlug="Shop Right Sidebar"
+        currentSlug="Shop Grid"
       />
       {/* <!-- BREADCRUMB AREA END -->
     
     <!-- PRODUCT DETAILS AREA START --> */}
+
       <div className="ltn__product-area ltn__product-gutter mb-120">
         <Container>
           <Row>
-            <Col xs={12} lg={8}>
+            <Col xs={12}>
               <Tab.Container defaultActiveKey="first">
                 <div className="ltn__shop-options">
-                  <ul className="justify-content-start">
+                  <ul>
                     <li>
                       <div className="ltn__grid-list-tab-menu">
                         <Nav className="nav">
@@ -102,42 +86,28 @@ function ShopRightSideBar() {
 
                     <li>
                       <div className="short-by text-center">
-                      <Select
-                              className="nice-select"
-                              options={defaultSorting}
-                              defaultValue={[
-                                { value: "Default Sorting", label: "Default Sorting" },
-                              ]}
-                            />
+                        <select
+                          className="form-control nice-select"
+                          onChange={(e) =>
+
+                            getFilterSortParams("filterSort", e.target.value)
+                          }
+                        >
+                          <option value="default">Default</option>
+                          <option value="priceHighToLow">Price - High to Low</option>
+                          <option value="priceLowToHigh">Price - Low to High</option>
+                        </select>
                       </div>
                     </li>
                     <li>
-                      <div className="short-by text-center">
-                      <Select
-                              className="nice-select"
-                              options={perPageOption}
-                              defaultValue={[
-                                { value: "Default Sorting", label: "Default Sorting" },
-                              ]}
-                            />
+                      <div className="showing-product-number text-right">
+                        <span> {`Showing ${offset + pageLimit} of ${sortedProducts.length} results`}</span>
                       </div>
                     </li>
                   </ul>
                 </div>
 
-                <div className="ltn__search-widget mb-30">
-                  <form action="#">
-                    <input
-                      type="text"
-                      name="search"
-                      placeholder="Search your keyword..."
-                    />
-                    <button type="submit">
-                      <FaSearch />
-                    </button>
-                  </form>
-                </div>
-
+                <Search spaceBottom="mb-30" />
                 <Tab.Content>
                   <Tab.Pane eventKey="first">
                     <div className="ltn__product-tab-content-inner ltn__product-grid-view">
@@ -145,10 +115,10 @@ function ShopRightSideBar() {
                         {currentData.map((product, key) => {
                           const slug = productSlug(product.title);
                           return (
-                            <Col key={key} xs={12} sm={6}>
+                            <Col key={key} xs={12} sm={6} lg={4}>
                               <RelatedProduct
                                 slug={slug}
-                                baseUrl="shop/right-sidebar"
+                                baseUrl="shop/grid"
                                 productData={product}
                               />
                             </Col>
@@ -166,7 +136,7 @@ function ShopRightSideBar() {
                             <Col key={key} xs={12}>
                               <ProductList
                                 slug={slug}
-                                baseUrl="shop/right-sidebar"
+                                baseUrl="shop/grid"
                                 productData={product}
                               />
                             </Col>
@@ -182,7 +152,7 @@ function ShopRightSideBar() {
                 <Paginator
                   totalRecords={sortedProducts.length}
                   pageLimit={pageLimit}
-                  pageNeighbours={1}
+                  pageNeighbours={2}
                   setOffset={setOffset}
                   currentPage={currentPage}
                   setCurrentPage={setCurrentPage}
@@ -191,9 +161,6 @@ function ShopRightSideBar() {
                   pageNextText="»"
                 />
               </div>
-            </Col>
-            <Col xs={12} lg={4}>
-              <SideBar />
             </Col>
           </Row>
         </Container>
@@ -228,4 +195,4 @@ function ShopRightSideBar() {
   );
 }
 
-export default ShopRightSideBar;
+export default ShopGrid;

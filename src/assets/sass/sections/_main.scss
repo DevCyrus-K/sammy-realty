@@ -2574,37 +2574,34 @@ blockquote {
 ---------------------------------------------------- */
 /* ltn__pagination-3 */
 .ltn__pagination {
-  ul {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 10px;
 
-    li {
-      list-style: none;
-      display: inline-block;
-      margin-right: 10px;
+    &:last-child {
+      margin-right: 0px;
+    }
 
-      &:last-child {
-        margin-right: 0px;
-      }
+    button {
+      height: 50px;
+      width: 50px;
+      line-height: 46px;
+      border: 2px solid var(--border-color-11);
+      text-align: center;
+      display: block;
+      font-weight: 700;
+      border-radius: 100% !important;
+    }
 
-      a {
-        height: 50px;
-        width: 50px;
-        line-height: 46px;
-        border: 2px solid var(--border-color-11);
-        text-align: center;
-        display: block;
-        font-weight: 700;
-        border-radius: 100%;
-      }
-
-      &:hover,
-      &.active {
-        a {
-          background-color: var(--ltn__secondary-color);
-          border-color: var(--ltn__secondary-color);
-          color: var(--white);
-        }
+    &:hover,
+    &.active {
+      button {
+        background-color: var(--ltn__secondary-color);
+        border-color: var(--ltn__secondary-color);
+        color: var(--white);
       }
     }
   }
@@ -2612,16 +2609,14 @@ blockquote {
 
 @media (max-width: 767px) {
   .ltn__pagination {
-    ul {
-      li {
-        margin-right: 5px;
-        font-size: 14px;
+    li {
+      margin-right: 5px;
+      font-size: 14px;
 
-        a {
-          height: 40px;
-          width: 40px;
-          line-height: 36px;
-        }
+      button {
+        height: 40px;
+        width: 40px;
+        line-height: 36px;
       }
     }
   }
