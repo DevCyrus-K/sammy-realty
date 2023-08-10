@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-
 import Paginator from "react-hooks-paginator";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
 import { getSortedProducts, productSlug } from "@/lib/product";
@@ -35,6 +34,14 @@ function ShopGrid() {
     setFilterSortValue(sortValue);
   };
 
+
+  const [query, setQuery] = useState("");
+  const keys = ["title"];
+  const SearchProduct = (data) => {
+    return data.filter((item) =>
+      keys.some((key) => item[key].toLowerCase().includes(query))
+    );
+  };
   useEffect(() => {
     let sortedProducts = getSortedProducts(products, sortType, sortValue);
 
@@ -48,7 +55,10 @@ function ShopGrid() {
     setSortedProducts(sortedProducts);
 
     setCurrentData(sortedProducts.slice(offset, offset + pageLimit));
-  }, [offset, products, sortType, sortValue, filterSortType, filterSortValue]);
+
+    setCurrentData(SearchProduct(sortedProducts));
+    
+  }, [offset, products, sortType, sortValue, filterSortType, filterSortValue, query]);
 
 
   return (
@@ -107,7 +117,7 @@ function ShopGrid() {
                   </ul>
                 </div>
 
-                <Search spaceBottom="mb-30" />
+                <Search spaceBottom="mb-30" setQuery={setQuery} />
                 <Tab.Content>
                   <Tab.Pane eventKey="first">
                     <div className="ltn__product-tab-content-inner ltn__product-grid-view">

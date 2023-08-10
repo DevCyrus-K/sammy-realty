@@ -1,7 +1,7 @@
 import { FaSearch } from "react-icons/fa";
-const Search = ({ spaceBottom }) => {
+const Search = ({ spaceBottom, setQuery }) => {
   return (
-    <div className={`ltn__search-widget ${spaceBottom} mb-30`}>
+    <div className={`ltn__search-widget ${spaceBottom}`}>
       <form action="#">
         <input
           onChange={(e) => setQuery(e.target.value.toLowerCase())}

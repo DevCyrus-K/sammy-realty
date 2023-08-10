@@ -4,21 +4,7 @@ import { LayoutOne } from "@/layouts";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
 import CallToAction from "@/components/callToAction";
 import Select from "react-select";
-import {
-  FaDribbble,
-  FaInstagram,
-  FaTwitter,
-  FaFacebookF,
-  FaCheck,
-  FaCalendarAlt,
-  FaUserAlt,
-  FaEnvelope,
-  FaGlobe,
-  FaPencilAlt,
-  FaComments,
-  FaPhoneAlt,
-  FaArrowDown,
-} from "react-icons/fa";
+import { FaPencilAlt, } from "react-icons/fa";
 
 
 function AddListingPage() {
@@ -32,21 +18,6 @@ function AddListingPage() {
     { value: "New Jersey", label: "New Jersey" },
   ];
 
-  const propertyOptions = [
-    { value: "Property Status", label: "Property Status" },
-    { value: "Open house", label: "Open house" },
-    { value: "Rent", label: "Rent" },
-    { value: "Sale", label: "Sale" },
-    { value: "Sold", label: "Sold" },
-  ];
-
-  const propertyTypeOptions = [
-    { value: "Property Type", label: "Property Type" },
-    { value: "Apartment", label: "Apartment" },
-    { value: "Co-op", label: "Co-op" },
-    { value: "Condo", label: "Condo" },
-    { value: "Single Family Home", label: "Single Family Home" },
-  ];
 
 
   return (
@@ -191,7 +162,7 @@ function AddListingPage() {
                             </Col>
                           </Row>
                           <div className="btn-wrapper  mt-0">
-                          <button type="submit" className="btn theme-btn-1 btn-effect-1 text-uppercase" >Next Step</button>
+                            <button type="submit" className="btn theme-btn-1 btn-effect-1 text-uppercase" >Next Step</button>
                           </div>
                         </div>
                       </Tab.Pane>

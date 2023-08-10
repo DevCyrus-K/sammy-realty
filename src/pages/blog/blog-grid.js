@@ -1,11 +1,7 @@
 import { useState, useEffect } from "react";
 import { LayoutOne } from "@/layouts";
-import BlogItemTwo from "@/components/blog/blogItemTwo";
-import blogData from "@/data/blog";
 import { Container, Row, Col } from "react-bootstrap";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
-import BlogSideBar from "@/components/blog/sidebar";
-import { useSelector } from "react-redux";
 import { getProducts, getSortedProducts, productSlug } from "@/lib/product";
 import BlogItem from "@/components/blog";
 import CallToAction from "@/components/callToAction";
@@ -13,10 +9,6 @@ import Paginator from "react-hooks-paginator";
 
 function BlogGrid() {
   const { products } = useSelector((state) => state.product);
-  const featuredBlogs = getProducts(blogData, "fashion", "featured", 7);
-  const latestdBlogs = getProducts(blogData, "fashion", "featured", 4);
-  const topRatedProducts = getProducts(products, "fashion", "featured", 3);
-  const popularProducts = getProducts(products, "fashion", "featured", 3);
   const [sortType, setSortType] = useState("");
   const [sortValue, setSortValue] = useState("");
   const [filterSortType, setFilterSortType] = useState("");

@@ -109,14 +109,14 @@ const HeaderStyleOne = function ({
                           </Link>
                           <ul className="sub-menu menu-pages-img-show">
                             <li>
-                              <Link href="index.html">Home Style 01</Link>
+                              <Link href="/">Home Style 01</Link>
                               <img src="/img/home-demos/home-1.jpg" alt="#" />
                             </li>
                             <li>
-                              <Link href="index-2.html">Home Style 02</Link>
+                              <Link href="/home/page-two">Home Style 02</Link>
                               <img src="/img/home-demos/home-2.jpg" alt="#" />
                             </li>
-                            <li>
+                            {/* <li>
                               <Link href="index-3.html">Home Style 03</Link>
                               <img src="/img/home-demos/home-3.jpg" alt="#" />
                             </li>
@@ -157,11 +157,11 @@ const HeaderStyleOne = function ({
                             <li>
                               <Link href="index-11.html">Home Style 11</Link>
                               <img src="/img/home-demos/home-11.jpg" alt="#" />
-                            </li>
+                            </li> */}
                           </ul>
                         </li>
                         <li className="menu-icon">
-                          <Link href="#">
+                          <Link href="/about">
                             About <FaPlus />
                           </Link>
                           <ul>
@@ -350,17 +350,17 @@ const HeaderStyleOne = function ({
                                   <Link href="/shop">Shop</Link>
                                 </li>
                                 <li>
-                                  <Link href="/left-sidebar">
+                                  <Link href="/shop/left-sidebar">
                                     Shop Left sidebar
                                   </Link>
                                 </li>
                                 <li>
-                                  <Link href="/right-sidebar">
+                                  <Link href="/shop/right-sidebar">
                                     Shop right sidebar
                                   </Link>
                                 </li>
                                 <li>
-                                  <Link href="/grid">Shop Grid</Link>
+                                  <Link href="/shop/grid">Shop Grid</Link>
                                 </li>
                                 <li>
                                   <Link href="/product-details">

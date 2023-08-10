@@ -1,8 +1,6 @@
 import { LayoutOne } from "@/layouts";
-
 import { Container, Row, Col } from "react-bootstrap";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
-
 import CallToAction from "@/components/callToAction";
 import Contact from "@/components/contact";
 

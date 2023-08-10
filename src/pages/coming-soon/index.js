@@ -14,7 +14,7 @@ const comingSoon = () => {
               <div className="coming-soon-inner">
                 <div className="section-title-area ltn__section-title-2">
                   <h6 className="section-subtitle ltn__secondary-color">
-                    // Welcome to you
+                    {`// Welcome to you`}
                   </h6>
                   <h1 className="section-title white-color">
                     We Are Coming Soon

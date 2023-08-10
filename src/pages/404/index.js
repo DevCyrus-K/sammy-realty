@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { LayoutOne } from "@/layouts";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";

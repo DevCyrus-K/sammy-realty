@@ -71,7 +71,7 @@ function Portfolio() {
         {/*  <!-- Gallery area start -->  */}
         <div className="ltn__gallery-area mb-120">
           <Container>
-            <LightGallery elementClassNames="row ltn__gallery-active ltn__gallery-style-2 ltn__gallery-info-hide---">
+            <LightGallery elementClassNames="row ltn__gallery-active ltn__gallery-style-2">
               {portfolios.map((data, key) => {
                 const slug = productSlug(data.title);
 

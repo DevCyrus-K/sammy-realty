@@ -34,7 +34,7 @@ const WishListModal = ({ productData, wishlistShow, wishlistCloseHandle }) => {
                   </div>
                   <div className="modal-product-info">
                     <h5>
-                      <Link href="product-details.html">3 Rooms Manhattan</Link>
+                      <Link href="/product-details">3 Rooms Manhattan</Link>
                     </h5>
                     <p className="added-cart">
                       <span>
@@ -44,7 +44,7 @@ const WishListModal = ({ productData, wishlistShow, wishlistCloseHandle }) => {
                     </p>
                     <div className="btn-wrapper">
                       <Link
-                        href="wishlist.html"
+                        href="/wishlist"
                         className="theme-btn-1 btn btn-effect-1"
                       >
                         View Wishlist

@@ -9,7 +9,7 @@ import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
 import SideBar from "@/components/shopSideBar";
 import RelatedProduct from "@/components/product/related-product";
 import ProductList from "@/components/product/list";
-// import Search from "@/components/search";
+import Search from "@/components/search";
 
 function Shop() {
   const { products } = useSelector((state) => state.product);
@@ -24,7 +24,6 @@ function Shop() {
 
 
   const [query, setQuery] = useState("");
-  console.log(query);
   const keys = ["title"];
 
   const pageLimit = 4;
@@ -38,7 +37,7 @@ function Shop() {
     setFilterSortValue(sortValue);
   };
 
-  const Search = (data) => {
+  const SearchProduct = (data) => {
     return data.filter((item) =>
       keys.some((key) => item[key].toLowerCase().includes(query))
     );
@@ -60,9 +59,9 @@ function Shop() {
 
     setCurrentData(sortedProducts.slice(offset, offset + pageLimit));
 
-    setCurrentData(Search(sortedProducts));
+    setCurrentData(SearchProduct(sortedProducts));
 
-  }, [offset, products, sortType, sortValue, filterSortType, filterSortValue,query]);
+  }, [offset, products, sortType, sortValue, filterSortType, filterSortValue, query]);
 
 
 
@@ -115,19 +114,7 @@ function Shop() {
                   </ul>
                 </div>
 
-                <div className={`ltn__search-widget mb-30`}>
-                  <form action="#">
-                    <input
-                      onChange={(e) => setQuery(e.target.value.toLowerCase())}
-                      type="text"
-                      name="search"
-                      placeholder="Search your keyword..."
-                    />
-                    <button type="submit">
-                      <FaSearch />
-                    </button>
-                  </form>
-                </div>
+                <Search spaceBottom="mb-30" setQuery={setQuery} />
 
                 <Tab.Content>
                   <Tab.Pane eventKey="first">
