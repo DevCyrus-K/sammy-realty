@@ -2588,7 +2588,7 @@ blockquote {
       margin-right: 0px;
     }
 
-    a {
+    a,button {
       height: 50px;
       width: 50px;
       line-height: 1;
@@ -2605,7 +2605,7 @@ blockquote {
 
     &:hover,
     &.active {
-      a {
+      a ,button{
         background-color: var(--ltn__secondary-color);
         border-color: var(--ltn__secondary-color);
         color: var(--white);
@@ -2624,7 +2624,7 @@ blockquote {
       margin-right: 5px;
       font-size: 14px;
 
-      a {
+      a,button {
         height: 40px;
         width: 40px;
         line-height: 36px;

@@ -6,34 +6,25 @@ import { productSlug } from "@/lib/product";
 import blogData from "@/data/blog";
 import BlogItem from "@/components/blog";
 import CallToAction from "@/components/callToAction";
-import ReactPaginate from 'react-paginate';
+import ReactPaginate from "react-paginate";
 import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
 
 function BlogGrid() {
-
-  const itemsPerPage = 4;
-  // We start with an empty list of items.
+  const perPageLimit = 4;
   const [currentItems, setCurrentItems] = useState(blogData);
   const [pageCount, setPageCount] = useState(0);
-  // Here we use item offsets; we could also use page offsets
-  // following the API or data you're working with.
   const [itemOffset, setItemOffset] = useState(0);
 
   useEffect(() => {
-    // Fetch items from another resources.
-    const endOffset = itemOffset + itemsPerPage;
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+    const endOffset = itemOffset + perPageLimit;
     setCurrentItems(blogData.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(blogData.length / itemsPerPage));
-  }, [itemOffset, itemsPerPage]);
+    setPageCount(Math.ceil(blogData.length / perPageLimit));
+  }, [itemOffset, perPageLimit]);
 
-  // Invoke when user click to request another page.
   const handlePageClick = (event) => {
-    const newOffset = event.selected * itemsPerPage % blogData.length;
+    const newOffset = (event.selected * perPageLimit) % blogData.length;
     setItemOffset(newOffset);
   };
-
-
 
   return (
     <>
@@ -60,7 +51,6 @@ function BlogGrid() {
             <Row>
               <Col xs={12}>
                 <div className="ltn__pagination-area">
-
                   <ReactPaginate
                     onPageChange={handlePageClick}
                     pageRangeDisplayed={3}
@@ -81,12 +71,11 @@ function BlogGrid() {
                     activeClassName="active"
                     renderOnZeroPageCount={null}
                   />
-
-                </div></Col>
+                </div>
+              </Col>
             </Row>
           </Container>
         </div>
-
 
         <div className="ltn__call-to-action-area call-to-action-6 before-bg-bottom">
           <Container>
@@ -103,7 +92,3 @@ function BlogGrid() {
 }
 
 export default BlogGrid;
-
-
-
-
