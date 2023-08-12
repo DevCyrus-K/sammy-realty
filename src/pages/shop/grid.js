@@ -22,7 +22,7 @@ function ShopGrid() {
   const [sortedProducts, setSortedProducts] = useState([]);
   const [shopTopFilterStatus, setShopTopFilterStatus] = useState(false);
 
-  const pageLimit = 4;
+  const pageLimit = 2;
 
   const getSortParams = (sortType, sortValue) => {
     setSortType(sortType);
@@ -162,7 +162,7 @@ function ShopGrid() {
                 <Paginator
                   totalRecords={sortedProducts.length}
                   pageLimit={pageLimit}
-                  pageNeighbours={2}
+                  pageNeighbours={1}
                   setOffset={setOffset}
                   currentPage={currentPage}
                   setCurrentPage={setCurrentPage}

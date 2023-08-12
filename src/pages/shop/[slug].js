@@ -141,7 +141,7 @@ function ProductDetails({ product }) {
                 return (
                   <div className="col-lg-12" key={key}>
                     <div className="ltn__img-slide-item-4">
-                      <Link href="javascript:void(0)">
+                      <Link href="#">
                         <img
                           src={`/img/img-slide/${single.img}`}
                           alt={`${single.title}`}

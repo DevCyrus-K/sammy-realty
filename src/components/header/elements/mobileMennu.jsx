@@ -10,48 +10,46 @@ import {
   FaSearch,
 } from "react-icons/fa";
 
-import {getSiblings,
+import {
+  getSiblings,
   getClosest,
   slideUp,
   slideDown,
-  slideToggle,} from '@/lib/product'
-import { useState } from "react";
+  slideToggle,
+} from "@/lib/product";
 import { useSelector } from "react-redux";
 
 const MobileMenu = function ({ offCanVastoggleBtn, closeSideBar }) {
   const { cartItems } = useSelector((state) => state.cart);
-  const { wishlistItems } = useSelector((state) => state.wishlist);
 
   const onClickHandler = (e) => {
     const target = e.currentTarget;
     const parentEl = target.parentElement;
-    parentEl.classList.toggle('active')
+    parentEl.classList.toggle("active");
     if (
-        parentEl?.classList.contains("menu-expand") ||
-        target.classList.contains("menu-expand")
+      parentEl?.classList.contains("menu-expand") ||
+      target.classList.contains("menu-expand")
     ) {
-        const element = target.classList.contains("icon")
-            ? parentEl
-            : target;
-        const parent = getClosest(element, "li");
-        const childNodes = parent.childNodes;
-        const parentSiblings = getSiblings(parent);
-        parentSiblings.forEach((sibling) => {
-          sibling.classList.remove('active')
-            const sibChildNodes = sibling.childNodes;
-            sibChildNodes.forEach((child) => {
-                if (child.nodeName === "UL") {
-                    slideUp(child, 1000);
-                }
-            });
+      const element = target.classList.contains("icon") ? parentEl : target;
+      const parent = getClosest(element, "li");
+      const childNodes = parent.childNodes;
+      const parentSiblings = getSiblings(parent);
+      parentSiblings.forEach((sibling) => {
+        sibling.classList.remove("active");
+        const sibChildNodes = sibling.childNodes;
+        sibChildNodes.forEach((child) => {
+          if (child.nodeName === "UL") {
+            slideUp(child, 1000);
+          }
         });
-        childNodes.forEach((child) => {
-            if (child.nodeName === "UL") {
-                slideToggle(child, 1000);
-            }
-        });
+      });
+      childNodes.forEach((child) => {
+        if (child.nodeName === "UL") {
+          slideToggle(child, 1000);
+        }
+      });
     }
-};
+  };
 
   return (
     <>
@@ -85,110 +83,72 @@ const MobileMenu = function ({ offCanVastoggleBtn, closeSideBar }) {
               <li>
                 <Link href="#">Home</Link>
                 <span
-                                className="menu-expand"
-                                onClick={onClickHandler}
-                                aria-hidden="true"
-                            ></span>
+                  className="menu-expand"
+                  onClick={onClickHandler}
+                  aria-hidden="true"
+                ></span>
                 <ul className="sub-menu">
                   <li>
                     <Link href="index.html">Home Style 01</Link>
                   </li>
                   <li>
-                    <Link href="index-2.html">Home Style 02</Link>
-                  </li>
-                  <li>
-                    <Link href="index-3.html">Home Style 03</Link>
-                  </li>
-                  <li>
-                    <Link href="index-4.html">Home Style 04</Link>
-                  </li>
-                  <li>
-                    <Link href="index-5.html">
-                      Home Style 05
-                      <span className="menu-item-badge">video</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="index-6.html">Home Style 06</Link>
-                  </li>
-                  <li>
-                    <Link href="index-7.html">Home Style 07</Link>
-                  </li>
-                  <li>
-                    <Link href="index-8.html">Home Style 08</Link>
-                  </li>
-                  <li>
-                    <Link href="index-9.html">Home Style 09</Link>
-                  </li>
-                  <li>
-                    <Link href="index-10.html">
-                      Home Style 10 <span className="menu-item-badge">Map</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="index-11.html">Home Style 11</Link>
+                    <Link href="/home/page-two">Home Style 02</Link>
                   </li>
                 </ul>
               </li>
               <li>
                 <Link href="#">About</Link>
                 <span
-                                className="menu-expand"
-                                onClick={onClickHandler}
-                                aria-hidden="true"
-                            ></span>
+                  className="menu-expand"
+                  onClick={onClickHandler}
+                  aria-hidden="true"
+                ></span>
                 <ul className="sub-menu">
                   <li>
-                    <Link href="about.html">About</Link>
+                    <Link href="/about">About</Link>
                   </li>
                   <li>
-                    <Link href="service.html">Services</Link>
+                    <Link href="/service">Services</Link>
+                  </li>
+
+                  <li>
+                    <Link href="/portfolio">Portfolio</Link>
                   </li>
                   <li>
-                    <Link href="service-details.html">Service Details</Link>
+                    <Link href="portfolio-page-two">Portfolio - 02</Link>
+                  </li>
+
+                  <li>
+                    <Link href="/team">Team</Link>
+                  </li>
+
+                  <li>
+                    <Link href="/faq">FAQ</Link>
                   </li>
                   <li>
-                    <Link href="portfolio.html">Portfolio</Link>
-                  </li>
-                  <li>
-                    <Link href="portfolio-2.html">Portfolio - 02</Link>
-                  </li>
-                  <li>
-                    <Link href="portfolio-details.html">Portfolio Details</Link>
-                  </li>
-                  <li>
-                    <Link href="team.html">Team</Link>
-                  </li>
-                  <li>
-                    <Link href="team-details.html">Team Details</Link>
-                  </li>
-                  <li>
-                    <Link href="faq.html">FAQ</Link>
-                  </li>
-                  <li>
-                    <Link href="locations.html">Google Map Locations</Link>
+                    <Link href="/locations">Google Map Locations</Link>
                   </li>
                 </ul>
               </li>
               <li>
                 <Link href="#">Shop</Link>
                 <span
-                                className="menu-expand"
-                                onClick={onClickHandler}
-                                aria-hidden="true"
-                            ></span>
+                  className="menu-expand"
+                  onClick={onClickHandler}
+                  aria-hidden="true"
+                ></span>
                 <ul className="sub-menu">
                   <li>
                     <Link href="/shop">Shop</Link>
                   </li>
                   <li>
-                    <Link href="/shop-grid">Shop Grid</Link>
+                    <Link href="/shop/grid">Shop Grid</Link>
                   </li>
                   <li>
-                    <Link href="/shop-left-sidebar">Shop Left sidebar</Link>
+                    <Link href="/shop/left-sidebar">Shop Left sidebar</Link>
                   </li>
                   <li>
-                    <Link href="/shop-right-sidebar">Shop right sidebar</Link>
+                    <Link href="/shop/right-sidebar">Shop right sidebar</Link>
                   </li>
                   {/* <li>
                     <Link href="product-details">Shop details </Link>
@@ -206,7 +166,7 @@ const MobileMenu = function ({ offCanVastoggleBtn, closeSideBar }) {
                     <Link href="/order-tracking">Order Tracking</Link>
                   </li>
                   <li>
-                    <Link href="my-account">My Account</Link>
+                    <Link href="/my-account">My Account</Link>
                   </li>
                   <li>
                     <Link href="/login">Sign in</Link>
@@ -219,35 +179,32 @@ const MobileMenu = function ({ offCanVastoggleBtn, closeSideBar }) {
               <li>
                 <Link href="#">News</Link>
                 <span
-                                className="menu-expand"
-                                onClick={onClickHandler}
-                                aria-hidden="true"
-                            ></span>
+                  className="menu-expand"
+                  onClick={onClickHandler}
+                  aria-hidden="true"
+                ></span>
                 <ul className="sub-menu">
                   <li>
                     <Link href="/blog">News</Link>
                   </li>
                   <li>
-                    <Link href="/blog-grid">News Grid</Link>
+                    <Link href="/blog/grid">News Grid</Link>
                   </li>
                   <li>
-                    <Link href="/blog-left-sidebar">News Left sidebar</Link>
+                    <Link href="/blog/left-sidebar">News Left sidebar</Link>
                   </li>
                   <li>
-                    <Link href="/blog-right-sidebar">News Right sidebar</Link>
-                  </li>
-                  <li>
-                    <Link href="/blog-details">News details</Link>
+                    <Link href="/blog/right-sidebar">News Right sidebar</Link>
                   </li>
                 </ul>
               </li>
               <li>
                 <Link href="#">Pages</Link>
                 <span
-                                className="menu-expand"
-                                onClick={onClickHandler}
-                                aria-hidden="true"
-                            ></span>
+                  className="menu-expand"
+                  onClick={onClickHandler}
+                  aria-hidden="true"
+                ></span>
                 <ul className="sub-menu">
                   <li>
                     <Link href="/about">About</Link>
@@ -255,24 +212,18 @@ const MobileMenu = function ({ offCanVastoggleBtn, closeSideBar }) {
                   <li>
                     <Link href="/service">Services</Link>
                   </li>
-                  {/* <li>
-                    <Link href="service-details.html">Service Details</Link>
-                  </li> */}
+
                   <li>
                     <Link href="/portfolio">Portfolio</Link>
                   </li>
                   <li>
-                    <Link href="/portfolio-2">Portfolio - 02</Link>
+                    <Link href="/portfolio-page-two">Portfolio - 02</Link>
                   </li>
-                  {/* <li>
-                    <Link href="portfolio-details.html">Portfolio Details</Link>
-                  </li> */}
+
                   <li>
                     <Link href="/team">Team</Link>
                   </li>
-                  {/* <li>
-                    <Link href="team-details.html">Team Details</Link>
-                  </li> */}
+
                   <li>
                     <Link href="/faq">FAQ</Link>
                   </li>

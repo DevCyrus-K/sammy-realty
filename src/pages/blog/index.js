@@ -19,7 +19,7 @@ function Blog() {
       <LayoutOne>
         <ShopBreadCrumb title="News Feeds" sectionPace="" currentSlug="Blog" />
 
-        <div class="ltn__blog-area mb-120">
+        <div className="ltn__blog-area mb-120">
           <Container>
             <Row>
               <Col xs={12} lg={8}>
@@ -41,7 +41,6 @@ function Blog() {
 
               <Col xs={12} lg={{ span: 4, order: 0 }}>
                 <BlogSideBar
-                  baseUrl="shop"
                   latestdBlogs={latestdBlogs}
                   topRatedProducts={topRatedProducts}
                   popularProducts={popularProducts}

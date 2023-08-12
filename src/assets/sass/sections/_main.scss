@@ -2576,6 +2576,9 @@ blockquote {
 .ltn__pagination {
   margin: 0;
   padding: 0;
+  .page-link:focus {
+    box-shadow: none !important;
+}
   li {
     list-style: none;
     display: inline-block;
@@ -2585,24 +2588,32 @@ blockquote {
       margin-right: 0px;
     }
 
-    button {
+    a {
       height: 50px;
       width: 50px;
-      line-height: 46px;
+      line-height: 1;
+      color: var(--ltn__paragraph-color);
       border: 2px solid var(--border-color-11);
       text-align: center;
       display: block;
       font-weight: 700;
       border-radius: 100% !important;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
     }
 
     &:hover,
     &.active {
-      button {
+      a {
         background-color: var(--ltn__secondary-color);
         border-color: var(--ltn__secondary-color);
         color: var(--white);
       }
+    }
+
+    &:focus {
+      box-shadow: none !important;
     }
   }
 }
@@ -2613,7 +2624,7 @@ blockquote {
       margin-right: 5px;
       font-size: 14px;
 
-      button {
+      a {
         height: 40px;
         width: 40px;
         line-height: 36px;
@@ -6853,7 +6864,7 @@ input.cart-plus-minus-box {
       border-radius: 0;
       border-bottom: 1px solid var(--border-color-1);
       color: var(--ltn__paragraph-color);
-      &:hover{
+      &:hover {
         color: var(--ltn__secondary-color);
       }
       // &:last-child {

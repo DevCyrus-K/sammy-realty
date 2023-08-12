@@ -17,10 +17,7 @@ import {
   FaTimes,
 } from "react-icons/fa";
 
-const HeaderStyleOne = function ({
-  toggleClassNameInBody,
-  SetToggleClassName,
-}) {
+const HeaderStyleOne = function ({ SetToggleClassName }) {
   const [searchFormOpener, searchFormOpenerSet] = useState(false);
 
   const [cartMenuOpener, cartMenuOpenerSet] = useState(false);
@@ -116,48 +113,6 @@ const HeaderStyleOne = function ({
                               <Link href="/home/page-two">Home Style 02</Link>
                               <img src="/img/home-demos/home-2.jpg" alt="#" />
                             </li>
-                            {/* <li>
-                              <Link href="index-3.html">Home Style 03</Link>
-                              <img src="/img/home-demos/home-3.jpg" alt="#" />
-                            </li>
-                            <li>
-                              <Link href="index-4.html">Home Style 04</Link>
-                              <img src="/img/home-demos/home-4.jpg" alt="#" />
-                            </li>
-                            <li>
-                              <Link href="index-5.html">
-                                Home Style 05
-                                <span className="menu-item-badge">video</span>
-                              </Link>
-                              <img src="/img/home-demos/home-5.jpg" alt="#" />
-                            </li>
-                            <li>
-                              <Link href="index-6.html">Home Style 06</Link>
-                              <img src="/img/home-demos/home-6.jpg" alt="#" />
-                            </li>
-                            <li>
-                              <Link href="index-7.html">Home Style 07</Link>
-                              <img src="/img/home-demos/home-7.jpg" alt="#" />
-                            </li>
-                            <li>
-                              <Link href="index-8.html">Home Style 08</Link>
-                              <img src="/img/home-demos/home-8.jpg" alt="#" />
-                            </li>
-                            <li>
-                              <Link href="index-9.html">Home Style 09</Link>
-                              <img src="/img/home-demos/home-9.jpg" alt="#" />
-                            </li>
-                            <li>
-                              <Link href="index-10.html">
-                                Home Style 10
-                                <span className="menu-item-badge">Map</span>
-                              </Link>
-                              <img src="/img/home-demos/home-10.jpg" alt="#" />
-                            </li>
-                            <li>
-                              <Link href="index-11.html">Home Style 11</Link>
-                              <img src="/img/home-demos/home-11.jpg" alt="#" />
-                            </li> */}
                           </ul>
                         </li>
                         <li className="menu-icon">
@@ -171,28 +126,18 @@ const HeaderStyleOne = function ({
                             <li>
                               <Link href="/service">Services</Link>
                             </li>
-                            <li>
-                              <Link href="/service-details">
-                                Service Details
-                              </Link>
-                            </li>
+
                             <li>
                               <Link href="/portfolio">Portfolio</Link>
                             </li>
                             <li>
                               <Link href="/portfolio-2">Portfolio - 02</Link>
                             </li>
-                            <li>
-                              <Link href="/portfolio-details">
-                                Portfolio Details
-                              </Link>
-                            </li>
+
                             <li>
                               <Link href="/team">Team</Link>
                             </li>
-                            <li>
-                              <Link href="/team-details">Team Details</Link>
-                            </li>
+
                             <li>
                               <Link href="/faq">FAQ</Link>
                             </li>
@@ -269,20 +214,17 @@ const HeaderStyleOne = function ({
                               <Link href="/blog">News</Link>
                             </li>
                             <li>
-                              <Link href="/blog/blog-grid">News Grid</Link>
+                              <Link href="/blog/grid">News Grid</Link>
                             </li>
                             <li>
-                              <Link href="/blog/blog-left-sidebar">
+                              <Link href="/blog/left-sidebar">
                                 News Left sidebar
                               </Link>
                             </li>
                             <li>
-                              <Link href="/blog/blog-right-sidebar">
+                              <Link href="/blog/right-sidebar">
                                 News Right sidebar
                               </Link>
-                            </li>
-                            <li>
-                              <Link href="/blog-details">News details</Link>
                             </li>
                           </ul>
                         </li>
@@ -302,17 +244,11 @@ const HeaderStyleOne = function ({
                                     Portfolio - 02
                                   </Link>
                                 </li>
-                                <li>
-                                  <Link href="/portfolio-details">
-                                    Portfolio Details
-                                  </Link>
-                                </li>
+
                                 <li>
                                   <Link href="/team">Team</Link>
                                 </li>
-                                <li>
-                                  <Link href="/team-details">Team Details</Link>
-                                </li>
+
                                 <li>
                                   <Link href="/faq">FAQ</Link>
                                 </li>
@@ -362,11 +298,7 @@ const HeaderStyleOne = function ({
                                 <li>
                                   <Link href="/shop/grid">Shop Grid</Link>
                                 </li>
-                                <li>
-                                  <Link href="/product-details">
-                                    Shop details
-                                  </Link>
-                                </li>
+
                                 <li>
                                   <Link href="/cart">Cart</Link>
                                 </li>
@@ -445,7 +377,7 @@ const HeaderStyleOne = function ({
                           <Link href="/register">Register</Link>
                         </li>
                         <li>
-                          <Link href="my-account">My Account</Link>
+                          <Link href="/my-account">My Account</Link>
                         </li>
                         <li>
                           <Link href="/wishlist">Wishlist</Link>

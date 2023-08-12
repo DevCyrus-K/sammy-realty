@@ -32,7 +32,7 @@ function BlogLeftSideBar() {
                         key={key}
                         blogData={blog}
                         slug={slug}
-                        baseUrl="blog"
+                        baseUrl="/blog/left-sidebar"
                       />
                     );
                   })}

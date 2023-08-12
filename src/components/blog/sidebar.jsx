@@ -1,13 +1,7 @@
 import Link from "next/link";
-import { useState } from "react";
-import ModalVideo from "react-modal-video";
 import Slider from "react-slick";
 import {
-  FaArrowRight,
-  FaArrowLeft,
-  FaPlay,
   FaStar,
-  FaStarHalfAlt,
   FaSearch,
   FaRegStar,
   FaDribbble,
@@ -15,21 +9,12 @@ import {
   FaTwitter,
   FaFacebookF,
   FaCalendarAlt,
-  FaUserAlt,
-  FaEnvelope,
-  FaGlobe,
-  FaPencilAlt,
 } from "react-icons/fa";
 import { productSlug, getDiscountPrice } from "@/lib/product";
 import FollowUs from "@/components/followUs";
 import Tags from "@/components/tags";
 
-const BlogSideBar = ({
-  popularProducts,
-  topRatedProducts,
-  latestdBlogs,
-  baseUrl,
-}) => {
+const BlogSideBar = ({ popularProducts, topRatedProducts, latestdBlogs }) => {
   const product = popularProducts[0];
   const discountedPrice = getDiscountPrice(
     product.price,
@@ -215,7 +200,7 @@ const BlogSideBar = ({
           </ul>
         </div>
         {/* <!-- Menu Widget (Category) --> */}
-        <div className="widget ltn__menu-widget ltn__menu-widget-2--- ltn__menu-widget-2-color-2---">
+        <div className="widget ltn__menu-widget">
           <h4 className="ltn__widget-title ltn__widget-title-border-2">
             Top Categories
           </h4>
@@ -363,31 +348,30 @@ const BlogSideBar = ({
           </ul>
         </div>
 
-        <div class="widget ltn__popular-post-widget ltn__twitter-post-widget">
-          <h4 class="ltn__widget-title ltn__widget-title-border-2">
+        <div className="widget ltn__popular-post-widget ltn__twitter-post-widget">
+          <h4 className="ltn__widget-title ltn__widget-title-border-2">
             Twitter Feeds
           </h4>
           <ul>
             <li>
-              <div class="popular-post-widget-item clearfix">
-                <div class="popular-post-widget-img">
-                  <Link href="blog-details.html">
+              <div className="popular-post-widget-item clearfix">
+                <div className="popular-post-widget-img">
+                  <Link href="/blog-details">
                     <span>
                       <FaTwitter />
                     </span>
                   </Link>
                 </div>
-                <div class="popular-post-widget-brief">
+                <div className="popular-post-widget-brief">
                   <p>
                     Carsafe - #Gutenberg ready @wordpress Theme for Car Service,
                     Auto Parts, Car Dealer available on @website
                     <Link href="https://website.net">https://website.net</Link>
                   </p>
-                  <div class="ltn__blog-meta">
+                  <div className="ltn__blog-meta">
                     <ul>
-                      <li class="ltn__blog-date">
+                      <li className="ltn__blog-date">
                         <Link href="#">
-                          {" "}
                           <span>
                             <FaCalendarAlt />
                           </span>
@@ -400,25 +384,24 @@ const BlogSideBar = ({
               </div>
             </li>
             <li>
-              <div class="popular-post-widget-item clearfix">
-                <div class="popular-post-widget-img">
-                  <Link href="blog-details.html">
+              <div className="popular-post-widget-item clearfix">
+                <div className="popular-post-widget-img">
+                  <Link href="/blog-details">
                     <span>
                       <FaTwitter />
                     </span>
                   </Link>
                 </div>
-                <div class="popular-post-widget-brief">
+                <div className="popular-post-widget-brief">
                   <p>
                     Carsafe - #Gutenberg ready @wordpress Theme for Car Service,
                     Auto Parts, Car Dealer available on @website
                     <Link href="https://website.net">https://website.net</Link>
                   </p>
-                  <div class="ltn__blog-meta">
+                  <div className="ltn__blog-meta">
                     <ul>
-                      <li class="ltn__blog-date">
+                      <li className="ltn__blog-date">
                         <Link href="#">
-                          {" "}
                           <span>
                             <FaCalendarAlt />
                           </span>
@@ -431,25 +414,24 @@ const BlogSideBar = ({
               </div>
             </li>
             <li>
-              <div class="popular-post-widget-item clearfix">
-                <div class="popular-post-widget-img">
-                  <Link href="blog-details.html">
+              <div className="popular-post-widget-item clearfix">
+                <div className="popular-post-widget-img">
+                  <Link href="/blog-details">
                     <span>
                       <FaTwitter />
                     </span>
                   </Link>
                 </div>
-                <div class="popular-post-widget-brief">
+                <div className="popular-post-widget-brief">
                   <p>
                     Carsafe - #Gutenberg ready @wordpress Theme for Car Service,
                     Auto Parts, Car Dealer available on @website
                     <Link href="https://website.net">https://website.net</Link>
                   </p>
-                  <div class="ltn__blog-meta">
+                  <div className="ltn__blog-meta">
                     <ul>
-                      <li class="ltn__blog-date">
+                      <li className="ltn__blog-date">
                         <Link href="#">
-                          {" "}
                           <span>
                             <FaCalendarAlt />
                           </span>
