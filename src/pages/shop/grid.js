@@ -3,14 +3,13 @@ import { useSelector } from "react-redux";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
 import { getSortedProducts, productSlug } from "@/lib/product";
 import { LayoutOne } from "@/layouts";
-import { FaThLarge, FaThList, FaSearch } from "react-icons/fa";
+import { FaThLarge, FaThList, FaSearch,FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
 import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
 import RelatedProduct from "@/components/product/related-product";
 import ProductList from "@/components/product/list";
 import Search from "@/components/search";
-
 import ReactPaginate from "react-paginate";
-import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
+import CallToAction from "@/components/callToAction";
 
 function ShopGrid() {
   const { products } = useSelector((state) => state.product);
@@ -213,28 +212,15 @@ function ShopGrid() {
       {/* <!-- PRODUCT DETAILS AREA END -->
 
     <!-- CALL TO ACTION START (call-to-action-6) --> */}
-      <div
-        className="ltn__call-to-action-area call-to-action-6 before-bg-bottom"
-        data-bs-bg="img/1.jpg--"
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="call-to-action-inner call-to-action-inner-6 ltn__secondary-bg position-relative text-center---">
-                <div className="coll-to-info text-color-white">
-                  <h1>Looking for a dream home?</h1>
-                  <p>We can help you realize your dream of a new home</p>
-                </div>
-                <div className="btn-wrapper">
-                  <a className="btn btn-effect-3 btn-white" href="contact.html">
-                    Explore Properties <i className="icon-next"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="ltn__call-to-action-area call-to-action-6 before-bg-bottom">
+          <Container>
+            <Row>
+              <Col xs={12}>
+                <CallToAction />
+              </Col>
+            </Row>
+          </Container>
         </div>
-      </div>
       {/* <!-- CALL TO ACTION END --> */}
     </LayoutOne>
   );

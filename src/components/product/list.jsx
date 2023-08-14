@@ -1,10 +1,12 @@
 import Link from "next/link";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/store/slices/cart-slice";
 import {
   addToWishlist,
   deleteFromWishlist,
 } from "@/store/slices/wishlist-slice";
+import QuickViewtModal from "@/components/modals/quickViewModal";
 const ProductList = ({
   productData,
   slug,
@@ -25,6 +27,7 @@ const ProductList = ({
     badgeText = "For Sale";
   }
   const dispatch = useDispatch();
+  const [modalShow, setModalShow] = useState(false);
   return (
     <>
       <div className="ltn__product-item ltn__product-item-4 ltn__product-item-5">
@@ -102,7 +105,7 @@ const ProductList = ({
           <div className="product-hover-action">
             <ul>
               <li>
-                <button onClick={showQuickViewHandle}>
+                <button onClick={() => setModalShow(true)}>
                   <i className="flaticon-expand"></i>
                 </button>
               </li>
@@ -126,6 +129,13 @@ const ProductList = ({
           </div>
         </div>
       </div>
+
+      <QuickViewtModal
+        productData={productData}
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        slug={slug}
+      />
     </>
   );
 };

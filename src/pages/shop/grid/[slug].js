@@ -27,8 +27,6 @@ import { getProducts, productSlug, getDiscountPrice } from "@/lib/product";
 import products from "@/data/products.json";
 import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
 import RelatedProduct from "@/components/product/related-product";
-import QuickViewtModal from "@/components/modals/quickViewModal";
-import WishListModal from "@/components/modals/wishListModal";
 import FollowUs from "@/components/followUs";
 import Tags from "@/components/tags";
 import blogData from "@/data/blog";
@@ -1383,16 +1381,6 @@ function ProductDetails({ product }) {
         {/* <!-- CALL TO ACTION END --> */}
       </LayoutOne>
 
-      <QuickViewtModal
-        product={product}
-        quickViewShow={quickViewShow}
-        quickViewCloseHandle={quickViewCloseHandle}
-      />
-
-      <WishListModal
-        wishlistShow={wishlistShow}
-        wishlistCloseHandle={wishlistCloseHandle}
-      />
     </>
   );
 }

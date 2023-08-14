@@ -27,13 +27,12 @@ import { getProducts, productSlug, getDiscountPrice } from "@/lib/product";
 import products from "@/data/products.json";
 import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
 import RelatedProduct from "@/components/product/related-product";
-import QuickViewtModal from "@/components/modals/quickViewModal";
-import WishListModal from "@/components/modals/wishListModal";
 import FollowUs from "@/components/followUs";
 import Tags from "@/components/tags";
 import blogData from "@/data/blog";
+import CallToAction from "@/components/callToAction";
 
-function ProductDetails({ product,baseUrl }) {
+function ProductDetails({ product, baseUrl }) {
   const { products } = useSelector((state) => state.product);
   const { cartItems } = useSelector((state) => state.cart);
   const { wishlistItems } = useSelector((state) => state.wishlist);
@@ -135,18 +134,18 @@ function ProductDetails({ product,baseUrl }) {
               {...productDetailsCarouselSettings}
               className="row ltn__image-slider-5-active slick-arrow-1 slick-arrow-1-inner ltn__no-gutter-all g-0"
             >
-              {product.carousel.map((single,key) => {
+              {product.carousel.map((single, key) => {
                 return (
                   <div className="col-lg-12" key={key}>
-                      <div className="ltn__img-slide-item-4">
-                        <Link href="#?">
-                          <img
-                            src={`/img/img-slide/${single.img}`}
-                            alt={`${single.title}`}
-                          />
-                        </Link>
-                      </div>
+                    <div className="ltn__img-slide-item-4">
+                      <Link href="#?">
+                        <img
+                          src={`/img/img-slide/${single.img}`}
+                          alt={`${single.title}`}
+                        />
+                      </Link>
                     </div>
+                  </div>
                 );
               })}
             </Slider>
@@ -170,15 +169,15 @@ function ProductDetails({ product,baseUrl }) {
                         ) : (
                           ""
                         ),
-                        product.rent ? (
-                          <li className="ltn__blog-category">
-                            <Link className="bg-orange" href="#">
-                              For Rent
-                            </Link>
-                          </li>
-                        ) : (
-                          ""
-                        ))
+                          product.rent ? (
+                            <li className="ltn__blog-category">
+                              <Link className="bg-orange" href="#">
+                                For Rent
+                              </Link>
+                            </li>
+                          ) : (
+                            ""
+                          ))
                       }
 
                       <li className="ltn__blog-date">
@@ -1300,7 +1299,7 @@ function ProductDetails({ product,baseUrl }) {
                       Leatest Blogs
                     </h4>
                     <ul>
-                    {latestdBlogs.map((blog, key) => {
+                      {latestdBlogs.map((blog, key) => {
                         const slug = productSlug(blog.title);
                         let imagecount = key + 1;
 
@@ -1354,44 +1353,18 @@ function ProductDetails({ product,baseUrl }) {
         {/* <!-- SHOP DETAILS AREA END -->
 
     <!-- CALL TO ACTION START (call-to-action-6) --> */}
-        <div
-          className="ltn__call-to-action-area call-to-action-6 before-bg-bottom"
-          data-bs-bg="img/1.jpg--"
-        >
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="call-to-action-inner call-to-action-inner-6 ltn__secondary-bg position-relative text-center---">
-                  <div className="coll-to-info text-color-white">
-                    <h1>Looking for a dream home?</h1>
-                    <p>We can help you realize your dream of a new home</p>
-                  </div>
-                  <div className="btn-wrapper">
-                    <a
-                      className="btn btn-effect-3 btn-white"
-                      href="contact.html"
-                    >
-                      Explore Properties <i className="icon-next"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="ltn__call-to-action-area call-to-action-6 before-bg-bottom">
+          <Container>
+            <Row>
+              <Col xs={12}>
+                <CallToAction />
+              </Col>
+            </Row>
+          </Container>
         </div>
         {/* <!-- CALL TO ACTION END --> */}
       </LayoutOne>
 
-      <QuickViewtModal
-        product={product}
-        quickViewShow={quickViewShow}
-        quickViewCloseHandle={quickViewCloseHandle}
-      />
-
-      <WishListModal
-        wishlistShow={wishlistShow}
-        wishlistCloseHandle={wishlistCloseHandle}
-      />
     </>
   );
 }

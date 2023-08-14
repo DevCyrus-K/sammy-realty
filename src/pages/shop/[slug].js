@@ -28,11 +28,10 @@ import { getProducts, productSlug, getDiscountPrice } from "@/lib/product";
 import products from "@/data/products.json";
 import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
 import RelatedProduct from "@/components/product/related-product";
-import QuickViewtModal from "@/components/modals/quickViewModal";
-import WishListModal from "@/components/modals/wishListModal";
 import FollowUs from "@/components/followUs";
 import Tags from "@/components/tags";
 import blogData from "@/data/blog";
+import CallToAction from "@/components/callToAction";
 
 function ProductDetails({ product }) {
   const { products } = useSelector((state) => state.product);
@@ -1358,44 +1357,18 @@ function ProductDetails({ product }) {
         {/* <!-- SHOP DETAILS AREA END -->
 
     <!-- CALL TO ACTION START (call-to-action-6) --> */}
-        <div
-          className="ltn__call-to-action-area call-to-action-6 before-bg-bottom"
-          data-bs-bg="img/1.jpg--"
-        >
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="call-to-action-inner call-to-action-inner-6 ltn__secondary-bg position-relative text-center---">
-                  <div className="coll-to-info text-color-white">
-                    <h1>Looking for a dream home?</h1>
-                    <p>We can help you realize your dream of a new home</p>
-                  </div>
-                  <div className="btn-wrapper">
-                    <a
-                      className="btn btn-effect-3 btn-white"
-                      href="contact.html"
-                    >
-                      Explore Properties <i className="icon-next"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="ltn__call-to-action-area call-to-action-6 before-bg-bottom">
+          <Container>
+            <Row>
+              <Col xs={12}>
+                <CallToAction />
+              </Col>
+            </Row>
+          </Container>
         </div>
         {/* <!-- CALL TO ACTION END --> */}
       </LayoutOne>
 
-      <QuickViewtModal
-        product={product}
-        quickViewShow={quickViewShow}
-        quickViewCloseHandle={quickViewCloseHandle}
-      />
-
-      <WishListModal
-        wishlistShow={wishlistShow}
-        wishlistCloseHandle={wishlistCloseHandle}
-      />
     </>
   );
 }

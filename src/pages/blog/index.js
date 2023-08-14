@@ -1,4 +1,5 @@
 import { LayoutOne } from "@/layouts";
+import { useState, useEffect } from "react";
 import BlogItemTwo from "@/components/blog/blogItemTwo";
 import blogData from "@/data/blog";
 import { Container, Row, Col } from "react-bootstrap";
@@ -6,6 +7,8 @@ import ShopBreadCrumb from "@/components/breadCrumbs/shop";
 import BlogSideBar from "@/components/blog/sidebar";
 import { useSelector } from "react-redux";
 import { getProducts, productSlug } from "@/lib/product";
+import ReactPaginate from "react-paginate";
+import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
 
 function Blog() {
   const { products } = useSelector((state) => state.product);
@@ -13,6 +16,23 @@ function Blog() {
   const latestdBlogs = getProducts(blogData, "fashion", "featured", 4);
   const topRatedProducts = getProducts(products, "fashion", "featured", 3);
   const popularProducts = getProducts(products, "fashion", "featured", 3);
+
+  const perPageLimit = 4;
+  const [currentItems, setCurrentItems] = useState(featuredBlogs);
+  const [pageCount, setPageCount] = useState(0);
+  const [itemOffset, setItemOffset] = useState(0);
+
+  useEffect(() => {
+    const endOffset = itemOffset + perPageLimit;
+    setCurrentItems(featuredBlogs.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(featuredBlogs.length / perPageLimit));
+  }, [itemOffset, perPageLimit]);
+
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * perPageLimit) % featuredBlogs.length;
+    setItemOffset(newOffset);
+  };
+
 
   return (
     <>
@@ -24,7 +44,7 @@ function Blog() {
             <Row>
               <Col xs={12} lg={8}>
                 <div className="ltn__blog-list-wrap">
-                  {featuredBlogs.map((blog, key) => {
+                  {currentItems.map((blog, key) => {
                     const slug = productSlug(blog.title);
 
                     return (
@@ -37,6 +57,32 @@ function Blog() {
                     );
                   })}
                 </div>
+                <Row>
+              <Col xs={12}>
+                <div className="ltn__pagination-area">
+                  <ReactPaginate
+                    onPageChange={handlePageClick}
+                    pageRangeDisplayed={3}
+                    marginPagesDisplayed={2}
+                    pageCount={pageCount}
+                    nextLabel={<FaAngleDoubleRight />}
+                    previousLabel={<FaAngleDoubleLeft />}
+                    pageClassName="page-item"
+                    pageLinkClassName="page-link"
+                    previousClassName="page-item"
+                    previousLinkClassName="page-link"
+                    nextClassName="page-item"
+                    nextLinkClassName="page-link"
+                    breakLabel="..."
+                    breakClassName="page-item"
+                    breakLinkClassName="page-link"
+                    containerClassName="pagination ltn__pagination justify-content-center"
+                    activeClassName="active"
+                    renderOnZeroPageCount={null}
+                  />
+                </div>
+              </Col>
+            </Row>
               </Col>
 
               <Col xs={12} lg={{ span: 4, order: 0 }}>
