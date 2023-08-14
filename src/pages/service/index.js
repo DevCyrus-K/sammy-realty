@@ -5,37 +5,16 @@ import Slider from "react-slick";
 import { getProducts, productSlug } from "@/lib/product";
 import TitleSection from "@/components/titleSection";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
-import TestimonialCarouselItem from "@/components/testimonialCarousel";
-import testimonialData from "@/data/testimonial";
 import BlogItem from "@/components/blog";
 import blogData from "@/data/blog";
 import CallToAction from "@/components/callToAction";
-import AboutUsStyletwo from "@/components/aboutUs/aboutUsStyletwo";
+import AboutUsStyletwo from "@/components/aboutUs/aboutUsStyleTwo";
 import Feature from "@/components/features";
 import featureData from "@/data/service"
-
-import TeamData from '@/data/team';
 
 function Service() {
   const services = getProducts(featureData, "fashion", "featured", 6);
 
-  const testiMonialsettings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    prevArrow: (
-      <a>
-        <FaArrowLeft />
-      </a>
-    ),
-    nextArrow: (
-      <a>
-        <FaArrowRight />
-      </a>
-    ),
-  };
 
   const blogSettings = {
     dots: false,
@@ -78,7 +57,7 @@ function Service() {
 
 
         {/* <!-- BLOG AREA START (blog-3) -->  */}
-        <div className="ltn__blog-area pb-70">
+        <div className="ltn__blog-area pt-120 pb-70">
           <Container>
             <Row>
               <Col lg={12}>

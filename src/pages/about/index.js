@@ -12,12 +12,13 @@ import blogData from "@/data/blog";
 import CallToAction from "@/components/callToAction";
 import AboutUsStyleOne from "@/components/aboutUs/aboutUsStyleOne";
 import Feature from "@/components/features";
-import featureData from "@/data/features"
+import featureData from "@/data/service"
 import TeamItem from "@/components/team";
 import TeamData from '@/data/team';
 
 function AboutUs() {
   const agents = getProducts(TeamData, "fashion", "featured", 3);
+  const featureDataSorted = getProducts(featureData, "fashion", "featured", 3);
 
   const testiMonialsettings = {
     dots: false,
@@ -69,7 +70,7 @@ function AboutUs() {
         <Feature
           servicebtn={true}
           iconTag={false}
-          data={featureData}
+          data={featureDataSorted}
           titleSectionData={{
             subTitle: "Our Services",
             title: "Our Main Focus",
