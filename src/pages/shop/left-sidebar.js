@@ -3,7 +3,12 @@ import { useSelector } from "react-redux";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
 import { getSortedProducts, productSlug } from "@/lib/product";
 import { LayoutOne } from "@/layouts";
-import { FaThLarge, FaThList, FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
+import {
+  FaThLarge,
+  FaThList,
+  FaAngleDoubleLeft,
+  FaAngleDoubleRight,
+} from "react-icons/fa";
 import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
 import SideBar from "@/components/shopSideBar";
 import RelatedProduct from "@/components/product/related-product";
@@ -24,7 +29,7 @@ function ShopLeftSideBar() {
   const [currentItems, setCurrentItems] = useState(products);
   const [pageCount, setPageCount] = useState(0);
 
-
+  console.log("log from shop left sidebar", products);
   const getSortParams = (sortType, sortValue) => {
     setSortType(sortType);
     setSortValue(sortValue);
@@ -118,17 +123,19 @@ function ShopLeftSideBar() {
                         <select
                           className="form-control nice-select"
                           onChange={(e) =>
-
                             getFilterSortParams("filterSort", e.target.value)
                           }
                         >
                           <option value="default">Default</option>
-                          <option value="priceHighToLow">Price - High to Low</option>
-                          <option value="priceLowToHigh">Price - Low to High</option>
+                          <option value="priceHighToLow">
+                            Price - High to Low
+                          </option>
+                          <option value="priceLowToHigh">
+                            Price - Low to High
+                          </option>
                         </select>
                       </div>
                     </li>
-
                   </ul>
                 </div>
 
@@ -198,7 +205,7 @@ function ShopLeftSideBar() {
               </div>
             </Col>
             <Col xs={12} lg={{ span: 4, order: 0 }}>
-              <SideBar getSortParams={getSortParams} />
+              <SideBar products={products} getSortParams={getSortParams} />
             </Col>
           </Row>
         </Container>
@@ -206,15 +213,15 @@ function ShopLeftSideBar() {
       {/* <!-- PRODUCT DETAILS AREA END -->
 
     <!-- CALL TO ACTION START (call-to-action-6) --> */}
-        <div className="ltn__call-to-action-area call-to-action-6 before-bg-bottom">
-          <Container>
-            <Row>
-              <Col xs={12}>
-                <CallToAction />
-              </Col>
-            </Row>
-          </Container>
-        </div>
+      <div className="ltn__call-to-action-area call-to-action-6 before-bg-bottom">
+        <Container>
+          <Row>
+            <Col xs={12}>
+              <CallToAction />
+            </Col>
+          </Row>
+        </Container>
+      </div>
       {/* <!-- CALL TO ACTION END --> */}
     </LayoutOne>
   );

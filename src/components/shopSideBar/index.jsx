@@ -1,6 +1,7 @@
-import Link from "next/link";
-
+import { getIndividualAminities, setActiveSort } from "@/lib/product";
 const SideBar = ({ products, getSortParams }) => {
+  const aminities = getIndividualAminities(products);
+
   return (
     <>
       <aside className="sidebar ltn__shop-sidebar ltn__right-sidebar">
@@ -11,95 +12,38 @@ const SideBar = ({ products, getSortParams }) => {
         {/* <!-- Advance Information widget --> */}
         <div className="widget ltn__menu-widget">
           <h4 className="ltn__widget-title">Property Type</h4>
-          <ul>
-            <li>
-              <Link href="/shop/right-sidebar">
-                <label className="checkbox-item">
-                  House
-                  <input
-                    onClick={(e) => {
-                      getSortParams("category", category.name);
-                      setActiveSort(e);
-                    }}
-                    type="checkbox"
-                    defaultChecked="checked"
-                  />
-                  <span className="checkmark"></span>
-                </label>
-                <span className="categorey-no">3,924</span>
-              </Link>
-            </li>
-            <li>
-              <label className="checkbox-item">
-                Single Family
-                <input
-                  type="checkbox"
-                  onClick={(e) => {
-                    getSortParams("category", category.name);
-                    setActiveSort(e);
-                  }}
-                />
-                <span className="checkmark"></span>
-              </label>
-              <span className="categorey-no">3,610</span>
-            </li>
-            <li>
-              <label className="checkbox-item">
-                Apartment
-                <input
-                  type="checkbox"
-                  onClick={(e) => {
-                    getSortParams("category", category.name);
-                    setActiveSort(e);
-                  }}
-                />
-                <span className="checkmark"></span>
-              </label>
-              <span className="categorey-no">2,912</span>
-            </li>
-            <li>
-              <label className="checkbox-item">
-                Office Villa
-                <input
-                  type="checkbox"
-                  onClick={(e) => {
-                    getSortParams("category", category.name);
-                    setActiveSort(e);
-                  }}
-                />
-                <span className="checkmark"></span>
-              </label>
-              <span className="categorey-no">2,687</span>
-            </li>
-            <li>
-              <label className="checkbox-item">
-                Luxary Home
-                <input
-                  type="checkbox"
-                  onClick={(e) => {
-                    getSortParams("category", category.name);
-                    setActiveSort(e);
-                  }}
-                />
-                <span className="checkmark"></span>
-              </label>
-              <span className="categorey-no">1,853</span>
-            </li>
-            <li>
-              <label className="checkbox-item">
-                Studio
-                <input
-                  type="checkbox"
-                  onClick={(e) => {
-                    getSortParams("category", category.name);
-                    setActiveSort(e);
-                  }}
-                />
-                <span className="checkmark"></span>
-              </label>
-              <span className="categorey-no">893</span>
-            </li>
-          </ul>
+          {aminities.length > 0 ? (
+            <>
+              <ul>
+                {aminities &&
+                  aminities.map((aminitie, key) => {
+                    return (
+                      <li key={key}>
+                        <div>
+                          <label className="checkbox-item">
+                            {aminitie.name}
+                            <input
+                              onClick={(e) => {
+                                getSortParams("propertyTypes", aminitie.name);
+                                setActiveSort(e);
+                              }}
+                              type="checkbox"
+                            />
+                            <span className="checkmark"></span>
+                          </label>
+                          <span className="categorey-no">
+                            {/* {products[key < aminities.length ? key : 1].price} */}
+                          </span>
+                        </div>
+                      </li>
+                    );
+                  })}
+              </ul>
+            </>
+          ) : (
+            "No categories found"
+          )}
+
           <hr />
           <h4 className="ltn__widget-title">Amenities</h4>
           <ul>

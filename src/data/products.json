@@ -100,7 +100,8 @@
       "img1": "14.jpg",
       "img2": "15.jpg",
       "img3": "16.jpg"
-    }
+    },
+    "propertyTypes":["House","Office Villa","Luxary Home"]
   },
   {
     "id": "02",
@@ -121,7 +122,7 @@
     "video": ["fashion", "women"],
     "ratingCount": 5,
     "saleCount": 90,
-    "category": ["fashion", "women"],
+    "category": ["fashion", "women","men"],
     "tag": [
       "Popular",
       "desgin",
@@ -203,7 +204,8 @@
       "img1": "14.jpg",
       "img2": "15.jpg",
       "img3": "16.jpg"
-    }
+    },
+    "propertyTypes":["Apartment","Office Villa","Luxary Home","Studio"]
   },
   {
     "id": "03",
@@ -224,7 +226,7 @@
     "video": ["fashion", "women"],
     "ratingCount": 5,
     "saleCount": 90,
-    "category": ["fashion", "women"],
+    "category": ["fashion", "women","men"],
     "tag": [
       "Popular",
       "desgin",
@@ -306,7 +308,8 @@
       "img1": "14.jpg",
       "img2": "15.jpg",
       "img3": "16.jpg"
-    }
+    },
+    "propertyTypes":["House","Single Family","Luxary Home","Studio"]
   },
   {
     "id": "04",
@@ -323,11 +326,11 @@
     "featured": true,
     "new": true,
     "rent": true,
-    "photo": ["fashion", "women", "women"],
-    "video": ["fashion", "women"],
+    "photo": ["fashion", "women", "men"],
+    "video": ["fashion", "women","children"],
     "ratingCount": 5,
     "saleCount": 90,
-    "category": ["fashion", "women"],
+    "category": ["fashion", "women","men"],
     "tag": [
       "Popular",
       "desgin",
@@ -409,7 +412,8 @@
       "img1": "14.jpg",
       "img2": "15.jpg",
       "img3": "16.jpg"
-    }
+    },
+    "propertyTypes":["House","Single Family","Apartment","Luxary Home","Studio"]
   },
   {
     "id": "05",
@@ -512,6 +516,7 @@
       "img1": "14.jpg",
       "img2": "15.jpg",
       "img3": "16.jpg"
-    }
+    },
+    "propertyTypes":["House","Single Family","Apartment","Office Villa"]
   }
 ]
