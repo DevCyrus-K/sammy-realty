@@ -1,6 +1,16 @@
 import Link from "next/link";
+import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { getProductCartQuantity } from "@/lib/product";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "@/store/slices/cart-slice";
+import {
+  addToWishlist,
+  deleteFromWishlist,
+} from "@/store/slices/wishlist-slice";
+import { addToCompare, deleteFromCompare } from "@/store/slices/compare-slice";
+
 import {
   FaStar,
   FaStarHalfAlt,
@@ -11,23 +21,56 @@ import {
   FaTwitter,
   FaFacebookF,
 } from "react-icons/fa";
+import ProductRating from "../product/ProductRating";
 
-const QuickViewModal = ({ productData, onHide, show, slug }) => {
-  const onCloseModal = () => {
+const QuickViewModal = ({
+  productData,
+  onHide,
+  show,
+  slug,
+  discountedprice,
+  productprice,
+  wishlistitem,
+  compareitem,
+}) => {
+  const modalClose = () => {
     onHide();
   };
+
+  const dispatch = useDispatch();
+  const { cartItems } = useSelector((state) => state.cart);
+
+  const [selectedProductColor, setSelectedProductColor] = useState(
+    productData.variation ? productData.variation[0].color : ""
+  );
+  const [selectedProductSize, setSelectedProductSize] = useState(
+    productData.variation ? productData.variation[0].size[0].name : ""
+  );
+  const [productStock, setProductStock] = useState(
+    productData.variation
+      ? productData.variation[0].size[0].stock
+      : productData.stock
+  );
+  const [quantityCount, setQuantityCount] = useState(1);
+
+  const productCartQty = getProductCartQuantity(
+    cartItems,
+    productData,
+    selectedProductColor,
+    selectedProductSize
+  );
 
   return (
     <Modal
       show={show}
-      onHide={onCloseModal}
+      onHide={modalClose}
       backdrop="static"
       keyboard={false}
       size="lg"
       className="ltn__modal-area ltn__quick-view-modal-area"
     >
       <Modal.Header>
-        <Button className="close" variant="secondary" onClick={onCloseModal}>
+        <Button className="close" variant="secondary" onClick={modalClose}>
           <span aria-hidden="true">&times;</span>
         </Button>
       </Modal.Header>
@@ -42,75 +85,127 @@ const QuickViewModal = ({ productData, onHide, show, slug }) => {
               </div>
               <div className="col-lg-6 col-12">
                 <div className="modal-product-info">
-                  <div className="product-ratting">
-                    <ul>
-                      <li>
-                        <Link href="#">
-                          <FaStar />
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="#">
-                          <FaStar />
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="#">
-                          <FaStar />
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="#">
-                          <FaStarHalfAlt />
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="#">
-                          <FaStar />
-                        </Link>
-                      </li>
-                      <li className="review-total">
-                        <Link href="#"> ( 95 Reviews )</Link>
-                      </li>
-                    </ul>
-                  </div>
+                  {productData.rating && productData.rating > 0 ? (
+                    <div className="product-quickview__rating-wrap">
+                      <div className="product-quickview__rating">
+                        <ProductRating ratingValue={productData.rating} />
+                        <span>({productData.ratingCount})</span>
+                      </div>
+                    </div>
+                  ) : (
+                    ""
+                  )}
                   <h3>
-                    <Link onClick={onCloseModal} href={`/shop/${slug}`}>{productData.title}</Link>
+                    <Link onClick={modalClose} href={`/shop/${slug}`}>
+                      {productData.title}
+                    </Link>
                   </h3>
                   <div className="product-price">
-                    <span>$34,900</span>
-                    <del>$36,500</del>
+                    <span>${discountedprice}</span>
+                    <del>${productprice}</del>
+                    <span className="on-sale">{productData.discount}% Off</span>
                   </div>
                   <hr />
                   <div className="modal-product-brief">
-                    <p>{productData.shortDescription}</p>
+                    <p>{productData.description.shortDescription}</p>
                   </div>
 
                   <div className="ltn__product-details-menu-3">
                     <ul>
                       <li>
-                        <Link
-                          href="#"
-                          className=""
-                          title="Wishlist"
-                          data-bs-toggle="modal"
-                          data-bs-target="#liton_wishlist_modal"
+                        <div className="product-quickview__quantity">
+                          <div className="cart-plus-minus">
+                            <button
+                              onClick={() =>
+                                setQuantityCount(
+                                  quantityCount > 1 ? quantityCount - 1 : 1
+                                )
+                              }
+                              className="qtybutton"
+                            >
+                              -
+                            </button>
+                            <input
+                              className="cart-plus-minus-box"
+                              type="text"
+                              value={quantityCount}
+                              readOnly
+                            />
+                            <button
+                              onClick={() =>
+                                setQuantityCount(
+                                  quantityCount < productStock - productCartQty
+                                    ? quantityCount + 1
+                                    : quantityCount
+                                )
+                              }
+                              className="qtybutton"
+                            >
+                              +
+                            </button>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        {productStock && productStock > 0 ? (
+                          <button
+                            onClick={() =>
+                              dispatch(
+                                addToCart({
+                                  ...productData,
+                                  quantity: quantityCount,
+                                  selectedProductColor: selectedProductColor
+                                    ? selectedProductColor
+                                    : product.selectedProductColor
+                                    ? product.selectedProductColor
+                                    : null,
+                                  selectedProductSize: selectedProductSize
+                                    ? selectedProductSize
+                                    : product.selectedProductSize
+                                    ? product.selectedProductSize
+                                    : null,
+                                })
+                              )
+                            }
+                            disabled={productCartQty >= productStock}
+                            className="btn btn-fill-out btn-addtocart space-ml--10"
+                          >
+                            <i className="icon-basket-loaded" /> Add To Cart
+                          </button>
+                        ) : (
+                          <button
+                            className="btn btn-fill-out btn-addtocart"
+                            disabled
+                          >
+                            Out of Stock
+                          </button>
+                        )}
+                      </li>
+                      <li>
+                        <button
+                          onClick={
+                            wishlistitem !== undefined
+                              ? () =>
+                                  dispatch(deleteFromWishlist(productData.id))
+                              : () => dispatch(addToWishlist(productData))
+                          }
                         >
                           <FaRegHeart className="me-2" />
                           <span>Add to Wishlist</span>
-                        </Link>
+                        </button>
                       </li>
                       <li>
-                        <Link
-                          href="#"
-                          className=""
-                          title="Compare"
-                          data-bs-toggle="modal"
-                          data-bs-target="#quick_view_modal"
+                        <button
+                          onClick={
+                            compareitem !== undefined
+                              ? () =>
+                                  dispatch(deleteFromCompare(productData.id))
+                              : () => dispatch(addToCompare(productData))
+                          }
                         >
                           <FaExchangeAlt className="me-2" />
                           <span>Compare</span>
-                        </Link>
+                        </button>
                       </li>
                     </ul>
                   </div>
@@ -141,7 +236,11 @@ const QuickViewModal = ({ productData, onHide, show, slug }) => {
                     </ul>
                   </div>
                   <label className="float-end mb-0">
-                    <Link onClick={onCloseModal} className="text-decoration" href={`/shop/${slug}`}>
+                    <Link
+                      onClick={modalClose}
+                      className="text-decoration"
+                      href={`/shop/${slug}`}
+                    >
                       <small>View Details</small>
                     </Link>
                   </label>

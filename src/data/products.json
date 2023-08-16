@@ -17,8 +17,9 @@
     "rent": true,
     "photo": ["fashion", "women", "women"],
     "video": ["fashion", "women"],
-    "bedBath":["Single","Renting","Selling"],
-    "ratingCount": 5,
+    "bedBath": ["Single", "Renting", "Selling"],
+    "ratingCount": 11,
+    "rating": 3,
     "saleCount": 90,
     "category": ["fashion", "women"],
     "tag": [
@@ -36,6 +37,73 @@
       "Dealer",
       "Oil Change",
       "Body Color"
+    ],
+    "variation": [
+      {
+        "color": "brown",
+        "colorCode": "#87554b",
+        "image": "/assets/images/product/fashion/1.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 3
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 5
+          }
+        ]
+      },
+      {
+        "color": "black",
+        "colorCode": "#333333",
+        "image": "/assets/images/product/fashion/2.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 4
+          },
+          {
+            "name": "m",
+            "stock": 7
+          },
+          {
+            "name": "xl",
+            "stock": 9
+          },
+          {
+            "name": "xxl",
+            "stock": 1
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "colorCode": "#da323f",
+        "image": "/assets/images/product/fashion/3.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 1
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 4
+          },
+          {
+            "name": "xxl",
+            "stock": 0
+          }
+        ]
+      }
     ],
     "date": "May 19, 2021",
     "comments": 35,
@@ -124,8 +192,9 @@
     "rent": true,
     "photo": ["fashion", "women", "women"],
     "video": ["fashion", "women"],
-    "bedBath":["Single","Renting","Selling"],
+    "bedBath": ["Single", "Renting", "Selling"],
     "ratingCount": 5,
+    "rating": 5,
     "saleCount": 90,
     "category": ["fashion", "women", "men"],
     "tag": [
@@ -143,6 +212,73 @@
       "Dealer",
       "Oil Change",
       "Body Color"
+    ],
+    "variation": [
+      {
+        "color": "brown",
+        "colorCode": "#87554b",
+        "image": "/assets/images/product/fashion/1.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 3
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 5
+          }
+        ]
+      },
+      {
+        "color": "black",
+        "colorCode": "#333333",
+        "image": "/assets/images/product/fashion/2.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 4
+          },
+          {
+            "name": "m",
+            "stock": 7
+          },
+          {
+            "name": "xl",
+            "stock": 9
+          },
+          {
+            "name": "xxl",
+            "stock": 1
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "colorCode": "#da323f",
+        "image": "/assets/images/product/fashion/3.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 1
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 4
+          },
+          {
+            "name": "xxl",
+            "stock": 0
+          }
+        ]
+      }
     ],
     "date": "May 19, 2021",
     "comments": 35,
@@ -231,8 +367,9 @@
     "rent": true,
     "photo": ["fashion", "women", "women"],
     "video": ["fashion", "women"],
-    "bedBath":["Single","Renting","Selling"],
+    "bedBath": ["Single", "Renting", "Selling"],
     "ratingCount": 5,
+    "rating": 5,
     "saleCount": 90,
     "category": ["fashion", "women", "men"],
     "tag": [
@@ -250,6 +387,73 @@
       "Dealer",
       "Oil Change",
       "Body Color"
+    ],
+    "variation": [
+      {
+        "color": "brown",
+        "colorCode": "#87554b",
+        "image": "/assets/images/product/fashion/1.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 3
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 5
+          }
+        ]
+      },
+      {
+        "color": "black",
+        "colorCode": "#333333",
+        "image": "/assets/images/product/fashion/2.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 4
+          },
+          {
+            "name": "m",
+            "stock": 7
+          },
+          {
+            "name": "xl",
+            "stock": 9
+          },
+          {
+            "name": "xxl",
+            "stock": 1
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "colorCode": "#da323f",
+        "image": "/assets/images/product/fashion/3.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 1
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 4
+          },
+          {
+            "name": "xxl",
+            "stock": 0
+          }
+        ]
+      }
     ],
     "date": "May 19, 2021",
     "comments": 35,
@@ -338,8 +542,9 @@
     "rent": true,
     "photo": ["fashion", "women", "men"],
     "video": ["fashion", "women", "children"],
-    "bedBath":["Single","Renting","Selling"],
+    "bedBath": ["Single", "Renting", "Selling"],
     "ratingCount": 5,
+    "rating": 5,
     "saleCount": 90,
     "category": ["fashion", "women", "men"],
     "tag": [
@@ -357,6 +562,73 @@
       "Dealer",
       "Oil Change",
       "Body Color"
+    ],
+    "variation": [
+      {
+        "color": "brown",
+        "colorCode": "#87554b",
+        "image": "/assets/images/product/fashion/1.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 3
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 5
+          }
+        ]
+      },
+      {
+        "color": "black",
+        "colorCode": "#333333",
+        "image": "/assets/images/product/fashion/2.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 4
+          },
+          {
+            "name": "m",
+            "stock": 7
+          },
+          {
+            "name": "xl",
+            "stock": 9
+          },
+          {
+            "name": "xxl",
+            "stock": 1
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "colorCode": "#da323f",
+        "image": "/assets/images/product/fashion/3.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 1
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 4
+          },
+          {
+            "name": "xxl",
+            "stock": 0
+          }
+        ]
+      }
     ],
     "date": "May 19, 2021",
     "comments": 35,
@@ -451,8 +723,9 @@
     "rent": true,
     "photo": ["fashion", "women", "women"],
     "video": ["fashion", "women"],
-    "bedBath":["Single","Renting","Selling"],
+    "bedBath": ["Single", "Renting", "Selling"],
     "ratingCount": 5,
+    "rating": 5,
     "saleCount": 90,
     "category": ["fashion", "women"],
     "tag": [
@@ -470,6 +743,73 @@
       "Dealer",
       "Oil Change",
       "Body Color"
+    ],
+    "variation": [
+      {
+        "color": "brown",
+        "colorCode": "#87554b",
+        "image": "/assets/images/product/fashion/1.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 3
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 5
+          }
+        ]
+      },
+      {
+        "color": "black",
+        "colorCode": "#333333",
+        "image": "/assets/images/product/fashion/2.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 4
+          },
+          {
+            "name": "m",
+            "stock": 7
+          },
+          {
+            "name": "xl",
+            "stock": 9
+          },
+          {
+            "name": "xxl",
+            "stock": 1
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "colorCode": "#da323f",
+        "image": "/assets/images/product/fashion/3.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 1
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 4
+          },
+          {
+            "name": "xxl",
+            "stock": 0
+          }
+        ]
+      }
     ],
     "date": "May 19, 2021",
     "comments": 35,

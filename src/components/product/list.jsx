@@ -11,8 +11,6 @@ const ProductList = ({
   productData,
   slug,
   baseUrl,
-  showQuickViewHandle,
-  showWishlistHandle,
   discountedPrice,
   productPrice,
   cartItem,
@@ -135,6 +133,11 @@ const ProductList = ({
         show={modalShow}
         onHide={() => setModalShow(false)}
         slug={slug}
+        discountedprice={discountedPrice}
+        productprice={productPrice}
+        cartitem={cartItem}
+        wishlistitem={wishlistItem}
+        compareitem={compareItem}
       />
     </>
   );

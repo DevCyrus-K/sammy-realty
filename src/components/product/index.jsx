@@ -4,12 +4,10 @@ import { FaFilm, FaCamera } from "react-icons/fa";
 import QuickViewtModal from "@/components/modals/quickViewModal";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/store/slices/cart-slice";
-
 import {
   addToWishlist,
   deleteFromWishlist,
 } from "@/store/slices/wishlist-slice";
-import { addToCompare, deleteFromCompare } from "@/store/slices/compare-slice";
 
 const ProductItem = ({
   productData,
@@ -174,6 +172,11 @@ const ProductItem = ({
         show={modalShow}
         onHide={() => setModalShow(false)}
         slug={slug}
+        discountedprice={discountedPrice}
+        productprice={productPrice}
+        cartitem={cartItem}
+        wishlistitem={wishlistItem}
+        compareitem={compareItem}
       />
     </>
   );

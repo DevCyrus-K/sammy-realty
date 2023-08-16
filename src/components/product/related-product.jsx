@@ -11,8 +11,6 @@ const RelatedProduct = ({
   productData,
   slug,
   baseUrl,
-  showQuickViewHandle,
-  showWishlistHandle,
   discountedPrice,
   productPrice,
   cartItem,
@@ -94,11 +92,13 @@ const RelatedProduct = ({
                 </button>
               </li>
               <li>
-                <button onClick={
+                <button
+                  onClick={
                     wishlistItem !== undefined
                       ? () => dispatch(deleteFromWishlist(productData.id))
                       : () => dispatch(addToWishlist(productData))
-                  }>
+                  }
+                >
                   <i className="flaticon-heart-1"></i>
                 </button>
               </li>
@@ -125,6 +125,11 @@ const RelatedProduct = ({
         show={modalShow}
         onHide={() => setModalShow(false)}
         slug={slug}
+        discountedprice={discountedPrice}
+        productprice={productPrice}
+        cartitem={cartItem}
+        wishlistitem={wishlistItem}
+        compareitem={compareItem}
       />
     </>
   );
