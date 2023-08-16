@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
-import { getSortedProducts, productSlug } from "@/lib/product";
+import { getSortedProducts, productSlug ,getDiscountPrice} from "@/lib/product";
 import { LayoutOne } from "@/layouts";
 import {
   FaThLarge,
@@ -29,7 +29,9 @@ function ShopLeftSideBar() {
   const [currentItems, setCurrentItems] = useState(products);
   const [pageCount, setPageCount] = useState(0);
 
-  console.log("log from shop left sidebar", products);
+  const { cartItems } = useSelector((state) => state.cart);
+  const { wishlistItems } = useSelector((state) => state.wishlist);
+  const { compareItems } = useSelector((state) => state.compare);
   const getSortParams = (sortType, sortValue) => {
     setSortType(sortType);
     setSortValue(sortValue);
@@ -147,12 +149,31 @@ function ShopLeftSideBar() {
                       <Row>
                         {currentItems.map((product, key) => {
                           const slug = productSlug(product.title);
+                          const discountedPrice = getDiscountPrice(
+                            product.price,
+                            product.discount
+                          ).toFixed(2);
+                          const productPrice = product.price.toFixed(2);
+                          const cartItem = cartItems.find(
+                            (cartItem) => cartItem.id === product.id
+                          );
+                          const wishlistItem = wishlistItems.find(
+                            (wishlistItem) => wishlistItem.id === product.id
+                          );
+                          const compareItem = compareItems.find(
+                            (compareItem) => compareItem.id === product.id
+                          );
                           return (
                             <Col key={key} xs={12} sm={6}>
                               <RelatedProduct
                                 slug={slug}
                                 baseUrl="shop/left-sidebar"
                                 productData={product}
+                                 discountedPrice={discountedPrice}
+                                productPrice={productPrice}
+                                cartItem={cartItem}
+                                wishlistItem={wishlistItem}
+                                compareItem={compareItem}
                               />
                             </Col>
                           );
@@ -171,6 +192,11 @@ function ShopLeftSideBar() {
                                 slug={slug}
                                 baseUrl="shop/left-sidebar"
                                 productData={product}
+                                 discountedPrice={discountedPrice}
+                                productPrice={productPrice}
+                                cartItem={cartItem}
+                                wishlistItem={wishlistItem}
+                                compareItem={compareItem}
                               />
                             </Col>
                           );

@@ -29,7 +29,6 @@ function HomePage(props) {
   const { products } = useSelector((state) => state.product);
   const featuredProducts = getProducts(products, "fashion", "featured", 5);
   const featureData = getProducts(featuresData, "fashion", "featured", 3);
-
   const { Herodata } = props;
 
   const productCarouselsettings = {
@@ -235,10 +234,6 @@ function HomePage(props) {
                           cartItem={cartItem}
                           wishlistItem={wishlistItem}
                           compareItem={compareItem}
-                          showWishlistHandle={showWishlistHandle}
-                          showQuickViewHandle={showQuickViewHandle}
-                          quickViewShow={quickViewShow}
-                          quickViewCloseHandle={quickViewCloseHandle}
                         />
                       );
                     })}

@@ -12,8 +12,7 @@ import {
 import { addToCompare, deleteFromCompare } from "@/store/slices/compare-slice";
 
 import {
-  FaStar,
-  FaStarHalfAlt,
+  FaShoppingBag,
   FaRegHeart,
   FaExchangeAlt,
   FaInstagram,
@@ -85,7 +84,16 @@ const QuickViewModal = ({
               </div>
               <div className="col-lg-6 col-12">
                 <div className="modal-product-info">
-                  {productData.rating && productData.rating > 0 ? (
+                  <h3>
+                    <Link onClick={modalClose} href={`/shop/${slug}`}>
+                      {productData.title}
+                    </Link>
+                  </h3>
+                  <div className="product-price">
+                   <div><span>${discountedprice}</span>
+                    <del>{productprice}</del>
+                    <span className="on-sale">{productData.discount} % Off</span></div>
+                    {productData.rating && productData.rating > 0 ? (
                     <div className="product-quickview__rating-wrap">
                       <div className="product-quickview__rating">
                         <ProductRating ratingValue={productData.rating} />
@@ -95,15 +103,6 @@ const QuickViewModal = ({
                   ) : (
                     ""
                   )}
-                  <h3>
-                    <Link onClick={modalClose} href={`/shop/${slug}`}>
-                      {productData.title}
-                    </Link>
-                  </h3>
-                  <div className="product-price">
-                    <span>${discountedprice}</span>
-                    <del>${productprice}</del>
-                    <span className="on-sale">{productData.discount}% Off</span>
                   </div>
                   <hr />
                   <div className="modal-product-brief">
@@ -168,13 +167,13 @@ const QuickViewModal = ({
                               )
                             }
                             disabled={productCartQty >= productStock}
-                            className="btn btn-fill-out btn-addtocart space-ml--10"
+                            className="btn-addtocart"
                           >
-                            <i className="icon-basket-loaded" /> Add To Cart
+                            <FaShoppingBag/> Add To Cart
                           </button>
                         ) : (
                           <button
-                            className="btn btn-fill-out btn-addtocart"
+                            className="btn-addtocart"
                             disabled
                           >
                             Out of Stock
@@ -183,6 +182,7 @@ const QuickViewModal = ({
                       </li>
                       <li>
                         <button
+                        className="btn-addtocart"
                           onClick={
                             wishlistitem !== undefined
                               ? () =>
@@ -191,11 +191,12 @@ const QuickViewModal = ({
                           }
                         >
                           <FaRegHeart className="me-2" />
-                          <span>Add to Wishlist</span>
+                          {/* <span>Add to Wishlist</span> */}
                         </button>
                       </li>
                       <li>
                         <button
+                        className="btn-addtocart"
                           onClick={
                             compareitem !== undefined
                               ? () =>
@@ -204,7 +205,7 @@ const QuickViewModal = ({
                           }
                         >
                           <FaExchangeAlt className="me-2" />
-                          <span>Compare</span>
+                          {/* <span>Compare</span> */}
                         </button>
                       </li>
                     </ul>

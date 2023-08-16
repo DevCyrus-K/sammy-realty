@@ -2578,7 +2578,7 @@ blockquote {
   padding: 0;
   .page-link:focus {
     box-shadow: none !important;
-}
+  }
   li {
     list-style: none;
     display: inline-block;
@@ -2588,7 +2588,8 @@ blockquote {
       margin-right: 0px;
     }
 
-    a,button {
+    a,
+    button {
       height: 50px;
       width: 50px;
       line-height: 1;
@@ -2605,7 +2606,8 @@ blockquote {
 
     &:hover,
     &.active {
-      a ,button{
+      a,
+      button {
         background-color: var(--ltn__secondary-color);
         border-color: var(--ltn__secondary-color);
         color: var(--white);
@@ -2624,7 +2626,8 @@ blockquote {
       margin-right: 5px;
       font-size: 14px;
 
-      a,button {
+      a,
+      button {
         height: 40px;
         width: 40px;
         line-height: 36px;
@@ -3730,6 +3733,19 @@ input.cart-plus-minus-box {
   text-align: center;
   width: 40%;
   font-weight: 700;
+}
+
+.product-quickview__quantity .cart-plus-minus {
+  height: 40px;
+  line-height: 1;
+}
+.modal-product-info .btn-addtocart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 10px;
+  line-height: 1;
+  height: 40px;
 }
 
 /* ----------------------------------------------------
