@@ -239,6 +239,127 @@ export const getIndividualAminities = (products) => {
   });
   return individualAminities;
 };
+// get individual AminitiesList
+export const getIndividualAminitiesList = (products) => {
+  let aminitiesList = [];
+  products &&
+    products.map((product) => {
+      return (
+        product.AmenitiesList &&
+        product.AmenitiesList.map((single) => {
+          return aminitiesList.push(single);
+        })
+      );
+    });
+  var individualAminitiesList = [];
+  var obj = {};
+  var newArr = [];
+
+  function countItems(aminitiesList, val) {
+    var count = 0,
+      i;
+    while ((i = aminitiesList.indexOf(val, i)) != -1) {
+      ++count;
+      ++i;
+    }
+    return count;
+  }
+
+  aminitiesList.forEach((item) => {
+    let count = countItems(aminitiesList, item);
+    var objValues = Object.values(obj);
+    newArr.push(objValues[0]);
+    if (newArr.indexOf(item) !== -1) return;
+    obj = {
+      name: item,
+      count: count,
+    };
+    individualAminitiesList.push(obj);
+  });
+  return individualAminitiesList;
+};
+
+
+// get individual priceRange
+export const priceRange = (products) => {
+  let priceRange = [];
+  products &&
+    products.map((product) => {
+      return (
+        product.priceRange &&
+        product.priceRange.map((single) => {
+          return priceRange.push(single);
+        })
+      );
+    });
+  var individualPriceRange = [];
+  var obj = {};
+  var newArr = [];
+
+  function countItems(priceRange, val) {
+    var count = 0,
+      i;
+    while ((i = priceRange.indexOf(val, i)) != -1) {
+      ++count;
+      ++i;
+    }
+    return count;
+  }
+
+  priceRange.forEach((item) => {
+    let count = countItems(priceRange, item);
+    var objValues = Object.values(obj);
+    newArr.push(objValues[0]);
+    if (newArr.indexOf(item) !== -1) return;
+    obj = {
+      name: item,
+      count: count,
+    };
+    individualPriceRange.push(obj);
+  });
+  return individualPriceRange;
+};
+
+
+// get individual bedBath
+export const bedBath = (products) => {
+  let priceRange = [];
+  products &&
+    products.map((product) => {
+      return (
+        product.bedBath &&
+        product.bedBath.map((single) => {
+          return priceRange.push(single);
+        })
+      );
+    });
+  var individualPriceRange = [];
+  var obj = {};
+  var newArr = [];
+
+  function countItems(priceRange, val) {
+    var count = 0,
+      i;
+    while ((i = priceRange.indexOf(val, i)) != -1) {
+      ++count;
+      ++i;
+    }
+    return count;
+  }
+
+  priceRange.forEach((item) => {
+    let count = countItems(priceRange, item);
+    var objValues = Object.values(obj);
+    newArr.push(objValues[0]);
+    if (newArr.indexOf(item) !== -1) return;
+    obj = {
+      name: item,
+      count: count,
+    };
+    individualPriceRange.push(obj);
+  });
+  return individualPriceRange;
+};
 
 // get individual tags
 export const getIndividualTags = (products) => {

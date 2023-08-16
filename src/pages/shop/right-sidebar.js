@@ -199,7 +199,7 @@ function ShopRightSideBar() {
               </div>
             </Col>
             <Col xs={12} lg={4}>
-              <SideBar />
+              <SideBar products={products} getSortParams={getSortParams} />
             </Col>
           </Row>
         </Container>

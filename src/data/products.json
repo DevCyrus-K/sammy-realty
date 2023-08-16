@@ -10,12 +10,14 @@
     "title": "Luxury villa in Rego Park 1",
     "productImg": "1.jpg",
     "price": 100,
+    "priceRange": ["Low Budget"],
     "discount": 10,
     "featured": true,
     "new": true,
     "rent": true,
     "photo": ["fashion", "women", "women"],
     "video": ["fashion", "women"],
+    "bedBath":["Single","Renting","Selling"],
     "ratingCount": 5,
     "saleCount": 90,
     "category": ["fashion", "women"],
@@ -84,6 +86,7 @@
       "24x7 Security",
       "Indoor Game"
     ],
+    "AmenitiesList": ["Dishwasher"],
     "agent": {
       "firstName": "Rosalina D.",
       "lastName": "Willaimson",
@@ -101,7 +104,7 @@
       "img2": "15.jpg",
       "img3": "16.jpg"
     },
-    "propertyTypes":["House","Office Villa","Luxary Home"]
+    "propertyTypes": ["House", "Office Villa", "Luxary Home"]
   },
   {
     "id": "02",
@@ -114,15 +117,17 @@
     "title": "New Apartment Nice View",
     "productImg": "2.jpg",
     "price": 50,
+    "priceRange": ["Medium"],
     "discount": 10,
     "featured": true,
     "new": true,
     "rent": true,
     "photo": ["fashion", "women", "women"],
     "video": ["fashion", "women"],
+    "bedBath":["Single","Renting","Selling"],
     "ratingCount": 5,
     "saleCount": 90,
-    "category": ["fashion", "women","men"],
+    "category": ["fashion", "women", "men"],
     "tag": [
       "Popular",
       "desgin",
@@ -188,6 +193,7 @@
       "24x7 Security",
       "Indoor Game"
     ],
+    "AmenitiesList": ["Kids Zone"],
     "agent": {
       "firstName": "Rosalina D.",
       "lastName": "Willaimson",
@@ -205,7 +211,7 @@
       "img2": "15.jpg",
       "img3": "16.jpg"
     },
-    "propertyTypes":["Apartment","Office Villa","Luxary Home","Studio"]
+    "propertyTypes": ["Apartment", "Office Villa", "Luxary Home", "Studio"]
   },
   {
     "id": "03",
@@ -218,15 +224,17 @@
     "title": "Luxury villa new in Rego Park 3",
     "productImg": "3.jpg",
     "price": 40,
+    "priceRange": ["High Budget"],
     "discount": 10,
     "featured": true,
     "new": true,
     "rent": true,
     "photo": ["fashion", "women", "women"],
     "video": ["fashion", "women"],
+    "bedBath":["Single","Renting","Selling"],
     "ratingCount": 5,
     "saleCount": 90,
-    "category": ["fashion", "women","men"],
+    "category": ["fashion", "women", "men"],
     "tag": [
       "Popular",
       "desgin",
@@ -292,6 +300,7 @@
       "24x7 Security",
       "Indoor Game"
     ],
+    "AmenitiesList": ["Dishwasher", "Floor Coverings"],
     "agent": {
       "firstName": "Rosalina D.",
       "lastName": "Willaimson",
@@ -309,7 +318,7 @@
       "img2": "15.jpg",
       "img3": "16.jpg"
     },
-    "propertyTypes":["House","Single Family","Luxary Home","Studio"]
+    "propertyTypes": ["House", "Single Family", "Luxary Home", "Studio"]
   },
   {
     "id": "04",
@@ -322,15 +331,17 @@
     "title": "Luxury villa in Rego Park 4",
     "productImg": "4.jpg",
     "price": 20,
+    "priceRange": ["Medium", "High Budget"],
     "discount": 10,
     "featured": true,
     "new": true,
     "rent": true,
     "photo": ["fashion", "women", "men"],
-    "video": ["fashion", "women","children"],
+    "video": ["fashion", "women", "children"],
+    "bedBath":["Single","Renting","Selling"],
     "ratingCount": 5,
     "saleCount": 90,
-    "category": ["fashion", "women","men"],
+    "category": ["fashion", "women", "men"],
     "tag": [
       "Popular",
       "desgin",
@@ -396,6 +407,7 @@
       "24x7 Security",
       "Indoor Game"
     ],
+    "AmenitiesList": ["Floor Coverings", "Internet"],
     "agent": {
       "firstName": "Rosalina D.",
       "lastName": "Willaimson",
@@ -413,7 +425,13 @@
       "img2": "15.jpg",
       "img3": "16.jpg"
     },
-    "propertyTypes":["House","Single Family","Apartment","Luxary Home","Studio"]
+    "propertyTypes": [
+      "House",
+      "Single Family",
+      "Apartment",
+      "Luxary Home",
+      "Studio"
+    ]
   },
   {
     "id": "05",
@@ -426,12 +444,14 @@
     "title": "Luxury villa in Rego Park 5",
     "productImg": "5.jpg",
     "price": 500,
+    "priceRange": ["Low Budget", "Medium"],
     "discount": 10,
     "featured": true,
     "new": true,
     "rent": true,
     "photo": ["fashion", "women", "women"],
     "video": ["fashion", "women"],
+    "bedBath":["Single","Renting","Selling"],
     "ratingCount": 5,
     "saleCount": 90,
     "category": ["fashion", "women"],
@@ -500,6 +520,7 @@
       "24x7 Security",
       "Indoor Game"
     ],
+    "AmenitiesList": ["Supermarket", "Kids Zone"],
     "agent": {
       "firstName": "Rosalina D.",
       "lastName": "Willaimson",
@@ -517,6 +538,6 @@
       "img2": "15.jpg",
       "img3": "16.jpg"
     },
-    "propertyTypes":["House","Single Family","Apartment","Office Villa"]
+    "propertyTypes": ["House", "Single Family", "Apartment", "Office Villa"]
   }
 ]

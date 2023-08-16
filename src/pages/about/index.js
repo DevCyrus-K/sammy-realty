@@ -133,9 +133,7 @@ function AboutUs() {
             >
               {testimonialData.map((data, key) => {
                 return (
-                  <>
-                    <TestimonialCarouselItem key={key} data={data} />
-                  </>
+                  <TestimonialCarouselItem key={key} data={data} />
                 );
               })}
             </Slider>
@@ -163,9 +161,7 @@ function AboutUs() {
               {blogData.map((data, key) => {
                 const slug = productSlug(data.title);
                 return (
-                  <>
-                    <BlogItem key={key} baseUrl="blog" data={data} slug={slug} />
-                  </>
+                  <BlogItem key={key} baseUrl="blog" data={data} slug={slug} />
                 );
               })}
             </Slider>

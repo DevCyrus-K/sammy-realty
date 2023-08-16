@@ -76,9 +76,7 @@ function Service() {
               {blogData.map((data, key) => {
                 const slug = productSlug(data.title);
                 return (
-                  <>
-                    <BlogItem key={key} baseUrl="blog" data={data} slug={slug} />
-                  </>
+                  <BlogItem key={key} baseUrl="blog" data={data} slug={slug} />
                 );
               })}
             </Slider>

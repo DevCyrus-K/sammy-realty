@@ -120,7 +120,7 @@ const Cart = () => {
                           })}
 
                           <tr className="cart-coupon-row">
-                            <td colspan="6">
+                            <td colSpan="6">
                               <div className="cart-coupon">
                                 <input
                                   type="text"
