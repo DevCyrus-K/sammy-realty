@@ -8,7 +8,6 @@ import {
   FaArrowRight,
   FaArrowLeft,
   FaDribbble,
-  FaInstagram,
   FaTwitter,
   FaFacebookF,
 } from "react-icons/fa";
@@ -19,10 +18,8 @@ function HeroSectionStyleTwo({ data }) {
   const [nav2, setNav2] = useState();
 
   const Herosettings = {
-    dots: true,
-    fade: true,
-    cssEase: "linear",
-    arrow: false,
+    dots: false,
+    arrows: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -30,12 +27,6 @@ function HeroSectionStyleTwo({ data }) {
 
   };
 
-  const settings = {
-    dots: false,
-    speed: 500,
-    prevArrow: false,
-    nextArrow: false,
-  };
   const [isOpen, setOpen] = useState(false);
   return (
     <>
@@ -48,7 +39,7 @@ function HeroSectionStyleTwo({ data }) {
       />
 
       <div className="ltn__slider-11-inner position-relative">
-        <Slider {...Herosettings} className="ltn__slider-11-active">
+        <Slider {...Herosettings} asNavFor={nav2} ref={(slider1) => setNav1(slider1)} className="ltn__slider-11-active">
           {data.map((item, key) => {
             return (
               <div
@@ -146,10 +137,11 @@ function HeroSectionStyleTwo({ data }) {
         <div className="ltn__slider-11-img-slide-arrow">
           <div className="ltn__slider-11-img-slide-arrow-inner">
             <Slider
-              {...settings}
               asNavFor={nav1}
               ref={(slider2) => setNav2(slider2)}
               slidesToShow={3}
+              swipeToSlide={true}
+              focusOnSelect={true}
               className="ltn__slider-11-img-slide-arrow-active"
             >
               {data.map((item, key) => {
