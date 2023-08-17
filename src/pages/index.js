@@ -142,13 +142,6 @@ function HomePage(props) {
     ],
   };
 
-  const [quickViewShow, SetQuickViewShow] = useState(false);
-  const quickViewCloseHandle = () => SetQuickViewShow(false);
-  const showQuickViewHandle = () => SetQuickViewShow(true);
-
-  const [wishlistShow, SetWishlistShow] = useState(false);
-  const wishlistCloseHandle = () => SetWishlistShow(false);
-  const showWishlistHandle = () => SetWishlistShow(true);
 
   const { cartItems } = useSelector((state) => state.cart);
   const { wishlistItems } = useSelector((state) => state.wishlist);

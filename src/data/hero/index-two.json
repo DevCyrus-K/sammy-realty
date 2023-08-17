@@ -5,7 +5,7 @@
     "Desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.",
     "icon": "FaHome",
     "heroimage": "61.jpg",
-    "id": "01",
+    "id": "1",
     "buttonText": "Make An Enquiry",
     "videoButton": true,
     "learnMoreButtonText": false,
@@ -17,10 +17,22 @@
     "Desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.",
     "icon": "FaHome",
     "heroimage": "62.jpg",
-    "id": "02",
+    "id": "1",
     "buttonText": "Make An Enquiry",
     "videoButton": false,
     "learnMoreButtonText": "LEARN MORE",
-    "variationLeft": true
+    "variationLeft": false
+  },
+  {
+    "subtitle": "Real Estate Agency",
+    "Title": "The Right Place of House Finding",
+    "Desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.",
+    "icon": "FaHome",
+    "heroimage": "62.jpg",
+    "id": "2",
+    "buttonText": "Make An Enquiry",
+    "videoButton": false,
+    "learnMoreButtonText": "LEARN MORE",
+    "variationLeft": false
   }
 ]

@@ -2,9 +2,22 @@ import { useState } from "react";
 import Link from "next/link";
 import Slider from "react-slick";
 import ModalVideo from "react-modal-video";
-import { FaPlay, FaHome, FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import {
+  FaPlay,
+  FaHome,
+  FaArrowRight,
+  FaArrowLeft,
+  FaDribbble,
+  FaInstagram,
+  FaTwitter,
+  FaFacebookF,
+} from "react-icons/fa";
+import { Col, Container, Row } from "react-bootstrap";
 
-function HeroSectionStyleOne({ data }) {
+function HeroSectionStyleTwo({ data }) {
+  const [nav1, setNav1] = useState();
+  const [nav2, setNav2] = useState();
+
   const Herosettings = {
     dots: true,
     fade: true,
@@ -14,18 +27,15 @@ function HeroSectionStyleOne({ data }) {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    prevArrow: (
-      <a>
-        <FaArrowLeft />
-      </a>
-    ),
-    nextArrow: (
-      <a>
-        <FaArrowRight />
-      </a>
-    ),
+
   };
 
+  const settings = {
+    dots: false,
+    speed: 500,
+    prevArrow: false,
+    nextArrow: false,
+  };
   const [isOpen, setOpen] = useState(false);
   return (
     <>
@@ -37,15 +47,12 @@ function HeroSectionStyleOne({ data }) {
         onClose={() => setOpen(false)}
       />
 
-      <div className="ltn__slider-area ltn__slider-3  section-bg-1">
-        <Slider
-          {...Herosettings}
-          className="ltn__slide-one-active slick-slide-arrow-1 slick-slide-dots-1"
-        >
+      <div className="ltn__slider-11-inner position-relative">
+        <Slider {...Herosettings} className="ltn__slider-11-active">
           {data.map((item, key) => {
             return (
               <div
-                className="ltn__slide-item ltn__slide-item-2 ltn__slide-item-3-normal ltn__slide-item-3 position-relative"
+                className="ltn__slide-item ltn__slide-item-2 ltn__slide-item-3-normal ltn__slide-item-3 ltn__slide-item-11"
                 key={key}
               >
                 <div
@@ -53,9 +60,9 @@ function HeroSectionStyleOne({ data }) {
                     item.variationLeft ? "text-right text-end" : ""
                   }`}
                 >
-                  <div className="container">
-                    <div className="row">
-                      <div className="col-lg-12 align-self-center">
+                  <Container className="container">
+                    <Row className="row">
+                      <Col xs={12} className="align-self-center">
                         <div className="slide-item-info">
                           <div className="slide-item-info-inner ltn__slide-animation">
                             <h6 className="slide-sub-title animated">
@@ -72,7 +79,7 @@ function HeroSectionStyleOne({ data }) {
                             </div>
                             <div className="btn-wrapper animated">
                               <Link
-                                href="about.html"
+                                href="/about"
                                 className="theme-btn-1 btn btn-effect-1"
                               >
                                 {item.buttonText}
@@ -83,7 +90,6 @@ function HeroSectionStyleOne({ data }) {
                                   onClick={() => setOpen(true)}
                                   className="ltn__video-play-btn bg-white"
                                 >
-                                  {/* <i className="icon-play  ltn__secondary-color"></i> */}
                                   <FaPlay className="icon-play  ltn__secondary-color" />
                                 </button>
                               ) : (
@@ -102,19 +108,63 @@ function HeroSectionStyleOne({ data }) {
                             item.variationLeft ? "slide-img-left" : ""
                           }`}
                         >
-                          <img src="img/slider/21.png" alt="#" />
+                          <img
+                            src={`../../img/slider/${item.heroimage}`}
+                            alt="#"
+                          />
                         </div>
-                      </div>
-                    </div>
-                  </div>
+                      </Col>
+                    </Row>
+                  </Container>
                 </div>
               </div>
             );
           })}
         </Slider>
+
+        {/* <!-- slider-sticky-icon --> */}
+        <div className="slider-sticky-icon-2">
+          <ul>
+            <li>
+              <Link href="#">
+                <FaFacebookF />
+              </Link>
+            </li>
+            <li>
+              <Link href="#">
+                <FaTwitter />
+              </Link>
+            </li>
+            <li>
+              <Link href="#">
+                <FaDribbble />
+              </Link>
+            </li>
+          </ul>
+        </div>
+        {/* <!-- slider-4-img-slide-arrow --> */}
+        <div className="ltn__slider-11-img-slide-arrow">
+          <div className="ltn__slider-11-img-slide-arrow-inner">
+            <Slider
+              {...settings}
+              asNavFor={nav1}
+              ref={(slider2) => setNav2(slider2)}
+              slidesToShow={3}
+              className="ltn__slider-11-img-slide-arrow-active"
+            >
+              {data.map((item, key) => {
+                return (
+                  <div className="image-slide-item dddd" key={key}>
+                    <img src={`../../img/slider/${item.heroimage}`} alt="#" />
+                  </div>
+                );
+              })}
+            </Slider>
+          </div>
+        </div>
       </div>
     </>
   );
 }
 
-export default HeroSectionStyleOne;
+export default HeroSectionStyleTwo;
