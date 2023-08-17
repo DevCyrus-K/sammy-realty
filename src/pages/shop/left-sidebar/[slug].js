@@ -89,6 +89,49 @@ function ProductDetails({ product, baseUrl }) {
         <FaArrowRight />
       </a>
     ),
+    responsive: [
+      {
+        breakpoint: 1600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "250px",
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "250px",
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "200px",
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "150px",
+        },
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "0px",
+          dots: true,
+        },
+      },
+    ],
   };
 
   const popular_product = {
@@ -987,14 +1030,31 @@ function ProductDetails({ product, baseUrl }) {
                   <Row>
                     {relatedProducts.map((data, key) => {
                       const slug = productSlug(data.title);
+                      const discountedPrice = getDiscountPrice(
+                        product.price,
+                        product.discount
+                      ).toFixed(2);
+                      const productPrice = product.price.toFixed(2);
+                      const cartItem = cartItems.find(
+                        (cartItem) => cartItem.id === product.id
+                      );
+                      const wishlistItem = wishlistItems.find(
+                        (wishlistItem) => wishlistItem.id === product.id
+                      );
+                      const compareItem = compareItems.find(
+                        (compareItem) => compareItem.id === product.id
+                      );
                       return (
                         <Col xs={12} sm={6} key={key}>
                           <RelatedProduct
                             productData={data}
                             slug={slug}
                             baseUrl="shop/left-sidebar"
-                            showQuickViewHandle={showQuickViewHandle}
-                            showWishlistHandle={showWishlistHandle}
+                            discountedPrice={discountedPrice}
+                            productPrice={productPrice}
+                            cartItem={cartItem}
+                            wishlistItem={wishlistItem}
+                            compareItem={compareItem}
                           />
                         </Col>
                       );

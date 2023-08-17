@@ -91,6 +91,49 @@ function ProductDetails({ product }) {
         <FaArrowRight />
       </a>
     ),
+    responsive: [
+      {
+        breakpoint: 1600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "250px",
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "250px",
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "200px",
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "150px",
+        },
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "0px",
+          dots: true,
+        },
+      },
+    ],
   };
 
   const popular_product = {
@@ -101,14 +144,8 @@ function ProductDetails({ product }) {
     arrows: false,
   };
 
-  const [quickViewShow, SetQuickViewShow] = useState(false);
-  const quickViewCloseHandle = () => SetQuickViewShow(false);
-  const showQuickViewHandle = () => SetQuickViewShow(true);
-
-  const [wishlistShow, SetWishlistShow] = useState(false);
-  const wishlistCloseHandle = () => SetWishlistShow(false);
-  const showWishlistHandle = () => SetWishlistShow(true);
   const [isOpen, setOpen] = useState(false);
+
   return (
     <>
       <LayoutOne>
@@ -131,22 +168,20 @@ function ProductDetails({ product }) {
 
         {/* <!-- IMAGE SLIDER AREA START (img-slider-3) --> */}
         <div className="ltn__img-slider-area mb-90">
-          <Container fluid>
+          <Container fluid className="px-0">
             <Slider
               {...productDetailsCarouselSettings}
-              className="row ltn__image-slider-5-active slick-arrow-1 slick-arrow-1-inner ltn__no-gutter-all g-0"
+              className="ltn__image-slider-5-active slick-arrow-1 slick-arrow-1-inner"
             >
               {product.carousel.map((single, key) => {
                 return (
-                  <div className="col-lg-12" key={key}>
-                    <div className="ltn__img-slide-item-4">
-                      <Link href="#">
-                        <img
-                          src={`/img/img-slide/${single.img}`}
-                          alt={`${single.title}`}
-                        />
-                      </Link>
-                    </div>
+                  <div className="ltn__img-slide-item-4" key={key}>
+                    <Link href="#">
+                      <img
+                        src={`/img/img-slide/${single.img}`}
+                        alt={`${single.title}`}
+                      />
+                    </Link>
                   </div>
                 );
               })}
@@ -157,9 +192,9 @@ function ProductDetails({ product }) {
 
     <!-- SHOP DETAILS AREA START --> */}
         <div className="ltn__shop-details-area pb-10">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-8 col-md-12">
+          <Container>
+            <Row>
+              <Col xs={12} lg={8}>
                 <div className="ltn__shop-details-inner ltn__page-details-inner mb-60">
                   <div className="ltn__blog-meta">
                     <ul>
@@ -989,23 +1024,40 @@ function ProductDetails({ product }) {
                   <Row>
                     {relatedProducts.map((data, key) => {
                       const slug = productSlug(data.title);
+                      const discountedPrice = getDiscountPrice(
+                        product.price,
+                        product.discount
+                      ).toFixed(2);
+                      const productPrice = product.price.toFixed(2);
+                      const cartItem = cartItems.find(
+                        (cartItem) => cartItem.id === product.id
+                      );
+                      const wishlistItem = wishlistItems.find(
+                        (wishlistItem) => wishlistItem.id === product.id
+                      );
+                      const compareItem = compareItems.find(
+                        (compareItem) => compareItem.id === product.id
+                      );
                       return (
                         <Col xs={12} sm={6} key={key}>
                           <RelatedProduct
                             productData={data}
                             slug={slug}
                             baseUrl="shop"
-                            showQuickViewHandle={showQuickViewHandle}
-                            showWishlistHandle={showWishlistHandle}
+                            discountedPrice={discountedPrice}
+                            productPrice={productPrice}
+                            cartItem={cartItem}
+                            wishlistItem={wishlistItem}
+                            compareItem={compareItem}
                           />
                         </Col>
                       );
                     })}
                   </Row>
                 </div>
-              </div>
+              </Col>
 
-              <div className="col-lg-4">
+              <Col xs={12} lg={4}>
                 <aside className="sidebar ltn__shop-sidebar ltn__right-sidebar---">
                   {/* <!-- Author Widget --> */}
                   <div className="widget ltn__author-widget">
@@ -1350,9 +1402,9 @@ function ProductDetails({ product }) {
 
                   <Tags title="Popular Tags" />
                 </aside>
-              </div>
-            </div>
-          </div>
+              </Col>
+            </Row>
+          </Container>
         </div>
         {/* <!-- SHOP DETAILS AREA END -->
 
