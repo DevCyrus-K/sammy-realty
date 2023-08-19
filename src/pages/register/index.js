@@ -17,7 +17,7 @@ import CallToAction from "@/components/callToAction";
 function Register() {
   return (
     <>
-      <LayoutOne>
+      <LayoutOne topbar={true}>
         <ShopBreadCrumb title="Account" sectionPace="" currentSlug="Register" />
 
         {/* <!-- LOGIN AREA START (Register) --> */}

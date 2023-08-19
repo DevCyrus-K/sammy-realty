@@ -16,7 +16,7 @@ import Link from "next/link";
 function Locations() {
   return (
     <>
-      <LayoutOne>
+      <LayoutOne topbar={true}>
         <ShopBreadCrumb
           title="Google Map Locations"
           sectionPace="mb-0"

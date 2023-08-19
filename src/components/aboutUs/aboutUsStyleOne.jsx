@@ -19,7 +19,7 @@ function AboutUsStyleOne() {
       <div className="ltn__about-us-area pt-120 pb-90">
         <Container>
           <Row>
-            <Col lg={6} className="align-self-center">
+            <Col xs={12} lg={6} className="align-self-center">
               <div className="about-us-img-wrap about-img-left">
                 <img src="img/others/7.png" alt="About Us Image" />
                 <div className="about-us-img-info about-us-img-info-2 about-us-img-info-3">
@@ -35,7 +35,7 @@ function AboutUsStyleOne() {
                 </div>
               </div>
             </Col>
-            <Col lg={6} className="align-self-center">
+            <Col xs={12} lg={6} className="align-self-center">
               <div className="about-us-info-wrap">
                 <div className="section-title-area ltn__section-title-2--- mb-20">
                   <h6 className="section-subtitle section-subtitle-2 ltn__secondary-color">

@@ -36,7 +36,7 @@ function BlogRightSideBar() {
 
   return (
     <>
-      <LayoutOne>
+      <LayoutOne topbar={true}>
         <ShopBreadCrumb title="News Feeds" sectionPace="" currentSlug="Blog" />
 
         <div class="ltn__blog-area mb-120">

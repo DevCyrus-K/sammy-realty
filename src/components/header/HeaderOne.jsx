@@ -17,7 +17,7 @@ import {
   FaTimes,
 } from "react-icons/fa";
 
-const HeaderStyleOne = function ({ SetToggleClassName }) {
+const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
   const [searchFormOpener, searchFormOpenerSet] = useState(false);
 
   const [cartMenuOpener, cartMenuOpenerSet] = useState(false);
@@ -74,7 +74,8 @@ const HeaderStyleOne = function ({ SetToggleClassName }) {
     <>
       <header className="ltn__header-area ltn__header-5">
         {/* <!-- ltn__header-top-area start --> */}
-        <HeaderTopBarOne />
+        {topbar ? <HeaderTopBarOne /> : null}
+
         {/* <!-- ltn__header-top-area end --> */}
 
         {/* <!-- ltn__header-middle-area start --> */}

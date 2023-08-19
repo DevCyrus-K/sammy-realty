@@ -10,7 +10,7 @@ function TeamPage() {
 
   return (
     <>
-      <LayoutOne>
+      <LayoutOne topbar={true}>
         <ShopBreadCrumb title="Our Agent" sectionPace="" currentSlug="Agent" />
 
         <div className="ltn__team-area pb-90">

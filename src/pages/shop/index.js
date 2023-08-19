@@ -87,7 +87,7 @@ function Shop() {
 
 
   return (
-    <LayoutOne>
+    <LayoutOne topbar={true}>
       {/* <!-- BREADCRUMB AREA START --> */}
 
       <ShopBreadCrumb title="Shop" sectionPace="" currentSlug="Shop" />

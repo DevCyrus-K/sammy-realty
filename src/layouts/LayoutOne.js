@@ -3,7 +3,7 @@ import { HeaderOne } from "@/components/header";
 import Footer from "@/components/footer/footer";
 import ScrollToTop from "@/components/scroll-to-top";
 
-const LayoutOne = ({ children, navPositionClass }) => {
+const LayoutOne = ({ children, navPositionClass, topbar }) => {
   const [toggleClassName, SetToggleClassName] = useState(false);
 
   function toggleClassNameInBody() {
@@ -19,6 +19,7 @@ const LayoutOne = ({ children, navPositionClass }) => {
           toggleClassNameInBody={toggleClassNameInBody}
           SetToggleClassName={SetToggleClassName}
           navPositionClass={navPositionClass}
+          topbar={topbar}
         />
         {children}
         <Footer />

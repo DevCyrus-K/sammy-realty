@@ -58,7 +58,7 @@ function AboutUs() {
 
   return (
     <>
-      <LayoutOne>
+      <LayoutOne topbar={true}>
         <ShopBreadCrumb
           title="About Us"
           sectionPace=""

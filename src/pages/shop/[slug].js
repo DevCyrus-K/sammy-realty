@@ -148,7 +148,7 @@ function ProductDetails({ product }) {
 
   return (
     <>
-      <LayoutOne>
+      <LayoutOne topbar={true}>
         <ModalVideo
           channel="youtube"
           autoplay

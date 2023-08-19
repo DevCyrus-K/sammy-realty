@@ -6,7 +6,7 @@ import CallToAction from "@/components/callToAction";
 function OrderTracking() {
   return (
     <>
-      <LayoutOne>
+      <LayoutOne topbar={true}>
         <ShopBreadCrumb
           title="Order Tracking"
           sectionPace=""

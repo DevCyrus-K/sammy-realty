@@ -29,6 +29,17 @@ export const getProducts = (products, category, type, limit) => {
         .slice(0, limit ? limit : finalProducts.length)
     );
   }
+
+  if (type && type === "country") {
+    return (
+      finalProducts &&
+      finalProducts
+        .sort((a, b) => {
+          return b.saleCount - a.saleCount;
+        })
+        .slice(0, limit ? limit : finalProducts.length)
+    );
+  }
   if (type && type === "topRated") {
     return (
       finalProducts &&

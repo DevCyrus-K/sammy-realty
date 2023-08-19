@@ -1,6 +1,5 @@
 import path from "path";
 import fs from "fs/promises";
-import { useState } from "react";
 import { useSelector } from "react-redux";
 import { getProducts, productSlug, getDiscountPrice } from "@/lib/product";
 import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
@@ -149,7 +148,7 @@ function HomePage(props) {
 
   return (
     <>
-      <LayoutOne>
+      <LayoutOne topbar={true}>
         <HeroSectionStyleOne data={Herodata} />
 
         <CarDealerSearchForm navMenuClass="d-none" />
@@ -503,13 +502,14 @@ function HomePage(props) {
           </Container>
         </div>
 
+
         {/* <!-- VIDEO AREA START --> */}
         <div className="ltn__video-popup-area">
           <VideoBanner />
         </div>
         {/* <!-- VIDEO AREA END --> */}
         {/* <!-- CATEGORY AREA START -->  */}
-        <div className="ltn__category-area ltn__product-gutter section-bg-1--- pt-115 pb-90 ">
+        <div className="ltn__category-area ltn__product-gutter pt-115 pb-90">
           <Container>
             <Row>
               <Col xs={12}>
@@ -522,7 +522,7 @@ function HomePage(props) {
                 />
               </Col>
             </Row>
-            <Row className="ltn__category-slider-active--- slick-arrow-1 justify-content-center">
+            <Row className="slick-arrow-1 justify-content-center">
               {aminitiesData.map((data, key) => {
                 return (
                   <Col key={key} xs={12} sm={6} md={4} lg={3}>

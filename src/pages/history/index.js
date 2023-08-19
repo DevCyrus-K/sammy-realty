@@ -53,7 +53,7 @@ function HistoryPage() {
         ],
     };
     return (
-        <LayoutOne>
+        <LayoutOne topbar={true}>
             <ShopBreadCrumb title="Our History" sectionPace="" currentSlug="History" />
 
             <div className="ltn__our-history-area pb-100">

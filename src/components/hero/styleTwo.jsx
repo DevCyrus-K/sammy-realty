@@ -14,6 +14,34 @@ import {
 import { Col, Container, Row } from "react-bootstrap";
 
 function HeroSectionStyleTwo({ data }) {
+  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
+    <button
+      {...props}
+      className={
+        "slick-prev slick-arrow" + (currentSlide === 0 ? " slick-disabled" : "")
+      }
+      aria-hidden="true"
+      aria-disabled={currentSlide === 0 ? true : false}
+      type="button"
+    >
+      <FaArrowLeft />
+    </button>
+  );
+  const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
+    <button
+      {...props}
+      className={
+        "slick-next slick-arrow" +
+        (currentSlide === slideCount - 1 ? " slick-disabled" : "")
+      }
+      aria-hidden="true"
+      aria-disabled={currentSlide === slideCount - 1 ? true : false}
+      type="button"
+    >
+      <FaArrowRight />
+    </button>
+  );
+
   const [nav1, setNav1] = useState();
   const [nav2, setNav2] = useState();
 
@@ -21,10 +49,93 @@ function HeroSectionStyleTwo({ data }) {
     dots: false,
     arrows: false,
     infinite: true,
+    autoplay: false,
+    autoplaySpeed: 10000,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-
+    prevArrow: <SlickArrowLeft />,
+    nextArrow: <SlickArrowRight />,
+    responsive: [
+      {
+        breakpoint: 1600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 575,
+        settings: {
+          arrows: false,
+          dots: false,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+  const Navsettings = {
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    initialSlide: 2,
+    centerMode: true,
+    centerPadding: "0px",
+    dots: false /* image slide dots */,
+    arrows: false /* image slide arrow */,
+    focusOnSelect: true,
+    prevArrow: <SlickArrowLeft />,
+    nextArrow: <SlickArrowRight />,
+    responsive: [
+      {
+        breakpoint: 1600,
+        settings: {
+          arrows: false,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          arrows: true,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: true,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 575,
+        settings: {
+          arrows: true,
+          dots: false,
+        },
+      },
+    ],
   };
 
   const [isOpen, setOpen] = useState(false);
@@ -39,7 +150,12 @@ function HeroSectionStyleTwo({ data }) {
       />
 
       <div className="ltn__slider-11-inner position-relative">
-        <Slider {...Herosettings} asNavFor={nav2} ref={(slider1) => setNav1(slider1)} className="ltn__slider-11-active">
+        <Slider
+          {...Herosettings}
+          asNavFor={nav2}
+          ref={(slider1) => setNav1(slider1)}
+          className="ltn__slider-11-active"
+        >
           {data.map((item, key) => {
             return (
               <div
@@ -99,10 +215,7 @@ function HeroSectionStyleTwo({ data }) {
                             item.variationLeft ? "slide-img-left" : ""
                           }`}
                         >
-                          <img
-                            src={`../../img/slider/${item.heroimage}`}
-                            alt="#"
-                          />
+                          <img src={`/img/slider/${item.heroimage}`} alt="#" />
                         </div>
                       </Col>
                     </Row>
@@ -137,17 +250,15 @@ function HeroSectionStyleTwo({ data }) {
         <div className="ltn__slider-11-img-slide-arrow">
           <div className="ltn__slider-11-img-slide-arrow-inner">
             <Slider
+              {...Navsettings}
               asNavFor={nav1}
               ref={(slider2) => setNav2(slider2)}
-              slidesToShow={3}
-              swipeToSlide={true}
-              focusOnSelect={true}
               className="ltn__slider-11-img-slide-arrow-active"
             >
               {data.map((item, key) => {
                 return (
                   <div className="image-slide-item dddd" key={key}>
-                    <img src={`../../img/slider/${item.heroimage}`} alt="#" />
+                    <img src={`/img/slider/${item.heroimage}`} alt="#" />
                   </div>
                 );
               })}

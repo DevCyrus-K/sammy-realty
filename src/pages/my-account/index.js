@@ -27,7 +27,7 @@ import {
 function MyAccount() {
   return (
     <>
-      <LayoutOne>
+      <LayoutOne topbar={true}>
         <ShopBreadCrumb
           title="My Account"
           sectionPace=""

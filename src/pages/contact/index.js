@@ -7,7 +7,7 @@ import Contact from "@/components/contact";
 function ContactUs() {
   return (
     <>
-      <LayoutOne>
+      <LayoutOne topbar={true}>
         <ShopBreadCrumb
           title="Contact Us"
           sectionPace=""

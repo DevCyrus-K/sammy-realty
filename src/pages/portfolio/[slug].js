@@ -18,7 +18,7 @@ function portfolioDetails({ portfolio }) {
 
   return (
     <>
-      <LayoutOne>
+      <LayoutOne topbar={true}>
         {/* <!-- BREADCRUMB AREA START --> */}
 
         <ShopBreadCrumb

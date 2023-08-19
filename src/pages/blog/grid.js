@@ -28,7 +28,7 @@ function BlogGrid() {
 
   return (
     <>
-      <LayoutOne>
+      <LayoutOne topbar={true}>
         <ShopBreadCrumb
           title="Blog Grid"
           sectionPace=""

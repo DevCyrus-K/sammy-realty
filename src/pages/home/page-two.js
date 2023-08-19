@@ -1,54 +1,204 @@
 import { useState } from "react";
-import Link from "next/link";
 import Slider from "react-slick";
-import ModalVideo from "react-modal-video";
-import { FaPlay, FaHome, FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import path from "path";
 import fs from "fs/promises";
 import { LayoutOne } from "@/layouts";
-import { Col, Container, Row } from "react-bootstrap";
+import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
+import Accordion from "react-bootstrap/Accordion";
+import { getProducts, productSlug } from "@/lib/product";
+import TitleSection from "@/components/titleSection";
+import Feature from "@/components/features";
+import featuresData from "@/data/service";
 import HeroSectionStyleTwo from "@/components/hero/styleTwo";
+import AboutUsSectionOne from "@/components/aboutUs/aboutUsSectionOne";
+import AboutUsSectionTwo from "@/components/aboutUs/aboutUsSectionTwo";
+import UpCommingcarousel from "@/components/upCommingCarousel";
+import PropertyItem from "@/components/product/properties";
+import { useSelector } from "react-redux";
+import { FaArrowLeft, FaArrowRight, FaPlay } from "react-icons/fa";
+import Link from "next/link";
+import ModalVideo from "react-modal-video";
+import AminitiesItemTwo from "@/components/aminities/itemTwo";
+import aminitiesData from "@/data/aminities/index.json";
+import TestimonialCarouselItemTwo from "@/components/testimonialCarousel/indexTwo";
+import testimonialData from "@/data/testimonial";
+import blogData from "@/data/blog";
+import BlogItem from "@/components/blog";
+import CallToAction from "@/components/callToAction";
+
 
 function HomeVersionTwo(props) {
+  const [isOpen, setOpen] = useState(false);
+  const { products } = useSelector((state) => state.product);
+  const featureData = getProducts(featuresData, "fashion", "featured", 3);
+  const countryProducts = getProducts(products, "fashion", "country", 5);
   const { data } = props;
 
-  const upCommingSettings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
 
-  const [productref, setproductref] = useState(null);
+  
+  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
+    <button
+      {...props}
+      className={
+        "slick-prev slick-arrow" +
+        (currentSlide === 0 ? " slick-disabled" : "")
+      }
+      aria-hidden="true"
+      aria-disabled={currentSlide === 0 ? true : false}
+      type="button"
+    >
+      <FaArrowLeft />
+    </button>
+  );
+  const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
+    <button
+      {...props}
+      className={
+        "slick-next slick-arrow" +
+        (currentSlide === slideCount - 1 ? " slick-disabled" : "")
+      }
+      aria-hidden="true"
+      aria-disabled={currentSlide === slideCount - 1 ? true : false}
+      type="button"
+    >
+      <FaArrowRight />
+    </button>
+  );
+
   const productsettings = {
     dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    prevArrow: <SlickArrowLeft />,
+    nextArrow: <SlickArrowRight />,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          arrows: false,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          arrows: false,
+          dots: true,
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          dots: true,
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 580,
+        settings: {
+          arrows: false,
+          dots: true,
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
-  const [testiMonialref, settestiMonialref] = useState(null);
+
   const testiMonialsettings = {
+    arrows: true,
     dots: false,
+    centerMode: false,
+    centerPadding: '80px',
     infinite: true,
-    speed: 500,
+    speed: 300,
     slidesToShow: 2,
     slidesToScroll: 1,
+    prevArrow: <SlickArrowLeft />,
+    nextArrow: <SlickArrowRight />,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          arrows: false,
+          dots: true,
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          dots: true,
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 580,
+        settings: {
+          arrows: false,
+          dots: true,
+          centerMode: false,
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
-  const [blog, setBlog] = useState(null);
+
+
   const blogSettings = {
     dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    prevArrow: <SlickArrowLeft />,
+    nextArrow: <SlickArrowRight />,
+    responsive: [
+      {
+        breakpoint: 1199,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 575,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
-
   return (
-    <LayoutOne>
+    <LayoutOne topbar={false}>
+
+      <ModalVideo
+        channel="youtube"
+        autoplay
+        isOpen={isOpen}
+        videoId="LjCzPp-MK48"
+        onClose={() => setOpen(false)}
+      />
       {/* <!-- SLIDER AREA START (slider-11) --> */}
       <div className="ltn__slider-area ltn__slider-11 section-bg-1">
         <HeroSectionStyleTwo data={data} />
@@ -57,253 +207,40 @@ function HomeVersionTwo(props) {
 
     <!-- ABOUT US AREA START --> */}
       <div className="ltn__about-us-area pt-115 pb-100 ">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-6 align-self-center">
-              <div className="about-us-img-wrap about-img-left">
-                <img src="../img/others/11.png" alt="About Us Image" />
-                <div className="about-us-img-info about-us-img-info-2 about-us-img-info-3 d-none">
-                  <div className="ltn__video-img ltn__animation-pulse1">
-                    <img src="../img/others/8.png" alt="video popup bg image" />
-                    <a
-                      className="ltn__video-icon-2 ltn__video-icon-2-border---"
-                      href="https://www.youtube.com/embed/X7R-q9rsrtU?autoplay=1&showinfo=0"
-                      data-rel="lightcase:myCollection"
-                    >
-                      <i className="fa fa-play"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6 align-self-center">
-              <div className="about-us-info-wrap">
-                <div className="section-title-area ltn__section-title-2--- mb-30">
-                  <h6 className="section-subtitle section-subtitle-2--- ltn__secondary-color">
-                    About Us
-                  </h6>
-                  <h1 className="section-title">
-                    Dream Living Spaces Setting New Build
-                  </h1>
-                  <p>
-                    Over 39,000 people work for us in more than 70 countries all
-                    over the This breadth of global coverage, combined with
-                    specialist services
-                  </p>
-                </div>
-                <div className="ltn__feature-item ltn__feature-item-3">
-                  <div className="ltn__feature-icon">
-                    <span>
-                      <i className="flaticon-house-4"></i>
-                    </span>
-                  </div>
-                  <div className="ltn__feature-info">
-                    <h4>
-                      <a href="service-details.html">The Perfect Residency</a>
-                    </h4>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisic do
-                      eiusmod tempor incididunt ut labore et
-                    </p>
-                  </div>
-                </div>
-                <div className="ltn__feature-item ltn__feature-item-3">
-                  <div className="ltn__feature-icon">
-                    <span>
-                      <i className="flaticon-call-center-agent"></i>
-                    </span>
-                  </div>
-                  <div className="ltn__feature-info">
-                    <h4>
-                      <a href="service-details.html">
-                        Global Architect Experts
-                      </a>
-                    </h4>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisic do
-                      eiusmod tempor incididunt ut labore et
-                    </p>
-                  </div>
-                </div>
-                <div className="ltn__feature-item ltn__feature-item-3">
-                  <div className="ltn__feature-icon">
-                    <span>
-                      <i className="flaticon-maps-and-location"></i>
-                    </span>
-                  </div>
-                  <div className="ltn__feature-info">
-                    <h4>
-                      <a href="service-details.html">
-                        Built-in Storage Cupboards
-                      </a>
-                    </h4>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisic do
-                      eiusmod tempor incididunt ut labore et
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <AboutUsSectionOne />
       </div>
       {/* <!-- ABOUT US AREA END -->
 
     <!-- ABOUT US AREA START --> */}
       <div className="ltn__about-us-area section-bg-1 bg-image-right-before pt-120 pb-90">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-6 align-self-center">
-              <div className="about-us-info-wrap">
-                <div className="section-title-area ltn__section-title-2--- mb-20">
-                  <h6 className="section-subtitle section-subtitle-2--- ltn__secondary-color">
-                    Building Facilities
-                  </h6>
-                  <h1 className="section-title">
-                    Making living spaces More Beautiful
-                  </h1>
-                  <p>
-                    Over 39,000 people work for us in more than 70 countries all
-                    over the This breadth of global coverage, combined with
-                    specialist services
-                  </p>
-                </div>
-                <ul className="ltn__list-item-half ltn__list-item-half-2 list-item-margin clearfix">
-                  <li>
-                    <i className="icon-done"></i>
-                    Living rooms are pre-wired for Surround
-                  </li>
-                  <li>
-                    <i className="icon-done"></i>
-                    Luxurious interior design and amenities
-                  </li>
-                  <li>
-                    <i className="icon-done"></i>
-                    Nestled in the Buckhead Vinings communities
-                  </li>
-                  <li>
-                    <i className="icon-done"></i>
-                    Private balconies with stunning views
-                  </li>
-                  <li>
-                    <i className="icon-done"></i>A rare combination of inspired
-                    architecture
-                  </li>
-                  <li>
-                    <i className="icon-done"></i>
-                    Outdoor grilling with dining court
-                  </li>
-                </ul>
-                <div className="  ltn__animation-pulse2 text-center mt-30">
-                  <a
-                    className="ltn__video-play-btn bg-white--- ltn__secondary-bg"
-                    href="https://www.youtube.com/embed/HnbMYzdjuBs?autoplay=1&amp;showinfo=0"
-                    data-rel="lightcase"
-                  >
-                    <i className="icon-play  ltn__secondary-color--- white-color"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6 align-self-center">
-              <div className="about-us-img-wrap about-img-left"></div>
-            </div>
-          </div>
-        </div>
+        <AboutUsSectionTwo />
       </div>
       {/* <!-- ABOUT US AREA END -->
 
     <!-- FEATURE AREA START ( Feature - 6) --> */}
-      <div className="ltn__feature-area section-bg-1--- pt-115 pb-90 mb-120---">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="section-title-area ltn__section-title-2--- text-center">
-                <h6 className="section-subtitle section-subtitle-2--- ltn__secondary-color">
-                  Our Services
-                </h6>
-                <h1 className="section-title">Our Main Focus</h1>
-              </div>
-            </div>
-          </div>
-
-          <div className="row ltn__custom-gutter---  justify-content-center">
-            <div className="col-lg-4 col-sm-6 col-12">
-              <div className="ltn__feature-item ltn__feature-item-6 text-center bg-white  box-shadow-1">
-                <div className="ltn__feature-icon">
-                  {/* <!-- <span><i className="flaticon-house"></i></span> --> */}
-                  <img src="../img/icons/icon-img/21.png" alt="#" />
-                </div>
-                <div className="ltn__feature-info">
-                  <h3>
-                    <a href="service-details.html">Buy a home</a>
-                  </h3>
-                  <p>
-                    over 1 million+ homes for sale available on the website, we
-                    can match you with a house you will want to call home.
-                  </p>
-                  <a className="ltn__service-btn" href="service-details.html">
-                    Find A Home <i className="flaticon-right-arrow"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-sm-6 col-12">
-              <div className="ltn__feature-item ltn__feature-item-6 text-center bg-white  box-shadow-1 active">
-                <div className="ltn__feature-icon">
-                  {/* <!-- <span><i className="flaticon-house-3"></i></span> --> */}
-                  <img src="../img/icons/icon-img/22.png" alt="#" />
-                </div>
-                <div className="ltn__feature-info">
-                  <h3>
-                    <a href="service-details.html">Rent a home</a>
-                  </h3>
-                  <p>
-                    over 1 million+ homes for sale available on the website, we
-                    can match you with a house you will want to call home.
-                  </p>
-                  <a className="ltn__service-btn" href="service-details.html">
-                    Find A Home <i className="flaticon-right-arrow"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-sm-6 col-12">
-              <div className="ltn__feature-item ltn__feature-item-6 text-center bg-white  box-shadow-1">
-                <div className="ltn__feature-icon">
-                  {/* <!-- <span><i className="flaticon-deal-1"></i></span> --> */}
-                  <img src="../img/icons/icon-img/23.png" alt="#" />
-                </div>
-                <div className="ltn__feature-info">
-                  <h3>
-                    <a href="service-details.html">Sell a home</a>
-                  </h3>
-                  <p>
-                    over 1 million+ homes for sale available on the website, we
-                    can match you with a house you will want to call home.
-                  </p>
-                  <a className="ltn__service-btn" href="service-details.html">
-                    Find A Home <i className="flaticon-right-arrow"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Feature
+        servicebtn={true}
+        iconTag={false}
+        data={featureData}
+        classes=""
+        headingClasses=""
+        titleSectionData={{
+          subTitle: "Our Services",
+          title: "Our Main Focus",
+        }}
+      />
       {/* <!-- FEATURE AREA END -->
 
     <!-- UPCOMING PROJECT AREA START --> */}
       <div
-        className="ltn__upcoming-project-area section-bg-1--- bg-image-top pt-115 pb-65"
+        className="ltn__upcoming-project-area bg-image-top pt-115 pb-65"
         style={{ backgroundImage: `url("../img/bg/22.jpg")` }}
       >
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="section-title-area ltn__section-title-2--- text-center---">
-                <h6 className="section-subtitle section-subtitle-2--- ltn__secondary-color--- white-color">
+        <Container>
+          <Row>
+            <Col xs={12}>
+              <div className="section-title-area">
+                <h6 className="section-subtitle white-color">
                   Upcoming Projects
                 </h6>
                 <h1 className="section-title  white-color">
@@ -311,417 +248,293 @@ function HomeVersionTwo(props) {
                   Setting New Standards
                 </h1>
               </div>
-            </div>
-          </div>
+            </Col>
+          </Row>
+          <UpCommingcarousel />
 
-          <Slider
-            {...upCommingSettings}
-            className="row ltn__upcoming-project-slider-1-active slick-arrow-3"
-          >
-            {/* <!-- upcoming-project-item --> */}
-            <div className="col-lg-12">
-              <div className="ltn__upcoming-project-item">
-                <div className="row">
-                  <div className="col-lg-7">
-                    <div className="ltn__upcoming-project-img">
-                      <img src="../img/product-3/3.jpg" alt="#" />
-                    </div>
-                  </div>
-                  <div className="col-lg-5 section-bg-1">
-                    <div className="ltn__upcoming-project-info ltn__menu-widget">
-                      <h6 className="section-subtitle ltn__secondary-color mb-0">
-                        About Projects
-                      </h6>
-                      <h1 className="mb-30">Upcoming Projects</h1>
-                      <ul className="mt">
-                        <li>
-                          1. Project Name: <span>Quarter</span>
-                        </li>
-                        <li>
-                          2. Project Type: <span>Apartment / Home</span>
-                        </li>
-                        <li>
-                          3. Building Location: <span>New York, USA</span>
-                        </li>
-                        <li>
-                          4. No. Of Apartments: <span>568</span>
-                        </li>
-                        <li>
-                          5. Total Investment: <span>$14,500,00</span>
-                        </li>
-                      </ul>
-                      <div className="btn-wrapper animated">
-                        <a
-                          href="contact.html"
-                          className="theme-btn-1 btn btn-effect-1"
-                        >
-                          Download Brochure
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* <!-- upcoming-project-item --> */}
-            <div className="col-lg-12">
-              <div className="ltn__upcoming-project-item">
-                <div className="row">
-                  <div className="col-lg-7">
-                    <div className="ltn__upcoming-project-img">
-                      <img src="../img/product-3/2.jpg" alt="#" />
-                    </div>
-                  </div>
-                  <div className="col-lg-5 section-bg-1">
-                    <div className="ltn__upcoming-project-info ltn__menu-widget">
-                      <h6 className="ltn__secondary-color">About Projects</h6>
-                      <h1>Upcoming Projects</h1>
-                      <ul>
-                        <li>
-                          1. Project Name: <span>Quarter</span>
-                        </li>
-                        <li>
-                          2. Project Type: <span>Apartment / Home</span>
-                        </li>
-                        <li>
-                          3. Building Location: <span>New York, USA</span>
-                        </li>
-                        <li>
-                          4. No. Of Apartments: <span>568</span>
-                        </li>
-                        <li>
-                          5. Total Investment: <span>$14,500,00</span>
-                        </li>
-                      </ul>
-                      <div className="btn-wrapper animated">
-                        <a
-                          href="contact.html"
-                          className="theme-btn-1 btn btn-effect-1"
-                        >
-                          Download Brochure
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* <!-- upcoming-project-item --> */}
-            <div className="col-lg-12">
-              <div className="ltn__upcoming-project-item">
-                <div className="row">
-                  <div className="col-lg-7">
-                    <div className="ltn__upcoming-project-img">
-                      <img src="../img/product-3/7.jpg" alt="#" />
-                    </div>
-                  </div>
-                  <div className="col-lg-5 section-bg-1">
-                    <div className="ltn__upcoming-project-info ltn__menu-widget">
-                      <h6 className="ltn__secondary-color">About Projects</h6>
-                      <h1>Upcoming Projects</h1>
-                      <ul>
-                        <li>
-                          1. Project Name: <span>Quarter</span>
-                        </li>
-                        <li>
-                          2. Project Type: <span>Apartment / Home</span>
-                        </li>
-                        <li>
-                          3. Building Location: <span>New York, USA</span>
-                        </li>
-                        <li>
-                          4. No. Of Apartments: <span>568</span>
-                        </li>
-                        <li>
-                          5. Total Investment: <span>$14,500,00</span>
-                        </li>
-                      </ul>
-                      <div className="btn-wrapper animated">
-                        <a
-                          href="contact.html"
-                          className="theme-btn-1 btn btn-effect-1"
-                        >
-                          Download Brochure
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* <!--  --> */}
-          </Slider>
-        </div>
+        </Container>
       </div>
       {/* <!-- UPCOMING PROJECT AREA END -->
 
     <!-- APARTMENTS PLAN AREA START --> */}
-      <div className="ltn__apartments-plan-area pt-115--- pb-70">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="section-title-area ltn__section-title-2--- text-center">
-                <h6 className="section-subtitle section-subtitle-2--- ltn__secondary-color">
-                  Apartment Sketch
-                </h6>
-                <h1 className="section-title">Apartments Plan</h1>
-              </div>
-              <div className="ltn__tab-menu ltn__tab-menu-3 ltn__tab-menu-top-right-- text-uppercase--- text-center">
-                <div className="nav">
-                  <a data-bs-toggle="tab" href="#liton_tab_3_1">
-                    The Studio
-                  </a>
-                  <a
-                    className="active show"
-                    data-bs-toggle="tab"
-                    href="#liton_tab_3_2"
-                  >
-                    Deluxe Portion
-                  </a>
-                  <a data-bs-toggle="tab" href="#liton_tab_3_3" className="">
-                    Penthouse
-                  </a>
-                  <a data-bs-toggle="tab" href="#liton_tab_3_4" className="">
-                    Top Garden
-                  </a>
-                  <a data-bs-toggle="tab" href="#liton_tab_3_5" className="">
-                    Double Height
-                  </a>
+
+      <div className="ltn__apartments-plan-area pb-70">
+        <Container>
+          <Row>
+            <Col>
+              <TitleSection
+                titleSectionData={{
+                  subTitle: "Apartment Sketch",
+                  title: "Apartments Plan",
+                  additionalClassName: "",
+                }}
+              />
+
+              <Tab.Container defaultActiveKey="first">
+                <div className="ltn__tab-menu ltn__tab-menu-3 text-center">
+                  <Nav className="nav justify-content-center">
+                    <Nav.Link eventKey="first">The Studio</Nav.Link>
+                    <Nav.Link eventKey="second">Deluxe Portion</Nav.Link>
+                    <Nav.Link eventKey="third">Penthouse</Nav.Link>
+                    <Nav.Link eventKey="fourth">Top Garden</Nav.Link>
+                    <Nav.Link eventKey="five"> Double Height</Nav.Link>
+                  </Nav>
                 </div>
-              </div>
-              <div className="tab-content">
-                <div className="tab-pane fade" id="liton_tab_3_1">
-                  <div className="ltn__apartments-tab-content-inner">
-                    <div className="row">
-                      <div className="col-lg-6">
-                        <div className="apartments-plan-info ltn__secondary-bg--- section-bg-1 text-color-white---">
-                          <h2>The Studio</h2>
-                          <p>
-                            Enimad minim veniam quis nostrud exercitation
-                            ullamco laboris. Lorem ipsum dolor sit amet cons
-                            aetetur adipisicing elit sedo eiusmod
-                            tempor.Incididunt labore et dolore magna aliqua. sed
-                            ayd minim veniam.
-                          </p>
-                          <div className="apartments-info-list apartments-info-list-color mt-40">
-                            <ul>
-                              <li>
-                                <label>Total Area</label>{" "}
-                                <span>2800 Sq. Ft</span>
-                              </li>
-                              <li>
-                                <label>Bedroom</label> <span>150 Sq. Ft</span>
-                              </li>
-                              <li>
-                                <label>Bathroom</label> <span>45 Sq. Ft</span>
-                              </li>
-                              <li>
-                                <label>Belcony/Pets</label> <span>Allowed</span>
-                              </li>
-                              <li>
-                                <label>Lounge</label> <span>650 Sq. Ft</span>
-                              </li>
-                            </ul>
+                <Tab.Content>
+                  <Tab.Pane eventKey="first">
+                    <div className="ltn__apartments-tab-content-inner">
+                      <Row>
+                        <Col xs={12} lg={6}>
+                          <div className="apartments-plan-info section-bg-1">
+                            <h2>The Studio</h2>
+                            <p>
+                              Enimad minim veniam quis nostrud exercitation
+                              ullamco laboris. Lorem ipsum dolor sit amet cons
+                              aetetur adipisicing elit sedo eiusmod
+                              tempor.Incididunt labore et dolore magna aliqua.
+                              sed ayd minim veniam.
+                            </p>
+                            <div className="apartments-info-list apartments-info-list-color mt-40">
+                              <ul>
+                                <li>
+                                  <label>Total Area</label>
+                                  <span>2800 Sq. Ft</span>
+                                </li>
+                                <li>
+                                  <label>Bedroom</label>
+                                  <span>150 Sq. Ft</span>
+                                </li>
+                                <li>
+                                  <label>Bathroom</label>
+                                  <span>45 Sq. Ft</span>
+                                </li>
+                                <li>
+                                  <label>Belcony/Pets</label>
+                                  <span>Allowed</span>
+                                </li>
+                                <li>
+                                  <label>Lounge</label>
+                                  <span>650 Sq. Ft</span>
+                                </li>
+                              </ul>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                      <div className="col-lg-6">
-                        <div className="apartments-plan-img">
-                          <img src="../img/others/10.png" alt="#" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="tab-pane fade active show" id="liton_tab_3_2">
-                  <div className="ltn__product-tab-content-inner">
-                    <div className="row">
-                      <div className="col-lg-6">
-                        <div className="apartments-plan-info ltn__secondary-bg--- section-bg-1 text-color-white---">
-                          <h2>Deluxe Portion</h2>
-                          <p>
-                            Enimad minim veniam quis nostrud exercitation
-                            ullamco laboris. Lorem ipsum dolor sit amet cons
-                            aetetur adipisicing elit sedo eiusmod
-                            tempor.Incididunt labore et dolore magna aliqua. sed
-                            ayd minim veniam.
-                          </p>
-                          <div className="apartments-info-list apartments-info-list-color mt-40">
-                            <ul>
-                              <li>
-                                <label>Total Area</label>{" "}
-                                <span>2800 Sq. Ft</span>
-                              </li>
-                              <li>
-                                <label>Bedroom</label> <span>150 Sq. Ft</span>
-                              </li>
-                              <li>
-                                <label>Bathroom</label> <span>45 Sq. Ft</span>
-                              </li>
-                              <li>
-                                <label>Belcony/Pets</label> <span>Allowed</span>
-                              </li>
-                              <li>
-                                <label>Lounge</label> <span>650 Sq. Ft</span>
-                              </li>
-                            </ul>
+                        </Col>
+                        <Col xs={12} lg={6}>
+                          <div className="apartments-plan-img">
+                            <img src="/img/others/10.png" alt="#" />
                           </div>
-                        </div>
-                      </div>
-                      <div className="col-lg-6">
-                        <div className="apartments-plan-img">
-                          <img src="../img/others/10.png" alt="#" />
-                        </div>
-                      </div>
+                        </Col>
+                      </Row>
                     </div>
-                  </div>
-                </div>
-                <div className="tab-pane fade" id="liton_tab_3_3">
-                  <div className="ltn__product-tab-content-inner">
-                    <div className="row">
-                      <div className="col-lg-6">
-                        <div className="apartments-plan-info ltn__secondary-bg--- section-bg-1 text-color-white---">
-                          <h2>Penthouse</h2>
-                          <p>
-                            Enimad minim veniam quis nostrud exercitation
-                            ullamco laboris. Lorem ipsum dolor sit amet cons
-                            aetetur adipisicing elit sedo eiusmod
-                            tempor.Incididunt labore et dolore magna aliqua. sed
-                            ayd minim veniam.
-                          </p>
-                          <div className="apartments-info-list apartments-info-list-color mt-40">
-                            <ul>
-                              <li>
-                                <label>Total Area</label>{" "}
-                                <span>2800 Sq. Ft</span>
-                              </li>
-                              <li>
-                                <label>Bedroom</label> <span>150 Sq. Ft</span>
-                              </li>
-                              <li>
-                                <label>Bathroom</label> <span>45 Sq. Ft</span>
-                              </li>
-                              <li>
-                                <label>Belcony/Pets</label> <span>Allowed</span>
-                              </li>
-                              <li>
-                                <label>Lounge</label> <span>650 Sq. Ft</span>
-                              </li>
-                            </ul>
+                  </Tab.Pane>
+                  <Tab.Pane eventKey="second">
+                    <div className="ltn__product-tab-content-inner">
+                      <Row>
+                        <Col xs={12} lg={6}>
+                          <div className="apartments-plan-info section-bg-1">
+                            <h2>Deluxe Portion</h2>
+                            <p>
+                              Enimad minim veniam quis nostrud exercitation
+                              ullamco laboris. Lorem ipsum dolor sit amet cons
+                              aetetur adipisicing elit sedo eiusmod
+                              tempor.Incididunt labore et dolore magna aliqua.
+                              sed ayd minim veniam.
+                            </p>
+                            <div className="apartments-info-list apartments-info-list-color mt-40">
+                              <ul>
+                                <li>
+                                  <label>Total Area</label>
+                                  <span>2800 Sq. Ft</span>
+                                </li>
+                                <li>
+                                  <label>Bedroom</label>
+                                  <span>150 Sq. Ft</span>
+                                </li>
+                                <li>
+                                  <label>Bathroom</label>
+                                  <span>45 Sq. Ft</span>
+                                </li>
+                                <li>
+                                  <label>Belcony/Pets</label>
+                                  <span>Allowed</span>
+                                </li>
+                                <li>
+                                  <label>Lounge</label>
+                                  <span>650 Sq. Ft</span>
+                                </li>
+                              </ul>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                      <div className="col-lg-6">
-                        <div className="apartments-plan-img">
-                          <img src="../img/others/10.png" alt="#" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="tab-pane fade" id="liton_tab_3_4">
-                  <div className="ltn__product-tab-content-inner">
-                    <div className="row">
-                      <div className="col-lg-6">
-                        <div className="apartments-plan-info ltn__secondary-bg--- section-bg-1 text-color-white---">
-                          <h2>Top Garden</h2>
-                          <p>
-                            Enimad minim veniam quis nostrud exercitation
-                            ullamco laboris. Lorem ipsum dolor sit amet cons
-                            aetetur adipisicing elit sedo eiusmod
-                            tempor.Incididunt labore et dolore magna aliqua. sed
-                            ayd minim veniam.
-                          </p>
-                          <div className="apartments-info-list apartments-info-list-color mt-40">
-                            <ul>
-                              <li>
-                                <label>Total Area</label>{" "}
-                                <span>2800 Sq. Ft</span>
-                              </li>
-                              <li>
-                                <label>Bedroom</label> <span>150 Sq. Ft</span>
-                              </li>
-                              <li>
-                                <label>Bathroom</label> <span>45 Sq. Ft</span>
-                              </li>
-                              <li>
-                                <label>Belcony/Pets</label> <span>Allowed</span>
-                              </li>
-                              <li>
-                                <label>Lounge</label> <span>650 Sq. Ft</span>
-                              </li>
-                            </ul>
+                        </Col>
+                        <Col xs={12} lg={6}>
+                          <div className="apartments-plan-img">
+                            <img src="/img/others/10.png" alt="#" />
                           </div>
-                        </div>
-                      </div>
-                      <div className="col-lg-6">
-                        <div className="apartments-plan-img">
-                          <img src="../img/others/10.png" alt="#" />
-                        </div>
-                      </div>
+                        </Col>
+                      </Row>
                     </div>
-                  </div>
-                </div>
-                <div className="tab-pane fade" id="liton_tab_3_5">
-                  <div className="ltn__product-tab-content-inner">
-                    <div className="row">
-                      <div className="col-lg-6">
-                        <div className="apartments-plan-info ltn__secondary-bg--- section-bg-1 text-color-white---">
-                          <h2>Double Height</h2>
-                          <p>
-                            Enimad minim veniam quis nostrud exercitation
-                            ullamco laboris. Lorem ipsum dolor sit amet cons
-                            aetetur adipisicing elit sedo eiusmod
-                            tempor.Incididunt labore et dolore magna aliqua. sed
-                            ayd minim veniam.
-                          </p>
-                          <div className="apartments-info-list apartments-info-list-color mt-40">
-                            <ul>
-                              <li>
-                                <label>Total Area</label>{" "}
-                                <span>2800 Sq. Ft</span>
-                              </li>
-                              <li>
-                                <label>Bedroom</label> <span>150 Sq. Ft</span>
-                              </li>
-                              <li>
-                                <label>Bathroom</label> <span>45 Sq. Ft</span>
-                              </li>
-                              <li>
-                                <label>Belcony/Pets</label> <span>Allowed</span>
-                              </li>
-                              <li>
-                                <label>Lounge</label> <span>650 Sq. Ft</span>
-                              </li>
-                            </ul>
+                  </Tab.Pane>
+                  <Tab.Pane eventKey="third">
+                    <div className="ltn__product-tab-content-inner">
+                      <Row>
+                        <Col xs={12} lg={6}>
+                          <div className="apartments-plan-info section-bg-1">
+                            <h2>Penthouse</h2>
+                            <p>
+                              Enimad minim veniam quis nostrud exercitation
+                              ullamco laboris. Lorem ipsum dolor sit amet cons
+                              aetetur adipisicing elit sedo eiusmod
+                              tempor.Incididunt labore et dolore magna aliqua.
+                              sed ayd minim veniam.
+                            </p>
+                            <div className="apartments-info-list apartments-info-list-color mt-40">
+                              <ul>
+                                <li>
+                                  <label>Total Area</label>
+                                  <span>2800 Sq. Ft</span>
+                                </li>
+                                <li>
+                                  <label>Bedroom</label>
+                                  <span>150 Sq. Ft</span>
+                                </li>
+                                <li>
+                                  <label>Bathroom</label>
+                                  <span>45 Sq. Ft</span>
+                                </li>
+                                <li>
+                                  <label>Belcony/Pets</label>
+                                  <span>Allowed</span>
+                                </li>
+                                <li>
+                                  <label>Lounge</label>
+                                  <span>650 Sq. Ft</span>
+                                </li>
+                              </ul>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                      <div className="col-lg-6">
-                        <div className="apartments-plan-img">
-                          <img src="../img/others/10.png" alt="#" />
-                        </div>
-                      </div>
+                        </Col>
+                        <Col xs={12} lg={6}>
+                          <div className="apartments-plan-img">
+                            <img src="/img/others/10.png" alt="#" />
+                          </div>
+                        </Col>
+                      </Row>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                  </Tab.Pane>
+                  <Tab.Pane eventKey="fourth">
+                    <div className="ltn__product-tab-content-inner">
+                      <Row>
+                        <Col xs={12} lg={6}>
+                          <div className="apartments-plan-info section-bg-1">
+                            <h2>Top Garden</h2>
+                            <p>
+                              Enimad minim veniam quis nostrud exercitation
+                              ullamco laboris. Lorem ipsum dolor sit amet cons
+                              aetetur adipisicing elit sedo eiusmod
+                              tempor.Incididunt labore et dolore magna aliqua.
+                              sed ayd minim veniam.
+                            </p>
+                            <div className="apartments-info-list apartments-info-list-color mt-40">
+                              <ul>
+                                <li>
+                                  <label>Total Area</label>
+                                  <span>2800 Sq. Ft</span>
+                                </li>
+                                <li>
+                                  <label>Bedroom</label>
+                                  <span>150 Sq. Ft</span>
+                                </li>
+                                <li>
+                                  <label>Bathroom</label>
+                                  <span>45 Sq. Ft</span>
+                                </li>
+                                <li>
+                                  <label>Belcony/Pets</label>
+                                  <span>Allowed</span>
+                                </li>
+                                <li>
+                                  <label>Lounge</label>
+                                  <span>650 Sq. Ft</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </Col>
+                        <Col xs={12} lg={6}>
+                          <div className="apartments-plan-img">
+                            <img src="/img/others/10.png" alt="#" />
+                          </div>
+                        </Col>
+                      </Row>
+                    </div>
+                  </Tab.Pane>
+                  <Tab.Pane eventKey="five">
+                    <div className="ltn__product-tab-content-inner">
+                      <Row>
+                        <Col xs={12} lg={6}>
+                          <div className="apartments-plan-info section-bg-1">
+                            <h2>Double Height</h2>
+                            <p>
+                              Enimad minim veniam quis nostrud exercitation
+                              ullamco laboris. Lorem ipsum dolor sit amet cons
+                              aetetur adipisicing elit sedo eiusmod
+                              tempor.Incididunt labore et dolore magna aliqua.
+                              sed ayd minim veniam.
+                            </p>
+                            <div className="apartments-info-list apartments-info-list-color mt-40">
+                              <ul>
+                                <li>
+                                  <label>Total Area</label>
+                                  <span>2800 Sq. Ft</span>
+                                </li>
+                                <li>
+                                  <label>Bedroom</label>
+                                  <span>150 Sq. Ft</span>
+                                </li>
+                                <li>
+                                  <label>Bathroom</label>
+                                  <span>45 Sq. Ft</span>
+                                </li>
+                                <li>
+                                  <label>Belcony/Pets</label>
+                                  <span>Allowed</span>
+                                </li>
+                                <li>
+                                  <label>Lounge</label>
+                                  <span>650 Sq. Ft</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </Col>
+                        <Col xs={12} lg={6}>
+                          <div className="apartments-plan-img">
+                            <img src="/img/others/10.png" alt="#" />
+                          </div>
+                        </Col>
+                      </Row>
+                    </div>
+                  </Tab.Pane>
+                </Tab.Content>
+              </Tab.Container>
+            </Col>
+          </Row>
+        </Container>
       </div>
       {/* <!-- APARTMENTS PLAN AREA END -->
 
     <!-- SEARCH BY PLACE AREA START (testimonial-7) --> */}
       <div
-        className="ltn__search-by-place-area before-bg-top bg-image-top--- pt-115 pb-70"
-        style={{ backgroundImage: `url("../img/bg/20.jpg")` }}
+        className="ltn__search-by-place-area before-bg-top pt-115 pb-70"
+
+
       >
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="section-title-area ltn__section-title-2--- text-center---">
-                <h6 className="section-subtitle section-subtitle-2--- ltn__secondary-color">
+        <Container>
+          <Row>
+            <Col xs={12}>
+              <div className="section-title-area">
+                <h6 className="section-subtitle ltn__secondary-color">
                   Area Properties
                 </h6>
                 <h1 className="section-title">
@@ -729,146 +542,51 @@ function HomeVersionTwo(props) {
                   Search By Area
                 </h1>
               </div>
-            </div>
-          </div>
+            </Col>
+          </Row>
 
-          {/* <Slider
-                ref={setSliderRef}
-                {...settings}></Slider> */}
+          {!!countryProducts?.length ? (
+            <Slider
+              {...productsettings}
+              className="ltn__product-slider-item-four-active-full-width slick-arrow-1"
+            >
+              {countryProducts.map((product, key) => {
+                const slug = productSlug(product.title);
 
-          <Slider
-            {...productsettings}
-            className="row ltn__search-by-place-slider-1-active slick-arrow-1"
-          >
-            <div className="col-lg-4">
-              <div className="ltn__search-by-place-item">
-                <div className="search-by-place-img">
-                  <a href="product-details">
-                    <img src="../img/product-3/1.jpg" alt="#" />
-                  </a>
-                  <div className="search-by-place-badge">
-                    <ul>
-                      <li>2 Properties</li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="search-by-place-info">
-                  <h6>
-                    <a href="locations.html">San Francisco</a>
-                  </h6>
-                  <h4>
-                    <a href="product-details">Mission District Area</a>
-                  </h4>
-                  <div className="search-by-place-btn">
-                    <a href="product-details">
-                      View Property <i className="flaticon-right-arrow"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4">
-              <div className="ltn__search-by-place-item">
-                <div className="search-by-place-img">
-                  <a href="product-details">
-                    <img src="../img/product-3/2.jpg" alt="#" />
-                  </a>
-                  <div className="search-by-place-badge">
-                    <ul>
-                      <li>5 Properties</li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="search-by-place-info">
-                  <h6>
-                    <a href="locations.html">New York</a>
-                  </h6>
-                  <h4>
-                    <a href="product-details">Pacific Heights Area</a>
-                  </h4>
-                  <div className="search-by-place-btn">
-                    <a href="product-details">
-                      View Property <i className="flaticon-right-arrow"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4">
-              <div className="ltn__search-by-place-item">
-                <div className="search-by-place-img">
-                  <a href="product-details">
-                    <img src="../img/product-3/3.jpg" alt="#" />
-                  </a>
-                  <div className="search-by-place-badge">
-                    <ul>
-                      <li>9 Properties</li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="search-by-place-info">
-                  <h6>
-                    <a href="locations.html">Sedona, Arizona</a>
-                  </h6>
-                  <h4>
-                    <a href="product-details">Noe Valley Zones</a>
-                  </h4>
-                  <div className="search-by-place-btn">
-                    <a href="product-details">
-                      View Property <i className="flaticon-right-arrow"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4">
-              <div className="ltn__search-by-place-item">
-                <div className="search-by-place-img">
-                  <a href="product-details">
-                    <img src="../img/product-3/2.jpg" alt="#" />
-                  </a>
-                  <div className="search-by-place-badge">
-                    <ul>
-                      <li>5 Properties</li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="search-by-place-info">
-                  <h6>
-                    <a href="locations.html">New York</a>
-                  </h6>
-                  <h4>
-                    <a href="product-details">Pacific Heights Area</a>
-                  </h4>
-                  <div className="search-by-place-btn">
-                    <a href="product-details">
-                      View Property <i className="flaticon-right-arrow"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* <!--  --> */}
-          </Slider>
-        </div>
+                return (
+                  <PropertyItem
+                    key={key}
+                    product={product}
+                    slug={slug}
+                    baseUrl="/shop"
+                  />
+                );
+              })}
+            </Slider>
+          ) : null}
+
+
+
+
+        </Container>
       </div>
       {/* <!-- SEARCH BY PLACE AREA END -->
 
     <!-- SELECT AVAILABILITY AREA START --> */}
       <div className="select-availability-area pb-120">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="section-title-area ltn__section-title-2--- text-center---">
-                <h6 className="section-subtitle section-subtitle-2--- ltn__secondary-color">
+        <Container>
+          <Row>
+            <Col xs={12}>
+              <div className="section-title-area">
+                <h6 className="section-subtitle ltn__secondary-color">
                   Avialable Spaces
                 </h6>
                 <h1 className="section-title">Select Availability</h1>
               </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-lg-12">
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12}>
               <div className="ltn__select-availability-table-wrap">
                 <div className="ltn__select-availability-table d-none d-md-block">
                   <ul className="ltn__select-availability-table-head">
@@ -1035,19 +753,19 @@ function HomeVersionTwo(props) {
                   </ul>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </Container>
       </div>
       {/* <!-- SELECT AVAILABILITY AREA END -->
 
     <!-- NEIGHBOUR AREA START --> */}
       <div className="neighbour-area section-bg-1 pt-118 pb-120">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="section-title-area ltn__section-title-2--- text-center---">
-                <h6 className="section-subtitle section-subtitle-2--- ltn__secondary-color">
+        <Container>
+          <Row>
+            <Col xs={12}>
+              <div className="section-title-area">
+                <h6 className="section-subtitle ltn__secondary-color">
                   Explore Neighbour
                 </h6>
                 <h1 className="section-title">
@@ -1055,528 +773,326 @@ function HomeVersionTwo(props) {
                   Explore Below
                 </h1>
               </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-lg-12">
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12}>
               <div className="ltn__neighbour-tab-wrap">
-                <div className="ltn__tab-menu ltn__tab-menu-3--- ltn__tab-menu-4 ltn__tab-menu-top-right-- text-uppercase--- text-center">
-                  <div className="nav">
-                    <a
-                      className="active show"
-                      data-bs-toggle="tab"
-                      href="#liton_tab_4_1"
-                    >
-                      <img src="../img/neighbour/1.jpg" alt="#" />
-                    </a>
-                    <a data-bs-toggle="tab" href="#liton_tab_4_2" className="">
-                      <img src="../img/neighbour/2.jpg" alt="#" />
-                    </a>
-                    <a data-bs-toggle="tab" href="#liton_tab_4_3" className="">
-                      <img src="../img/neighbour/3.jpg" alt="#" />
-                    </a>
+
+                <Tab.Container defaultActiveKey="first">
+                  <div className="ltn__tab-menu ltn__tab-menu-4 text-center">
+                    <Nav>
+                      <Nav.Link eventKey="first"> <img src="/img/neighbour/1.jpg" alt="#" /></Nav.Link>
+                      <Nav.Link eventKey="second"> <img src="/img/neighbour/2.jpg" alt="#" /></Nav.Link>
+                      <Nav.Link eventKey="third"><img src="/img/neighbour/3.jpg" alt="#" /></Nav.Link>
+                    </Nav>
+
                   </div>
-                </div>
-                <div className="tab-content">
-                  <div className="tab-pane fade active show" id="liton_tab_4_1">
-                    <div className="ltn__neighbour-tab-content-inner">
-                      <div className="row">
-                        <div className="col-lg-8">
-                          <div className="neighbour-apartments-img">
-                            <img src="../img/neighbour/1.jpg" alt="#" />
-                          </div>
-                        </div>
-                        <div className="col-lg-4">
-                          <div className="ltn__search-by-place-item neighbour-apartments-item">
-                            <div className="search-by-place-img">
-                              <a href="product-details">
-                                <img src="../img/product-3/3.jpg" alt="#" />
-                              </a>
-                              <div className="search-by-place-badge">
-                                <ul>
-                                  <li>9 Properties</li>
-                                </ul>
-                              </div>
+                  <Tab.Content>
+                    <Tab.Pane eventKey="first">
+                      <div className="ltn__neighbour-tab-content-inner">
+                        <div className="row">
+                          <div className="col-lg-8">
+                            <div className="neighbour-apartments-img">
+                              <img src="/img/neighbour/1.jpg" alt="#" />
                             </div>
-                            <div className="search-by-place-info">
-                              <h4>
-                                <a href="product-details">Shopping Center</a>
-                              </h4>
-                              <label>
-                                <span className="ltn__secondary-color">
-                                  1,500m{" "}
-                                </span>
-                                / 21 min. walk
-                              </label>
-                              <div className="search-by-place-brief">
-                                <p>
-                                  Lorem ipsum dolor sit amet, consectetur
-                                  adipisicing elit, sed do eiusmod tempor
-                                  incididunt ut labore Enim ullamco laboris.
-                                </p>
+                          </div>
+                          <div className="col-lg-4">
+                            <div className="ltn__search-by-place-item neighbour-apartments-item">
+                              <div className="search-by-place-img">
+                                <Link href="#">
+                                  <img src="/img/product-3/3.jpg" alt="#" />
+                                </Link>
+                                <div className="search-by-place-badge">
+                                  <ul>
+                                    <li>9 Properties</li>
+                                  </ul>
+                                </div>
                               </div>
-                              <div className="search-by-place-btn">
-                                <a href="product-details">
-                                  View Property{" "}
-                                  <i className="flaticon-right-arrow"></i>
-                                </a>
+                              <div className="search-by-place-info">
+                                <h4>
+                                  <Link href="#">Shopping Center</Link>
+                                </h4>
+                                <label>
+                                  <span className="ltn__secondary-color">
+                                    1,500m{" "}
+                                  </span>
+                                  / 21 min. walk
+                                </label>
+                                <div className="search-by-place-brief">
+                                  <p>
+                                    Lorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore Enim ullamco laboris.
+                                  </p>
+                                </div>
+                                <div className="search-by-place-btn">
+                                  <Link href="#">
+                                    View Property{" "}
+                                    <i className="flaticon-right-arrow"></i>
+                                  </Link>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                  <div className="tab-pane fade" id="liton_tab_4_2">
-                    <div className="ltn__neighbour-tab-content-inner">
-                      <div className="row">
-                        <div className="col-lg-8">
-                          <div className="neighbour-apartments-img">
-                            <img src="../img/neighbour/2.jpg" alt="#" />
-                          </div>
-                        </div>
-                        <div className="col-lg-4">
-                          <div className="ltn__search-by-place-item neighbour-apartments-item">
-                            <div className="search-by-place-img">
-                              <a href="product-details">
-                                <img src="../img/product-3/2.jpg" alt="#" />
-                              </a>
-                              <div className="search-by-place-badge">
-                                <ul>
-                                  <li>9 Properties</li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div className="search-by-place-info">
-                              <h4>
-                                <a href="product-details">Medical Hospital</a>
-                              </h4>
-                              <label>
-                                <span className="ltn__secondary-color">
-                                  1,500m{" "}
-                                </span>
-                                / 21 min. walk
-                              </label>
-                              <div className="search-by-place-brief">
-                                <p>
-                                  Lorem ipsum dolor sit amet, consectetur
-                                  adipisicing elit, sed do eiusmod tempor
-                                  incididunt ut labore Enim ullamco laboris.
-                                </p>
-                              </div>
-                              <div className="search-by-place-btn">
-                                <a href="product-details">
-                                  View Property{" "}
-                                  <i className="flaticon-right-arrow"></i>
-                                </a>
-                              </div>
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="second">
+                      <div className="ltn__neighbour-tab-content-inner">
+                        <div className="row">
+                          <div className="col-lg-8">
+                            <div className="neighbour-apartments-img">
+                              <img src="/img/neighbour/2.jpg" alt="#" />
                             </div>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="tab-pane fade" id="liton_tab_4_3">
-                    <div className="ltn__neighbour-tab-content-inner">
-                      <div className="row">
-                        <div className="col-lg-8">
-                          <div className="neighbour-apartments-img">
-                            <img src="../img/neighbour/3.jpg" alt="#" />
-                          </div>
-                        </div>
-                        <div className="col-lg-4">
-                          <div className="ltn__search-by-place-item neighbour-apartments-item">
-                            <div className="search-by-place-img">
-                              <a href="product-details">
-                                <img src="../img/product-3/4.jpg" alt="#" />
-                              </a>
-                              <div className="search-by-place-badge">
-                                <ul>
-                                  <li>9 Properties</li>
-                                </ul>
+                          <div className="col-lg-4">
+                            <div className="ltn__search-by-place-item neighbour-apartments-item">
+                              <div className="search-by-place-img">
+                                <Link href="#">
+                                  <img src="/img/product-3/2.jpg" alt="#" />
+                                </Link>
+                                <div className="search-by-place-badge">
+                                  <ul>
+                                    <li>9 Properties</li>
+                                  </ul>
+                                </div>
                               </div>
-                            </div>
-                            <div className="search-by-place-info">
-                              <h4>
-                                <a href="product-details">Children Playland</a>
-                              </h4>
-                              <label>
-                                <span className="ltn__secondary-color">
-                                  1,500m{" "}
-                                </span>
-                                / 21 min. walk
-                              </label>
-                              <div className="search-by-place-brief">
-                                <p>
-                                  Lorem ipsum dolor sit amet, consectetur
-                                  adipisicing elit, sed do eiusmod tempor
-                                  incididunt ut labore Enim ullamco laboris.
-                                </p>
-                              </div>
-                              <div className="search-by-place-btn">
-                                <a href="product-details">
-                                  View Property{" "}
-                                  <i className="flaticon-right-arrow"></i>
-                                </a>
+                              <div className="search-by-place-info">
+                                <h4>
+                                  <Link href="#">Medical Hospital</Link>
+                                </h4>
+                                <label>
+                                  <span className="ltn__secondary-color">
+                                    1,500m{" "}
+                                  </span>
+                                  / 21 min. walk
+                                </label>
+                                <div className="search-by-place-brief">
+                                  <p>
+                                    Lorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore Enim ullamco laboris.
+                                  </p>
+                                </div>
+                                <div className="search-by-place-btn">
+                                  <Link href="#">
+                                    View Property{" "}
+                                    <i className="flaticon-right-arrow"></i>
+                                  </Link>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="third">
+                      <div className="ltn__neighbour-tab-content-inner">
+                        <div className="row">
+                          <div className="col-lg-8">
+                            <div className="neighbour-apartments-img">
+                              <img src="/img/neighbour/3.jpg" alt="#" />
+                            </div>
+                          </div>
+                          <div className="col-lg-4">
+                            <div className="ltn__search-by-place-item neighbour-apartments-item">
+                              <div className="search-by-place-img">
+                                <Link href="#">
+                                  <img src="/img/product-3/4.jpg" alt="#" />
+                                </Link>
+                                <div className="search-by-place-badge">
+                                  <ul>
+                                    <li>9 Properties</li>
+                                  </ul>
+                                </div>
+                              </div>
+                              <div className="search-by-place-info">
+                                <h4>
+                                  <Link href="#">Children Playland</Link>
+                                </h4>
+                                <label>
+                                  <span className="ltn__secondary-color">
+                                    1,500m{" "}
+                                  </span>
+                                  / 21 min. walk
+                                </label>
+                                <div className="search-by-place-brief">
+                                  <p>
+                                    Lorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore Enim ullamco laboris.
+                                  </p>
+                                </div>
+                                <div className="search-by-place-btn">
+                                  <Link href="#">
+                                    View Property{" "}
+                                    <i className="flaticon-right-arrow"></i>
+                                  </Link>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </Tab.Pane>
+                  </Tab.Content>
+                </Tab.Container>
               </div>
               <div className="ltn__faq-inner ltn__faq-inner-2 ltn__faq-inner-3">
-                <div className="row">
-                  <div className="col-lg-6">
-                    <div id="accordion_2">
+                <Row>
+                  <Col xs={12} lg={6}>
+                    <Accordion>
                       {/* <!-- card --> */}
-                      <div className="card">
-                        <h6
-                          className="collapsed ltn__card-title"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#faq-item-2-1"
-                          aria-expanded="false"
-                        >
+                      <Accordion.Item eventKey="1" className="card">
+                        <Accordion.Header className="ltn__card-title">
                           <i className="flaticon-mortarboard"></i> University /
                           College
-                        </h6>
-                        <div
-                          id="faq-item-2-1"
-                          className="collapse"
-                          data-bs-parent="#accordion_2"
-                        >
-                          <div className="card-body">
-                            <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit, sed do eiusmod tempor incididunt ut labore
-                              et dolore magna aliqua. Scelerisque eleifend donec
-                              pretium vulputate sapien nec sagittis.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
+                        </Accordion.Header>
+                        <Accordion.Body>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore
+                            et dolore magna aliqua. Scelerisque eleifend donec
+                            pretium vulputate sapien nec sagittis.
+                          </p>
+                        </Accordion.Body>
+                      </Accordion.Item>
                       {/* <!-- card --> */}
-                      <div className="card">
-                        <h6
-                          className="collapsed ltn__card-title"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#faq-item-2-2"
-                          aria-expanded="false"
-                        >
-                          <i className="flaticon-hospital"></i> Medical Hospital
-                        </h6>
-                        <div
-                          id="faq-item-2-2"
-                          className="collapse show---"
-                          data-bs-parent="#accordion_2"
-                        >
-                          <div className="card-body">
-                            <div className="ltn__video-img alignleft">
-                              <img
-                                src="../img/bg/17.jpg"
-                                alt="video popup bg image"
-                              />
-                              <a
-                                className="ltn__video-icon-2 ltn__video-icon-2-small ltn__video-icon-2-border----"
-                                href="https://www.youtube.com/embed/LjCzPp-MK48?autoplay=1&showinfo=0"
-                                data-rel="lightcase:myCollection"
-                              >
-                                <i className="fa fa-play"></i>
-                              </a>
-                            </div>
-                            <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit, sed do eiusmod tempor incididunt ut labore
-                              et dolore magna aliqua. Scelerisque eleifend donec
-                              pretium vulputate sapien nec sagittis.
-                            </p>
+                      <Accordion.Item eventKey="2" className="card">
+                        <Accordion.Header className="ltn__card-title"><i className="flaticon-hospital"></i> Medical Hospital</Accordion.Header>
+                        <Accordion.Body>
+                          <div className="ltn__video-img alignleft">
+                            <img
+                              src="/img/bg/17.jpg"
+                              alt="video popup bg image"
+                            />
+                            <button
+                              className="ltn__video-icon-2 ltn__video-icon-2-small"
+                              onClick={() => setOpen(true)}
+                            >
+                              <FaPlay />
+                            </button>
                           </div>
-                        </div>
-                      </div>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore
+                            et dolore magna aliqua. Scelerisque eleifend donec
+                            pretium vulputate sapien nec sagittis.
+                          </p>
+                        </Accordion.Body>
+                      </Accordion.Item>
                       {/* <!-- card --> */}
-                      <div className="card">
-                        <h6
-                          className="collapsed ltn__card-title"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#faq-item-2-3"
-                          aria-expanded="false"
-                        >
+                      <Accordion.Item eventKey="3" className="card">
+                        <Accordion.Header className="ltn__card-title">
                           <i className="flaticon-metro"></i> Railway Station
-                        </h6>
-                        <div
-                          id="faq-item-2-3"
-                          className="collapse"
-                          data-bs-parent="#accordion_2"
-                        >
-                          <div className="card-body">
-                            <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit, sed do eiusmod tempor incididunt ut labore
-                              et dolore magna aliqua. Scelerisque eleifend donec
-                              pretium vulputate sapien nec sagittis.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
+                        </Accordion.Header>
+                        <Accordion.Body className="card-body">
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore
+                            et dolore magna aliqua. Scelerisque eleifend donec
+                            pretium vulputate sapien nec sagittis.
+                          </p>
+                        </Accordion.Body>
+                      </Accordion.Item>
                       {/* <!--  --> */}
-                    </div>
-                  </div>
-                  <div className="col-lg-6">
-                    <div id="accordion_3">
+                    </Accordion>
+                  </Col>
+                  <Col xs={12} lg={6}>
+                    <Accordion>
                       {/* <!-- card --> */}
-                      <div className="card">
-                        <h6
-                          className="collapsed ltn__card-title"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#faq-item-3-4"
-                          aria-expanded="false"
-                        >
+                      <Accordion.Item eventKey="1" className="card">
+                        <Accordion.Header className="ltn__card-title">
                           <i className="flaticon-building"></i> Shopping Mall
-                        </h6>
-                        <div
-                          id="faq-item-3-4"
-                          className="collapse"
-                          data-bs-parent="#accordion_3"
-                        >
-                          <div className="card-body">
-                            <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit, sed do eiusmod tempor incididunt ut labore
-                              et dolore magna aliqua. Scelerisque eleifend donec
-                              pretium vulputate sapien nec sagittis.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
+                        </Accordion.Header>
+                        <Accordion.Body>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore
+                            et dolore magna aliqua. Scelerisque eleifend donec
+                            pretium vulputate sapien nec sagittis.
+                          </p>
+                        </Accordion.Body>
+                      </Accordion.Item>
                       {/* <!-- card --> */}
-                      <div className="card">
-                        <h6
-                          className="collapsed ltn__card-title"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#faq-item-3-5"
-                          aria-expanded="false"
-                        >
+                      <Accordion.Item eventKey="2" className="card">
+                        <Accordion.Header className="ltn__card-title">
                           <i className="flaticon-airplane"></i> Airport/Biman
-                        </h6>
-                        <div
-                          id="faq-item-3-5"
-                          className="collapse"
-                          data-bs-parent="#accordion_3"
-                        >
-                          <div className="card-body">
-                            <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit, sed do eiusmod tempor incididunt ut labore
-                              et dolore magna aliqua. Scelerisque eleifend donec
-                              pretium vulputate sapien nec sagittis.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
+                        </Accordion.Header>
+                        <Accordion.Body>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore
+                            et dolore magna aliqua. Scelerisque eleifend donec
+                            pretium vulputate sapien nec sagittis.
+                          </p>
+                        </Accordion.Body>
+                      </Accordion.Item>
                       {/* <!-- card --> */}
-                      <div className="card">
-                        <h6
-                          className="collapsed ltn__card-title"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#faq-item-3-6"
-                          aria-expanded="false"
-                        >
+                      <Accordion.Item eventKey="3" className="card">
+                        <Accordion.Header className="ltn__card-title">
                           <i className="flaticon-slider"></i> Children Playland
-                        </h6>
-                        <div
-                          id="faq-item-3-6"
-                          className="collapse"
-                          data-bs-parent="#accordion_3"
-                        >
-                          <div className="card-body">
-                            <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit, sed do eiusmod tempor incididunt ut labore
-                              et dolore magna aliqua. Scelerisque eleifend donec
-                              pretium vulputate sapien nec sagittis.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
+                        </Accordion.Header>
+                        <Accordion.Body>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore
+                            et dolore magna aliqua. Scelerisque eleifend donec
+                            pretium vulputate sapien nec sagittis.
+                          </p>
+                        </Accordion.Body>
+                      </Accordion.Item>
                       {/* <!--  --> */}
-                    </div>
-                  </div>
-                </div>
+                    </Accordion>
+                  </Col>
+                </Row>
               </div>
-            </div>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </Container>
       </div>
       {/* <!-- NEIGHBOUR AREA END -->
 
     <!-- CATEGORY AREA START --> */}
-      <div className="ltn__category-area ltn__product-gutter section-bg-1--- pt-115 pb-70">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="section-title-area ltn__section-title-2--- text-center">
-                <h6 className="section-subtitle section-subtitle-2--- ltn__secondary-color">
-                  Our Aminities
-                </h6>
-                <h1 className="section-title">Building Aminities</h1>
-              </div>
-            </div>
-          </div>
-          <div className="row ltn__category-slider-active--- slick-arrow-1 justify-content-center">
-            <div className="col-lg-3 col-md-4 col-sm-6 col-6">
-              <div className="ltn__category-item ltn__category-item-5 ltn__category-item-5-2 text-center---">
-                <a href="shop.html">
-                  <span className="category-icon">
-                    <i className="flaticon-car"></i>
-                  </span>
-                  <span className="category-number">01</span>
-                  <span className="category-title">Parking Space</span>
-                  <span className="category-brief">
-                    Enimad minim veniam quis no exercitation ullamco lab
-                  </span>
-                  <span className="category-btn d-none">
-                    <i className="flaticon-right-arrow"></i>
-                  </span>
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-4 col-sm-6 col-6">
-              <div className="ltn__category-item ltn__category-item-5 ltn__category-item-5-2 text-center---">
-                <a href="shop.html">
-                  <span className="category-icon">
-                    <i className="flaticon-swimming"></i>
-                  </span>
-                  <span className="category-number">02</span>
-                  <span className="category-title">Swimming Pool</span>
-                  <span className="category-brief">
-                    Enimad minim veniam quis no exercitation ullamco lab
-                  </span>
-                  <span className="category-btn d-none">
-                    <i className="flaticon-right-arrow"></i>
-                  </span>
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-4 col-sm-6 col-6">
-              <div className="ltn__category-item ltn__category-item-5 ltn__category-item-5-2 text-center---">
-                <a href="shop.html">
-                  <span className="category-icon">
-                    <i className="flaticon-secure-shield"></i>
-                  </span>
-                  <span className="category-number">03</span>
-                  <span className="category-title">Private Security</span>
-                  <span className="category-brief">
-                    Enimad minim veniam quis no exercitation ullamco lab
-                  </span>
-                  <span className="category-btn d-none">
-                    <i className="flaticon-right-arrow"></i>
-                  </span>
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-4 col-sm-6 col-6">
-              <div className="ltn__category-item ltn__category-item-5 ltn__category-item-5-2 text-center---">
-                <a href="shop.html">
-                  <span className="category-icon">
-                    <i className="flaticon-stethoscope"></i>
-                  </span>
-                  <span className="category-number">04</span>
-                  <span className="category-title">Medical Center</span>
-                  <span className="category-brief">
-                    Enimad minim veniam quis no exercitation ullamco lab
-                  </span>
-                  <span className="category-btn d-none">
-                    <i className="flaticon-right-arrow"></i>
-                  </span>
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-4 col-sm-6 col-6">
-              <div className="ltn__category-item ltn__category-item-5 ltn__category-item-5-2 text-center---">
-                <a href="shop.html">
-                  <span className="category-icon">
-                    <i className="flaticon-book"></i>
-                  </span>
-                  <span className="category-number">05</span>
-                  <span className="category-title">Library Area</span>
-                  <span className="category-brief">
-                    Enimad minim veniam quis no exercitation ullamco lab
-                  </span>
-                  <span className="category-btn d-none">
-                    <i className="flaticon-right-arrow"></i>
-                  </span>
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-4 col-sm-6 col-6">
-              <div className="ltn__category-item ltn__category-item-5 ltn__category-item-5-2 text-center---">
-                <a href="shop.html">
-                  <span className="category-icon">
-                    <i className="flaticon-bed-1"></i>
-                  </span>
-                  <span className="category-number">06</span>
-                  <span className="category-title">King Size Beds</span>
-                  <span className="category-brief">
-                    Enimad minim veniam quis no exercitation ullamco lab
-                  </span>
-                  <span className="category-btn d-none">
-                    <i className="flaticon-right-arrow"></i>
-                  </span>
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-4 col-sm-6 col-6">
-              <div className="ltn__category-item ltn__category-item-5 ltn__category-item-5-2 text-center---">
-                <a href="shop.html">
-                  <span className="category-icon">
-                    <i className="flaticon-home-2"></i>
-                  </span>
-                  <span className="category-number">07</span>
-                  <span className="category-title">Smart Homes</span>
-                  <span className="category-brief">
-                    Enimad minim veniam quis no exercitation ullamco lab
-                  </span>
-                  <span className="category-btn d-none">
-                    <i className="flaticon-right-arrow"></i>
-                  </span>
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-4 col-sm-6 col-6">
-              <div className="ltn__category-item ltn__category-item-5 ltn__category-item-5-2 text-center---">
-                <a href="shop.html">
-                  <span className="category-icon">
-                    <i className="flaticon-slider"></i>
-                  </span>
-                  <span className="category-number">08</span>
-                  <span className="category-title">Kid’s Playland</span>
-                  <span className="category-brief">
-                    Enimad minim veniam quis no exercitation ullamco lab
-                  </span>
-                  <span className="category-btn d-none">
-                    <i className="flaticon-right-arrow"></i>
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="ltn__category-area ltn__product-gutter pt-115 pb-70">
+        <Container>
+          <Row>
+            <Col xs={12}>
+              <TitleSection
+                titleSectionData={{
+                  subTitle: "Our Aminities",
+                  title: "Building Aminities",
+                  additionalClassName: "",
+                }}
+              />
+            </Col>
+          </Row>
+
+          <Row className="slick-arrow-1 justify-content-center">
+            {aminitiesData.map((data, key) => {
+              return (
+                <Col key={key} xs={12} sm={6} md={4} lg={3}>
+                  <AminitiesItemTwo data={data} />
+                </Col>
+              );
+            })}
+          </Row>
+        </Container>
       </div>
       {/* <!-- CATEGORY AREA END -->
 
 
     <!-- TESTIMONIAL AREA START (testimonial-8) --> */}
       <div
-        className="ltn__testimonial-area section-bg-1--- bg-image-top pt-115 pb-65"
+        className="ltn__testimonial-area bg-image-top pt-115 pb-65"
         style={{ backgroundImage: `url("../img/bg/23.jpg")` }}
       >
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="section-title-area ltn__section-title-2--- text-center---">
-                <h6 className="section-subtitle section-subtitle-2--- ltn__secondary-color--- white-color">
+        <Container>
+          <Row>
+            <Col xs={12}>
+              <div className="section-title-area">
+                <h6 className="section-subtitle white-color">
                   Client,s Testimonial
                 </h6>
                 <h1 className="section-title white-color">
@@ -1584,494 +1100,59 @@ function HomeVersionTwo(props) {
                   Says About Us
                 </h1>
               </div>
-            </div>
-          </div>
+            </Col>
+          </Row>
           <Slider
             {...testiMonialsettings}
             className="row ltn__testimonial-slider-6-active slick-arrow-3"
           >
-            <div className="col-lg-4">
-              <div className="ltn__testimonial-item ltn__testimonial-item-7 ltn__testimonial-item-8">
-                <div className="ltn__testimoni-info">
-                  <div className="ltn__testimoni-author-ratting">
-                    <div className="ltn__testimoni-info-inner">
-                      <div className="ltn__testimoni-img">
-                        <img src="../img/testimonial/1.jpg" alt="#" />
-                      </div>
-                      <div className="ltn__testimoni-name-designation">
-                        <h5>Jacob William</h5>
-                        <label>Selling Agents</label>
-                      </div>
-                    </div>
-                    <div className="ltn__testimoni-rating">
-                      <div className="product-ratting">
-                        <ul>
-                          <li>
-                            <a href="#">
-                              <i className="fas fa-star"></i>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="fas fa-star"></i>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="fas fa-star"></i>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="fas fa-star"></i>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="fas fa-star"></i>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <p>
-                    Precious ipsum dolor sit amet consectetur adipisicing elit,
-                    sed dos mod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad min veniam, quis nostrud Precious ips um
-                    dolor sit amet, consecte
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4">
-              <div className="ltn__testimonial-item ltn__testimonial-item-7 ltn__testimonial-item-8">
-                <div className="ltn__testimoni-info">
-                  <div className="ltn__testimoni-author-ratting">
-                    <div className="ltn__testimoni-info-inner">
-                      <div className="ltn__testimoni-img">
-                        <img src="../img/testimonial/2.jpg" alt="#" />
-                      </div>
-                      <div className="ltn__testimoni-name-designation">
-                        <h5>Kelian Anderson</h5>
-                        <label>Selling Agents</label>
-                      </div>
-                    </div>
-                    <div className="ltn__testimoni-rating">
-                      <div className="product-ratting">
-                        <ul>
-                          <li>
-                            <a href="#">
-                              <i className="fas fa-star"></i>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="fas fa-star"></i>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="fas fa-star"></i>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="fas fa-star"></i>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="fas fa-star"></i>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <p>
-                    Precious ipsum dolor sit amet consectetur adipisicing elit,
-                    sed dos mod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad min veniam, quis nostrud Precious ips um
-                    dolor sit amet, consecte
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4">
-              <div className="ltn__testimonial-item ltn__testimonial-item-7 ltn__testimonial-item-8">
-                <div className="ltn__testimoni-info">
-                  <div className="ltn__testimoni-author-ratting">
-                    <div className="ltn__testimoni-info-inner">
-                      <div className="ltn__testimoni-img">
-                        <img src="../img/testimonial/3.jpg" alt="#" />
-                      </div>
-                      <div className="ltn__testimoni-name-designation">
-                        <h5>Adam Joseph</h5>
-                        <label>Selling Agents</label>
-                      </div>
-                    </div>
-                    <div className="ltn__testimoni-rating">
-                      <div className="product-ratting">
-                        <ul>
-                          <li>
-                            <a href="#">
-                              <i className="fas fa-star"></i>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="fas fa-star"></i>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="fas fa-star"></i>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="fas fa-star"></i>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="fas fa-star"></i>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <p>
-                    Precious ipsum dolor sit amet consectetur adipisicing elit,
-                    sed dos mod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad min veniam, quis nostrud Precious ips um
-                    dolor sit amet, consecte
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4">
-              <div className="ltn__testimonial-item ltn__testimonial-item-7 ltn__testimonial-item-8">
-                <div className="ltn__testimoni-info">
-                  <div className="ltn__testimoni-author-ratting">
-                    <div className="ltn__testimoni-info-inner">
-                      <div className="ltn__testimoni-img">
-                        <img src="../img/testimonial/4.jpg" alt="#" />
-                      </div>
-                      <div className="ltn__testimoni-name-designation">
-                        <h5>James Carter</h5>
-                        <label>Selling Agents</label>
-                      </div>
-                    </div>
-                    <div className="ltn__testimoni-rating">
-                      <div className="product-ratting">
-                        <ul>
-                          <li>
-                            <a href="#">
-                              <i className="fas fa-star"></i>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="fas fa-star"></i>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="fas fa-star"></i>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="fas fa-star"></i>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="fas fa-star"></i>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <p>
-                    Precious ipsum dolor sit amet consectetur adipisicing elit,
-                    sed dos mod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad min veniam, quis nostrud Precious ips um
-                    dolor sit amet, consecte
-                  </p>
-                </div>
-              </div>
-            </div>
+            {testimonialData.map((data, key) => {
+              return <Col xs={12} lg={4} key={key}><TestimonialCarouselItemTwo data={data} /></Col>;
+            })}
+
             {/* <!--  --> */}
           </Slider>
-        </div>
+        </Container>
       </div>
       {/* <!-- TESTIMONIAL AREA END -->
 
     <!-- BLOG AREA START (blog-3) --> */}
-      <div className="ltn__blog-area pt-115--- pb-70">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="section-title-area ltn__section-title-2--- text-center">
-                <h6 className="section-subtitle section-subtitle-2--- ltn__secondary-color">
-                  News & Blogs
-                </h6>
-                <h1 className="section-title">Leatest News Feeds</h1>
-              </div>
-            </div>
-          </div>
+      <div className="ltn__blog-area pb-70">
+        <Container>
+          <Row>
+            <Col lg={12}>
+              <TitleSection
+                titleSectionData={{
+                  subTitle: "News & Blogs",
+                  title: "Leatest News Feeds",
+                }}
+              />
+            </Col>
+          </Row>
           <Slider
             {...blogSettings}
-            className="row  ltn__blog-slider-one-active slick-arrow-1 ltn__blog-item-3-normal"
+            className="ltn__blog-slider-one-active slick-arrow-1 ltn__blog-item-3-normal"
           >
-            {/* <!-- Blog Item --> */}
-            <div className="col-lg-12">
-              <div className="ltn__blog-item ltn__blog-item-3">
-                <div className="ltn__blog-img">
-                  <a href="blog-details.html">
-                    <img src="../img/blog/1.jpg" alt="#" />
-                  </a>
-                </div>
-                <div className="ltn__blog-brief">
-                  <div className="ltn__blog-meta">
-                    <ul>
-                      <li className="ltn__blog-author">
-                        <a href="#">
-                          <i className="far fa-user"></i>by: Admin
-                        </a>
-                      </li>
-                      <li className="ltn__blog-tags">
-                        <a href="#">
-                          <i className="fas fa-tags"></i>Decorate
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                  <h3 className="ltn__blog-title">
-                    <a href="blog-details.html">
-                      10 Brilliant Ways To Decorate Your Home
-                    </a>
-                  </h3>
-                  <div className="ltn__blog-meta-btn">
-                    <div className="ltn__blog-meta">
-                      <ul>
-                        <li className="ltn__blog-date">
-                          <i className="far fa-calendar-alt"></i>June 24, 2021
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="ltn__blog-btn">
-                      <a href="blog-details.html">Read more</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* <!-- Blog Item --> */}
-            <div className="col-lg-12">
-              <div className="ltn__blog-item ltn__blog-item-3">
-                <div className="ltn__blog-img">
-                  <a href="blog-details.html">
-                    <img src="../img/blog/2.jpg" alt="#" />
-                  </a>
-                </div>
-                <div className="ltn__blog-brief">
-                  <div className="ltn__blog-meta">
-                    <ul>
-                      <li className="ltn__blog-author">
-                        <a href="#">
-                          <i className="far fa-user"></i>by: Admin
-                        </a>
-                      </li>
-                      <li className="ltn__blog-tags">
-                        <a href="#">
-                          <i className="fas fa-tags"></i>Interior
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                  <h3 className="ltn__blog-title">
-                    <a href="blog-details.html">
-                      The Most Inspiring Interior Design Of 2021
-                    </a>
-                  </h3>
-                  <div className="ltn__blog-meta-btn">
-                    <div className="ltn__blog-meta">
-                      <ul>
-                        <li className="ltn__blog-date">
-                          <i className="far fa-calendar-alt"></i>July 23, 2021
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="ltn__blog-btn">
-                      <a href="blog-details.html">Read more</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* <!-- Blog Item --> */}
-            <div className="col-lg-12">
-              <div className="ltn__blog-item ltn__blog-item-3">
-                <div className="ltn__blog-img">
-                  <a href="blog-details.html">
-                    <img src="../img/blog/3.jpg" alt="#" />
-                  </a>
-                </div>
-                <div className="ltn__blog-brief">
-                  <div className="ltn__blog-meta">
-                    <ul>
-                      <li className="ltn__blog-author">
-                        <a href="#">
-                          <i className="far fa-user"></i>by: Admin
-                        </a>
-                      </li>
-                      <li className="ltn__blog-tags">
-                        <a href="#">
-                          <i className="fas fa-tags"></i>Estate
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                  <h3 className="ltn__blog-title">
-                    <a href="blog-details.html">
-                      Recent Commercial Real Estate Transactions
-                    </a>
-                  </h3>
-                  <div className="ltn__blog-meta-btn">
-                    <div className="ltn__blog-meta">
-                      <ul>
-                        <li className="ltn__blog-date">
-                          <i className="far fa-calendar-alt"></i>May 22, 2021
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="ltn__blog-btn">
-                      <a href="blog-details.html">Read more</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* <!-- Blog Item --> */}
-            <div className="col-lg-12">
-              <div className="ltn__blog-item ltn__blog-item-3">
-                <div className="ltn__blog-img">
-                  <a href="blog-details.html">
-                    <img src="../img/blog/4.jpg" alt="#" />
-                  </a>
-                </div>
-                <div className="ltn__blog-brief">
-                  <div className="ltn__blog-meta">
-                    <ul>
-                      <li className="ltn__blog-author">
-                        <a href="#">
-                          <i className="far fa-user"></i>by: Admin
-                        </a>
-                      </li>
-                      <li className="ltn__blog-tags">
-                        <a href="#">
-                          <i className="fas fa-tags"></i>Room
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                  <h3 className="ltn__blog-title">
-                    <a href="blog-details.html">
-                      Renovating a Living Room? Experts Share Their Secrets
-                    </a>
-                  </h3>
-                  <div className="ltn__blog-meta-btn">
-                    <div className="ltn__blog-meta">
-                      <ul>
-                        <li className="ltn__blog-date">
-                          <i className="far fa-calendar-alt"></i>June 24, 2021
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="ltn__blog-btn">
-                      <a href="blog-details.html">Read more</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* <!-- Blog Item --> */}
-            <div className="col-lg-12">
-              <div className="ltn__blog-item ltn__blog-item-3">
-                <div className="ltn__blog-img">
-                  <a href="blog-details.html">
-                    <img src="../img/blog/5.jpg" alt="#" />
-                  </a>
-                </div>
-                <div className="ltn__blog-brief">
-                  <div className="ltn__blog-meta">
-                    <ul>
-                      <li className="ltn__blog-author">
-                        <a href="#">
-                          <i className="far fa-user"></i>by: Admin
-                        </a>
-                      </li>
-                      <li className="ltn__blog-tags">
-                        <a href="#">
-                          <i className="fas fa-tags"></i>Trends
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                  <h3 className="ltn__blog-title">
-                    <a href="blog-details.html">
-                      7 home trends that will shape your house in 2021
-                    </a>
-                  </h3>
-                  <div className="ltn__blog-meta-btn">
-                    <div className="ltn__blog-meta">
-                      <ul>
-                        <li className="ltn__blog-date">
-                          <i className="far fa-calendar-alt"></i>June 24, 2021
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="ltn__blog-btn">
-                      <a href="blog-details.html">Read more</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* <!--  --> */}
+            {blogData.map((data, key) => {
+              const slug = productSlug(data.title);
+              return (
+                <BlogItem key={key} baseUrl="blog" data={data} slug={slug} />
+              );
+            })}
           </Slider>
-        </div>
+        </Container>
       </div>
       {/* <!-- BLOG AREA END -->
 
     <!-- CALL TO ACTION START (call-to-action-6) --> */}
-      <div
-        className="ltn__call-to-action-area call-to-action-6 before-bg-bottom"
-        data-bs-bg="../img/1.jpg--"
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="call-to-action-inner call-to-action-inner-6 ltn__secondary-bg position-relative text-center---">
-                <div className="coll-to-info text-color-white">
-                  <h1>Looking for a dream home?</h1>
-                  <p>We help you make the dream of new house a reality</p>
-                </div>
-                <div className="btn-wrapper">
-                  <a className="btn btn-effect-3 btn-white" href="contact.html">
-                    Explore Properties <i className="icon-next"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="ltn__call-to-action-area call-to-action-6 before-bg-bottom">
+        <Container>
+          <Row>
+            <Col xs={12}>
+              <CallToAction />
+            </Col>
+          </Row>
+        </Container>
       </div>
       {/* <!-- CALL TO ACTION END --> */}
     </LayoutOne>

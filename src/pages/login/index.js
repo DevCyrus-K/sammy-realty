@@ -16,7 +16,7 @@ function Login() {
 
   return (
     <>
-      <LayoutOne>
+      <LayoutOne topbar={true}>
         <ShopBreadCrumb title="Account" sectionPace="" currentSlug="Login" />
 
         {/* <!-- LOGIN AREA START --> */}

@@ -61,7 +61,7 @@ function Portfolio() {
 
   return (
     <>
-      <LayoutOne>
+      <LayoutOne topbar={true}>
         <ShopBreadCrumb
           title="Our Portfolio"
           sectionPace=""

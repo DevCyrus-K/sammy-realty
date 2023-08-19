@@ -37,7 +37,7 @@ function BlogtDetails({ blog }) {
 
   return (
     <>
-      <LayoutOne>
+      <LayoutOne topbar={true}>
         {/* <!-- BREADCRUMB AREA START --> */}
 
         <ShopBreadCrumb

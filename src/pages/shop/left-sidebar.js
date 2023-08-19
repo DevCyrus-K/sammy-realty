@@ -89,7 +89,7 @@ function ShopLeftSideBar() {
   };
 
   return (
-    <LayoutOne>
+    <LayoutOne topbar={true}>
       {/* <!-- BREADCRUMB AREA START --> */}
 
       <ShopBreadCrumb
@@ -186,6 +186,20 @@ function ShopLeftSideBar() {
                       <Row>
                         {currentItems.map((product, key) => {
                           const slug = productSlug(product.title);
+                          const discountedPrice = getDiscountPrice(
+                            product.price,
+                            product.discount
+                          ).toFixed(2);
+                          const productPrice = product.price.toFixed(2);
+                          const cartItem = cartItems.find(
+                            (cartItem) => cartItem.id === product.id
+                          );
+                          const wishlistItem = wishlistItems.find(
+                            (wishlistItem) => wishlistItem.id === product.id
+                          );
+                          const compareItem = compareItems.find(
+                            (compareItem) => compareItem.id === product.id
+                          );
                           return (
                             <Col key={key} xs={12}>
                               <ProductList

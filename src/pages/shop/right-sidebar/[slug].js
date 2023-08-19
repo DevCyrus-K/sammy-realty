@@ -153,7 +153,7 @@ function ProductDetails({ product }) {
   const [isOpen, setOpen] = useState(false);
   return (
     <>
-      <LayoutOne>
+      <LayoutOne topbar={true}>
         <ModalVideo
           channel="youtube"
           autoplay
