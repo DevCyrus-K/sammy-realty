@@ -5,6 +5,34 @@ import ModalVideo from "react-modal-video";
 import { FaPlay, FaHome, FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
 function HeroSectionStyleOne({ data }) {
+  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
+    <button
+      {...props}
+      className={
+        "slick-prev slick-arrow" + (currentSlide === 0 ? " slick-disabled" : "")
+      }
+      aria-hidden="true"
+      aria-disabled={currentSlide === 0 ? true : false}
+      type="button"
+    >
+      <FaArrowLeft />
+    </button>
+  );
+  const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
+    <button
+      {...props}
+      className={
+        "slick-next slick-arrow" +
+        (currentSlide === slideCount - 1 ? " slick-disabled" : "")
+      }
+      aria-hidden="true"
+      aria-disabled={currentSlide === slideCount - 1 ? true : false}
+      type="button"
+    >
+      <FaArrowRight />
+    </button>
+  );
+
   const Herosettings = {
     dots: true,
     fade: true,
@@ -14,16 +42,8 @@ function HeroSectionStyleOne({ data }) {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    prevArrow: (
-      <a>
-        <FaArrowLeft />
-      </a>
-    ),
-    nextArrow: (
-      <a>
-        <FaArrowRight />
-      </a>
-    ),
+    prevArrow: <SlickArrowLeft />,
+    nextArrow: <SlickArrowRight />,
   };
 
   const [isOpen, setOpen] = useState(false);

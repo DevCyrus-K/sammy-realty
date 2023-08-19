@@ -3,10 +3,10 @@ import Head from "next/head";
 import { Nunito_Sans,Poppins } from "next/font/google";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
-import { wrapper } from "../store";
-import { setProducts } from "../store/slices/product-slice";
-import products from "../data/products.json";
-import Preloader from "../components/preloader";
+import { wrapper } from "@/store";
+import { setProducts } from "@/store/slices/product-slice";
+import products from "@/data/products.json";
+import Preloader from "@/components/preloader";
 
 import "animate.css";
 import "slick-carousel/slick/slick.css";

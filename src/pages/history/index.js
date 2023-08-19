@@ -18,22 +18,42 @@ import {
 
 function HistoryPage() {
 
+    const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
+        <button
+            {...props}
+            className={
+                "slick-prev slick-arrow" + (currentSlide === 0 ? " slick-disabled" : "")
+            }
+            aria-hidden="true"
+            aria-disabled={currentSlide === 0 ? true : false}
+            type="button"
+        >
+            <FaArrowLeft />
+        </button>
+    );
+    const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
+        <button
+            {...props}
+            className={
+                "slick-next slick-arrow" +
+                (currentSlide === slideCount - 1 ? " slick-disabled" : "")
+            }
+            aria-hidden="true"
+            aria-disabled={currentSlide === slideCount - 1 ? true : false}
+            type="button"
+        >
+            <FaArrowRight />
+        </button>
+    );
+
     const blogSettings = {
         dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 1,
-        prevArrow: (
-            <a>
-                <FaArrowLeft />
-            </a>
-        ),
-        nextArrow: (
-            <a>
-                <FaArrowRight />
-            </a>
-        ),
+        prevArrow: <SlickArrowLeft />,
+        nextArrow: <SlickArrowRight />,
 
         responsive: [
             {

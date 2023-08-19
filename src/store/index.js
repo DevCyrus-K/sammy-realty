@@ -29,7 +29,7 @@ const makeStore = ({ isServer }) => {
         const { persistStore, persistReducer } = require('redux-persist');
     
         const persistConfig = {
-            key: 'oility',
+            key: 'quater',
             storage, 
         };
     
