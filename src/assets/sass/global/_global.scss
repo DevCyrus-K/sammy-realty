@@ -386,6 +386,11 @@ body {
   line-height: 1.8;
   margin: 0 auto;
 }
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
 h1,
 .h1 {
   font-size: 36px;
