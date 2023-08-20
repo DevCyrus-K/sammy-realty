@@ -15,6 +15,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import 'lightgallery/scss/lightgallery.scss';
 import 'lightgallery/scss/lg-zoom.scss';
 import 'node_modules/react-modal-video/scss/modal-video.scss';
+import "yet-another-react-lightbox/styles.css";
 import "@/assets/sass/style.scss";
 import "@/assets/responsive.css";
 

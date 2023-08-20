@@ -35,7 +35,7 @@ function HomeVersionTwo(props) {
   const { data } = props;
 
 
-  
+
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
     <button
       {...props}
@@ -223,6 +223,7 @@ function HomeVersionTwo(props) {
         iconTag={false}
         data={featureData}
         classes=""
+        sectionClasses=""
         headingClasses=""
         titleSectionData={{
           subTitle: "Our Services",
@@ -263,6 +264,8 @@ function HomeVersionTwo(props) {
           <Row>
             <Col>
               <TitleSection
+                sectionClasses=""
+                headingClasses=""
                 titleSectionData={{
                   subTitle: "Apartment Sketch",
                   title: "Apartments Plan",
@@ -1060,6 +1063,8 @@ function HomeVersionTwo(props) {
           <Row>
             <Col xs={12}>
               <TitleSection
+                sectionClasses=""
+                headingClasses=""
                 titleSectionData={{
                   subTitle: "Our Aminities",
                   title: "Building Aminities",
@@ -1122,6 +1127,8 @@ function HomeVersionTwo(props) {
           <Row>
             <Col lg={12}>
               <TitleSection
+                sectionClasses=""
+                headingClasses=""
                 titleSectionData={{
                   subTitle: "News & Blogs",
                   title: "Leatest News Feeds",

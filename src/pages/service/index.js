@@ -64,8 +64,11 @@ function Service() {
         <AboutUsStyletwo />
 
         <Feature
+          classes="section-bg-1"
           servicebtn={false}
           iconTag={true}
+          sectionClasses=""
+          headingClasses="section-subtitle-2"
           data={services}
           titleSectionData={{
             subTitle: "Our Services",
@@ -80,6 +83,8 @@ function Service() {
             <Row>
               <Col lg={12}>
                 <TitleSection
+                  sectionClasses=""
+                  headingClasses="section-subtitle-2"
                   titleSectionData={{
                     subTitle: "News & Blogs",
                     title: "Leatest News Feeds",

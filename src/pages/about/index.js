@@ -81,6 +81,7 @@ function AboutUs() {
         <AboutUsStyleOne />
 
         <Feature
+        classes="section-bg-1"
           servicebtn={true}
           iconTag={false}
           data={featureDataSorted}
@@ -98,6 +99,8 @@ function AboutUs() {
             <Row>
               <Col lg={12}>
                 <TitleSection
+                  sectionClasses=""
+                  headingClasses="section-subtitle-2"
                   titleSectionData={{
                     subTitle: "Team",
                     title: "Property Agents",
@@ -132,6 +135,8 @@ function AboutUs() {
             <Row>
               <Col lg={12}>
                 <TitleSection
+                  sectionClasses=""
+                  headingClasses="section-subtitle-2"
                   titleSectionData={{
                     subTitle: "Our Testimonial",
                     title: "Clients Feedback",
@@ -160,6 +165,8 @@ function AboutUs() {
             <Row>
               <Col lg={12}>
                 <TitleSection
+                  sectionClasses=""
+                  headingClasses="section-subtitle-2"
                   titleSectionData={{
                     subTitle: "News & Blogs",
                     title: "Leatest News Feeds",

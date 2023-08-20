@@ -171,9 +171,12 @@ function HomePage(props) {
 
       <!-- FEATURE AREA START ( Feature - 6) --> */}
         <Feature
+          classes="section-bg-1"
           servicebtn={true}
           iconTag={false}
           data={featureData}
+          sectionClasses=""
+          headingClasses="section-subtitle-2"
           titleSectionData={{
             subTitle: "Our Services",
             title: "Our Main Focus",
@@ -185,6 +188,8 @@ function HomePage(props) {
             <Row>
               <Col lg={12}>
                 <TitleSection
+                  sectionClasses=""
+                  headingClasses="section-subtitle-2"
                   titleSectionData={{
                     subTitle: "Properties",
                     title: "Featured Listings",
@@ -245,6 +250,8 @@ function HomePage(props) {
             <Row>
               <Col>
                 <TitleSection
+                  sectionClasses=""
+                  headingClasses="section-subtitle-2"
                   titleSectionData={{
                     subTitle: "Apartment Sketch",
                     title: "Apartments Plan",
@@ -517,6 +524,8 @@ function HomePage(props) {
             <Row>
               <Col xs={12}>
                 <TitleSection
+                  sectionClasses=""
+                  headingClasses="section-subtitle-2"
                   titleSectionData={{
                     subTitle: "Our Aminities",
                     title: "Building Aminities",
@@ -547,6 +556,8 @@ function HomePage(props) {
             <Row>
               <Col lg={12}>
                 <TitleSection
+                  sectionClasses=""
+                  headingClasses="section-subtitle-2"
                   titleSectionData={{
                     subTitle: "Our Testimonial",
                     title: "Clients Feedback",
@@ -573,6 +584,8 @@ function HomePage(props) {
             <Row>
               <Col lg={12}>
                 <TitleSection
+                  sectionClasses=""
+                  headingClasses="section-subtitle-2"
                   titleSectionData={{
                     subTitle: "News & Blogs",
                     title: "Leatest News Feeds",
