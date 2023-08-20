@@ -114,9 +114,9 @@ const MobileMenu = function ({ offCanVastoggleBtn, closeSideBar }) {
                   <li>
                     <Link href="/portfolio">Portfolio</Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link href="portfolio-page-two">Portfolio - 02</Link>
-                  </li>
+                  </li> */}
 
                   <li>
                     <Link href="/team">Team</Link>
@@ -216,9 +216,9 @@ const MobileMenu = function ({ offCanVastoggleBtn, closeSideBar }) {
                   <li>
                     <Link href="/portfolio">Portfolio</Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link href="/portfolio-page-two">Portfolio - 02</Link>
-                  </li>
+                  </li> */}
 
                   <li>
                     <Link href="/team">Team</Link>
