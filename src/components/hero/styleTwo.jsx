@@ -201,7 +201,7 @@ function HeroSectionStyleTwo({ data }) {
                                 </button>
                               ) : (
                                 <Link
-                                  href="#"
+                                href="/about"
                                   className="btn btn-transparent btn-effect-3"
                                 >
                                   {item.learnMoreButtonText}

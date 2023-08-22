@@ -92,7 +92,7 @@ function HeroSectionStyleOne({ data }) {
                             </div>
                             <div className="btn-wrapper animated">
                               <Link
-                                href="about.html"
+                                href="/about"
                                 className="theme-btn-1 btn btn-effect-1"
                               >
                                 {item.buttonText}
@@ -108,7 +108,7 @@ function HeroSectionStyleOne({ data }) {
                                 </button>
                               ) : (
                                 <Link
-                                  href="#"
+                                href="/about"
                                   className="btn btn-transparent btn-effect-3"
                                 >
                                   {item.learnMoreButtonText}

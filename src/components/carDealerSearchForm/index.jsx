@@ -1,6 +1,7 @@
 import {Row,Col,Nav,Tab} from "react-bootstrap";
 import Select from "react-select";
 import { FaCarAlt, FaUserAlt } from "react-icons/fa";
+import Link from "next/link";
 
 function CarDealerSearchForm({ navMenuClass }) {
   const areaOptions = [
@@ -97,12 +98,12 @@ function CarDealerSearchForm({ navMenuClass }) {
                           </div>
                           <div className="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-3 col-md-6">
                             <div className="btn-wrapper text-center mt-0">
-                              <button
-                                type="submit"
+                              <Link
+                               href="/shop/right-sidebar"
                                 className="btn theme-btn-1 btn-effect-1 text-uppercase"
                               >
                                 Search Properties
-                              </button>
+                              </Link>
                             </div>
                           </div>
                         </form>
@@ -111,7 +112,7 @@ function CarDealerSearchForm({ navMenuClass }) {
                     <Tab.Pane eventKey="second">
                     <div className="car-dealer-form-inner">
                         <form
-                          action="#"
+                          action="/shop/right-sidebar"
                           className="ltn__car-dealer-form-box row"
                         >
                           <div className="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-car---- col-lg-3 col-md-6">
@@ -149,12 +150,12 @@ function CarDealerSearchForm({ navMenuClass }) {
                           </div>
                           <div className="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-3 col-md-6">
                             <div className="btn-wrapper text-center mt-0">
-                              <button
-                                type="submit"
+                              <Link
+                                href="/shop/right-sidebar"
                                 className="btn theme-btn-1 btn-effect-1 text-uppercase"
                               >
                                 Search Properties
-                              </button>
+                              </Link>
                             </div>
                           </div>
                         </form>
