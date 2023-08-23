@@ -90,9 +90,9 @@ function ShopRightSideBar() {
       {/* <!-- BREADCRUMB AREA START --> */}
 
       <ShopBreadCrumb
-        title="Shop Right Sidebar"
+        title="Property Right Sidebar"
         sectionPace=""
-        currentSlug="Shop Right Sidebar"
+        currentSlug="Property Right Sidebar"
       />
       {/* <!-- BREADCRUMB AREA END -->
     

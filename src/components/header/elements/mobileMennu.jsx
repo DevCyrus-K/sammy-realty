@@ -131,7 +131,7 @@ const MobileMenu = function ({ offCanVastoggleBtn, closeSideBar }) {
                 </ul>
               </li>
               <li>
-                <Link href="#">Shop</Link>
+                <Link href="#">Property</Link>
                 <span
                   className="menu-expand"
                   onClick={onClickHandler}
@@ -139,19 +139,24 @@ const MobileMenu = function ({ offCanVastoggleBtn, closeSideBar }) {
                 ></span>
                 <ul className="sub-menu">
                   <li>
-                    <Link href="/shop">Shop</Link>
+                    <Link href="/shop">Property</Link>
                   </li>
                   <li>
-                    <Link href="/shop/grid">Shop Grid</Link>
+                    <Link href="/shop/grid">Property Grid</Link>
                   </li>
                   <li>
-                    <Link href="/shop/left-sidebar">Shop Left sidebar</Link>
+                    <Link href="/shop/list">Property List</Link>
                   </li>
                   <li>
-                    <Link href="/shop/right-sidebar">Shop right sidebar</Link>
+                    <Link href="/shop/left-sidebar">Property Left sidebar</Link>
+                  </li>
+                  <li>
+                    <Link href="/shop/right-sidebar">
+                      Property right sidebar
+                    </Link>
                   </li>
                   {/* <li>
-                    <Link href="product-details">Shop details </Link>
+                    <Link href="product-details">Property details </Link>
                   </li> */}
                   <li>
                     <Link href="/cart">Cart</Link>

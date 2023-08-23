@@ -7,6 +7,8 @@ import {
   deleteFromWishlist,
 } from "@/store/slices/wishlist-slice";
 import QuickViewtModal from "@/components/modals/quickViewModal";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 const ProductList = ({
   productData,
   slug,
@@ -26,6 +28,22 @@ const ProductList = ({
   }
   const dispatch = useDispatch();
   const [modalShow, setModalShow] = useState(false);
+
+  const wishListTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Wishlist
+    </Tooltip>
+  );
+  const quickViewTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Quick View
+    </Tooltip>
+  );
+  const addToCartTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+     Add To Cart
+    </Tooltip>
+  );
   return (
     <>
       <div className="ltn__product-item ltn__product-item-4 ltn__product-item-5">
@@ -103,11 +121,25 @@ const ProductList = ({
           <div className="product-hover-action">
             <ul>
               <li>
+              <OverlayTrigger
+                  placement="right"
+                  delay={{ show: 250, hide: 400 }}
+                  overlay={quickViewTooltip}
+                >
                 <button onClick={() => setModalShow(true)}>
                   <i className="flaticon-expand"></i>
                 </button>
+
+
+                </OverlayTrigger>
               </li>
               <li>
+
+              <OverlayTrigger
+                  placement="right"
+                  delay={{ show: 250, hide: 400 }}
+                  overlay={wishListTooltip}
+                >
                 <button
                   onClick={
                     wishlistItem !== undefined
@@ -117,11 +149,22 @@ const ProductList = ({
                 >
                   <i className="flaticon-heart-1"></i>
                 </button>
+
+                  
+                </OverlayTrigger>
               </li>
               <li>
+              <OverlayTrigger
+                  placement="right"
+                  delay={{ show: 250, hide: 400 }}
+                  overlay={addToCartTooltip}
+                >
                 <button onClick={() => dispatch(addToCart(productData))}>
                   <i className="flaticon-add"></i>
                 </button>
+
+                  
+                </OverlayTrigger>
               </li>
             </ul>
           </div>

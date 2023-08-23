@@ -7,6 +7,8 @@ import {
   deleteFromWishlist,
 } from "@/store/slices/wishlist-slice";
 import QuickViewtModal from "@/components/modals/quickViewModal";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 const RelatedProduct = ({
   productData,
   slug,
@@ -26,6 +28,22 @@ const RelatedProduct = ({
   }
   const dispatch = useDispatch();
   const [modalShow, setModalShow] = useState(false);
+
+  const wishListTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Wishlist
+    </Tooltip>
+  );
+  const quickViewTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Quick View
+    </Tooltip>
+  );
+  const addToCartTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Add To Cart
+    </Tooltip>
+  );
   return (
     <>
       <div className="ltn__product-item ltn__product-item-4 ltn__product-item-5">
@@ -87,25 +105,43 @@ const RelatedProduct = ({
           <div className="product-hover-action">
             <ul>
               <li>
-                <button onClick={() => setModalShow(true)}>
-                  <i className="flaticon-expand"></i>
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={
-                    wishlistItem !== undefined
-                      ? () => dispatch(deleteFromWishlist(productData.id))
-                      : () => dispatch(addToWishlist(productData))
-                  }
+                <OverlayTrigger
+                  placement="right"
+                  delay={{ show: 250, hide: 400 }}
+                  overlay={quickViewTooltip}
                 >
-                  <i className="flaticon-heart-1"></i>
-                </button>
+                  <button onClick={() => setModalShow(true)}>
+                    <i className="flaticon-expand"></i>
+                  </button>
+                </OverlayTrigger>
               </li>
               <li>
-                <button onClick={() => dispatch(addToCart(productData))}>
-                  <i className="flaticon-add"></i>
-                </button>
+                <OverlayTrigger
+                  placement="right"
+                  delay={{ show: 250, hide: 400 }}
+                  overlay={wishListTooltip}
+                >
+                  <button
+                    onClick={
+                      wishlistItem !== undefined
+                        ? () => dispatch(deleteFromWishlist(productData.id))
+                        : () => dispatch(addToWishlist(productData))
+                    }
+                  >
+                    <i className="flaticon-heart-1"></i>
+                  </button>
+                </OverlayTrigger>
+              </li>
+              <li>
+                <OverlayTrigger
+                  placement="right"
+                  delay={{ show: 250, hide: 400 }}
+                  overlay={addToCartTooltip}
+                >
+                  <button onClick={() => dispatch(addToCart(productData))}>
+                    <i className="flaticon-add"></i>
+                  </button>
+                </OverlayTrigger>
               </li>
             </ul>
           </div>
