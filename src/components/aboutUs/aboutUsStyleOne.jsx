@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 import { FaPlay } from "react-icons/fa";
 import ModalVideo from "react-modal-video";
 import { useState } from "react";
-function AboutUsStyleOne() {
+function AboutUsStyleOne({ sectionSpace }) {
   const [isOpen, setOpen] = useState(false);
   return (
     <>
@@ -16,7 +16,7 @@ function AboutUsStyleOne() {
         videoId="X7R-q9rsrtU"
         onClose={() => setOpen(false)}
       />
-      <div className="ltn__about-us-area pt-120 pb-90">
+      <div className={`ltn__about-us-area ${sectionSpace}`}>
         <Container>
           <Row>
             <Col xs={12} lg={6} className="align-self-center">

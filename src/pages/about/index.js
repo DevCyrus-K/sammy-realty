@@ -78,10 +78,10 @@ function AboutUs() {
           currentSlug="About Us"
         />
 
-        <AboutUsStyleOne />
+        <AboutUsStyleOne sectionSpace="pb-90" />
 
         <Feature
-        classes="section-bg-1"
+          classes="section-bg-1"
           servicebtn={true}
           iconTag={false}
           data={featureDataSorted}
