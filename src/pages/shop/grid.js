@@ -38,6 +38,7 @@ function ShopGrid() {
     setSortValue(sortValue);
   };
 
+
   const getFilterSortParams = (sortType, sortValue) => {
     setFilterSortType(sortType);
     setFilterSortValue(sortValue);
@@ -50,6 +51,7 @@ function ShopGrid() {
       keys.some((key) => item[key].toLowerCase().includes(query))
     );
   };
+  
   useEffect(() => {
     let sortedProducts = getSortedProducts(products, sortType, sortValue);
 

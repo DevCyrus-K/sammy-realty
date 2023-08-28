@@ -158,7 +158,7 @@ function HomePage(props) {
         {/* <!-- CAR DEALER FORM AREA END -->
 
       <!-- ABOUT US AREA START --> */}
-        <AboutUsStyleOne />
+        <AboutUsStyleOne sectionSpace="pt-120 pb-90" />
         {/* <!-- ABOUT US AREA END -->
 
       <!-- COUNTER UP AREA START --> */}

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import Link from "next/link";
 import HeaderTopBarOne from "./headerTopBar/headerTopBarStyleOne";
 import HeaderCartMenu from "./elements/headerCartMenu";
@@ -6,7 +7,6 @@ import MobileMenu from "./elements/mobileMennu";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useSelector } from "react-redux";
 import clsx from "clsx";
 import {
   FaPlus,
@@ -69,6 +69,22 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
   const handleScroll = () => {
     setScroll(window.scrollY);
   };
+
+  const [query, setQuery] = useState("");
+  const keys = ["title"];
+  const SearchProduct = (data) => {
+    return data.filter((item) =>
+      keys.some((key) => item[key].toLowerCase().includes(query))
+    );
+  };
+
+  const { products } = useSelector((state) => state.product);
+  const [currentItems, setCurrentItems] = useState([]);
+
+  useEffect(() => {
+    setCurrentItems(SearchProduct(products));
+  }, [products, query]);
+
 
   return (
     <>
@@ -151,7 +167,7 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
                         </li>
                         <li className="menu-icon">
                           <Link href="#">
-                          Property <FaPlus />
+                            Property <FaPlus />
                           </Link>
                           <ul>
                             <li>
@@ -165,12 +181,12 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
                             </li>
                             <li>
                               <Link href="/shop/left-sidebar">
-                              Property Left sidebar
+                                Property Left sidebar
                               </Link>
                             </li>
                             <li>
                               <Link href="/shop/right-sidebar">
-                              Property right sidebar
+                                Property right sidebar
                               </Link>
                             </li>
 
@@ -291,12 +307,12 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
                                 </li>
                                 <li>
                                   <Link href="/shop/left-sidebar">
-                                  Property Left sidebar
+                                    Property Left sidebar
                                   </Link>
                                 </li>
                                 <li>
                                   <Link href="/shop/right-sidebar">
-                                  Property right sidebar
+                                    Property right sidebar
                                   </Link>
                                 </li>
                                 <li>
@@ -339,14 +355,12 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
                   >
                     {/* search-open */}
                     <div className="search-icon">
-                      <FaSearch
-                        className="icon-search for-search-show"
-                        onClick={searchForm}
-                      />
-                      <FaTimes
-                        className="icon-cancel  for-search-close"
-                        onClick={searchForm}
-                      />
+                      <span onClick={searchForm}>
+                        <FaSearch className="icon-search for-search-show" />
+                      </span>
+                      <span onClick={searchForm}>
+                        <FaTimes className="icon-cancel  for-search-close" />
+                      </span>
                     </div>
                   </div>
                   <div
@@ -356,6 +370,7 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
                   >
                     <form id="#" method="get" action="#">
                       <input
+                        onChange={(e) => setQuery(e.target.value.toLowerCase())}
                         type="text"
                         name="search"
                         // value=""
@@ -367,6 +382,12 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
                         </span>
                       </button>
                     </form>
+
+                    <ul>
+                      {currentItems.map((item,key)=>{
+                        return <li key={key}><Link href={`/shop/${item.title}`}>{item.title}</Link></li>
+                      })}
+                    </ul>
                   </div>
                 </div>
                 {/* <!-- user-menu --> */}
