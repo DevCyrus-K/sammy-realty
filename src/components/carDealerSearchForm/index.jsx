@@ -1,4 +1,5 @@
-import {Row,Col,Nav,Tab} from "react-bootstrap";
+import { Row, Col, Nav, Tab, Form } from "react-bootstrap";
+
 import Select from "react-select";
 import { FaCarAlt, FaUserAlt } from "react-icons/fa";
 import Link from "next/link";
@@ -64,13 +65,21 @@ function CarDealerSearchForm({ navMenuClass }) {
                           className="ltn__car-dealer-form-box row"
                         >
                           <div className="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-car---- col-lg-3 col-md-6">
-                            <Select
+                            {/* <Select
                               className="nice-select"
                               options={areaOptions}
                               defaultValue={[
                                 { value: "Choose Area", label: "Choose Area" },
                               ]}
-                            />
+                            /> */}
+                            <Form.Select className="nice-select" aria-label="Default select example">
+                              <option>Choose Area</option>
+                              <option value="1">Chicago</option>
+                              <option value="2">London</option>
+                              <option value="3">Los Angeles</option>
+                              <option value="4">New York</option>
+                              <option value="5">New Jersey</option>
+                            </Form.Select>
                           </div>
                           <div className="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-meter---- col-lg-3 col-md-6">
                             <Select
@@ -99,7 +108,7 @@ function CarDealerSearchForm({ navMenuClass }) {
                           <div className="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-3 col-md-6">
                             <div className="btn-wrapper text-center mt-0">
                               <Link
-                               href="/shop/right-sidebar"
+                                href="/shop/right-sidebar"
                                 className="btn theme-btn-1 btn-effect-1 text-uppercase"
                               >
                                 Search Properties
@@ -110,7 +119,7 @@ function CarDealerSearchForm({ navMenuClass }) {
                       </div>
                     </Tab.Pane>
                     <Tab.Pane eventKey="second">
-                    <div className="car-dealer-form-inner">
+                      <div className="car-dealer-form-inner">
                         <form
                           action="/shop/right-sidebar"
                           className="ltn__car-dealer-form-box row"

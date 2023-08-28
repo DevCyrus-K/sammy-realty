@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { productSlug } from "@/lib/product";
 import Link from "next/link";
 import HeaderTopBarOne from "./headerTopBar/headerTopBarStyleOne";
 import HeaderCartMenu from "./elements/headerCartMenu";
@@ -70,6 +71,9 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
     setScroll(window.scrollY);
   };
 
+  const { products } = useSelector((state) => state.product);
+  const [currentItems, setCurrentItems] = useState([]);
+
   const [query, setQuery] = useState("");
   const keys = ["title"];
   const SearchProduct = (data) => {
@@ -78,13 +82,11 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
     );
   };
 
-  const { products } = useSelector((state) => state.product);
-  const [currentItems, setCurrentItems] = useState([]);
+  const updatedProducts = query.length ? SearchProduct(products) : [];
 
   useEffect(() => {
-    setCurrentItems(SearchProduct(products));
+    setCurrentItems(updatedProducts);
   }, [products, query]);
-
 
   return (
     <>
@@ -383,9 +385,14 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
                       </button>
                     </form>
 
-                    <ul>
-                      {currentItems.map((item,key)=>{
-                        return <li key={key}><Link href={`/shop/${item.title}`}>{item.title}</Link></li>
+                    <ul className="searched-product-lists list-group">
+                      {currentItems.map((product, key) => {
+                        const slug = productSlug(product.title);
+                        return (
+                          <li key={key} className="list-group-item">
+                            <Link href={`/shop/${slug}`} target="_blank" rel="noopener noreferrer">{product.title}</Link>
+                          </li>
+                        );
                       })}
                     </ul>
                   </div>
