@@ -50,6 +50,8 @@ function ShopGrid() {
       keys.some((key) => item[key].toLowerCase().includes(query))
     );
   };
+
+  
   useEffect(() => {
     let sortedProducts = getSortedProducts(products, sortType, sortValue);
 
