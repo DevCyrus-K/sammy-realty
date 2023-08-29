@@ -94,6 +94,9 @@ const MobileMenu = function ({ offCanVastoggleBtn, closeSideBar }) {
                   <li>
                     <Link href="/home/page-two">Home Style 02</Link>
                   </li>
+                  <li>
+                    <Link href="/home/page-three">Home Style 03</Link>
+                  </li>
                 </ul>
               </li>
               <li>

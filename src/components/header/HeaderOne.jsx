@@ -132,6 +132,10 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
                               <Link href="/home/page-two">Home Style 02</Link>
                               <img src="/img/home-demos/home-2.jpg" alt="#" />
                             </li>
+                            <li>
+                              <Link href="/home/page-three">Home Style 03</Link>
+                              <img src="/img/home-demos/home-3.jpg" alt="#" />
+                            </li>
                           </ul>
                         </li>
                         <li className="menu-icon">

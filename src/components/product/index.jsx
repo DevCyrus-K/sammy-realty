@@ -56,7 +56,7 @@ const ProductItem = ({
         <div className="product-img">
           <Link href={`/${baseUrl}/${slug}`}>
             <img
-              src={`img/product-3/${productData.productImg}`}
+              src={`/img/product-3/${productData.productImg}`}
               alt={`${productData.title}`}
             />
           </Link>

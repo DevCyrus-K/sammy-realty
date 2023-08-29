@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -9,7 +8,7 @@ import LanguageDropDown from "../elements/languageDropdown";
 const HeaderTopBarTwo = function () {
   return (
     <>
-      <div className="ltn__header-top-area section-bg-6 top-area-color-white---">
+      <div className="ltn__header-top-area top-area-color-white">
         <Container>
           <Row>
             <Col xs={12} md={7}>

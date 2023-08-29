@@ -1,26 +1,15 @@
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { productSlug } from "@/lib/product";
 import Link from "next/link";
-import HeaderTopBarOne from "./headerTopBar/headerTopBarStyleOne";
+import HeaderTopBarTwo from "./headerTopBar/headerTopBarStyleTwo";
 import HeaderCartMenu from "./elements/headerCartMenu";
 import MobileMenu from "./elements/mobileMennu";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import clsx from "clsx";
-import {
-  FaPlus,
-  FaAngleDoubleRight,
-  FaCartArrowDown,
-  FaRegUser,
-  FaSearch,
-  FaTimes,
-} from "react-icons/fa";
+import { FaPlus, FaAngleDoubleRight } from "react-icons/fa";
 
-const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
-  const [searchFormOpener, searchFormOpenerSet] = useState(false);
-
+const HeaderStyleTwo = function ({ SetToggleClassName, topbar }) {
   const [cartMenuOpener, cartMenuOpenerSet] = useState(false);
   const [overlayBtn, SetoverlayBtn] = useState(false);
   const [offCanVastoggleBtn, SetOffCanVastoggleBtn] = useState(false);
@@ -29,10 +18,6 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
     SetToggleClassName(true);
     SetoverlayBtn(true);
     SetOffCanVastoggleBtn((offCanVastoggleBtn) => !offCanVastoggleBtn);
-  }
-
-  function searchForm() {
-    searchFormOpenerSet((searchFormOpener) => !searchFormOpener);
   }
 
   function cartMenu() {
@@ -54,8 +39,6 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
     SetToggleClassName(false);
   }
 
-  const { cartItems } = useSelector((state) => state.cart);
-
   const [scroll, setScroll] = useState(0);
   const [headerHeight, setHeaderHeight] = useState(0);
   useEffect(() => {
@@ -71,35 +54,18 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
     setScroll(window.scrollY);
   };
 
-  const { products } = useSelector((state) => state.product);
-  const [currentItems, setCurrentItems] = useState([]);
-
-  const [query, setQuery] = useState("");
-  const keys = ["title"];
-  const SearchProduct = (data) => {
-    return data.filter((item) =>
-      keys.some((key) => item[key].toLowerCase().includes(query))
-    );
-  };
-
-  const updatedProducts = query.length ? SearchProduct(products) : [];
-
-  useEffect(() => {
-    setCurrentItems(updatedProducts);
-  }, [products, query]);
-
   return (
     <>
-      <header className="ltn__header-area ltn__header-5">
+      <header className="ltn__header-area ltn__header-5 ltn__header-logo-and-mobile-menu-in-mobile ltn__header-logo-and-mobile-menu ltn__header-transparent">
         {/* <!-- ltn__header-top-area start --> */}
-        {topbar ? <HeaderTopBarOne /> : null}
+        {topbar ? <HeaderTopBarTwo /> : null}
 
         {/* <!-- ltn__header-top-area end --> */}
 
         {/* <!-- ltn__header-middle-area start --> */}
         <div
           className={clsx(
-            "ltn__header-middle-area ltn__header-sticky ltn__sticky-bg-white",
+            "ltn__header-middle-area ltn__header-sticky ltn__sticky-bg-black",
             scroll > headerHeight && "sticky-active"
           )}
         >
@@ -109,12 +75,12 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
                 <div className="site-logo-wrap">
                   <div className="site-logo">
                     <Link href="/">
-                      <img src="/img/logo.png" alt="Logo" />
+                      <img src="/img/logo-2.png" alt="Logo" />
                     </Link>
                   </div>
                 </div>
               </Col>
-              <Col className="header-menu-column">
+              <Col className="header-menu-column menu-color-white">
                 <div className="header-menu d-none d-xl-block">
                   <nav>
                     <div className="ltn__main-menu">
@@ -131,6 +97,10 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
                             <li>
                               <Link href="/home/page-two">Home Style 02</Link>
                               <img src="/img/home-demos/home-2.jpg" alt="#" />
+                            </li>
+                            <li>
+                              <Link href="/home/page-three">Home Style 03</Link>
+                              <img src="/img/home-demos/home-3.jpg" alt="#" />
                             </li>
                           </ul>
                         </li>
@@ -342,114 +312,15 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
                         <li>
                           <Link href="/contact">Contact</Link>
                         </li>
+                        <li className="special-link">
+                          <Link href="/add-listing">Add Listing</Link>
+                        </li>
                       </ul>
                     </div>
                   </nav>
                 </div>
               </Col>
-              <Col className="ltn__header-options ltn__header-options-2 mb-sm-20">
-                {/* <!-- header-search-1 --> */}
-                <div className="header-search-wrap">
-                  <div
-                    className={`header-search-1 ${
-                      searchFormOpener ? "search-open" : ""
-                    }`}
-                  >
-                    {/* search-open */}
-                    <div className="search-icon">
-                      <span onClick={searchForm}>
-                        <FaSearch className="icon-search for-search-show" />
-                      </span>
-                      <span onClick={searchForm}>
-                        <FaTimes className="icon-cancel  for-search-close" />
-                      </span>
-                    </div>
-                  </div>
-                  <div
-                    className={`header-search-1-form ${
-                      searchFormOpener ? "search-open" : ""
-                    }`}
-                  >
-                    <form id="#" method="get" action="#">
-                      <input
-                        onChange={(e) => setQuery(e.target.value.toLowerCase())}
-                        type="text"
-                        name="search"
-                        // value=""
-                        placeholder="Search here..."
-                      />
-                      <button type="submit">
-                        <span>
-                          <FaSearch />
-                        </span>
-                      </button>
-                    </form>
-
-                    <ul className="searched-product-lists list-group">
-                      {currentItems && currentItems ? (
-                        currentItems.map((product, key) => {
-                          const slug = productSlug(product.title);
-                          return (
-                            <li key={key} className="list-group-item">
-                              <Link
-                                href={`/shop/${slug}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                {product.title}
-                              </Link>
-                            </li>
-                          );
-                        })
-                      ) : (
-                        <li>NO Products Found</li>
-                      )}
-                    </ul>
-                  </div>
-                </div>
-                {/* <!-- user-menu --> */}
-                <div className="ltn__drop-menu user-menu">
-                  <ul>
-                    <li>
-                      <Link href="#">
-                        <FaRegUser />
-                      </Link>
-                      <ul>
-                        <li>
-                          <Link href="/login">Sign in</Link>
-                        </li>
-                        <li>
-                          <Link href="/register">Register</Link>
-                        </li>
-                        <li>
-                          <Link href="/my-account">My Account</Link>
-                        </li>
-                        <li>
-                          <Link href="/wishlist">Wishlist</Link>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-                {/* <!-- mini-cart --> */}
-                <div className="mini-cart-icon">
-                  <button
-                    onClick={cartMenu}
-                    className={`ltn__utilize-toggle ${
-                      cartMenuOpener ? "close" : ""
-                    }`}
-                  >
-                    <FaCartArrowDown />
-                    {/* <sup>6</sup> */}
-
-                    {cartItems.length > 0 ? (
-                      <sup>{cartItems.length}</sup>
-                    ) : (
-                      <sup>0</sup>
-                    )}
-                  </button>
-                </div>
-                {/* <!-- mini-cart --> */}
+              <div className="ltn__header-options ltn__header-options-2 ">
                 {/* <!-- Mobile Menu Button --> */}
                 <div className="mobile-menu-toggle d-xl-none">
                   <button
@@ -472,7 +343,7 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
                     </svg>
                   </button>
                 </div>
-              </Col>
+              </div>
             </Row>
           </Container>
         </div>
@@ -509,4 +380,4 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
   );
 };
 
-export default HeaderStyleOne;
+export default HeaderStyleTwo;
