@@ -90,19 +90,23 @@ const QuickViewModal = ({
                     </Link>
                   </h3>
                   <div className="product-price">
-                   <div><span>${discountedprice}</span>
-                    <del>{productprice}</del>
-                    <span className="on-sale">{productData.discount} % Off</span></div>
-                    {productData.rating && productData.rating > 0 ? (
-                    <div className="product-quickview__rating-wrap">
-                      <div className="product-quickview__rating">
-                        <ProductRating ratingValue={productData.rating} />
-                        <span>({productData.ratingCount})</span>
-                      </div>
+                    <div>
+                      <span>${discountedprice}</span>
+                      <del>{productprice}</del>
+                      <span className="on-sale">
+                        {productData.discount} % Off
+                      </span>
                     </div>
-                  ) : (
-                    ""
-                  )}
+                    {productData.rating && productData.rating > 0 ? (
+                      <div className="product-quickview__rating-wrap">
+                        <div className="product-quickview__rating">
+                          <ProductRating ratingValue={productData.rating} />
+                          <span>({productData.ratingCount})</span>
+                        </div>
+                      </div>
+                    ) : (
+                      ""
+                    )}
                   </div>
                   <hr />
                   <div className="modal-product-brief">
@@ -169,20 +173,17 @@ const QuickViewModal = ({
                             disabled={productCartQty >= productStock}
                             className="btn-addtocart"
                           >
-                            <FaShoppingBag/> Add To Cart
+                            <FaShoppingBag className="me-2" /> Add To Cart
                           </button>
                         ) : (
-                          <button
-                            className="btn-addtocart"
-                            disabled
-                          >
+                          <button className="btn-addtocart" disabled>
                             Out of Stock
                           </button>
                         )}
                       </li>
                       <li>
                         <button
-                        className="btn-addtocart"
+                          className="btn-addtocart"
                           onClick={
                             wishlistitem !== undefined
                               ? () =>
@@ -190,13 +191,12 @@ const QuickViewModal = ({
                               : () => dispatch(addToWishlist(productData))
                           }
                         >
-                          <FaRegHeart className="me-2" />
-                          {/* <span>Add to Wishlist</span> */}
+                          <FaRegHeart />
                         </button>
                       </li>
                       <li>
                         <button
-                        className="btn-addtocart"
+                          className="btn-addtocart"
                           onClick={
                             compareitem !== undefined
                               ? () =>
@@ -204,8 +204,7 @@ const QuickViewModal = ({
                               : () => dispatch(addToCompare(productData))
                           }
                         >
-                          <FaExchangeAlt className="me-2" />
-                          {/* <span>Compare</span> */}
+                          <FaExchangeAlt />
                         </button>
                       </li>
                     </ul>

@@ -27,7 +27,7 @@ function AboutUsStyleOne({ sectionSpace }) {
                     <img src="img/others/8.png" alt="video popup bg image" />
                     <button
                       onClick={() => setOpen(true)}
-                      className="ltn__video-icon-2 ltn__video-icon-2-border---"
+                      className="ltn__video-icon-2"
                     >
                       <FaPlay />
                     </button>
@@ -37,7 +37,7 @@ function AboutUsStyleOne({ sectionSpace }) {
             </Col>
             <Col xs={12} lg={6} className="align-self-center">
               <div className="about-us-info-wrap">
-                <div className="section-title-area ltn__section-title-2--- mb-20">
+                <div className="section-title-area mb-20">
                   <h6 className="section-subtitle section-subtitle-2 ltn__secondary-color">
                     About Us
                   </h6>
@@ -76,7 +76,7 @@ function AboutUsStyleOne({ sectionSpace }) {
                 </div>
                 <div className="btn-wrapper animated">
                   <Link
-                    href="service.html"
+                    href="/service"
                     className="theme-btn-1 btn btn-effect-1"
                   >
                     OUR SERVICES

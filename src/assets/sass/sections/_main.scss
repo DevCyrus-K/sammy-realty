@@ -4476,7 +4476,6 @@ input.cart-plus-minus-box {
   }
 }
 
-
 .ltn__image-slider-5-active .slick-slide {
   padding: 0 0px;
 }
@@ -5738,6 +5737,8 @@ input.cart-plus-minus-box {
 /* ----------------------------------------------------
     Service Form 
 ---------------------------------------------------- */
+
+
 .ltn__service-form-box {
   margin: 0;
   padding: 0 30px;
@@ -6035,10 +6036,19 @@ input.cart-plus-minus-box {
   }
 
   .nice-select {
-    .css-qbdosj-Input {
-      height: 52px;
-    }
+    margin: 0;
+    height: 60px;
+    line-height: 58px;
+    padding-right: 40px;
+    padding-left: 20px;
+    border-radius: 0;
+    min-width: 200px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: var(--ltn__heading-font);
   }
+
+
 
   .ltn__custom-icon {
     &::before {

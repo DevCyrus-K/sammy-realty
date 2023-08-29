@@ -1,41 +1,14 @@
-import { Row, Col, Nav, Tab, Form } from "react-bootstrap";
-
-import Select from "react-select";
+import {Container, Row, Col, Nav, Tab, Form } from "react-bootstrap";
 import { FaCarAlt, FaUserAlt } from "react-icons/fa";
 import Link from "next/link";
 
 function CarDealerSearchForm({ navMenuClass }) {
-  const areaOptions = [
-    { value: "Choose Area", label: "Choose Area" },
-    { value: "chicago", label: "chicago" },
-    { value: "London", label: "London" },
-    { value: "Los Angeles", label: "Los Angeles" },
-    { value: "New York", label: "New York" },
-    { value: "New Jersey", label: "New Jersey" },
-  ];
-
-  const propertyOptions = [
-    { value: "Property Status", label: "Property Status" },
-    { value: "Open house", label: "Open house" },
-    { value: "Rent", label: "Rent" },
-    { value: "Sale", label: "Sale" },
-    { value: "Sold", label: "Sold" },
-  ];
-
-  const propertyTypeOptions = [
-    { value: "Property Type", label: "Property Type" },
-    { value: "Apartment", label: "Apartment" },
-    { value: "Co-op", label: "Co-op" },
-    { value: "Condo", label: "Condo" },
-    { value: "Single Family Home", label: "Single Family Home" },
-  ];
-
   return (
     <>
-      <div className="ltn__car-dealer-form-area mt--65 mt-120 pb-115---">
-        <div className="container">
-          <Row className="row">
-            <Col className="col-lg-12">
+      <div className="ltn__car-dealer-form-area mt--65 mt-120">
+        <Container>
+          <Row>
+            <Col xs={12}>
               <div className="ltn__car-dealer-form-tab">
                 <Tab.Container id="left-tabs-example" defaultActiveKey="first">
                   <div
@@ -62,17 +35,61 @@ function CarDealerSearchForm({ navMenuClass }) {
                       <div className="car-dealer-form-inner">
                         <form
                           action="#"
-                          className="ltn__car-dealer-form-box row"
+                          className="ltn__car-dealer-form-box"
                         >
-                          <div className="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-car---- col-lg-3 col-md-6">
-                            {/* <Select
-                              className="nice-select"
-                              options={areaOptions}
-                              defaultValue={[
-                                { value: "Choose Area", label: "Choose Area" },
-                              ]}
-                            /> */}
-                            <Form.Select className="nice-select" aria-label="Default select example">
+                          <Row>
+                            <Col xs={12} md={6} lg={3} className="ltn__car-dealer-form-item">
+                              <Form.Select className="nice-select">
+                                <option>Choose Area</option>
+                                <option value="1">Chicago</option>
+                                <option value="2">London</option>
+                                <option value="3">Los Angeles</option>
+                                <option value="4">New York</option>
+                                <option value="5">New Jersey</option>
+                              </Form.Select>
+                            </Col>
+                            <Col xs={12} md={6} lg={3} className="ltn__car-dealer-form-item">
+                              <Form.Select className="nice-select">
+                                <option>Property Status</option>
+                                <option value="1">Open house</option>
+                                <option value="2">Rent</option>
+                                <option value="3">Sale</option>
+                                <option value="4">Sold</option>
+                              </Form.Select>
+                            </Col>
+                            <Col xs={12} md={6} lg={3} className="ltn__car-dealer-form-item">
+                              <Form.Select className="nice-select">
+                                <option>Property Type</option>
+                                <option value="1">Apartment</option>
+                                <option value="2">Co-op</option>
+                                <option value="3">Condo</option>
+                                <option value="4">Single Family Home</option>
+                              </Form.Select>
+                            </Col>
+                            <Col xs={12} md={6} lg={3} className="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar">
+                              <div className="btn-wrapper text-center mt-0">
+                                <Link
+                                  href="/shop/right-sidebar"
+                                  className="btn theme-btn-1 btn-effect-1 text-uppercase"
+                                >
+                                  Search Properties
+                                </Link>
+                              </div>
+                            </Col>
+                          </Row>
+                        </form>
+                      </div>
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="second">
+                      <div className="car-dealer-form-inner">
+                        <form
+                          action="/shop/right-sidebar"
+                          className="ltn__car-dealer-form-box"
+                        >
+                          <Row>
+
+                          <div xs={12} md={6} lg={3} className="ltn__car-dealer-form-item">
+                            <Form.Select className="nice-select">
                               <option>Choose Area</option>
                               <option value="1">Chicago</option>
                               <option value="2">London</option>
@@ -81,31 +98,25 @@ function CarDealerSearchForm({ navMenuClass }) {
                               <option value="5">New Jersey</option>
                             </Form.Select>
                           </div>
-                          <div className="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-meter---- col-lg-3 col-md-6">
-                            <Select
-                              className="nice-select"
-                              options={propertyOptions}
-                              defaultValue={[
-                                {
-                                  value: "Property Status",
-                                  label: "Property Status",
-                                },
-                              ]}
-                            />
+                          <div xs={12} md={6} lg={3} className="ltn__car-dealer-form-item">
+                            <Form.Select className="nice-select">
+                              <option>Property Status</option>
+                              <option value="1">Open house</option>
+                              <option value="2">Rent</option>
+                              <option value="3">Sale</option>
+                              <option value="4">Sold</option>
+                            </Form.Select>
                           </div>
-                          <div className="ltn__car-dealer-form-item col-lg-3 col-md-6">
-                            <Select
-                              className="nice-select"
-                              options={propertyTypeOptions}
-                              defaultValue={[
-                                {
-                                  value: "Property Type",
-                                  label: "Property Type",
-                                },
-                              ]}
-                            />
+                          <div xs={12} md={6} lg={3} className="ltn__car-dealer-form-item">
+                            <Form.Select className="nice-select">
+                              <option>Property Type</option>
+                              <option value="1">Apartment</option>
+                              <option value="2">Co-op</option>
+                              <option value="3">Condo</option>
+                              <option value="4">Single Family Home</option>
+                            </Form.Select>
                           </div>
-                          <div className="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-3 col-md-6">
+                          <div xs={12} md={6} lg={3} className="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar">
                             <div className="btn-wrapper text-center mt-0">
                               <Link
                                 href="/shop/right-sidebar"
@@ -115,58 +126,7 @@ function CarDealerSearchForm({ navMenuClass }) {
                               </Link>
                             </div>
                           </div>
-                        </form>
-                      </div>
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="second">
-                      <div className="car-dealer-form-inner">
-                        <form
-                          action="/shop/right-sidebar"
-                          className="ltn__car-dealer-form-box row"
-                        >
-                          <div className="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-car---- col-lg-3 col-md-6">
-                            <Select
-                              className="nice-select"
-                              options={areaOptions}
-                              defaultValue={[
-                                { value: "Choose Area", label: "Choose Area" },
-                              ]}
-                            />
-                          </div>
-                          <div className="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-meter---- col-lg-3 col-md-6">
-                            <Select
-                              className="nice-select"
-                              options={propertyOptions}
-                              defaultValue={[
-                                {
-                                  value: "Property Status",
-                                  label: "Property Status",
-                                },
-                              ]}
-                            />
-                          </div>
-                          <div className="ltn__car-dealer-form-item col-lg-3 col-md-6">
-                            <Select
-                              className="nice-select"
-                              options={propertyTypeOptions}
-                              defaultValue={[
-                                {
-                                  value: "Property Type",
-                                  label: "Property Type",
-                                },
-                              ]}
-                            />
-                          </div>
-                          <div className="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-3 col-md-6">
-                            <div className="btn-wrapper text-center mt-0">
-                              <Link
-                                href="/shop/right-sidebar"
-                                className="btn theme-btn-1 btn-effect-1 text-uppercase"
-                              >
-                                Search Properties
-                              </Link>
-                            </div>
-                          </div>
+                           </Row>
                         </form>
                       </div>
                     </Tab.Pane>
@@ -175,7 +135,7 @@ function CarDealerSearchForm({ navMenuClass }) {
               </div>
             </Col>
           </Row>
-        </div>
+        </Container>
       </div>
     </>
   );
