@@ -4,30 +4,23 @@ import path from "path";
 import fs from "fs/promises";
 import { LayoutTwo } from "@/layouts";
 import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
-import Accordion from "react-bootstrap/Accordion";
 import { getProducts, productSlug, getDiscountPrice } from "@/lib/product";
 import TitleSection from "@/components/titleSection";
 import Feature from "@/components/features";
 import featuresData from "@/data/service";
 import HeroSectionStyleThree from "@/components/hero/styleThree";
-import AboutUsSectionOne from "@/components/aboutUs/aboutUsSectionOne";
-import AboutUsSectionTwo from "@/components/aboutUs/aboutUsSectionTwo";
-import UpCommingcarousel from "@/components/upCommingCarousel";
 import PropertyItem from "@/components/product/properties";
 import { useSelector } from "react-redux";
-import { FaArrowLeft, FaArrowRight, FaPlay } from "react-icons/fa";
-import Link from "next/link";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import ModalVideo from "react-modal-video";
-import AminitiesItemTwo from "@/components/aminities/itemTwo";
-import aminitiesData from "@/data/aminities/index.json";
-import TestimonialCarouselItemTwo from "@/components/testimonialCarousel/indexTwo";
-import testimonialData from "@/data/testimonial";
 import blogData from "@/data/blog";
 import BlogItem from "@/components/blog";
 import CallToAction from "@/components/callToAction";
 import VideoBanner from "@/components/banner/videoBanner";
 import ProductItem from "@/components/product";
 import CarDealerSearchForm from "@/components/carDealerSearchForm";
+import BrandCarouselOne from "@/components/brandCarousel";
+import TestimonialStyleThree from "@/components/testimonialCarousel/indexThree";
 
 
 
@@ -37,7 +30,7 @@ function HomeVersionThree(props) {
   const featureData = getProducts(featuresData, "fashion", "featured", 3);
   const countryProducts = getProducts(products, "fashion", "country", 5);
   const featuredProducts = getProducts(products, "fashion", "featured", 5);
-  const { data } = props;
+  const { data, brand, testimonialData } = props;
 
   const { cartItems } = useSelector((state) => state.cart);
   const { wishlistItems } = useSelector((state) => state.wishlist);
@@ -170,36 +163,41 @@ function HomeVersionThree(props) {
   };
 
   const productCarouselsettings = {
+    arrows: true,
     dots: true,
     infinite: true,
-    speed: 500,
-    slidesToShow: 4,
+    speed: 300,
+    slidesToShow: 3,
     slidesToScroll: 1,
     prevArrow: <SlickArrowLeft />,
     nextArrow: <SlickArrowRight />,
     responsive: [
       {
-        breakpoint: 1799,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 1199,
+        breakpoint: 992,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
-        },
+          slidesToScroll: 1
+        }
       },
       {
-        breakpoint: 575,
+        breakpoint: 768,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
+          arrows: false,
+          dots: true,
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
       },
-    ],
+      {
+        breakpoint: 580,
+        settings: {
+          arrows: false,
+          dots: true,
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
 
@@ -255,7 +253,7 @@ function HomeVersionThree(props) {
         data={featureData}
         classes=""
         sectionClasses=""
-        headingClasses=""
+        headingClasses="section-subtitle-2"
         titleSectionData={{
           subTitle: "Our Services",
           title: "Our Main Focus",
@@ -265,23 +263,24 @@ function HomeVersionThree(props) {
 
     <!-- SEARCH BY PLACE AREA START (testimonial-7) --> */}
       <div
-        className="ltn__search-by-place-area before-bg-top pt-115 pb-70"
+        className="ltn__search-by-place-area section-bg-1 pt-115 pb-70"
 
 
       >
         <Container>
           <Row>
             <Col xs={12}>
-              <div className="section-title-area">
-                <h6 className="section-subtitle ltn__secondary-color">
-                  Area Properties
-                </h6>
-                <h1 className="section-title">
-                  Find Your Dream House <br />
-                  Search By Area
-                </h1>
-              </div>
+              <TitleSection
+                sectionClasses=""
+                headingClasses="section-subtitle-2"
+                titleSectionData={{
+                  subTitle: "Area Properties",
+                  title: "Properties By Location",
+                }}
+              />
             </Col>
+
+
           </Row>
 
           {!!countryProducts?.length ? (
@@ -312,15 +311,10 @@ function HomeVersionThree(props) {
       {/* <!-- SEARCH BY PLACE AREA END -->
 
 
-        {/* <!-- VIDEO AREA START --> */}
-      <div className="ltn__video-popup-area">
-        <VideoBanner />
-      </div>
-      {/* <!-- VIDEO AREA END --> */}
 
       {/* PRODUCT SLIDER AREA START */}
       <div className="ltn__product-slider-area ltn__product-gutter pt-115 pb-90 plr--7">
-        <Container fluid>
+        <Container>
           <Row>
             <Col lg={12}>
               <TitleSection
@@ -382,14 +376,63 @@ function HomeVersionThree(props) {
       {/* PRODUCT SLIDER AREA END */}
 
 
+      {/* <!-- VIDEO AREA START --> */}
+      <div className="ltn__video-popup-area">
+        <VideoBanner />
+      </div>
+      {/* <!-- VIDEO AREA END --> */}
+
+
+
+      {/* <!-- TESTIMONIAL AREA START --> */}
+      <div className="ltn__testimonial-area ltn__testimonial-4 pt-115 pb-100 plr--9">
+        <Container fluid>
+          <Row>
+            <Col lg={12}>
+              <TitleSection
+                sectionClasses=""
+                headingClasses="section-subtitle-2"
+                titleSectionData={{
+                  subTitle: "Our Testimonial",
+                  title: "Clients Feedback",
+                }}
+              />
+            </Col>
+          </Row>
+
+          <Row>
+            <Col lg={12}>
+              <TestimonialStyleThree data={testimonialData} />
+            </Col>
+          </Row>
+        </Container>
+      </div>
+      {/* <!-- TESTIMONIAL AREA END --> */}
+
+
+
+      {/* <!-- BRAND LOGO AREA START --> */}
+      <div className="ltn__brand-logo-area ltn__brand-logo-1 section-bg-1 pt-110 pb-110 plr--9">
+        <Container fluid>
+          <Row>
+            <Col xs={12}>
+              <BrandCarouselOne data={brand} />
+            </Col>
+          </Row>
+        </Container>
+      </div>
+      {/* <!-- BRAND LOGO AREA END --> */}
+
+
+
       {/* <!-- BLOG AREA START (blog-3) -->  */}
-      <div className="ltn__blog-area pb-70">
+      <div className="ltn__blog-area pt-120 pb-70">
         <Container>
           <Row>
             <Col lg={12}>
               <TitleSection
                 sectionClasses=""
-                headingClasses=""
+                headingClasses="section-subtitle-2"
                 titleSectionData={{
                   subTitle: "News & Blogs",
                   title: "Leatest News Feeds",
@@ -428,12 +471,22 @@ function HomeVersionThree(props) {
 }
 
 export async function getStaticProps() {
+
   const filePath = path.join(process.cwd(), "src/data/hero/", "index-three.json");
+
+  const brandfilePath = path.join(process.cwd(), "src/data/brand-logo/", "index.json");
+
+  const testimonialFilePath = path.join(process.cwd(), "src/data/testimonial/", "index-three.json");
+
   const data = JSON.parse(await fs.readFile(filePath));
+  const brand = JSON.parse(await fs.readFile(brandfilePath));
+  const testimonialData = JSON.parse(await fs.readFile(testimonialFilePath));
 
   return {
     props: {
       data,
+      brand,
+      testimonialData
     },
   };
 }

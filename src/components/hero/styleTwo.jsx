@@ -257,7 +257,7 @@ function HeroSectionStyleTwo({ data }) {
             >
               {data.map((item, key) => {
                 return (
-                  <div className="image-slide-item dddd" key={key}>
+                  <div className="image-slide-item" key={key}>
                     <img src={`/img/slider/${item.heroimage}`} alt="#" />
                   </div>
                 );
