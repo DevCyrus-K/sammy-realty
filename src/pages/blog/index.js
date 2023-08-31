@@ -11,13 +11,14 @@ import ReactPaginate from "react-paginate";
 import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
 
 function Blog() {
-  const { products } = useSelector((state) => state.product);
-  const featuredBlogs = getProducts(blogData, "fashion", "featured", 7);
-  const latestdBlogs = getProducts(blogData, "fashion", "featured", 4);
-  const topRatedProducts = getProducts(products, "fashion", "featured", 3);
-  const popularProducts = getProducts(products, "fashion", "featured", 3);
 
-  const perPageLimit = 4;
+  const { products } = useSelector((state) => state.product);
+  const featuredBlogs = getProducts(blogData, "buying", "featured", 7);
+  const latestdBlogs = getProducts(blogData, "buying", "featured", 4);
+  const topRatedProducts = getProducts(products, "buying", "featured", 3);
+  const popularProducts = getProducts(products, "buying", "featured", 3);
+
+  const perPageLimit = 6;
   const [currentItems, setCurrentItems] = useState(featuredBlogs);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
@@ -84,6 +85,7 @@ function Blog() {
               </Col>
             </Row>
               </Col>
+
 
               <Col xs={12} lg={{ span: 4, order: 0 }}>
                 <BlogSideBar

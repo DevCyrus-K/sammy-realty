@@ -1,23 +1,12 @@
 import Link from "next/link";
-import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
+import { Container, Row, Col, Nav, Tab, Form } from "react-bootstrap";
 import { LayoutOne } from "@/layouts";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
 import CallToAction from "@/components/callToAction";
-import Select from "react-select";
 import { FaPencilAlt, } from "react-icons/fa";
 
 
 function AddListingPage() {
-
-  const areaOptions = [
-    { value: "Choose Area", label: "Choose Area" },
-    { value: "chicago", label: "chicago" },
-    { value: "London", label: "London" },
-    { value: "Los Angeles", label: "Los Angeles" },
-    { value: "New York", label: "New York" },
-    { value: "New Jersey", label: "New Jersey" },
-  ];
-
 
 
   return (
@@ -128,36 +117,39 @@ function AddListingPage() {
                           <Row>
                             <Col xs={12} md={6} lg={4}>
                               <div className="input-item ltn__custom-icon">
-                                <Select
-                                  className="nice-select"
-                                  options={areaOptions}
-                                  defaultValue={[
-                                    { value: "None", label: "None" },
-                                  ]}
-                                />
+                                <Form.Select className="nice-select">
+                                  <option>Make A Selection</option>
+                                  <option value="1">New York</option>
+                                  <option value="2">South Carolina</option>
+                                  <option value="3">Los Angeles</option>
+                                  <option value="4">Florida</option>
+                                  <option value="5">New Jersey</option>
+                                </Form.Select>
 
                               </div>
                             </Col>
                             <Col xs={12} md={6} lg={4}>
                               <div className="input-item ltn__custom-icon">
-                                <Select
-                                  className="nice-select"
-                                  options={areaOptions}
-                                  defaultValue={[
-                                    { value: "None", label: "None" },
-                                  ]}
-                                />
+                                <Form.Select className="nice-select">
+                                  <option>Make A Selection</option>
+                                  <option value="1">New York</option>
+                                  <option value="2">South Carolina</option>
+                                  <option value="3">Los Angeles</option>
+                                  <option value="4">Florida</option>
+                                  <option value="5">New Jersey</option>
+                                </Form.Select>
                               </div>
                             </Col>
                             <Col xs={12} md={6} lg={4}>
                               <div className="input-item ltn__custom-icon">
-                                <Select
-                                  className="nice-select"
-                                  options={areaOptions}
-                                  defaultValue={[
-                                    { value: "None", label: "None" },
-                                  ]}
-                                />
+                                <Form.Select className="nice-select">
+                                  <option>Make A Selection</option>
+                                  <option value="1">New York</option>
+                                  <option value="2">South Carolina</option>
+                                  <option value="3">Los Angeles</option>
+                                  <option value="4">Florida</option>
+                                  <option value="5">New Jersey</option>
+                                </Form.Select>
                               </div>
                             </Col>
                           </Row>
@@ -192,13 +184,14 @@ function AddListingPage() {
                           <Row>
                             <Col xs={12} md={6}>
                               <div className="input-item ltn__custom-icon">
-                                <Select
-                                  className="nice-select"
-                                  options={areaOptions}
-                                  defaultValue={[
-                                    { value: "None", label: "None" },
-                                  ]}
-                                />
+                                <Form.Select className="nice-select">
+                                  <option>Make A Selection</option>
+                                  <option value="1">New York</option>
+                                  <option value="2">South Carolina</option>
+                                  <option value="3">Los Angeles</option>
+                                  <option value="4">Florida</option>
+                                  <option value="5">New Jersey</option>
+                                </Form.Select>
                               </div>
                             </Col>
                             <Col xs={12} md={6}>
@@ -558,24 +551,26 @@ function AddListingPage() {
                             </Col>
                             <Col xs={12} md={6}>
                               <div className="input-item ltn__custom-icon">
-                                <Select
-                                  className="nice-select"
-                                  options={areaOptions}
-                                  defaultValue={[
-                                    { value: "None", label: "None" },
-                                  ]}
-                                />
+                                <Form.Select className="nice-select">
+                                  <option>Make A Selection</option>
+                                  <option value="1">New York</option>
+                                  <option value="2">South Carolina</option>
+                                  <option value="3">Los Angeles</option>
+                                  <option value="4">Florida</option>
+                                  <option value="5">New Jersey</option>
+                                </Form.Select>
                               </div>
                             </Col>
                             <Col xs={12} md={6}>
                               <div className="input-item ltn__custom-icon">
-                                <Select
-                                  className="nice-select"
-                                  options={areaOptions}
-                                  defaultValue={[
-                                    { value: "None", label: "None" },
-                                  ]}
-                                />
+                                <Form.Select className="nice-select">
+                                  <option>Make A Selection</option>
+                                  <option value="1">New York</option>
+                                  <option value="2">South Carolina</option>
+                                  <option value="3">Los Angeles</option>
+                                  <option value="4">Florida</option>
+                                  <option value="5">New Jersey</option>
+                                </Form.Select>
                               </div>
                             </Col>
                             <div className="col-lg-12">
@@ -594,13 +589,14 @@ function AddListingPage() {
                           <Row>
                             <Col xs={12} md={6}>
                               <div className="input-item ltn__custom-icon">
-                                <Select
-                                  className="nice-select"
-                                  options={areaOptions}
-                                  defaultValue={[
-                                    { value: "None", label: "None" },
-                                  ]}
-                                />
+                                <Form.Select className="nice-select">
+                                  <option>Make A Selection</option>
+                                  <option value="1">New York</option>
+                                  <option value="2">South Carolina</option>
+                                  <option value="3">Los Angeles</option>
+                                  <option value="4">Florida</option>
+                                  <option value="5">New Jersey</option>
+                                </Form.Select>
                               </div>
                             </Col>
                             <Col xs={12} md={6}>

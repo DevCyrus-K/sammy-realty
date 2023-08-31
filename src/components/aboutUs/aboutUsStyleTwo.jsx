@@ -3,10 +3,10 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import LightGallery from "lightgallery/react";
-function AboutUsStyleTwo() {
+function AboutUsStyleTwo({sectionSpace}) {
   return (
     <>
-      <div className="ltn__about-us-area pt-120 pb-90">
+      <div className={`ltn__about-us-area ${sectionSpace}`}>
         <Container>
           <Row>
             <Col xs={12} lg={6} className="align-self-center">

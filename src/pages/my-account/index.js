@@ -183,7 +183,7 @@ function MyAccount() {
                                   <h4 className="title-2">Get A Quote</h4>
                                   <form
                                     id="contact-form"
-                                    action="mail.php"
+                                    action="#"
                                     method="post"
                                   >
                                     <Row>
@@ -219,7 +219,7 @@ function MyAccount() {
                                             <option>Mortgage Service </option>
                                             <option>Consulting Service</option>
                                             <option>Home Buying</option>
-                                            <option>Home Selling</option>
+                                            <option>Home selling</option>
                                             <option>Escrow Services</option>
                                           </select>
                                           <span className="inline-icon">

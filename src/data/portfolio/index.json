@@ -15,7 +15,7 @@
     "img": "1.png",
     "id": "01",
     "active": false,
-    "category": ["fashion", "women"],
+    "category": ["buying", "women"],
     "featured": true,
     "reviews": [
       {
@@ -54,7 +54,7 @@
     "img": "2.jpg",
     "id": "02",
     "active": true,
-    "category": ["fashion", "women"],
+    "category": ["buying", "women"],
     "featured": true,
     "reviews": [
       {
@@ -93,7 +93,7 @@
     "img": "3.jpg",
     "id": "03",
     "active": false,
-    "category": ["fashion", "women"],
+    "category": ["buying", "women"],
     "featured": true,
     "reviews": [
       {
@@ -132,7 +132,7 @@
     "img": "4.jpg",
     "id": "04",
     "active": false,
-    "category": ["fashion", "women"],
+    "category": ["buying", "women"],
     "featured": true,
     "reviews": [
       {
@@ -171,7 +171,7 @@
     "img": "5.jpg",
     "id": "05",
     "active": false,
-    "category": ["fashion", "women"],
+    "category": ["buying", "women"],
     "featured": true,
     "reviews": [
       {
@@ -210,7 +210,7 @@
     "img": "6.jpg",
     "id": "06",
     "active": false,
-    "category": ["fashion", "women"],
+    "category": ["buying", "women"],
     "featured": true,
     "reviews": [
       {
@@ -249,7 +249,7 @@
     "img": "7.jpg",
     "id": "07",
     "active": false,
-    "category": ["fashion", "women"],
+    "category": ["buying", "women"],
     "featured": true,
     "reviews": [
       {

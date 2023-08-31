@@ -4,7 +4,7 @@
     "image": "4.jpg",
     "name": "Rosalina D. William",
     "designation": "PROPERTY SELLER",
-    "category": ["fashion", "women"],
+    "category": ["buying", "women"],
     "featured": true,
     "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     "information": {
@@ -27,7 +27,7 @@
       },
       {
         "icon": "icon-mechanic",
-        "title": "Home Selling",
+        "title": "Home selling",
         "description": "Lorem ipsum dolor sit ame it, consectetur adipisicing elit, sed do eiusmod te mp or",
         "readmore": "#",
         "active": true
@@ -46,8 +46,8 @@
     "id": "2",
     "image": "2.jpg",
     "name": "Kelian Anderson",
-    "designation": "Selling Agents",
-    "category": ["fashion", "women"],
+    "designation": "selling Agents",
+    "category": ["buying", "women"],
     "featured": true,
     "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     "information": {
@@ -69,7 +69,7 @@
       },
       {
         "icon": "icon-mechanic",
-        "title": "Home Selling",
+        "title": "Home selling",
         "description": "Lorem ipsum dolor sit ame it, consectetur adipisicing elit, sed do eiusmod te mp or",
         "readmore": "#"
       },
@@ -87,7 +87,7 @@
     "image": "3.jpg",
     "name": "Miranda H. Halim",
     "designation": "Property Seller",
-    "category": ["fashion", "women"],
+    "category": ["buying", "women"],
     "featured": true,
     "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     "information": {
@@ -109,7 +109,7 @@
       },
       {
         "icon": "icon-mechanic",
-        "title": "Home Selling",
+        "title": "Home selling",
         "description": "Lorem ipsum dolor sit ame it, consectetur adipisicing elit, sed do eiusmod te mp or",
         "readmore": "#"
       },
@@ -127,7 +127,7 @@
     "image": "1.jpg",
     "name": "Damble D. Browni.",
     "designation": "PROPERTY SELLER",
-    "category": ["fashion", "women"],
+    "category": ["buying", "women"],
     "featured": true,
     "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     "information": {
@@ -149,7 +149,7 @@
       },
       {
         "icon": "icon-mechanic",
-        "title": "Home Selling",
+        "title": "Home selling",
         "description": "Lorem ipsum dolor sit ame it, consectetur adipisicing elit, sed do eiusmod te mp or",
         "readmore": "#"
       },
@@ -167,7 +167,7 @@
     "image": "5.jpg",
     "name": "RosaAiden Benjamin",
     "designation": "Real Estate Broker",
-    "category": ["fashion", "women"],
+    "category": ["buying", "women"],
     "featured": true,
     "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     "information": {
@@ -189,7 +189,7 @@
       },
       {
         "icon": "icon-mechanic",
-        "title": "Home Selling",
+        "title": "Home selling",
         "description": "Lorem ipsum dolor sit ame it, consectetur adipisicing elit, sed do eiusmod te mp or",
         "readmore": "#"
       },
@@ -206,8 +206,8 @@
     "id": "6",
     "image": "6.jpg",
     "name": "James Carter",
-    "designation": "Selling Agents",
-    "category": ["fashion", "women"],
+    "designation": "selling Agents",
+    "category": ["buying", "women"],
     "featured": true,
     "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     "information": {
@@ -229,7 +229,7 @@
       },
       {
         "icon": "icon-mechanic",
-        "title": "Home Selling",
+        "title": "Home selling",
         "description": "Lorem ipsum dolor sit ame it, consectetur adipisicing elit, sed do eiusmod te mp or",
         "readmore": "#"
       },

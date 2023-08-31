@@ -123,9 +123,9 @@ const SideBar = ({ products, getSortParams }) => {
             "No categories found"
           )}
 
-          <hr />
+          {/* <hr /> */}
           {/* <!-- Price Filter Widget --> */}
-          <div className="widget--- ltn__price-filter-widget">
+          {/* <div className="widget--- ltn__price-filter-widget">
             <h4 className="ltn__widget-title ltn__widget-title-border---">
               Filter by price
             </h4>
@@ -141,7 +141,7 @@ const SideBar = ({ products, getSortParams }) => {
               </div>
               <div className="slider-range"></div>
             </div>
-          </div>
+          </div> */}
           <hr />
           <h4 className="ltn__widget-title">Bed/bath</h4>
           {bedBaths.length > 0 ? (

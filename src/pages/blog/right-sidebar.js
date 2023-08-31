@@ -12,12 +12,12 @@ import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
 
 function BlogRightSideBar() {
   const { products } = useSelector((state) => state.product);
-  const featuredBlogs = getProducts(blogData, "fashion", "featured", 7);
-  const latestdBlogs = getProducts(blogData, "fashion", "featured", 4);
-  const topRatedProducts = getProducts(products, "fashion", "featured", 3);
-  const popularProducts = getProducts(products, "fashion", "featured", 3);
+  const featuredBlogs = getProducts(blogData, "buying", "featured", 7);
+  const latestdBlogs = getProducts(blogData, "buying", "featured", 4);
+  const topRatedProducts = getProducts(products, "buying", "featured", 3);
+  const popularProducts = getProducts(products, "buying", "featured", 3);
 
-  const perPageLimit = 4;
+  const perPageLimit = 6;
   const [currentItems, setCurrentItems] = useState(featuredBlogs);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);

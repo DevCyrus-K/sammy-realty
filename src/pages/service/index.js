@@ -13,7 +13,7 @@ import Feature from "@/components/features";
 import featureData from "@/data/service"
 
 function Service() {
-  const services = getProducts(featureData, "fashion", "featured", 6);
+  const services = getProducts(featureData, "buying", "featured", 6);
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
     <button
       {...props}
@@ -61,7 +61,7 @@ function Service() {
           currentSlug="Service"
         />
 
-        <AboutUsStyletwo />
+        <AboutUsStyletwo sectionSpace="pb-90" />
 
         <Feature
           classes="section-bg-1"

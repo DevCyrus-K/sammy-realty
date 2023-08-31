@@ -63,7 +63,7 @@ function ProductDetails({ product }) {
     product.price,
     product.discount
   ).toFixed(2);
-  const latestdBlogs = getProducts(blogData, "fashion", "featured", 4);
+  const latestdBlogs = getProducts(blogData, "buying", "featured", 4);
   const productPrice = product.price.toFixed(2);
   const cartItem = cartItems.find((cartItem) => cartItem.id === product.id);
   const wishlistItem = wishlistItems.find(

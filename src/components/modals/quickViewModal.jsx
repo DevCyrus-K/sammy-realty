@@ -109,6 +109,7 @@ const QuickViewModal = ({
                     )}
                   </div>
                   <hr />
+                
                   <div className="modal-product-brief">
                     <p>{productData.description.shortDescription}</p>
                   </div>

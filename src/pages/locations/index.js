@@ -1,5 +1,5 @@
 import { LayoutOne } from "@/layouts";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Form } from "react-bootstrap";
 import {
   FaMapMarkedAlt,
   FaPhoneVolume,
@@ -35,6 +35,7 @@ function Locations() {
         </div>
         {/* <!-- GOOGLE MAP LOCATIONS AREA END --> */}
 
+
         {/* <!-- GOOGLE MAP LOCATIONS LIST AREA START --> */}
         <div className="ltn__google-map-locations-list-area mt-115 mb-70">
           <Container>
@@ -49,16 +50,14 @@ function Locations() {
                   <form action="#" className="clearfix">
                     <h3>Your State</h3>
                     <div className="input-item">
-                      <select className="nice-select">
+                      <Form.Select className="nice-select">
                         <option>Make A Selection</option>
-                        <option>New York</option>
-                        <option>South Carolina</option>
-                        <option>Florida</option>
-                        <option>Rhode Island</option>
-                        <option>Melbourne</option>
-                        <option>Sydney</option>
-                        <option>Cairns</option>
-                      </select>
+                        <option value="1">New York</option>
+                        <option value="2">South Carolina</option>
+                        <option value="3">Los Angeles</option>
+                        <option value="4">Florida</option>
+                        <option value="5">New Jersey</option>
+                      </Form.Select>
                     </div>
                   </form>
                 </div>

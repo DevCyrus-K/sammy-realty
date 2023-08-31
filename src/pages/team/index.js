@@ -6,7 +6,7 @@ import CallToAction from "@/components/callToAction";
 import TeamItem from "@/components/team";
 import TeamData from "@/data/team";
 function TeamPage() {
-  const agents = getProducts(TeamData, "fashion", "featured", 6);
+  const agents = getProducts(TeamData, "buying", "featured", 6);
 
   return (
     <>

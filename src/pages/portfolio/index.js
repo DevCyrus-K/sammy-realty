@@ -15,7 +15,7 @@ import brandLogoData from "@/data/brand-logo";
 import LightGallery from "lightgallery/react";
 
 function Portfolio() {
-  const portfolios = getProducts(portfolioData, "fashion", "featured", 6);
+  const portfolios = getProducts(portfolioData, "buying", "featured", 6);
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
     <button
       {...props}

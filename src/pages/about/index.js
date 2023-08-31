@@ -17,8 +17,8 @@ import TeamItem from "@/components/team";
 import TeamData from '@/data/team';
 
 function AboutUs() {
-  const agents = getProducts(TeamData, "fashion", "featured", 3);
-  const featureDataSorted = getProducts(featureData, "fashion", "featured", 3);
+  const agents = getProducts(TeamData, "buying", "featured", 3);
+  const featureDataSorted = getProducts(featureData, "buying", "featured", 3);
 
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
     <button

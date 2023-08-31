@@ -16,7 +16,7 @@
     "buttonText": "Find A Home",
     "active": false,
     "icon": "flaticon-house",
-    "category": ["fashion", "women"],
+    "category": ["buying", "women"],
     "featured": true
   },
 
@@ -37,7 +37,7 @@
     "buttonText": "Find A Home",
     "active": true,
     "icon": "flaticon-house-3",
-    "category": ["fashion", "women"],
+    "category": ["buying", "women"],
     "featured": true
   },
   {
@@ -57,7 +57,7 @@
     "buttonText": "Find A Home",
     "active": false,
     "icon": "flaticon-deal-1",
-    "category": ["fashion", "women"],
+    "category": ["buying", "women"],
     "featured": true
   },
   {
@@ -77,7 +77,7 @@
     "buttonText": "Find A Home",
     "active": false,
     "icon": "flaticon-deal-1",
-    "category": ["fashion", "women"],
+    "category": ["buying", "women"],
     "featured": true
   },
   {
@@ -97,7 +97,7 @@
     "buttonText": "Find A Home",
     "active": false,
     "icon": "flaticon-deal-1",
-    "category": ["fashion", "women"],
+    "category": ["buying", "women"],
     "featured": true
   },
   {
@@ -117,7 +117,7 @@
     "buttonText": "Find A Home",
     "active": false,
     "icon": "flaticon-deal-1",
-    "category": ["fashion", "women"],
+    "category": ["buying", "women"],
     "featured": true
   },
   {
@@ -137,7 +137,7 @@
     "buttonText": "Find A Home",
     "active": false,
     "icon": "flaticon-deal-1",
-    "category": ["fashion", "women"],
+    "category": ["buying", "women"],
     "featured": true
   }
 ]

@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
-import { getSortedProducts, productSlug,getDiscountPrice } from "@/lib/product";
+import { getSortedProducts, productSlug, getDiscountPrice } from "@/lib/product";
 import { LayoutOne } from "@/layouts";
 import { FaThLarge, FaThList, FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
-import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
+import { Container, Row, Col, Nav, Tab, Form } from "react-bootstrap";
 import SideBar from "@/components/shopSideBar";
 import RelatedProduct from "@/components/product/related-product";
 import ProductList from "@/components/product/list";
@@ -26,7 +26,7 @@ function Shop() {
   const { wishlistItems } = useSelector((state) => state.wishlist);
   const { compareItems } = useSelector((state) => state.compare);
 
-  const pageLimit = 4;
+  const pageLimit = 6;
   const [currentItems, setCurrentItems] = useState(products);
   const [pageCount, setPageCount] = useState(0);
   const getSortParams = (sortType, sortValue) => {
@@ -116,7 +116,7 @@ function Shop() {
 
                     <li>
                       <div className="short-by text-center">
-                        <select
+                        <Form.Select
                           className="form-control nice-select"
                           onChange={(e) =>
 
@@ -126,7 +126,7 @@ function Shop() {
                           <option value="default">Default</option>
                           <option value="priceHighToLow">Price - High to Low</option>
                           <option value="priceLowToHigh">Price - Low to High</option>
-                        </select>
+                        </Form.Select>
                       </div>
                     </li>
                   </ul>

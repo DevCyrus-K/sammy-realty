@@ -145,7 +145,7 @@ function portfolioDetails({ portfolio }) {
                       </li>
                       <li>
                         <Link href="#">
-                          Home Selling
+                          Home selling
                           <span>
                             <FaArrowRight />
                           </span>

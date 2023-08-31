@@ -29,11 +29,11 @@ function BlogtDetails({ blog }) {
 
   const relatedBlogs = getProducts(blogData, blog.category[0], "popular", 2);
 
-  const latestdBlogs = getProducts(blogData, "fashion", "featured", 4);
+  const latestdBlogs = getProducts(blogData, "buying", "featured", 4);
 
-  const topRatedProducts = getProducts(products, "fashion", "featured", 3);
+  const topRatedProducts = getProducts(products, "buying", "featured", 3);
 
-  const popularProducts = getProducts(products, "fashion", "featured", 3);
+  const popularProducts = getProducts(products, "buying", "featured", 3);
 
   return (
     <>

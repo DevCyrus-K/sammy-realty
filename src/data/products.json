@@ -1,30 +1,30 @@
 [
   {
-    "id": "01",
+    "id": "1",
     "carousel": [
       { "img": "35.jpg" },
       { "img": "31.jpg" },
       { "img": "32.jpg" },
       { "img": "33.jpg" }
     ],
-    "title": "Luxury villa in Rego Park 1",
+    "title": "Luxury villa in Rego Park",
     "productImg": "1.jpg",
-    "price": 100,
+    "price": 69,
     "priceRange": ["Low Budget"],
     "discount": 5,
     "country": true,
-    "district":"Mission District Area",
+    "district": "Mission District Area",
     "properties": 2,
     "featured": true,
     "new": true,
-    "rent": true,
-    "photo": ["fashion", "women", "women"],
-    "video": ["fashion", "women"],
-    "bedBath": ["Single", "Renting", "Selling"],
-    "ratingCount": 11,
+    "rent": false,
+    "photo": ["buying", "women", "women"],
+    "video": ["buying", "women"],
+    "bedBath": ["Single", "renting", "selling"],
+    "ratingCount": 5,
     "rating": 3,
-    "saleCount": 90,
-    "category": ["fashion", "women"],
+    "saleCount": 5,
+    "category": ["buying","renting"],
     "tag": [
       "Popular",
       "desgin",
@@ -41,73 +41,7 @@
       "Oil Change",
       "Body Color"
     ],
-    "variation": [
-      {
-        "color": "brown",
-        "colorCode": "#87554b",
-        "image": "/assets/images/product/fashion/1.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 3
-          },
-          {
-            "name": "m",
-            "stock": 2
-          },
-          {
-            "name": "xl",
-            "stock": 5
-          }
-        ]
-      },
-      {
-        "color": "black",
-        "colorCode": "#333333",
-        "image": "/assets/images/product/fashion/2.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 4
-          },
-          {
-            "name": "m",
-            "stock": 7
-          },
-          {
-            "name": "xl",
-            "stock": 9
-          },
-          {
-            "name": "xxl",
-            "stock": 1
-          }
-        ]
-      },
-      {
-        "color": "red",
-        "colorCode": "#da323f",
-        "image": "/assets/images/product/fashion/3.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 1
-          },
-          {
-            "name": "m",
-            "stock": 2
-          },
-          {
-            "name": "xl",
-            "stock": 4
-          },
-          {
-            "name": "xxl",
-            "stock": 0
-          }
-        ]
-      }
-    ],
+
     "date": "May 19, 2021",
     "comments": 35,
     "locantion": "Belmont Gardens, Chicago",
@@ -178,7 +112,7 @@
     "propertyTypes": ["House", "Office Villa", "Luxary Home"]
   },
   {
-    "id": "02",
+    "id": "2",
     "carousel": [
       { "img": "35.jpg" },
       { "img": "31.jpg" },
@@ -187,22 +121,22 @@
     ],
     "title": "New Apartment Nice View",
     "productImg": "2.jpg",
-    "price": 50,
+    "price": 159,
     "priceRange": ["Medium"],
     "discount": 5,
     "country": true,
-    "district":"Pacific Heights Area",
+    "district": "Pacific Heights Area",
     "properties": 2,
-    "featured": true,
-    "new": true,
+    "featured": false,
+    "new": false,
     "rent": true,
-    "photo": ["fashion", "women", "women"],
-    "video": ["fashion", "women"],
-    "bedBath": ["Single", "Renting", "Selling"],
-    "ratingCount": 5,
-    "rating": 5,
-    "saleCount": 90,
-    "category": ["fashion", "women", "men"],
+    "photo": ["buying", "women", "women"],
+    "video": ["buying", "women"],
+    "bedBath": ["Single", "renting", "selling"],
+    "ratingCount": 3,
+    "rating": 4,
+    "saleCount": 10,
+    "category": ["buying"],
     "tag": [
       "Popular",
       "desgin",
@@ -218,73 +152,6 @@
       "Dealer",
       "Oil Change",
       "Body Color"
-    ],
-    "variation": [
-      {
-        "color": "brown",
-        "colorCode": "#87554b",
-        "image": "/assets/images/product/fashion/1.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 3
-          },
-          {
-            "name": "m",
-            "stock": 2
-          },
-          {
-            "name": "xl",
-            "stock": 5
-          }
-        ]
-      },
-      {
-        "color": "black",
-        "colorCode": "#333333",
-        "image": "/assets/images/product/fashion/2.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 4
-          },
-          {
-            "name": "m",
-            "stock": 7
-          },
-          {
-            "name": "xl",
-            "stock": 9
-          },
-          {
-            "name": "xxl",
-            "stock": 1
-          }
-        ]
-      },
-      {
-        "color": "red",
-        "colorCode": "#da323f",
-        "image": "/assets/images/product/fashion/3.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 1
-          },
-          {
-            "name": "m",
-            "stock": 2
-          },
-          {
-            "name": "xl",
-            "stock": 4
-          },
-          {
-            "name": "xxl",
-            "stock": 0
-          }
-        ]
-      }
     ],
     "date": "May 19, 2021",
     "comments": 35,
@@ -356,31 +223,31 @@
     "propertyTypes": ["Apartment", "Office Villa", "Luxary Home", "Studio"]
   },
   {
-    "id": "03",
+    "id": "3",
     "carousel": [
       { "img": "35.jpg" },
       { "img": "31.jpg" },
       { "img": "32.jpg" },
       { "img": "33.jpg" }
     ],
-    "title": "Luxury villa new in Rego Park 3",
+    "title": "Citra Puri California Living",
     "productImg": "3.jpg",
-    "price": 40,
+    "price": 49,
     "priceRange": ["High Budget"],
-    "discount": 5,
-    "country": true,
-    "district":"Noe Valley Zones",
+    "discount": 15,
+    "country": false,
+    "district": "Noe Valley Zones",
     "properties": 3,
-    "featured": true,
+    "featured": false,
     "new": true,
-    "rent": true,
-    "photo": ["fashion", "women", "women"],
-    "video": ["fashion", "women"],
-    "bedBath": ["Single", "Renting", "Selling"],
-    "ratingCount": 5,
-    "rating": 5,
-    "saleCount": 90,
-    "category": ["fashion", "women", "men"],
+    "rent": false,
+    "photo": ["buying", "women", "women"],
+    "video": ["buying", "women"],
+    "bedBath": ["Single", "renting", "selling"],
+    "ratingCount": 2,
+    "rating": 3,
+    "saleCount": 15,
+    "category": ["buying","selling"],
     "tag": [
       "Popular",
       "desgin",
@@ -396,73 +263,6 @@
       "Dealer",
       "Oil Change",
       "Body Color"
-    ],
-    "variation": [
-      {
-        "color": "brown",
-        "colorCode": "#87554b",
-        "image": "/assets/images/product/fashion/1.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 3
-          },
-          {
-            "name": "m",
-            "stock": 2
-          },
-          {
-            "name": "xl",
-            "stock": 5
-          }
-        ]
-      },
-      {
-        "color": "black",
-        "colorCode": "#333333",
-        "image": "/assets/images/product/fashion/2.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 4
-          },
-          {
-            "name": "m",
-            "stock": 7
-          },
-          {
-            "name": "xl",
-            "stock": 9
-          },
-          {
-            "name": "xxl",
-            "stock": 1
-          }
-        ]
-      },
-      {
-        "color": "red",
-        "colorCode": "#da323f",
-        "image": "/assets/images/product/fashion/3.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 1
-          },
-          {
-            "name": "m",
-            "stock": 2
-          },
-          {
-            "name": "xl",
-            "stock": 4
-          },
-          {
-            "name": "xxl",
-            "stock": 0
-          }
-        ]
-      }
     ],
     "date": "May 19, 2021",
     "comments": 35,
@@ -513,7 +313,7 @@
       "24x7 Security",
       "Indoor Game"
     ],
-    "AmenitiesList": ["Dishwasher", "Floor Coverings"],
+    "AmenitiesList": ["Floor Coverings"],
     "agent": {
       "firstName": "Rosalina D.",
       "lastName": "Willaimson",
@@ -534,31 +334,31 @@
     "propertyTypes": ["House", "Single Family", "Luxary Home", "Studio"]
   },
   {
-    "id": "04",
+    "id": "4",
     "carousel": [
       { "img": "35.jpg" },
       { "img": "31.jpg" },
       { "img": "32.jpg" },
       { "img": "33.jpg" }
     ],
-    "title": "Luxury villa in Rego Park 4",
+    "title": "Get Best Property On Our",
     "productImg": "4.jpg",
-    "price": 20,
-    "priceRange": ["Medium", "High Budget"],
-    "discount": 5,
-    "country": true,
-    "district":"Mission District Area",
+    "price": 19,
+    "priceRange": ["Medium"],
+    "discount": 10,
+    "country": false,
+    "district": "Mission District Area",
     "properties": 1,
     "featured": true,
-    "new": true,
+    "new": false,
     "rent": true,
-    "photo": ["fashion", "women", "men"],
-    "video": ["fashion", "women", "children"],
-    "bedBath": ["Single", "Renting", "Selling"],
+    "photo": ["buying", "women", "men"],
+    "video": ["buying", "women", "children"],
+    "bedBath": ["Single", "renting", "selling"],
     "ratingCount": 5,
     "rating": 5,
-    "saleCount": 90,
-    "category": ["fashion", "women", "men"],
+    "saleCount": 20,
+    "category": ["buying","renting"],
     "tag": [
       "Popular",
       "desgin",
@@ -574,73 +374,6 @@
       "Dealer",
       "Oil Change",
       "Body Color"
-    ],
-    "variation": [
-      {
-        "color": "brown",
-        "colorCode": "#87554b",
-        "image": "/assets/images/product/fashion/1.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 3
-          },
-          {
-            "name": "m",
-            "stock": 2
-          },
-          {
-            "name": "xl",
-            "stock": 5
-          }
-        ]
-      },
-      {
-        "color": "black",
-        "colorCode": "#333333",
-        "image": "/assets/images/product/fashion/2.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 4
-          },
-          {
-            "name": "m",
-            "stock": 7
-          },
-          {
-            "name": "xl",
-            "stock": 9
-          },
-          {
-            "name": "xxl",
-            "stock": 1
-          }
-        ]
-      },
-      {
-        "color": "red",
-        "colorCode": "#da323f",
-        "image": "/assets/images/product/fashion/3.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 1
-          },
-          {
-            "name": "m",
-            "stock": 2
-          },
-          {
-            "name": "xl",
-            "stock": 4
-          },
-          {
-            "name": "xxl",
-            "stock": 0
-          }
-        ]
-      }
     ],
     "date": "May 19, 2021",
     "comments": 35,
@@ -691,7 +424,7 @@
       "24x7 Security",
       "Indoor Game"
     ],
-    "AmenitiesList": ["Floor Coverings", "Internet"],
+    "AmenitiesList": ["Floor Coverings"],
     "agent": {
       "firstName": "Rosalina D.",
       "lastName": "Willaimson",
@@ -718,31 +451,31 @@
     ]
   },
   {
-    "id": "05",
+    "id": "5",
     "carousel": [
       { "img": "35.jpg" },
       { "img": "31.jpg" },
       { "img": "32.jpg" },
       { "img": "33.jpg" }
     ],
-    "title": "Luxury villa in Rego Park 5",
+    "title": "New Apartment Nice View",
     "productImg": "5.jpg",
-    "price": 500,
-    "priceRange": ["Low Budget", "Medium"],
+    "price": 149,
+    "priceRange": ["Low Budget"],
     "discount": 5,
     "country": true,
-    "district":"Mission District Area",
+    "district": "Mission District Area",
     "properties": 2,
     "featured": true,
-    "new": true,
+    "new": false,
     "rent": true,
-    "photo": ["fashion", "women", "women"],
-    "video": ["fashion", "women"],
-    "bedBath": ["Single", "Renting", "Selling"],
+    "photo": ["buying", "women", "women"],
+    "video": ["buying", "women"],
+    "bedBath": ["Single", "renting", "selling"],
     "ratingCount": 5,
     "rating": 5,
     "saleCount": 90,
-    "category": ["fashion", "women"],
+    "category": ["buying","renting"],
     "tag": [
       "Popular",
       "desgin",
@@ -758,73 +491,6 @@
       "Dealer",
       "Oil Change",
       "Body Color"
-    ],
-    "variation": [
-      {
-        "color": "brown",
-        "colorCode": "#87554b",
-        "image": "/assets/images/product/fashion/1.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 3
-          },
-          {
-            "name": "m",
-            "stock": 2
-          },
-          {
-            "name": "xl",
-            "stock": 5
-          }
-        ]
-      },
-      {
-        "color": "black",
-        "colorCode": "#333333",
-        "image": "/assets/images/product/fashion/2.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 4
-          },
-          {
-            "name": "m",
-            "stock": 7
-          },
-          {
-            "name": "xl",
-            "stock": 9
-          },
-          {
-            "name": "xxl",
-            "stock": 1
-          }
-        ]
-      },
-      {
-        "color": "red",
-        "colorCode": "#da323f",
-        "image": "/assets/images/product/fashion/3.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 1
-          },
-          {
-            "name": "m",
-            "stock": 2
-          },
-          {
-            "name": "xl",
-            "stock": 4
-          },
-          {
-            "name": "xxl",
-            "stock": 0
-          }
-        ]
-      }
     ],
     "date": "May 19, 2021",
     "comments": 35,
@@ -875,7 +541,7 @@
       "24x7 Security",
       "Indoor Game"
     ],
-    "AmenitiesList": ["Supermarket", "Kids Zone"],
+    "AmenitiesList": ["Supermarket"],
     "agent": {
       "firstName": "Rosalina D.",
       "lastName": "Willaimson",
@@ -894,5 +560,450 @@
       "img3": "16.jpg"
     },
     "propertyTypes": ["House", "Single Family", "Apartment", "Office Villa"]
+  },
+  {
+    "id": "6",
+    "carousel": [
+      { "img": "35.jpg" },
+      { "img": "31.jpg" },
+      { "img": "32.jpg" },
+      { "img": "33.jpg" }
+    ],
+    "title": "Citra Puri Los Angles Living",
+    "productImg": "6.jpg",
+    "price": 215,
+    "priceRange": ["Low"],
+    "discount": 5,
+    "country": true,
+    "district": "Mission District Area",
+    "properties": 2,
+    "featured": true,
+    "new": false,
+    "rent": true,
+    "photo": ["buying", "women", "women"],
+    "video": ["buying", "women"],
+    "bedBath": ["Single", "renting", "selling"],
+    "ratingCount": 2,
+    "rating": 3,
+    "saleCount": 25,
+    "category": [ "buying","selling","renting"],
+    "tag": [
+      "Popular",
+      "desgin",
+      "ux",
+      "usability",
+      "develop",
+      "icon",
+      "Car",
+      "Service",
+      "Repairs",
+      "Auto Parts",
+      "Oil",
+      "Dealer",
+      "Oil Change",
+      "Body Color"
+    ],
+    "date": "May 19, 2021",
+    "comments": 35,
+    "locantion": "Chicago",
+    "description": {
+      "title": "Description",
+      "fullDescription": "Massa tempor nec feugiat nisl pretium. Egestas fringilla phasellus faucibus scelerisque eleifend donec Porta nibh venenatis cras sed felis eget velit aliquet. Neque volutpat ac tincidunt vitae semper quis lectus. Turpis in eu mi bibendum neque egestas congue quisque. Sed elementum tempus egestas sed sed risus pretium quam. Dignissim sodales ut eu sem. Nibh mauris cursus mattis molestee iaculis at erat pellentesque. Id interdum velit laoreet id donec ultrices tincidunt.",
+      "shortDescription": "To the left is the modern kitchen with central island, leading through to the unique breakfast family room which feature glass walls and doors out onto the garden and access to the separate utility room."
+    },
+    "propertyDetails": {
+      "propertyId": "HZ29",
+      "area": 3450,
+      "propertyStatus": "For Sale",
+      "rooms": 7,
+      "bedrooms": 3,
+      "baths": 2,
+      "createdYear": 1992
+    },
+    "factsAndFeatures": {
+      "livingRoom": "20 x 16 sq feet",
+      "garage": "20 x 16 sq feet",
+      "diningArea": "20 x 16 sq feet",
+      "bedroom": "20 x 16 sq feet",
+      "bathroom": "20 x 16 sq feet",
+      "gymArea": "20 x 16 sq feet",
+      "garden": "20 x 16 sq feet",
+      "parking": "20 x 16 sq feet"
+    },
+
+    "amenities1": [
+      "Air Conditioning",
+      "Gym",
+      "Microwave",
+      "Swimming Pool",
+      "WiFi"
+    ],
+    "amenities2": [
+      "Barbeque",
+      "Recreation",
+      "Microwave",
+      "Basketball Cout",
+      "Fireplace"
+    ],
+    "amenities3": [
+      "Refrigerator",
+      "Window Coverings",
+      "Washer",
+      "24x7 Security",
+      "Indoor Game"
+    ],
+    "AmenitiesList": ["Kids Zone"],
+    "agent": {
+      "firstName": "Rosalina D.",
+      "lastName": "Willaimson",
+      "fullName": "Rosalina D. Willaimson",
+      "type": "Property Seller",
+      "img": "author.jpg",
+      "designation": "Traveller/Photographer",
+      "raiting": 3,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis distinctio, odio, eligendi suscipit reprehenderit atque.",
+      "social": ["FaPlay", "FaHome", "FaArrowRight", "FaArrowLeft"]
+    },
+
+    "gallery": {
+      "img1": "14.jpg",
+      "img2": "15.jpg",
+      "img3": "16.jpg"
+    },
+    "propertyTypes": ["House", "Single Family", "Apartment", "Office Villa"]
+  },
+  {
+    "id": "7",
+    "carousel": [
+      { "img": "35.jpg" },
+      { "img": "31.jpg" },
+      { "img": "32.jpg" },
+      { "img": "33.jpg" }
+    ],
+    "title": "Citra Puri Los Angles Living",
+    "productImg": "1.jpg",
+    "price": 225,
+    "priceRange": ["Low Budget", "Medium"],
+    "discount": 5,
+    "country": false,
+    "district": "Mission District Area",
+    "properties": 2,
+    "featured": true,
+    "new": false,
+    "rent": false,
+    "photo": ["buying", "women", "women"],
+    "video": ["buying", "women"],
+    "bedBath": ["Single", "renting", "selling"],
+    "ratingCount": 5,
+    "rating": 5,
+    "saleCount": 30,
+    "category": ["buying","renting", "selling"],
+    "tag": [
+      "Popular",
+      "desgin",
+      "ux",
+      "usability",
+      "develop",
+      "icon",
+      "Car",
+      "Service",
+      "Repairs",
+      "Auto Parts",
+      "Oil",
+      "Dealer",
+      "Oil Change",
+      "Body Color"
+    ],
+
+    "date": "May 19, 2021",
+    "comments": 35,
+    "locantion": "Chicago",
+    "description": {
+      "title": "Description",
+      "fullDescription": "Massa tempor nec feugiat nisl pretium. Egestas fringilla phasellus faucibus scelerisque eleifend donec Porta nibh venenatis cras sed felis eget velit aliquet. Neque volutpat ac tincidunt vitae semper quis lectus. Turpis in eu mi bibendum neque egestas congue quisque. Sed elementum tempus egestas sed sed risus pretium quam. Dignissim sodales ut eu sem. Nibh mauris cursus mattis molestee iaculis at erat pellentesque. Id interdum velit laoreet id donec ultrices tincidunt.",
+      "shortDescription": "To the left is the modern kitchen with central island, leading through to the unique breakfast family room which feature glass walls and doors out onto the garden and access to the separate utility room."
+    },
+    "propertyDetails": {
+      "propertyId": "HZ29",
+      "area": 3450,
+      "propertyStatus": "For Sale",
+      "rooms": 7,
+      "bedrooms": 3,
+      "baths": 2,
+      "createdYear": 1992
+    },
+    "factsAndFeatures": {
+      "livingRoom": "20 x 16 sq feet",
+      "garage": "20 x 16 sq feet",
+      "diningArea": "20 x 16 sq feet",
+      "bedroom": "20 x 16 sq feet",
+      "bathroom": "20 x 16 sq feet",
+      "gymArea": "20 x 16 sq feet",
+      "garden": "20 x 16 sq feet",
+      "parking": "20 x 16 sq feet"
+    },
+
+    "amenities1": [
+      "Air Conditioning",
+      "Gym",
+      "Microwave",
+      "Swimming Pool",
+      "WiFi"
+    ],
+    "amenities2": [
+      "Barbeque",
+      "Recreation",
+      "Microwave",
+      "Basketball Cout",
+      "Fireplace"
+    ],
+    "amenities3": [
+      "Refrigerator",
+      "Window Coverings",
+      "Washer",
+      "24x7 Security",
+      "Indoor Game"
+    ],
+    "AmenitiesList": ["Supermarket"],
+    "agent": {
+      "firstName": "Rosalina D.",
+      "lastName": "Willaimson",
+      "fullName": "Rosalina D. Willaimson",
+      "type": "Property Seller",
+      "img": "author.jpg",
+      "designation": "Traveller/Photographer",
+      "raiting": 3,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis distinctio, odio, eligendi suscipit reprehenderit atque.",
+      "social": ["FaPlay", "FaHome", "FaArrowRight", "FaArrowLeft"]
+    },
+
+    "gallery": {
+      "img1": "14.jpg",
+      "img2": "15.jpg",
+      "img3": "16.jpg"
+    },
+    "propertyTypes": ["Office Villa"]
+  },
+  {
+    "id": "8",
+    "carousel": [
+      { "img": "35.jpg" },
+      { "img": "31.jpg" },
+      { "img": "32.jpg" },
+      { "img": "33.jpg" }
+    ],
+    "title": "New Apartment Nice View",
+    "productImg": "2.jpg",
+    "price": 500,
+    "priceRange": ["Low Budget", "Medium"],
+    "discount": 5,
+    "country": false,
+    "district": "Mission District Area",
+    "properties": 2,
+    "featured": false,
+    "new": true,
+    "rent": true,
+    "photo": ["buying", "women", "women"],
+    "video": ["buying", "women"],
+    "bedBath": ["Single", "renting", "selling"],
+    "ratingCount": 5,
+    "rating": 5,
+    "saleCount": 35,
+    "category": ["buying", "renting","selling"],
+    "tag": [
+      "Popular",
+      "desgin",
+      "ux",
+      "usability",
+      "develop",
+      "icon",
+      "Car",
+      "Service",
+      "Repairs",
+      "Auto Parts",
+      "Oil",
+      "Dealer",
+      "Oil Change",
+      "Body Color"
+    ],
+    "date": "May 19, 2021",
+    "comments": 35,
+    "locantion": "Chicago",
+    "description": {
+      "title": "Description",
+      "fullDescription": "Massa tempor nec feugiat nisl pretium. Egestas fringilla phasellus faucibus scelerisque eleifend donec Porta nibh venenatis cras sed felis eget velit aliquet. Neque volutpat ac tincidunt vitae semper quis lectus. Turpis in eu mi bibendum neque egestas congue quisque. Sed elementum tempus egestas sed sed risus pretium quam. Dignissim sodales ut eu sem. Nibh mauris cursus mattis molestee iaculis at erat pellentesque. Id interdum velit laoreet id donec ultrices tincidunt.",
+      "shortDescription": "To the left is the modern kitchen with central island, leading through to the unique breakfast family room which feature glass walls and doors out onto the garden and access to the separate utility room."
+    },
+    "propertyDetails": {
+      "propertyId": "HZ29",
+      "area": 3450,
+      "propertyStatus": "For Sale",
+      "rooms": 7,
+      "bedrooms": 3,
+      "baths": 2,
+      "createdYear": 1992
+    },
+    "factsAndFeatures": {
+      "livingRoom": "20 x 16 sq feet",
+      "garage": "20 x 16 sq feet",
+      "diningArea": "20 x 16 sq feet",
+      "bedroom": "20 x 16 sq feet",
+      "bathroom": "20 x 16 sq feet",
+      "gymArea": "20 x 16 sq feet",
+      "garden": "20 x 16 sq feet",
+      "parking": "20 x 16 sq feet"
+    },
+
+    "amenities1": [
+      "Air Conditioning",
+      "Gym",
+      "Microwave",
+      "Swimming Pool",
+      "WiFi"
+    ],
+    "amenities2": [
+      "Barbeque",
+      "Recreation",
+      "Microwave",
+      "Basketball Cout",
+      "Fireplace"
+    ],
+    "amenities3": [
+      "Refrigerator",
+      "Window Coverings",
+      "Washer",
+      "24x7 Security",
+      "Indoor Game"
+    ],
+    "AmenitiesList": ["Supermarket"],
+    "agent": {
+      "firstName": "Rosalina D.",
+      "lastName": "Willaimson",
+      "fullName": "Rosalina D. Willaimson",
+      "type": "Property Seller",
+      "img": "author.jpg",
+      "designation": "Traveller/Photographer",
+      "raiting": 3,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis distinctio, odio, eligendi suscipit reprehenderit atque.",
+      "social": ["FaPlay", "FaHome", "FaArrowRight", "FaArrowLeft"]
+    },
+
+    "gallery": {
+      "img1": "14.jpg",
+      "img2": "15.jpg",
+      "img3": "16.jpg"
+    },
+    "propertyTypes": ["Single Family"]
+  },
+  {
+    "id": "9",
+    "carousel": [
+      { "img": "35.jpg" },
+      { "img": "31.jpg" },
+      { "img": "32.jpg" },
+      { "img": "33.jpg" }
+    ],
+    "title": "Citra Puri Los Angles Living",
+    "productImg": "4.jpg",
+    "price": 270,
+    "priceRange": ["Low Budget"],
+    "discount": 5,
+    "country": true,
+    "district": "Mission District Area",
+    "properties": 2,
+    "featured": false,
+    "new": true,
+    "rent": false,
+    "photo": ["buying", "women", "women"],
+    "video": ["buying", "women"],
+    "bedBath": ["Single", "renting", "selling"],
+    "ratingCount": 5,
+    "rating": 5,
+    "saleCount": 90,
+    "category": ["buying","selling"],
+    "tag": [
+      "Popular",
+      "desgin",
+      "ux",
+      "usability",
+      "develop",
+      "icon",
+      "Car",
+      "Service",
+      "Repairs",
+      "Auto Parts",
+      "Oil",
+      "Dealer",
+      "Oil Change",
+      "Body Color"
+    ],
+    "date": "May 19, 2021",
+    "comments": 35,
+    "locantion": "Chicago",
+    "description": {
+      "title": "Description",
+      "fullDescription": "Massa tempor nec feugiat nisl pretium. Egestas fringilla phasellus faucibus scelerisque eleifend donec Porta nibh venenatis cras sed felis eget velit aliquet. Neque volutpat ac tincidunt vitae semper quis lectus. Turpis in eu mi bibendum neque egestas congue quisque. Sed elementum tempus egestas sed sed risus pretium quam. Dignissim sodales ut eu sem. Nibh mauris cursus mattis molestee iaculis at erat pellentesque. Id interdum velit laoreet id donec ultrices tincidunt.",
+      "shortDescription": "To the left is the modern kitchen with central island, leading through to the unique breakfast family room which feature glass walls and doors out onto the garden and access to the separate utility room."
+    },
+    "propertyDetails": {
+      "propertyId": "HZ29",
+      "area": 3450,
+      "propertyStatus": "For Sale",
+      "rooms": 7,
+      "bedrooms": 3,
+      "baths": 2,
+      "createdYear": 1992
+    },
+    "factsAndFeatures": {
+      "livingRoom": "20 x 16 sq feet",
+      "garage": "20 x 16 sq feet",
+      "diningArea": "20 x 16 sq feet",
+      "bedroom": "20 x 16 sq feet",
+      "bathroom": "20 x 16 sq feet",
+      "gymArea": "20 x 16 sq feet",
+      "garden": "20 x 16 sq feet",
+      "parking": "20 x 16 sq feet"
+    },
+
+    "amenities1": [
+      "Air Conditioning",
+      "Gym",
+      "Microwave",
+      "Swimming Pool",
+      "WiFi"
+    ],
+    "amenities2": [
+      "Barbeque",
+      "Recreation",
+      "Microwave",
+      "Basketball Cout",
+      "Fireplace"
+    ],
+    "amenities3": [
+      "Refrigerator",
+      "Window Coverings",
+      "Washer",
+      "24x7 Security",
+      "Indoor Game"
+    ],
+    "AmenitiesList": ["Supermarket"],
+    "agent": {
+      "firstName": "Rosalina D.",
+      "lastName": "Willaimson",
+      "fullName": "Rosalina D. Willaimson",
+      "type": "Property Seller",
+      "img": "author.jpg",
+      "designation": "Traveller/Photographer",
+      "raiting": 3,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis distinctio, odio, eligendi suscipit reprehenderit atque.",
+      "social": ["FaPlay", "FaHome", "FaArrowRight", "FaArrowLeft"]
+    },
+
+    "gallery": {
+      "img1": "14.jpg",
+      "img2": "15.jpg",
+      "img3": "16.jpg"
+    },
+    "propertyTypes": ["House", "Single Family"]
   }
 ]

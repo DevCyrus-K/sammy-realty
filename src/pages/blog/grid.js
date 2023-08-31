@@ -10,7 +10,7 @@ import ReactPaginate from "react-paginate";
 import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
 
 function BlogGrid() {
-  const perPageLimit = 4;
+  const perPageLimit = 6;
   const [currentItems, setCurrentItems] = useState(blogData);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);

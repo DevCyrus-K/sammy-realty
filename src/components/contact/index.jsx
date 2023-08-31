@@ -1,3 +1,4 @@
+import { Form } from "react-bootstrap";
 import {
   FaDribbble,
   FaInstagram,
@@ -68,7 +69,7 @@ const Contact = () => {
             <div className="col-lg-12">
               <div className="ltn__form-box contact-form-box box-shadow white-bg">
                 <h4 className="title-2">Get A Quote</h4>
-                <form id="contact-form" action="mail.php" method="post">
+                <form id="contact-form" action="#" method="post">
                   <div className="row">
                     <div className="col-md-6">
                       <div className="input-item input-item-name ltn__custom-icon">
@@ -96,15 +97,15 @@ const Contact = () => {
                     </div>
                     <div className="col-md-6">
                       <div className="input-item input-item input-item-email ltn__custom-icon">
-                        <select className="nice-select">
+                        <Form.Select className="nice-select">
                           <option>Select Service Type</option>
                           <option>Property Management </option>
                           <option>Mortgage Service </option>
                           <option>Consulting Service</option>
                           <option>Home Buying</option>
-                          <option>Home Selling</option>
+                          <option>Home selling</option>
                           <option>Escrow Services</option>
-                        </select>
+                        </Form.Select>
                         <span className="inline-icon">
                           <FaArrowDown />
                         </span>

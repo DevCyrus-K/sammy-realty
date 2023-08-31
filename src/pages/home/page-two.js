@@ -30,8 +30,8 @@ import CallToAction from "@/components/callToAction";
 function HomeVersionTwo(props) {
   const [isOpen, setOpen] = useState(false);
   const { products } = useSelector((state) => state.product);
-  const featureData = getProducts(featuresData, "fashion", "featured", 3);
-  const countryProducts = getProducts(products, "fashion", "country", 5);
+  const featureData = getProducts(featuresData, "buying", "featured", 3);
+  const countryProducts = getProducts(products, "buying", "country", 5);
   const { data } = props;
 
 

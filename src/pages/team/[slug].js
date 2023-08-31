@@ -137,7 +137,7 @@ function TeamDetails({ team }) {
                   <div className="ltn__form-box contact-form-box box-shadow white-bg mt-50">
                     <h4 className="title-2">Contact for any Inquiry</h4>
 
-                    <form id="contact-form" action="mail.php" method="post">
+                    <form id="contact-form" action="#" method="post">
                       <Row>
                         <Col xs={12} md={6}>
                           <div className="input-item input-item-name ltn__custom-icon">
@@ -171,7 +171,7 @@ function TeamDetails({ team }) {
                               <option>Mortgage Service </option>
                               <option>Consulting Service</option>
                               <option>Home Buying</option>
-                              <option>Home Selling</option>
+                              <option>Home selling</option>
                               <option>Escrow Services</option>
                             </select>
                             <span className="inline-icon">

@@ -26,8 +26,8 @@ import featuresData from "@/data/service";
 
 function HomePage(props) {
   const { products } = useSelector((state) => state.product);
-  const featuredProducts = getProducts(products, "fashion", "featured", 5);
-  const featureData = getProducts(featuresData, "fashion", "featured", 3);
+  const featuredProducts = getProducts(products, "buying", "featured", 5);
+  const featureData = getProducts(featuresData, "buying", "featured", 3);
   const { Herodata } = props;
 
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
@@ -166,7 +166,7 @@ function HomePage(props) {
         {/* <!-- COUNTER UP AREA END -->
 
       <!-- ABOUT US AREA START --> */}
-        <AboutUsStyleTwo />
+        <AboutUsStyleTwo sectionSpace="pt-120 pb-90" />
         {/* <!-- ABOUT US AREA END -->
 
       <!-- FEATURE AREA START ( Feature - 6) --> */}

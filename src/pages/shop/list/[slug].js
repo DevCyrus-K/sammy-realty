@@ -36,7 +36,7 @@ function ProductDetails({ product }) {
   const { cartItems } = useSelector((state) => state.cart);
   const { wishlistItems } = useSelector((state) => state.wishlist);
   const { compareItems } = useSelector((state) => state.compare);
-  const latestdBlogs = getProducts(blogData, "fashion", "featured", 4);
+  const latestdBlogs = getProducts(blogData, "buying", "featured", 4);
 
   const relatedProducts = getProducts(
     products,

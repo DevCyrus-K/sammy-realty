@@ -15,6 +15,7 @@ import FollowUs from "@/components/followUs";
 import Tags from "@/components/tags";
 
 const BlogSideBar = ({ popularProducts, topRatedProducts, latestdBlogs }) => {
+  console.log("popularProductspopularProductspopularProductspopularProducts",popularProducts)
   const product = popularProducts[0];
   const discountedPrice = getDiscountPrice(
     product.price,

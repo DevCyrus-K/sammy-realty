@@ -265,11 +265,11 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
                                 <li>
                                   <Link href="/portfolio">Portfolio</Link>
                                 </li>
-                                <li>
+                                {/* <li>
                                   <Link href="/portfolio-2">
                                     Portfolio - 02
                                   </Link>
-                                </li>
+                                </li> */}
 
                                 <li>
                                   <Link href="/team">Team</Link>
@@ -395,11 +395,7 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
                           const slug = productSlug(product.title);
                           return (
                             <li key={key} className="list-group-item">
-                              <Link
-                                href={`/shop/${slug}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
+                              <Link href={`/shop/${slug}`}>
                                 {product.title}
                               </Link>
                             </li>
