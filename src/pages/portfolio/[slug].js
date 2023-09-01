@@ -50,7 +50,7 @@ function portfolioDetails({ portfolio }) {
 
                   <Row>
                     {portfolio.reviews.map((review, key) => {
-                      console.log(review);
+
                       return (
                         <Col key={key} xs={12} lg={6}>
                           <div className="ltn__testimonial-item ltn__testimonial-item-3">
