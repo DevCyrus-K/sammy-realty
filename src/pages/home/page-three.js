@@ -112,56 +112,6 @@ function HomeVersionThree(props) {
   };
 
 
-  const testiMonialsettings = {
-    arrows: true,
-    dots: false,
-    centerMode: false,
-    centerPadding: '80px',
-    infinite: true,
-    speed: 300,
-    slidesToShow: 2,
-    slidesToScroll: 1,
-    prevArrow: <SlickArrowLeft />,
-    nextArrow: <SlickArrowRight />,
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1
-        }
-      },
-      {
-        breakpoint: 992,
-        settings: {
-          arrows: false,
-          dots: true,
-          slidesToShow: 2,
-          slidesToScroll: 1
-        }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          arrows: false,
-          dots: true,
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      },
-      {
-        breakpoint: 580,
-        settings: {
-          arrows: false,
-          dots: true,
-          centerMode: false,
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
-  };
-
   const productCarouselsettings = {
     arrows: true,
     dots: true,
@@ -189,7 +139,7 @@ function HomeVersionThree(props) {
         }
       },
       {
-        breakpoint: 580,
+        breakpoint: 575,
         settings: {
           arrows: false,
           dots: true,
