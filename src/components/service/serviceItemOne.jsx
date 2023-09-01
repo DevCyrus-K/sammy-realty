@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const ServiceItemOne = ({ data, slug, ltn__service }) => {
-  console.log(data);
+  
   return (
     <>
       <div

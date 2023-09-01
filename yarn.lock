@@ -3003,10 +3003,10 @@ yarn@^1.22.19:
   resolved "https://registry.npmjs.org/yarn/-/yarn-1.22.19.tgz"
   integrity sha512-/0V5q0WbslqnwP91tirOvldvYISzaqhClxzyUKXYxs07yUILIs5jx/k6CFe8bvKSkds5w+eiOqta39Wk3WxdcQ==
 
-yet-another-react-lightbox@^2.2.3:
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/yet-another-react-lightbox/-/yet-another-react-lightbox-2.6.2.tgz#3f4765eb99cc70e4c09661ea4a958d75632b1ce9"
-  integrity sha512-P03quWhfmmqvgraMPxJybiwlwtCnHeO1oCDjJoyDIU/mif0AzJQR1ZAYMCAgNdV1jrJNovDfN3LjWP5L5QzmyA==
+yet-another-react-lightbox@^3.12.1:
+  version "3.12.1"
+  resolved "https://registry.yarnpkg.com/yet-another-react-lightbox/-/yet-another-react-lightbox-3.12.1.tgz#6a58b989a2eecfaafca233d4208c1ebc197a93d5"
+  integrity sha512-jymcueTmoaVEQfKytnKf5EqH2fNIjxBVutOzh5ufe4nhlrj24f/TUjNmYjNj6yaGdIbkP0xW3/AzOKWY7cwKoA==
 
 yocto-queue@^0.1.0:
   version "0.1.0"

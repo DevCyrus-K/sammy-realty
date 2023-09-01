@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { LayoutOne } from "@/layouts";
 import { Container, Row, Col } from "react-bootstrap";
 import { getProducts, productSlug } from "@/lib/product";
@@ -12,7 +13,11 @@ import Slider from "react-slick";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import CallToAction from "@/components/callToAction";
 import brandLogoData from "@/data/brand-logo";
-import LightGallery from "lightgallery/react";
+import Lightbox from "yet-another-react-lightbox";
+import Counter from "yet-another-react-lightbox/plugins/counter";
+import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import Download from "yet-another-react-lightbox/plugins/download";
 
 function Portfolio() {
   const portfolios = getProducts(portfolioData, "buying", "featured", 6);
@@ -63,16 +68,23 @@ function Portfolio() {
     nextArrow: <SlickArrowRight />,
   };
 
-  const icons = [
-    { icon: <FaArrowRight /> },
-    { icon: <FaArrowLeft /> },
-    { icon: <FaArrowRight /> },
-    { icon: <FaArrowRight /> },
-    { icon: <FaArrowLeft /> },
-  ];
+  const [basicExampleOpen, setBasicExampleOpen] = useState(false);
 
+  const gallerySlides = portfolios.map((img, i) => ({
+    src: `/img/gallery/${img.thumbImage}`,
+    key: i,
+  }));
   return (
+
+
     <>
+
+      <Lightbox
+        open={basicExampleOpen}
+        close={() => setBasicExampleOpen(false)}
+        slides={gallerySlides}
+        plugins={[Zoom, Counter, Fullscreen, Download]}
+      />
       <LayoutOne topbar={true}>
         <ShopBreadCrumb
           title="Our Portfolio"
@@ -83,12 +95,13 @@ function Portfolio() {
         {/*  <!-- Gallery area start -->  */}
         <div className="ltn__gallery-area mb-120">
           <Container>
-            <LightGallery elementClassNames="row ltn__gallery-active ltn__gallery-style-2">
+            <div className="row ltn__gallery-active ltn__gallery-style-2">
               {portfolios.map((data, key) => {
                 const slug = productSlug(data.title);
 
                 return (
                   <Portfolioitem
+                    setBasicExampleOpen={setBasicExampleOpen}
                     key={key}
                     baseUrl="portfolio"
                     data={data}
@@ -96,7 +109,8 @@ function Portfolio() {
                   />
                 );
               })}
-            </LightGallery>
+            </div>
+
             <div className="btn-wrapper text-center">
               <button className="btn btn-transparent btn-effect-3 btn-border">
                 LOAD MORE +

@@ -1,23 +1,18 @@
-import Link from "next/link";
+
 import {
-  FaDribbble,
   FaInstagram,
   FaTwitter,
   FaFacebookF,
-  FaCheck,
-  FaCalendarAlt,
   FaUserAlt,
   FaEnvelope,
-  FaGlobe,
   FaPencilAlt,
-  FaComments,
 } from "react-icons/fa";
 import { FaPhoneAlt, FaArrowDown } from "react-icons/fa";
 
 import teamData from "@/data/team";
 import { LayoutOne } from "@/layouts";
 import { productSlug } from "@/lib/product";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Form } from "react-bootstrap";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
 import ServiceItemOne from "@/components/service/serviceItemOne";
 
@@ -165,7 +160,7 @@ function TeamDetails({ team }) {
                         </Col>
                         <Col xs={12} md={6}>
                           <div className="input-item input-item input-item-email ltn__custom-icon">
-                            <select className="nice-select">
+                            <Form.Select className="nice-select">
                               <option>Select Service Type</option>
                               <option>Property Management </option>
                               <option>Mortgage Service </option>
@@ -173,7 +168,7 @@ function TeamDetails({ team }) {
                               <option>Home Buying</option>
                               <option>Home selling</option>
                               <option>Escrow Services</option>
-                            </select>
+                            </Form.Select>
                             <span className="inline-icon">
                               <FaArrowDown />
                             </span>
