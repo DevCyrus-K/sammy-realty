@@ -13,6 +13,7 @@ import {
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
 
 import CallToAction from "@/components/callToAction";
+import Link from "next/link";
 
 function Register() {
   return (
@@ -86,13 +87,13 @@ function Register() {
                   <div className="by-agree text-center">
                     <p>By creating an account, you agree to our:</p>
                     <p>
-                      <a href="#">
+                      <Link href="#">
                         TERMS OF CONDITIONS &nbsp; &nbsp; | &nbsp; &nbsp;
                         PRIVACY POLICY
-                      </a>
+                      </Link>
                     </p>
                     <div className="go-to-btn mt-50">
-                      <a href="login.html">ALREADY HAVE AN ACCOUNT ?</a>
+                      <Link href="/login">ALREADY HAVE AN ACCOUNT ?</Link>
                     </div>
                   </div>
                 </div>

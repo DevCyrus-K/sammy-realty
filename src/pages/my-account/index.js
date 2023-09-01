@@ -23,6 +23,7 @@ import {
   FaRegStar,
   FaGlobe,
 } from "react-icons/fa";
+import Link from "next/link";
 
 function MyAccount() {
   return (
@@ -110,7 +111,7 @@ function MyAccount() {
                                 Hello <strong>UserName</strong> (not
                                 <strong>UserName</strong>?
                                 <small>
-                                  <a href="login.html">Log out</a>
+                                  <Link href="/login">Log out</Link>
                                 </small>
                                 )
                               </p>
@@ -157,9 +158,9 @@ function MyAccount() {
                                           </div>
                                           <div className="footer-address-info">
                                             <p>
-                                              <a href="tel:+0123-456789">
+                                              <Link href="tel:+0123-456789">
                                                 +0123-456789
-                                              </a>
+                                              </Link>
                                             </p>
                                           </div>
                                         </li>
@@ -169,9 +170,9 @@ function MyAccount() {
                                           </div>
                                           <div className="footer-address-info">
                                             <p>
-                                              <a href="mailto:example@example.com">
+                                              <Link href="mailto:example@example.com">
                                                 example@example.com
-                                              </a>
+                                              </Link>
                                             </p>
                                           </div>
                                         </li>
@@ -281,7 +282,7 @@ function MyAccount() {
                                   <h4>
                                     Billing Address
                                     <small>
-                                      <a href="#">edit</a>
+                                      <Link href="#">edit</Link>
                                     </small>
                                   </h4>
                                   <address>
@@ -299,7 +300,7 @@ function MyAccount() {
                                   <h4>
                                     Shipping Address
                                     <small>
-                                      <a href="#">edit</a>
+                                      <Link href="#">edit</Link>
                                     </small>
                                   </h4>
                                   <address>
@@ -406,19 +407,19 @@ function MyAccount() {
                                   <tbody>
                                     <tr>
                                       <td className="ltn__my-properties-img">
-                                        <a href="product-details.html">
+                                        <Link href="https://quarter-nextjs.netlify.app/shop/new-apartment-nice-view">
                                           <img
                                             src="/img/product-3/2.jpg"
                                             alt="#"
                                           />
-                                        </a>
+                                        </Link>
                                       </td>
                                       <td>
                                         <div className="ltn__my-properties-info">
                                           <h6 className="mb-10">
-                                            <a href="product-details.html">
+                                            <Link href="https://quarter-nextjs.netlify.app/shop/new-apartment-nice-view">
                                               sdfasdfdsfsdafs
-                                            </a>
+                                            </Link>
                                           </h6>
                                           <small>
                                             <i className="icon-placeholder"></i>
@@ -427,42 +428,42 @@ function MyAccount() {
                                           <div className="product-ratting">
                                             <ul>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaStar />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaStar />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaStar />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaRegStarHalf />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaRegStar />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li className="review-total">
-                                                <a href="#"> ( 95 Reviews )</a>
+                                                <Link href="#"> ( 95 Reviews )</Link>
                                               </li>
                                             </ul>
                                           </div>
@@ -470,31 +471,31 @@ function MyAccount() {
                                       </td>
                                       <td>Feb 22, 2022</td>
                                       <td>
-                                        <a href="#">Edit</a>
+                                        <Link href="#">Edit</Link>
                                       </td>
                                       <td>
-                                        <a href="#">
+                                        <Link href="#">
                                           <span>
                                             <FaTrashAlt />
                                           </span>
-                                        </a>
+                                        </Link>
                                       </td>
                                     </tr>
                                     <tr>
                                       <td className="ltn__my-properties-img">
-                                        <a href="product-details.html">
+                                        <Link href="https://quarter-nextjs.netlify.app/shop/new-apartment-nice-view">
                                           <img
                                             src="/img/product-3/3.jpg"
                                             alt="#"
                                           />
-                                        </a>
+                                        </Link>
                                       </td>
                                       <td>
                                         <div className="ltn__my-properties-info">
                                           <h6 className="mb-10">
-                                            <a href="product-details.html">
+                                            <Link href="https://quarter-nextjs.netlify.app/shop/new-apartment-nice-view">
                                               sdfasdfdsfsdafs
-                                            </a>
+                                            </Link>
                                           </h6>
                                           <small>
                                             <i className="icon-placeholder"></i>
@@ -503,42 +504,42 @@ function MyAccount() {
                                           <div className="product-ratting">
                                             <ul>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaStar />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaStar />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaStar />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaRegStarHalf />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaRegStar />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li className="review-total">
-                                                <a href="#"> ( 95 Reviews )</a>
+                                                <Link href="#"> ( 95 Reviews )</Link>
                                               </li>
                                             </ul>
                                           </div>
@@ -546,31 +547,31 @@ function MyAccount() {
                                       </td>
                                       <td>Feb 22, 2022</td>
                                       <td>
-                                        <a href="#">Edit</a>
+                                        <Link href="#">Edit</Link>
                                       </td>
                                       <td>
-                                        <a href="#">
+                                        <Link href="#">
                                           <span>
                                             <FaTrashAlt />
                                           </span>
-                                        </a>
+                                        </Link>
                                       </td>
                                     </tr>
                                     <tr>
                                       <td className="ltn__my-properties-img">
-                                        <a href="product-details.html">
+                                        <Link href="https://quarter-nextjs.netlify.app/shop/new-apartment-nice-view">
                                           <img
                                             src="/img/product-3/7.jpg"
                                             alt="#"
                                           />
-                                        </a>
+                                        </Link>
                                       </td>
                                       <td>
                                         <div className="ltn__my-properties-info">
                                           <h6 className="mb-10">
-                                            <a href="product-details.html">
+                                            <Link href="https://quarter-nextjs.netlify.app/shop/new-apartment-nice-view">
                                               sdfasdfdsfsdafs
-                                            </a>
+                                            </Link>
                                           </h6>
                                           <small>
                                             <i className="icon-placeholder"></i>
@@ -579,42 +580,42 @@ function MyAccount() {
                                           <div className="product-ratting">
                                             <ul>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaStar />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaStar />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaStar />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaRegStarHalf />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaRegStar />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li className="review-total">
-                                                <a href="#"> ( 95 Reviews )</a>
+                                                <Link href="#"> ( 95 Reviews )</Link>
                                               </li>
                                             </ul>
                                           </div>
@@ -622,14 +623,14 @@ function MyAccount() {
                                       </td>
                                       <td>Feb 22, 2022</td>
                                       <td>
-                                        <a href="#">Edit</a>
+                                        <Link href="#">Edit</Link>
                                       </td>
                                       <td>
-                                        <a href="#">
+                                        <Link href="#">
                                           <span>
                                             <FaTrashAlt />
                                           </span>
-                                        </a>
+                                        </Link>
                                       </td>
                                     </tr>
                                   </tbody>
@@ -639,29 +640,29 @@ function MyAccount() {
                                 <div className="ltn__pagination">
                                   <ul>
                                     <li>
-                                      <a href="#">
+                                      <Link href="#">
                                         <i className="fas fa-angle-double-left"></i>
-                                      </a>
+                                      </Link>
                                     </li>
                                     <li>
-                                      <a href="#">1</a>
+                                      <Link href="#">1</Link>
                                     </li>
                                     <li className="active">
-                                      <a href="#">2</a>
+                                      <Link href="#">2</Link>
                                     </li>
                                     <li>
-                                      <a href="#">3</a>
+                                      <Link href="#">3</Link>
                                     </li>
                                     <li>
-                                      <a href="#">...</a>
+                                      <Link href="#">...</Link>
                                     </li>
                                     <li>
-                                      <a href="#">10</a>
+                                      <Link href="#">10</Link>
                                     </li>
                                     <li>
-                                      <a href="#">
+                                      <Link href="#">
                                         <i className="fas fa-angle-double-right"></i>
-                                      </a>
+                                      </Link>
                                     </li>
                                   </ul>
                                 </div>
@@ -684,19 +685,19 @@ function MyAccount() {
                                   <tbody>
                                     <tr>
                                       <td className="ltn__my-properties-img">
-                                        <a href="product-details.html">
+                                        <Link href="https://quarter-nextjs.netlify.app/shop/new-apartment-nice-view">
                                           <img
                                             src="/img/product-3/2.jpg"
                                             alt="#"
                                           />
-                                        </a>
+                                        </Link>
                                       </td>
                                       <td>
                                         <div className="ltn__my-properties-info">
                                           <h6 className="mb-10">
-                                            <a href="product-details.html">
+                                            <Link href="https://quarter-nextjs.netlify.app/shop/new-apartment-nice-view">
                                               sdfasdfdsfsdafs
-                                            </a>
+                                            </Link>
                                           </h6>
                                           <small>
                                             <i className="icon-placeholder"></i>
@@ -705,42 +706,42 @@ function MyAccount() {
                                           <div className="product-ratting">
                                             <ul>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaStar />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaStar />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaStar />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaRegStarHalf />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaRegStar />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li className="review-total">
-                                                <a href="#"> ( 95 Reviews )</a>
+                                                <Link href="#"> ( 95 Reviews )</Link>
                                               </li>
                                             </ul>
                                           </div>
@@ -748,31 +749,31 @@ function MyAccount() {
                                       </td>
                                       <td>Feb 22, 2022</td>
                                       <td>
-                                        <a href="#">Edit</a>
+                                        <Link href="#">Edit</Link>
                                       </td>
                                       <td>
-                                        <a href="#">
+                                        <Link href="#">
                                           <span>
                                             <FaTrashAlt />
                                           </span>
-                                        </a>
+                                        </Link>
                                       </td>
                                     </tr>
                                     <tr>
                                       <td className="ltn__my-properties-img">
-                                        <a href="product-details.html">
+                                        <Link href="https://quarter-nextjs.netlify.app/shop/new-apartment-nice-view">
                                           <img
                                             src="/img/product-3/3.jpg"
                                             alt="#"
                                           />
-                                        </a>
+                                        </Link>
                                       </td>
                                       <td>
                                         <div className="ltn__my-properties-info">
                                           <h6 className="mb-10">
-                                            <a href="product-details.html">
+                                            <Link href="https://quarter-nextjs.netlify.app/shop/new-apartment-nice-view">
                                               sdfasdfdsfsdafs
-                                            </a>
+                                            </Link>
                                           </h6>
                                           <small>
                                             <i className="icon-placeholder"></i>
@@ -781,42 +782,42 @@ function MyAccount() {
                                           <div className="product-ratting">
                                             <ul>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaStar />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaStar />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaStar />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaRegStarHalf />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaRegStar />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li className="review-total">
-                                                <a href="#"> ( 95 Reviews )</a>
+                                                <Link href="#"> ( 95 Reviews )</Link>
                                               </li>
                                             </ul>
                                           </div>
@@ -824,31 +825,31 @@ function MyAccount() {
                                       </td>
                                       <td>Feb 22, 2022</td>
                                       <td>
-                                        <a href="#">Edit</a>
+                                        <Link href="#">Edit</Link>
                                       </td>
                                       <td>
-                                        <a href="#">
+                                        <Link href="#">
                                           <span>
                                             <FaTrashAlt />
                                           </span>
-                                        </a>
+                                        </Link>
                                       </td>
                                     </tr>
                                     <tr>
                                       <td className="ltn__my-properties-img">
-                                        <a href="product-details.html">
+                                        <Link href="https://quarter-nextjs.netlify.app/shop/new-apartment-nice-view">
                                           <img
                                             src="/img/product-3/7.jpg"
                                             alt="#"
                                           />
-                                        </a>
+                                        </Link>
                                       </td>
                                       <td>
                                         <div className="ltn__my-properties-info">
                                           <h6 className="mb-10">
-                                            <a href="product-details.html">
+                                            <Link href="https://quarter-nextjs.netlify.app/shop/new-apartment-nice-view">
                                               sdfasdfdsfsdafs
-                                            </a>
+                                            </Link>
                                           </h6>
                                           <small>
                                             <i className="icon-placeholder"></i>
@@ -857,42 +858,42 @@ function MyAccount() {
                                           <div className="product-ratting">
                                             <ul>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaStar />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaStar />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaStar />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaRegStarHalf />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li>
-                                                <a href="#">
+                                                <Link href="#">
                                                   <span>
                                                     <FaRegStar />
                                                   </span>
-                                                </a>
+                                                </Link>
                                               </li>
                                               <li className="review-total">
-                                                <a href="#"> ( 95 Reviews )</a>
+                                                <Link href="#"> ( 95 Reviews )</Link>
                                               </li>
                                             </ul>
                                           </div>
@@ -900,14 +901,14 @@ function MyAccount() {
                                       </td>
                                       <td>Feb 22, 2022</td>
                                       <td>
-                                        <a href="#">Edit</a>
+                                        <Link href="#">Edit</Link>
                                       </td>
                                       <td>
-                                        <a href="#">
+                                        <Link href="#">
                                           <span>
                                             <FaTrashAlt />
                                           </span>
-                                        </a>
+                                        </Link>
                                       </td>
                                     </tr>
                                   </tbody>
@@ -917,29 +918,29 @@ function MyAccount() {
                                 <div className="ltn__pagination">
                                   <ul>
                                     <li>
-                                      <a href="#">
+                                      <Link href="#">
                                         <i className="fas fa-angle-double-left"></i>
-                                      </a>
+                                      </Link>
                                     </li>
                                     <li>
-                                      <a href="#">1</a>
+                                      <Link href="#">1</Link>
                                     </li>
                                     <li className="active">
-                                      <a href="#">2</a>
+                                      <Link href="#">2</Link>
                                     </li>
                                     <li>
-                                      <a href="#">3</a>
+                                      <Link href="#">3</Link>
                                     </li>
                                     <li>
-                                      <a href="#">...</a>
+                                      <Link href="#">...</Link>
                                     </li>
                                     <li>
-                                      <a href="#">10</a>
+                                      <Link href="#">10</Link>
                                     </li>
                                     <li>
-                                      <a href="#">
+                                      <Link href="#">
                                         <i className="fas fa-angle-double-right"></i>
-                                      </a>
+                                      </Link>
                                     </li>
                                   </ul>
                                 </div>
@@ -1755,9 +1756,9 @@ function MyAccount() {
                                               Remember me
                                             </label>
                                             <p className="mt-30">
-                                              <a href="register.html">
+                                              <Link href="/register">
                                                 Lost your password?
-                                              </a>
+                                              </Link>
                                             </p>
                                           </form>
                                         </div>

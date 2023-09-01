@@ -13,6 +13,7 @@ import {
   FaPencilAlt,
   FaPhoneAlt,
 } from "react-icons/fa";
+import Link from "next/link";
 
 const Wishlist = () => {
   const [open, setOpen] = useState(false);
@@ -81,7 +82,7 @@ const Wishlist = () => {
                               <input type="checkbox" name="agree" /> Remember me
                             </label>
                             <p className="mt-30">
-                              <a href="register.html">Lost your password?</a>
+                              <Link href="/register">Lost your password?</Link>
                             </p>
                           </form>
                         </div>

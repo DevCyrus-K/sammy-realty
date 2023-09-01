@@ -1445,12 +1445,12 @@ function ProductDetails({ product }) {
                     <p>We can help you realize your dream of a new home</p>
                   </div>
                   <div className="btn-wrapper">
-                    <a
+                    <Link
                       className="btn btn-effect-3 btn-white"
-                      href="contact.html"
+                      href="/contact"
                     >
                       Explore Properties <i className="icon-next"></i>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

@@ -1,5 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import Countdown from "@/components/Countdown/countdown";
+import Link from "next/link";
 const comingSoon = () => {
 
   return (
@@ -47,12 +48,12 @@ const comingSoon = () => {
                   </form>
                 </div>
                 <div className="btn-wrapper mt-50">
-                  <a
-                    href="contact.html"
+                  <Link
+                    href="/contact"
                     className="btn theme-btn-2 btn-effect-2 text-uppercase"
                   >
                     Contact Us
-                  </a>
+                  </Link>
                 </div>
               </div>
             </Col>

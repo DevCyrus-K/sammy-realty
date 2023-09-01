@@ -98,22 +98,22 @@ const Footer = function () {
                   <div className="footer-menu">
                     <ul>
                       <li>
-                        <Link href="about.html">About</Link>
+                        <Link href="/about">About</Link>
                       </li>
                       <li>
-                        <Link href="blog.html">Blog</Link>
+                        <Link href="/blog">Blog</Link>
                       </li>
                       <li>
-                        <Link href="shop.html">All Products</Link>
+                        <Link href="/shop">All Products</Link>
                       </li>
                       <li>
-                        <Link href="locations.html">Locations Map</Link>
+                        <Link href="/locations">Locations Map</Link>
                       </li>
                       <li>
-                        <Link href="faq.html">FAQ</Link>
+                        <Link href="/faq">FAQ</Link>
                       </li>
                       <li>
-                        <Link href="contact.html">Contact us</Link>
+                        <Link href="/contact">Contact us</Link>
                       </li>
                     </ul>
                   </div>
@@ -125,22 +125,22 @@ const Footer = function () {
                   <div className="footer-menu">
                     <ul>
                       <li>
-                        <Link href="order-tracking.html">Order tracking</Link>
+                        <Link href="/order-tracking">Order tracking</Link>
                       </li>
                       <li>
-                        <Link href="wishlist.html">Wish List</Link>
+                        <Link href="/wishlist">Wish List</Link>
                       </li>
                       <li>
-                        <Link href="login.html">Login</Link>
+                        <Link href="/login">Login</Link>
                       </li>
                       <li>
-                        <Link href="account.html">My account</Link>
+                        <Link href="/account">My account</Link>
                       </li>
                       <li>
-                        <Link href="about.html">Terms & Conditions</Link>
+                        <Link href="/about">Terms & Conditions</Link>
                       </li>
                       <li>
-                        <Link href="about.html">Promotional Offers</Link>
+                        <Link href="/about">Promotional Offers</Link>
                       </li>
                     </ul>
                   </div>
@@ -152,22 +152,22 @@ const Footer = function () {
                   <div className="footer-menu">
                     <ul>
                       <li>
-                        <Link href="login.html">Login</Link>
+                        <Link href="/login">Login</Link>
                       </li>
                       <li>
-                        <Link href="account.html">My account</Link>
+                        <Link href="/account">My account</Link>
                       </li>
                       <li>
-                        <Link href="wishlist.html">Wish List</Link>
+                        <Link href="/wishlist">Wish List</Link>
                       </li>
                       <li>
-                        <Link href="order-tracking.html">Order tracking</Link>
+                        <Link href="/order-tracking">Order tracking</Link>
                       </li>
                       <li>
-                        <Link href="faq.html">FAQ</Link>
+                        <Link href="/faq">FAQ</Link>
                       </li>
                       <li>
-                        <Link href="contact.html">Contact us</Link>
+                        <Link href="/contact">Contact us</Link>
                       </li>
                     </ul>
                   </div>
