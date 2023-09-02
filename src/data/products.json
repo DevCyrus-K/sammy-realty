@@ -24,7 +24,7 @@
     "ratingCount": 5,
     "rating": 3,
     "saleCount": 5,
-    "category": ["buying","renting"],
+    "category": ["buying", "renting"],
     "tag": [
       "Popular",
       "desgin",
@@ -41,7 +41,73 @@
       "Oil Change",
       "Body Color"
     ],
-
+    "variation": [
+      {
+        "color": "brown",
+        "colorCode": "#87554b",
+        "image": "1.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 10
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 5
+          }
+        ]
+      },
+      {
+        "color": "black",
+        "colorCode": "#333333",
+        "image": "2.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 4
+          },
+          {
+            "name": "m",
+            "stock": 7
+          },
+          {
+            "name": "xl",
+            "stock": 9
+          },
+          {
+            "name": "xxl",
+            "stock": 1
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "colorCode": "#da323f",
+        "image": "3.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 1
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 4
+          },
+          {
+            "name": "xxl",
+            "stock": 0
+          }
+        ]
+      }
+    ],
     "date": "May 19, 2021",
     "comments": 35,
     "locantion": "Belmont Gardens, Chicago",
@@ -153,6 +219,73 @@
       "Oil Change",
       "Body Color"
     ],
+    "variation": [
+      {
+        "color": "brown",
+        "colorCode": "#87554b",
+        "image": "1.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 3
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 5
+          }
+        ]
+      },
+      {
+        "color": "black",
+        "colorCode": "#333333",
+        "image": "2.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 4
+          },
+          {
+            "name": "m",
+            "stock": 7
+          },
+          {
+            "name": "xl",
+            "stock": 9
+          },
+          {
+            "name": "xxl",
+            "stock": 1
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "colorCode": "#da323f",
+        "image": "3.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 1
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 4
+          },
+          {
+            "name": "xxl",
+            "stock": 0
+          }
+        ]
+      }
+    ],
     "date": "May 19, 2021",
     "comments": 35,
     "locantion": "Belmont Gardens",
@@ -247,7 +380,7 @@
     "ratingCount": 2,
     "rating": 3,
     "saleCount": 15,
-    "category": ["buying","selling"],
+    "category": ["buying", "selling"],
     "tag": [
       "Popular",
       "desgin",
@@ -263,6 +396,73 @@
       "Dealer",
       "Oil Change",
       "Body Color"
+    ],
+    "variation": [
+      {
+        "color": "brown",
+        "colorCode": "#87554b",
+        "image": "1.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 10
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 5
+          }
+        ]
+      },
+      {
+        "color": "black",
+        "colorCode": "#333333",
+        "image": "2.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 4
+          },
+          {
+            "name": "m",
+            "stock": 7
+          },
+          {
+            "name": "xl",
+            "stock": 9
+          },
+          {
+            "name": "xxl",
+            "stock": 1
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "colorCode": "#da323f",
+        "image": "3.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 1
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 4
+          },
+          {
+            "name": "xxl",
+            "stock": 0
+          }
+        ]
+      }
     ],
     "date": "May 19, 2021",
     "comments": 35,
@@ -358,7 +558,7 @@
     "ratingCount": 5,
     "rating": 5,
     "saleCount": 20,
-    "category": ["buying","renting"],
+    "category": ["buying", "renting"],
     "tag": [
       "Popular",
       "desgin",
@@ -374,6 +574,73 @@
       "Dealer",
       "Oil Change",
       "Body Color"
+    ],
+    "variation": [
+      {
+        "color": "brown",
+        "colorCode": "#87554b",
+        "image": "1.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 10
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 5
+          }
+        ]
+      },
+      {
+        "color": "black",
+        "colorCode": "#333333",
+        "image": "2.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 4
+          },
+          {
+            "name": "m",
+            "stock": 7
+          },
+          {
+            "name": "xl",
+            "stock": 9
+          },
+          {
+            "name": "xxl",
+            "stock": 1
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "colorCode": "#da323f",
+        "image": "3.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 1
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 4
+          },
+          {
+            "name": "xxl",
+            "stock": 0
+          }
+        ]
+      }
     ],
     "date": "May 19, 2021",
     "comments": 35,
@@ -475,7 +742,7 @@
     "ratingCount": 5,
     "rating": 5,
     "saleCount": 90,
-    "category": ["buying","renting"],
+    "category": ["buying", "renting"],
     "tag": [
       "Popular",
       "desgin",
@@ -491,6 +758,73 @@
       "Dealer",
       "Oil Change",
       "Body Color"
+    ],
+    "variation": [
+      {
+        "color": "brown",
+        "colorCode": "#87554b",
+        "image": "1.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 10
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 5
+          }
+        ]
+      },
+      {
+        "color": "black",
+        "colorCode": "#333333",
+        "image": "2.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 4
+          },
+          {
+            "name": "m",
+            "stock": 7
+          },
+          {
+            "name": "xl",
+            "stock": 9
+          },
+          {
+            "name": "xxl",
+            "stock": 1
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "colorCode": "#da323f",
+        "image": "3.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 1
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 4
+          },
+          {
+            "name": "xxl",
+            "stock": 0
+          }
+        ]
+      }
     ],
     "date": "May 19, 2021",
     "comments": 35,
@@ -586,7 +920,7 @@
     "ratingCount": 2,
     "rating": 3,
     "saleCount": 25,
-    "category": [ "buying","selling","renting"],
+    "category": ["buying", "selling", "renting"],
     "tag": [
       "Popular",
       "desgin",
@@ -602,6 +936,73 @@
       "Dealer",
       "Oil Change",
       "Body Color"
+    ],
+    "variation": [
+      {
+        "color": "brown",
+        "colorCode": "#87554b",
+        "image": "1.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 10
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 5
+          }
+        ]
+      },
+      {
+        "color": "black",
+        "colorCode": "#333333",
+        "image": "2.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 4
+          },
+          {
+            "name": "m",
+            "stock": 7
+          },
+          {
+            "name": "xl",
+            "stock": 9
+          },
+          {
+            "name": "xxl",
+            "stock": 1
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "colorCode": "#da323f",
+        "image": "3.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 1
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 4
+          },
+          {
+            "name": "xxl",
+            "stock": 0
+          }
+        ]
+      }
     ],
     "date": "May 19, 2021",
     "comments": 35,
@@ -697,7 +1098,7 @@
     "ratingCount": 5,
     "rating": 5,
     "saleCount": 30,
-    "category": ["buying","renting", "selling"],
+    "category": ["buying", "renting", "selling"],
     "tag": [
       "Popular",
       "desgin",
@@ -714,7 +1115,73 @@
       "Oil Change",
       "Body Color"
     ],
-
+    "variation": [
+      {
+        "color": "brown",
+        "colorCode": "#87554b",
+        "image": "1.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 10
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 5
+          }
+        ]
+      },
+      {
+        "color": "black",
+        "colorCode": "#333333",
+        "image": "2.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 4
+          },
+          {
+            "name": "m",
+            "stock": 7
+          },
+          {
+            "name": "xl",
+            "stock": 9
+          },
+          {
+            "name": "xxl",
+            "stock": 1
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "colorCode": "#da323f",
+        "image": "3.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 1
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 4
+          },
+          {
+            "name": "xxl",
+            "stock": 0
+          }
+        ]
+      }
+    ],
     "date": "May 19, 2021",
     "comments": 35,
     "locantion": "Chicago",
@@ -809,7 +1276,7 @@
     "ratingCount": 5,
     "rating": 5,
     "saleCount": 35,
-    "category": ["buying", "renting","selling"],
+    "category": ["buying", "renting", "selling"],
     "tag": [
       "Popular",
       "desgin",
@@ -825,6 +1292,73 @@
       "Dealer",
       "Oil Change",
       "Body Color"
+    ],
+    "variation": [
+      {
+        "color": "brown",
+        "colorCode": "#87554b",
+        "image": "1.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 10
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 5
+          }
+        ]
+      },
+      {
+        "color": "black",
+        "colorCode": "#333333",
+        "image": "2.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 4
+          },
+          {
+            "name": "m",
+            "stock": 7
+          },
+          {
+            "name": "xl",
+            "stock": 9
+          },
+          {
+            "name": "xxl",
+            "stock": 1
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "colorCode": "#da323f",
+        "image": "3.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 1
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 4
+          },
+          {
+            "name": "xxl",
+            "stock": 0
+          }
+        ]
+      }
     ],
     "date": "May 19, 2021",
     "comments": 35,
@@ -920,7 +1454,7 @@
     "ratingCount": 5,
     "rating": 5,
     "saleCount": 90,
-    "category": ["buying","selling"],
+    "category": ["buying", "selling"],
     "tag": [
       "Popular",
       "desgin",
@@ -936,6 +1470,73 @@
       "Dealer",
       "Oil Change",
       "Body Color"
+    ],
+    "variation": [
+      {
+        "color": "brown",
+        "colorCode": "#87554b",
+        "image": "1.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 10
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 5
+          }
+        ]
+      },
+      {
+        "color": "black",
+        "colorCode": "#333333",
+        "image": "2.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 4
+          },
+          {
+            "name": "m",
+            "stock": 7
+          },
+          {
+            "name": "xl",
+            "stock": 9
+          },
+          {
+            "name": "xxl",
+            "stock": 1
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "colorCode": "#da323f",
+        "image": "3.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 1
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 4
+          },
+          {
+            "name": "xxl",
+            "stock": 0
+          }
+        ]
+      }
     ],
     "date": "May 19, 2021",
     "comments": 35,

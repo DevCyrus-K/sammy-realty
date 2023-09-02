@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { LayoutOne } from "@/layouts";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Form } from "react-bootstrap";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
 import CallToAction from "@/components/callToAction";
 import Collapse from "react-bootstrap/Collapse";
@@ -207,7 +207,7 @@ const Wishlist = () => {
                           <div className="col-lg-4 col-md-6">
                             <h6>Country</h6>
                             <div className="input-item ltn__custom-icon">
-                              <select className="nice-select">
+                              <Form.Select className="nice-select">
                                 <option>Select Country</option>
                                 <option>Australia</option>
                                 <option>Canada</option>
@@ -216,7 +216,7 @@ const Wishlist = () => {
                                 <option>Saudi Arabia</option>
                                 <option>United Kingdom (UK)</option>
                                 <option>United States (US)</option>
-                              </select>
+                              </Form.Select>
                               <span className="inline-icon">
                                 <FaArrowDown />
                               </span>

@@ -15,6 +15,7 @@ export const getProducts = (products, category, type, limit) => {
     const dealProducts = finalProducts.filter((single) => single.dealEnd);
     return dealProducts.slice(0, limit ? limit : dealProducts.length);
   }
+  
   if (type && type === "new") {
     const newProducts = finalProducts.filter((single) => single.new);
     return newProducts.slice(0, limit ? limit : newProducts.length);
