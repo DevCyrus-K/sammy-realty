@@ -1,7 +1,7 @@
 const TitleSection = ({ titleSectionData, sectionClasses, headingClasses }) => {
   return (
     <>
-      <div className={`section-title-area ${sectionClasses} text-center`}>
+      <div className={`section-title-area ${sectionClasses}`}>
         <h6
           className={`section-subtitle ${headingClasses} ltn__secondary-color`}
         >

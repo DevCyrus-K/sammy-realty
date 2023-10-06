@@ -41,73 +41,6 @@
       "Oil Change",
       "Body Color"
     ],
-    "variation": [
-      {
-        "color": "brown",
-        "colorCode": "#87554b",
-        "image": "1.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 10
-          },
-          {
-            "name": "m",
-            "stock": 2
-          },
-          {
-            "name": "xl",
-            "stock": 5
-          }
-        ]
-      },
-      {
-        "color": "black",
-        "colorCode": "#333333",
-        "image": "2.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 4
-          },
-          {
-            "name": "m",
-            "stock": 7
-          },
-          {
-            "name": "xl",
-            "stock": 9
-          },
-          {
-            "name": "xxl",
-            "stock": 1
-          }
-        ]
-      },
-      {
-        "color": "red",
-        "colorCode": "#da323f",
-        "image": "3.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 1
-          },
-          {
-            "name": "m",
-            "stock": 2
-          },
-          {
-            "name": "xl",
-            "stock": 4
-          },
-          {
-            "name": "xxl",
-            "stock": 0
-          }
-        ]
-      }
-    ],
     "date": "May 19, 2021",
     "comments": 35,
     "locantion": "Belmont Gardens, Chicago",
@@ -397,73 +330,6 @@
       "Oil Change",
       "Body Color"
     ],
-    "variation": [
-      {
-        "color": "brown",
-        "colorCode": "#87554b",
-        "image": "1.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 10
-          },
-          {
-            "name": "m",
-            "stock": 2
-          },
-          {
-            "name": "xl",
-            "stock": 5
-          }
-        ]
-      },
-      {
-        "color": "black",
-        "colorCode": "#333333",
-        "image": "2.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 4
-          },
-          {
-            "name": "m",
-            "stock": 7
-          },
-          {
-            "name": "xl",
-            "stock": 9
-          },
-          {
-            "name": "xxl",
-            "stock": 1
-          }
-        ]
-      },
-      {
-        "color": "red",
-        "colorCode": "#da323f",
-        "image": "3.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 1
-          },
-          {
-            "name": "m",
-            "stock": 2
-          },
-          {
-            "name": "xl",
-            "stock": 4
-          },
-          {
-            "name": "xxl",
-            "stock": 0
-          }
-        ]
-      }
-    ],
     "date": "May 19, 2021",
     "comments": 35,
     "locantion": "Chicago",
@@ -575,73 +441,6 @@
       "Oil Change",
       "Body Color"
     ],
-    "variation": [
-      {
-        "color": "brown",
-        "colorCode": "#87554b",
-        "image": "1.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 10
-          },
-          {
-            "name": "m",
-            "stock": 2
-          },
-          {
-            "name": "xl",
-            "stock": 5
-          }
-        ]
-      },
-      {
-        "color": "black",
-        "colorCode": "#333333",
-        "image": "2.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 4
-          },
-          {
-            "name": "m",
-            "stock": 7
-          },
-          {
-            "name": "xl",
-            "stock": 9
-          },
-          {
-            "name": "xxl",
-            "stock": 1
-          }
-        ]
-      },
-      {
-        "color": "red",
-        "colorCode": "#da323f",
-        "image": "3.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 1
-          },
-          {
-            "name": "m",
-            "stock": 2
-          },
-          {
-            "name": "xl",
-            "stock": 4
-          },
-          {
-            "name": "xxl",
-            "stock": 0
-          }
-        ]
-      }
-    ],
     "date": "May 19, 2021",
     "comments": 35,
     "locantion": "New York",
@@ -734,7 +533,7 @@
     "district": "Mission District Area",
     "properties": 2,
     "featured": true,
-    "new": false,
+    "new": true,
     "rent": true,
     "photo": ["buying", "women", "women"],
     "video": ["buying", "women"],
@@ -758,73 +557,6 @@
       "Dealer",
       "Oil Change",
       "Body Color"
-    ],
-    "variation": [
-      {
-        "color": "brown",
-        "colorCode": "#87554b",
-        "image": "1.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 10
-          },
-          {
-            "name": "m",
-            "stock": 2
-          },
-          {
-            "name": "xl",
-            "stock": 5
-          }
-        ]
-      },
-      {
-        "color": "black",
-        "colorCode": "#333333",
-        "image": "2.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 4
-          },
-          {
-            "name": "m",
-            "stock": 7
-          },
-          {
-            "name": "xl",
-            "stock": 9
-          },
-          {
-            "name": "xxl",
-            "stock": 1
-          }
-        ]
-      },
-      {
-        "color": "red",
-        "colorCode": "#da323f",
-        "image": "3.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 1
-          },
-          {
-            "name": "m",
-            "stock": 2
-          },
-          {
-            "name": "xl",
-            "stock": 4
-          },
-          {
-            "name": "xxl",
-            "stock": 0
-          }
-        ]
-      }
     ],
     "date": "May 19, 2021",
     "comments": 35,
@@ -937,73 +669,6 @@
       "Oil Change",
       "Body Color"
     ],
-    "variation": [
-      {
-        "color": "brown",
-        "colorCode": "#87554b",
-        "image": "1.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 10
-          },
-          {
-            "name": "m",
-            "stock": 2
-          },
-          {
-            "name": "xl",
-            "stock": 5
-          }
-        ]
-      },
-      {
-        "color": "black",
-        "colorCode": "#333333",
-        "image": "2.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 4
-          },
-          {
-            "name": "m",
-            "stock": 7
-          },
-          {
-            "name": "xl",
-            "stock": 9
-          },
-          {
-            "name": "xxl",
-            "stock": 1
-          }
-        ]
-      },
-      {
-        "color": "red",
-        "colorCode": "#da323f",
-        "image": "3.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 1
-          },
-          {
-            "name": "m",
-            "stock": 2
-          },
-          {
-            "name": "xl",
-            "stock": 4
-          },
-          {
-            "name": "xxl",
-            "stock": 0
-          }
-        ]
-      }
-    ],
     "date": "May 19, 2021",
     "comments": 35,
     "locantion": "Chicago",
@@ -1090,7 +755,7 @@
     "district": "Mission District Area",
     "properties": 2,
     "featured": true,
-    "new": false,
+    "new": true,
     "rent": false,
     "photo": ["buying", "women", "women"],
     "video": ["buying", "women"],
@@ -1114,73 +779,6 @@
       "Dealer",
       "Oil Change",
       "Body Color"
-    ],
-    "variation": [
-      {
-        "color": "brown",
-        "colorCode": "#87554b",
-        "image": "1.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 10
-          },
-          {
-            "name": "m",
-            "stock": 2
-          },
-          {
-            "name": "xl",
-            "stock": 5
-          }
-        ]
-      },
-      {
-        "color": "black",
-        "colorCode": "#333333",
-        "image": "2.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 4
-          },
-          {
-            "name": "m",
-            "stock": 7
-          },
-          {
-            "name": "xl",
-            "stock": 9
-          },
-          {
-            "name": "xxl",
-            "stock": 1
-          }
-        ]
-      },
-      {
-        "color": "red",
-        "colorCode": "#da323f",
-        "image": "3.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 1
-          },
-          {
-            "name": "m",
-            "stock": 2
-          },
-          {
-            "name": "xl",
-            "stock": 4
-          },
-          {
-            "name": "xxl",
-            "stock": 0
-          }
-        ]
-      }
     ],
     "date": "May 19, 2021",
     "comments": 35,
@@ -1293,73 +891,6 @@
       "Oil Change",
       "Body Color"
     ],
-    "variation": [
-      {
-        "color": "brown",
-        "colorCode": "#87554b",
-        "image": "1.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 10
-          },
-          {
-            "name": "m",
-            "stock": 2
-          },
-          {
-            "name": "xl",
-            "stock": 5
-          }
-        ]
-      },
-      {
-        "color": "black",
-        "colorCode": "#333333",
-        "image": "2.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 4
-          },
-          {
-            "name": "m",
-            "stock": 7
-          },
-          {
-            "name": "xl",
-            "stock": 9
-          },
-          {
-            "name": "xxl",
-            "stock": 1
-          }
-        ]
-      },
-      {
-        "color": "red",
-        "colorCode": "#da323f",
-        "image": "3.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 1
-          },
-          {
-            "name": "m",
-            "stock": 2
-          },
-          {
-            "name": "xl",
-            "stock": 4
-          },
-          {
-            "name": "xxl",
-            "stock": 0
-          }
-        ]
-      }
-    ],
     "date": "May 19, 2021",
     "comments": 35,
     "locantion": "Chicago",
@@ -1470,73 +1001,6 @@
       "Dealer",
       "Oil Change",
       "Body Color"
-    ],
-    "variation": [
-      {
-        "color": "brown",
-        "colorCode": "#87554b",
-        "image": "1.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 10
-          },
-          {
-            "name": "m",
-            "stock": 2
-          },
-          {
-            "name": "xl",
-            "stock": 5
-          }
-        ]
-      },
-      {
-        "color": "black",
-        "colorCode": "#333333",
-        "image": "2.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 4
-          },
-          {
-            "name": "m",
-            "stock": 7
-          },
-          {
-            "name": "xl",
-            "stock": 9
-          },
-          {
-            "name": "xxl",
-            "stock": 1
-          }
-        ]
-      },
-      {
-        "color": "red",
-        "colorCode": "#da323f",
-        "image": "3.jpg",
-        "size": [
-          {
-            "name": "x",
-            "stock": 1
-          },
-          {
-            "name": "m",
-            "stock": 2
-          },
-          {
-            "name": "xl",
-            "stock": 4
-          },
-          {
-            "name": "xxl",
-            "stock": 0
-          }
-        ]
-      }
     ],
     "date": "May 19, 2021",
     "comments": 35,

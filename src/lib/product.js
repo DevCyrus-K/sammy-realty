@@ -3,19 +3,32 @@ import slugify from "slugify";
 export const getProducts = (products, category, type, limit) => {
   const finalProducts = category
     ? products.filter(
-        (product) => product.category.filter((single) => single === category)[0]
-      )
+      (product) => product.category.filter((single) => single === category)[0]
+    )
     : products;
 
   if (type && type === "featured") {
     const featuredProducts = finalProducts.filter((single) => single.featured);
     return featuredProducts.slice(0, limit ? limit : featuredProducts.length);
   }
+
+  if (type && type === "coreFeature") {
+    const coreFeatures = finalProducts.filter((single) => single.coreFeature);
+    return coreFeatures.slice(0, limit ? limit : coreFeatures.length);
+  }
+
+
+  if (type && type === "carousel") {
+    const carousel = finalProducts.filter((single) => single.carousel);
+    return carousel.slice(0, limit ? limit : carousel.length);
+  }
+
+
   if (type && type === "deal") {
     const dealProducts = finalProducts.filter((single) => single.dealEnd);
     return dealProducts.slice(0, limit ? limit : dealProducts.length);
   }
-  
+
   if (type && type === "new") {
     const newProducts = finalProducts.filter((single) => single.new);
     return newProducts.slice(0, limit ? limit : newProducts.length);
@@ -72,21 +85,14 @@ export const getDiscountPrice = (price, discount) => {
 export const getProductCartQuantity = (cartItems, product, color, size) => {
   let productInCart = cartItems.filter(
     (single) =>
-      single.id === product.id 
-      // &&
-      // (single.selectedProductColor
-      //   ? single.selectedProductColor === color
-      //   : true) &&
-      // (single.selectedProductSize ? single.selectedProductSize === size : true)
+      single.id === product.id
   )[0];
   if (cartItems.length >= 1 && productInCart) {
     if (product.variation) {
       return cartItems.filter(
         (single) =>
-          single.id === product.id 
-          // &&
-          // single.selectedProductColor === color &&
-          // single.selectedProductSize === size
+          single.id === product.id
+
       )[0].quantity;
     } else {
       return cartItems.filter((single) => product.id === single.id)[0].quantity;
@@ -116,23 +122,7 @@ export const getSortedProducts = (products, sortType, sortValue) => {
         (product) => product.tag.filter((single) => single === sortValue)[0]
       );
     }
-    if (sortType === "color") {
-      return products.filter(
-        (product) =>
-          product.variation &&
-          product.variation.filter((single) => single.color === sortValue)[0]
-      );
-    }
-    if (sortType === "size") {
-      return products.filter(
-        (product) =>
-          product.variation &&
-          product.variation.filter(
-            (single) =>
-              single.size.filter((single) => single.name === sortValue)[0]
-          )[0]
-      );
-    }
+
     if (sortType === "filterSort") {
       let sortProducts = [...products];
       if (sortValue === "default") {
@@ -391,59 +381,6 @@ export const getIndividualTags = (products) => {
   return individualProductTags;
 };
 
-// get individual colors
-export const getIndividualColors = (products) => {
-  let productColors = [];
-  products &&
-    products.map((product) => {
-      return (
-        product.variation &&
-        product.variation.map((single) => {
-          return productColors.push({
-            colorName: single.color,
-            colorCode: single.colorCode,
-          });
-        })
-      );
-    });
-  const individualProductColors = getIndividualColorObjectArray(productColors);
-  return individualProductColors;
-};
-
-// get individual sizes
-export const getProductsIndividualSizes = (products) => {
-  let productSizes = [];
-  products &&
-    products.map((product) => {
-      return (
-        product.variation &&
-        product.variation.map((single) => {
-          return single.size.map((single) => {
-            return productSizes.push(single.name);
-          });
-        })
-      );
-    });
-  const individualProductSizes = getIndividualItemArray(productSizes);
-  return individualProductSizes;
-};
-
-// get product individual sizes
-export const getIndividualSizes = (product) => {
-  let productSizes = [];
-  product.variation &&
-    product.variation.map((singleVariation) => {
-      return (
-        singleVariation.size &&
-        singleVariation.size.map((singleSize) => {
-          return productSizes.push(singleSize.name);
-        })
-      );
-    });
-  const individualSizes = getIndividualItemArray(productSizes);
-  return individualSizes;
-};
-
 export const setActiveSort = (e) => {
   const filterButtons = document.querySelectorAll(
     ".widget__categories button, .widget__sizes button, .widget__colors button, .widget__tags button"
@@ -466,10 +403,6 @@ export const setActiveLayout = (e) => {
 export const cartItemStock = (item, color, size) => {
   if (item.stock) {
     return item.stock;
-  } else {
-    return item.variation
-      .filter((single) => single.color === color)[0]
-      .size.filter((single) => single.name === size)[0].stock;
   }
 };
 

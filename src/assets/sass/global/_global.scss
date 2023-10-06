@@ -171,6 +171,8 @@ font-family: 'Poppins', sans-serif;
   padding-left: 0;
 }
 
+.ltn__no-gutter-all .slick-slide{padding: 0 0;}
+
 @media (min-width: 992px) {
   /* Modify this based on column def */
   .ltn__custom-gutter {
@@ -1581,6 +1583,11 @@ ul {
     border-color: var(--border-color-4);
     color: var(--white) !important;
   }
+
+  svg {
+    width: 18px;
+    height: 16px;
+  }
 }
 
 /* slick-arrow-4 */
@@ -2560,4 +2567,9 @@ ul {
 }
 .ltn__height-700 {
   height: 700px;
+}
+
+.home-four-cardealer {
+  z-index: 10;
+  position: relative;
 }

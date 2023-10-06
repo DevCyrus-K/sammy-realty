@@ -135,6 +135,7 @@ const QuickViewModal = ({
                               value={quantityCount}
                               readOnly
                             />
+                          
                             <button
                               onClick={() =>
                                 setQuantityCount(

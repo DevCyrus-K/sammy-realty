@@ -241,9 +241,7 @@ export async function getStaticPaths() {
   // get the paths we want to pre render based on blogs
   const paths = teamData.map((data) => ({
     params: {
-      slug: productSlug(data.name, {
-        lower: true, // convert to lower case, defaults to `false`
-      }),
+      slug: productSlug(data.name)
     },
   }));
 

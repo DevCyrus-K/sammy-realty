@@ -19,7 +19,7 @@ const Cart = () => {
   const { cartItems } = useSelector((state) => state.cart);
   let cartTotalPrice = 0;
 
-  
+
   return (
     <>
       <LayoutOne topbar={true}>
@@ -157,12 +157,12 @@ const Cart = () => {
                             <td>${cartTotalPrice.toFixed(2)}</td>
                           </tr>
                           <tr>
-                            <td>Shipping and Handing</td>
-                            <td>${cartTotalPrice.toFixed(2)}</td>
+                            <td>Shipping</td>
+                            <td>Free Shipping</td>
                           </tr>
                           <tr>
                             <td>Vat</td>
-                            <td> ${cartTotalPrice.toFixed(2)}</td>
+                            <td>No</td>
                           </tr>
                           <tr>
                             <td>
@@ -199,6 +199,8 @@ const Cart = () => {
             )}
           </div>
         </div>
+
+
         {/* <!-- SHOPING CART AREA END --> */}
 
         <div className="ltn__call-to-action-area call-to-action-6 before-bg-bottom">

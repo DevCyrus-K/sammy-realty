@@ -1,7 +1,5 @@
 import { useState } from "react";
 import Slider from "react-slick";
-import path from "path";
-import fs from "fs/promises";
 import { LayoutOne } from "@/layouts";
 import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
 import Accordion from "react-bootstrap/Accordion";
@@ -25,6 +23,7 @@ import testimonialData from "@/data/testimonial";
 import blogData from "@/data/blog";
 import BlogItem from "@/components/blog";
 import CallToAction from "@/components/callToAction";
+import heroData from '@/data/hero/index-two.json';
 
 
 function HomeVersionTwo(props) {
@@ -201,7 +200,7 @@ function HomeVersionTwo(props) {
       />
       {/* <!-- SLIDER AREA START (slider-11) --> */}
       <div className="ltn__slider-area ltn__slider-11 section-bg-1">
-        <HeroSectionStyleTwo data={data} />
+        <HeroSectionStyleTwo data={heroData} />
       </div>
       {/* <!-- SLIDER AREA END -->
 
@@ -223,7 +222,7 @@ function HomeVersionTwo(props) {
         iconTag={false}
         data={featureData}
         classes=""
-        sectionClasses=""
+        sectionClasses="text-center"
         headingClasses=""
         titleSectionData={{
           subTitle: "Our Services",
@@ -264,7 +263,7 @@ function HomeVersionTwo(props) {
           <Row>
             <Col>
               <TitleSection
-                sectionClasses=""
+                sectionClasses="text-center"
                 headingClasses=""
                 titleSectionData={{
                   subTitle: "Apartment Sketch",
@@ -1063,7 +1062,7 @@ function HomeVersionTwo(props) {
           <Row>
             <Col xs={12}>
               <TitleSection
-                sectionClasses=""
+                sectionClasses="text-center"
                 headingClasses=""
                 titleSectionData={{
                   subTitle: "Our Aminities",
@@ -1127,7 +1126,7 @@ function HomeVersionTwo(props) {
           <Row>
             <Col lg={12}>
               <TitleSection
-                sectionClasses=""
+                sectionClasses="text-center"
                 headingClasses=""
                 titleSectionData={{
                   subTitle: "News & Blogs",
@@ -1143,7 +1142,7 @@ function HomeVersionTwo(props) {
             {blogData.map((data, key) => {
               const slug = productSlug(data.title);
               return (
-                <BlogItem key={key} baseUrl="blog" data={data} slug={slug} />
+                <BlogItem key={key} baseUrl="/blog" data={data} slug={slug} />
               );
             })}
           </Slider>
@@ -1166,14 +1165,14 @@ function HomeVersionTwo(props) {
   );
 }
 
-export async function getStaticProps() {
-  const filePath = path.join(process.cwd(), "src/data/hero/", "index-two.json");
-  const data = JSON.parse(await fs.readFile(filePath));
+// export async function getStaticProps() {
+//   const filePath = path.join(process.cwd(), "src/data/hero/", "index-two.json");
+//   const data = JSON.parse(await fs.readFile(filePath));
 
-  return {
-    props: {
-      data,
-    },
-  };
-}
+//   return {
+//     props: {
+//       data,
+//     },
+//   };
+// }
 export default HomeVersionTwo;

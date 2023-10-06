@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import LightGallery from "lightgallery/react";
-function AboutUsStyleTwo({sectionSpace}) {
+function AboutUsStyleTwo({ sectionSpace }) {
   return (
     <>
       <div className={`ltn__about-us-area ${sectionSpace}`}>
@@ -58,14 +58,14 @@ function AboutUsStyleTwo({sectionSpace}) {
 
                 <div className="ltn__list-item-2 ltn__list-item-2-before--- ltn__list-item-2-img mb-50">
                   <LightGallery>
-                    <Link href="img/img-slide/11.jpg">
-                      <img src="img/img-slide/11.jpg" alt="Image" />
+                    <Link href="/img/img-slide/11.jpg">
+                      <img src="/img/img-slide/11.jpg" alt="Image" />
                     </Link>
-                    <Link href="img/img-slide/12.jpg">
-                      <img src="img/img-slide/12.jpg" alt="Image" />
+                    <Link href="/img/img-slide/12.jpg">
+                      <img src="/img/img-slide/12.jpg" alt="Image" />
                     </Link>
-                    <Link href="img/img-slide/13.jpg">
-                      <img src="img/img-slide/13.jpg" alt="Image" />
+                    <Link href="/img/img-slide/13.jpg">
+                      <img src="/img/img-slide/13.jpg" alt="Image" />
                     </Link>
                   </LightGallery>
                 </div>
@@ -73,7 +73,7 @@ function AboutUsStyleTwo({sectionSpace}) {
             </Col>
             <Col xs={12} lg={6} className="align-self-center">
               <div className="about-us-img-wrap about-img-right">
-                <img src="img/others/9.png" alt="About Us Image" />
+                <img src="/img/others/9.png" alt="About Us Image" />
               </div>
             </Col>
           </Row>

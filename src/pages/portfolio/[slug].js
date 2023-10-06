@@ -217,9 +217,7 @@ export async function getStaticPaths() {
   // get the paths we want to pre render based on blogs
   const paths = portfolioData.map((data) => ({
     params: {
-      slug: productSlug(data.title, {
-        lower: true, // convert to lower case, defaults to `false`
-      }),
+      slug: productSlug(data.title),
     },
   }));
 
