@@ -6,6 +6,7 @@ import {
   getIndividualCategories,
   setActiveSort,
 } from "@/lib/product";
+import FilterByPrice from "../FilterByPrice";
 const SideBar = ({ products, getSortParams }) => {
   const aminities = getIndividualAminities(products);
   const aminitiesList = getIndividualAminitiesList(products);
@@ -125,23 +126,12 @@ const SideBar = ({ products, getSortParams }) => {
 
           {/* <hr /> */}
           {/* <!-- Price Filter Widget --> */}
-          {/* <div className="widget--- ltn__price-filter-widget">
-            <h4 className="ltn__widget-title ltn__widget-title-border---">
-              Filter by price
-            </h4>
+          <div className="ltn__price-filter-widget mt-30">
+            <h4 className="ltn__widget-title">Filter by price</h4>
             <div className="price_filter">
-              <div className="price_slider_amount">
-                <input type="submit" value="Your range:" />
-                <input
-                  type="text"
-                  className="amount"
-                  name="price"
-                  placeholder="Add Your Price"
-                />
-              </div>
-              <div className="slider-range"></div>
+              <FilterByPrice />
             </div>
-          </div> */}
+          </div>
           <hr />
           <h4 className="ltn__widget-title">Bed/bath</h4>
           {bedBaths.length > 0 ? (

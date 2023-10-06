@@ -185,7 +185,7 @@ const HeaderStyleFive = function ({ SetToggleClassName }) {
                           <h6>
                             <span>Your Cart</span>
                             <span className="ltn__secondary-color text-start">
-                              ${cartTotalPrice}
+                              ${cartTotalPrice.toFixed(2)}
                             </span>
                           </h6>
                         </button>
