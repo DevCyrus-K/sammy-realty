@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FaPlus, FaAngleDoubleRight } from "react-icons/fa";
-const MenuList = () => {
+const MenuList = ({ addListing }) => {
   return (
     <ul>
       <li className="menu-icon">
@@ -239,9 +239,12 @@ const MenuList = () => {
       <li>
         <Link href="/contact">Contact</Link>
       </li>
-      <li className="special-link">
-        <Link href="/add-listing">Add Listing</Link>
-      </li>
+
+      {addListing ? (
+        <li className="special-link">
+          <Link href="/add-listing">Add Listing</Link>
+        </li>
+      ) : null}
     </ul>
   );
 };

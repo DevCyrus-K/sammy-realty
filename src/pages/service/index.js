@@ -67,7 +67,7 @@ function Service() {
           classes="section-bg-1"
           servicebtn={false}
           iconTag={true}
-          sectionClasses=""
+          sectionClasses="text-center"
           headingClasses="section-subtitle-2"
           data={services}
           titleSectionData={{
@@ -83,7 +83,7 @@ function Service() {
             <Row>
               <Col lg={12}>
                 <TitleSection
-                  sectionClasses=""
+                  sectionClasses="text-center"
                   headingClasses="section-subtitle-2"
                   titleSectionData={{
                     subTitle: "News & Blogs",

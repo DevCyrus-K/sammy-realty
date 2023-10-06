@@ -286,7 +286,7 @@ function Faq() {
             <Row>
               <Col lg={12}>
                 <TitleSection
-                sectionClasses=""
+                sectionClasses="text-center"
                 headingClasses="section-subtitle-2"
                   titleSectionData={{
                     subTitle: "News & Blogs",

@@ -175,7 +175,7 @@ function HomePage(props) {
                     servicebtn={true}
                     iconTag={false}
                     data={featureData}
-                    sectionClasses=""
+                    sectionClasses="text-center"
                     headingClasses="section-subtitle-2"
                     titleSectionData={{
                         subTitle: "Our Services",
@@ -188,7 +188,7 @@ function HomePage(props) {
                         <Row>
                             <Col lg={12}>
                                 <TitleSection
-                                    sectionClasses=""
+                                    sectionClasses="text-center"
                                     headingClasses="section-subtitle-2"
                                     titleSectionData={{
                                         subTitle: "Properties",
@@ -250,7 +250,7 @@ function HomePage(props) {
                         <Row>
                             <Col>
                                 <TitleSection
-                                    sectionClasses=""
+                                    sectionClasses="text-center"
                                     headingClasses="section-subtitle-2"
                                     titleSectionData={{
                                         subTitle: "Apartment Sketch",
@@ -524,7 +524,7 @@ function HomePage(props) {
                         <Row>
                             <Col xs={12}>
                                 <TitleSection
-                                    sectionClasses=""
+                                    sectionClasses="text-center"
                                     headingClasses="section-subtitle-2"
                                     titleSectionData={{
                                         subTitle: "Our Aminities",
@@ -556,7 +556,7 @@ function HomePage(props) {
                         <Row>
                             <Col lg={12}>
                                 <TitleSection
-                                    sectionClasses=""
+                                    sectionClasses="text-center"
                                     headingClasses="section-subtitle-2"
                                     titleSectionData={{
                                         subTitle: "Our Testimonial",
@@ -584,7 +584,7 @@ function HomePage(props) {
                         <Row>
                             <Col lg={12}>
                                 <TitleSection
-                                    sectionClasses=""
+                                    sectionClasses="text-center"
                                     headingClasses="section-subtitle-2"
                                     titleSectionData={{
                                         subTitle: "News & Blogs",

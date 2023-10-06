@@ -128,6 +128,7 @@ function Portfolio() {
             <Row>
               <Col lg={12}>
                 <TitleSection
+                  sectionClasses="text-center"
                   titleSectionData={{
                     subTitle: "News & Blogs",
                     title: "Leatest News Feeds",

@@ -10,7 +10,6 @@ function Feature({
   servicebtn,
   titleSectionData,
   classes,
-  sectionClasses,
   headingClasses,
 }) {
   return (
@@ -21,7 +20,7 @@ function Feature({
             <Col xs={12}>
               <TitleSection
                 titleSectionData={titleSectionData}
-                sectionClasses={sectionClasses}
+                sectionClasses={titleSectionData.sectionClasses}
                 headingClasses={headingClasses}
               />
             </Col>

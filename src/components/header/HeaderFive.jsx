@@ -290,7 +290,7 @@ const HeaderStyleFive = function ({ SetToggleClassName }) {
                 <div className="header-menu header-menu-2">
                   <nav>
                     <div className="ltn__main-menu">
-                    <MenuList />
+                    <MenuList addListing={true} />
                     </div>
                   </nav>
                 </div>
