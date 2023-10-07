@@ -67,10 +67,10 @@ function Service() {
           classes="section-bg-1"
           servicebtn={false}
           iconTag={true}
-          sectionClasses="text-center"
           headingClasses="section-subtitle-2"
           data={services}
           titleSectionData={{
+            sectionClasses: "text-center",
             subTitle: "Our Services",
             title: "Our Core Services",
           }}

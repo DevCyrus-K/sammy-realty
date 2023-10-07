@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import { LayoutSix } from "@/layouts";
 import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
 import Accordion from "react-bootstrap/Accordion";
-import { getProducts, productSlug ,getDiscountPrice} from "@/lib/product";
+import { getProducts, productSlug, getDiscountPrice } from "@/lib/product";
 import TitleSection from "@/components/titleSection";
 import Feature from "@/components/features";
 import featuresData from "@/data/service";
@@ -121,33 +121,33 @@ function HomeVersionEight(props) {
     prevArrow: <SlickArrowLeft />,
     nextArrow: <SlickArrowRight />,
     responsive: [
-        {
-            breakpoint: 992,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1
-            }
-        },
-        {
-            breakpoint: 768,
-            settings: {
-                arrows: false,
-                dots: true,
-                slidesToShow: 2,
-                slidesToScroll: 1
-            }
-        },
-        {
-            breakpoint: 580,
-            settings: {
-                arrows: false,
-                dots: true,
-                slidesToShow: 1,
-                slidesToScroll: 1
-            }
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
         }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          dots: true,
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 580,
+        settings: {
+          arrows: false,
+          dots: true,
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
     ],
-};
+  };
 
   const testiMonialsettings = {
     arrows: true,
@@ -314,9 +314,9 @@ function HomeVersionEight(props) {
         iconTag={false}
         data={featureData}
         classes=""
-        sectionClasses="text-center"
         headingClasses=""
         titleSectionData={{
+          sectionClasses: "text-center",
           subTitle: "Our Services",
           title: "Our Main Focus",
         }}

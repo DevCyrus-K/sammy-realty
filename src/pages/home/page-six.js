@@ -235,9 +235,9 @@ function HomePageSix(props) {
                     servicebtn={true}
                     iconTag={false}
                     data={featureData}
-                    sectionClasses="text-center"
                     headingClasses="section-subtitle-2"
                     titleSectionData={{
+                        sectionClasses: "text-center",
                         subTitle: "Our Services",
                         title: "Our Main Focus",
                     }}

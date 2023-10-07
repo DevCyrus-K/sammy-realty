@@ -202,9 +202,9 @@ function HomeVersionThree(props) {
         iconTag={false}
         data={featureData}
         classes=""
-       sectionClasses="text-center"
         headingClasses="section-subtitle-2"
         titleSectionData={{
+          sectionClasses: "text-center",
           subTitle: "Our Services",
           title: "Our Main Focus",
         }}
@@ -221,7 +221,7 @@ function HomeVersionThree(props) {
           <Row>
             <Col xs={12}>
               <TitleSection
-               sectionClasses="text-center"
+                sectionClasses="text-center"
                 headingClasses="section-subtitle-2"
                 titleSectionData={{
                   subTitle: "Area Properties",
@@ -268,7 +268,7 @@ function HomeVersionThree(props) {
           <Row>
             <Col lg={12}>
               <TitleSection
-               sectionClasses="text-center"
+                sectionClasses="text-center"
                 headingClasses="section-subtitle-2"
                 titleSectionData={{
                   subTitle: "Properties",
@@ -340,7 +340,7 @@ function HomeVersionThree(props) {
           <Row>
             <Col lg={12}>
               <TitleSection
-               sectionClasses="text-center"
+                sectionClasses="text-center"
                 headingClasses="section-subtitle-2"
                 titleSectionData={{
                   subTitle: "Our Testimonial",
@@ -381,7 +381,7 @@ function HomeVersionThree(props) {
           <Row>
             <Col lg={12}>
               <TitleSection
-               sectionClasses="text-center"
+                sectionClasses="text-center"
                 headingClasses="section-subtitle-2"
                 titleSectionData={{
                   subTitle: "News & Blogs",

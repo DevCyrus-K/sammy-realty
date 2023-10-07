@@ -222,9 +222,9 @@ function HomeVersionTwo(props) {
         iconTag={false}
         data={featureData}
         classes=""
-        sectionClasses="text-center"
         headingClasses=""
         titleSectionData={{
+          sectionClasses: "text-center",
           subTitle: "Our Services",
           title: "Our Main Focus",
         }}
