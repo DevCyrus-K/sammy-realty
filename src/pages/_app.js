@@ -7,13 +7,10 @@ import { wrapper } from "@/store";
 import { setProducts } from "@/store/slices/product-slice";
 import products from "@/data/products.json";
 import Preloader from "@/components/preloader";
-
 import "animate.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import 'lightgallery/scss/lightgallery.scss';
-import 'lightgallery/scss/lg-zoom.scss';
 import 'node_modules/react-modal-video/scss/modal-video.scss';
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/counter.css";

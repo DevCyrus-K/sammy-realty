@@ -406,6 +406,19 @@ export const cartItemStock = (item, color, size) => {
   }
 };
 
+
+export function flatDeep(arr, d = 1) {
+  return d > 0
+    ? arr.reduce(
+      (acc, val) =>
+        acc.concat(Array.isArray(val) ? flatDeep(val, d - 1) : val),
+      []
+    )
+    : arr.slice();
+}
+
+
+
 export const productSlug = (text) => {
   return slugify(text, {
     replacement: "-", // replace spaces with replacement character, defaults to `-`
