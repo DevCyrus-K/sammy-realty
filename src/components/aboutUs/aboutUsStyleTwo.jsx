@@ -1,45 +1,11 @@
-import { useState } from "react";
+import Link from "next/link";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Lightbox from "yet-another-react-lightbox";
-import PhotoAlbum from "react-photo-album";
-import Counter from "yet-another-react-lightbox/plugins/counter";
-import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
-import Zoom from "yet-another-react-lightbox/plugins/zoom";
-import Download from "yet-another-react-lightbox/plugins/download";
-
+import LightGallery from "lightgallery/react";
 function AboutUsStyleTwo({ sectionSpace }) {
-  const [index, setIndex] = useState(-1);
-
-  const slides = [
-    {
-      src: "/img/img-slide/11.jpg",
-      width: 800,
-      height: 570,
-    },
-    {
-      src: "/img/img-slide/12.jpg",
-      width: 800,
-      height: 570,
-    },
-    {
-      src: "/img/img-slide/13.jpg",
-      width: 800,
-      height: 570,
-    },
-  ];
-
   return (
     <>
-      <Lightbox
-        index={index}
-        open={index >= 0}
-        close={() => setIndex(-1)}
-        slides={slides}
-        plugins={[Zoom, Counter, Fullscreen, Download]}
-      />
-
       <div className={`ltn__about-us-area ${sectionSpace}`}>
         <Container>
           <Row>
@@ -90,13 +56,18 @@ function AboutUsStyleTwo({ sectionSpace }) {
                   </li>
                 </ul>
 
-                <div className="ltn__list-item-2 ltn__list-item-2-img mb-50">
-                  <PhotoAlbum
-                    layout="rows"
-                    photos={slides}
-                    targetRowHeight={150}
-                    onClick={({ index: current }) => setIndex(current)}
-                  />
+                <div className="ltn__list-item-2 ltn__list-item-2-before--- ltn__list-item-2-img mb-50">
+                  <LightGallery>
+                    <Link href="/img/img-slide/11.jpg">
+                      <img src="/img/img-slide/11.jpg" alt="Image" />
+                    </Link>
+                    <Link href="/img/img-slide/12.jpg">
+                      <img src="/img/img-slide/12.jpg" alt="Image" />
+                    </Link>
+                    <Link href="/img/img-slide/13.jpg">
+                      <img src="/img/img-slide/13.jpg" alt="Image" />
+                    </Link>
+                  </LightGallery>
                 </div>
               </div>
             </Col>

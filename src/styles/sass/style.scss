@@ -5,7 +5,6 @@
 */
 
 //== Global Design
-@import "../css/font-icons.css";
 @import "global/_mixins";
 @import "global/_variables";
 @import "global/_global";
@@ -26,7 +25,3 @@
 @import "elements/_preloader";
 @import "elements/_search_popup";
 @import "elements/_button";
-
-span.error {
-    color: red;
-}

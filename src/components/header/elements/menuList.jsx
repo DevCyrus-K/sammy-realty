@@ -69,9 +69,9 @@ const MenuList = ({ addListing }) => {
           <li>
             <Link href="/portfolio">Portfolio</Link>
           </li>
-          <li>
-              <Link href="/portfolio/page-two">Portfolio - 02</Link>
-            </li>
+          {/* <li>
+              <Link href="/portfolio-2">Portfolio - 02</Link>
+            </li> */}
 
           <li>
             <Link href="/team">Team</Link>
@@ -170,7 +170,7 @@ const MenuList = ({ addListing }) => {
                 <Link href="/portfolio">Portfolio</Link>
               </li>
               <li>
-                <Link href="/portfolio/page-two">Portfolio - 02</Link>
+                <Link href="/portfolio-2">Portfolio - 02</Link>
               </li>
 
               <li>

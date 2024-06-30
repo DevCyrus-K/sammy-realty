@@ -141,9 +141,9 @@ const MobileMenu = function ({ offCanVastoggleBtn, closeSideBar }) {
                   <li>
                     <Link href="/portfolio">Portfolio</Link>
                   </li>
-                  <li>
-                    <Link href="/portfolio/page-two">Portfolio - 02</Link>
-                  </li>
+                  {/* <li>
+                    <Link href="portfolio-page-two">Portfolio - 02</Link>
+                  </li> */}
 
                   <li>
                     <Link href="/team">Team</Link>
@@ -182,7 +182,9 @@ const MobileMenu = function ({ offCanVastoggleBtn, closeSideBar }) {
                       Property right sidebar
                     </Link>
                   </li>
-                  
+                  {/* <li>
+                    <Link href="product-details">Property details </Link>
+                  </li> */}
                   <li>
                     <Link href="/cart">Cart</Link>
                   </li>
@@ -246,9 +248,9 @@ const MobileMenu = function ({ offCanVastoggleBtn, closeSideBar }) {
                   <li>
                     <Link href="/portfolio">Portfolio</Link>
                   </li>
-                  <li>
-                    <Link href="/portfolio/page-two">Portfolio - 02</Link>
-                  </li>
+                  {/* <li>
+                    <Link href="/portfolio-page-two">Portfolio - 02</Link>
+                  </li> */}
 
                   <li>
                     <Link href="/team">Team</Link>

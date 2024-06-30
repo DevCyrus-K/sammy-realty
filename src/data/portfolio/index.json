@@ -16,8 +16,7 @@
     "id": "01",
     "carousel": false,
     "active": false,
-    "category": ["buying", "rent"],
-    "filter":"Houses",
+    "category": ["buying", "women"],
     "featured": true,
     "reviews": [
       {
@@ -57,8 +56,7 @@
     "id": "02",
     "carousel": false,
     "active": true,
-    "category": ["buying", "rent"],
-    "filter":"Retail",
+    "category": ["buying", "women"],
     "featured": true,
     "reviews": [
       {
@@ -98,8 +96,7 @@
     "id": "03",
     "carousel": false,
     "active": false,
-    "category": ["buying", "rent"],
-    "filter":"Houses",
+    "category": ["buying", "women"],
     "featured": true,
     "reviews": [
       {
@@ -139,8 +136,7 @@
     "id": "04",
     "carousel": false,
     "active": false,
-    "category": ["buying", "rent"],
-    "filter":"Retail",
+    "category": ["buying", "women"],
     "featured": true,
     "reviews": [
       {
@@ -180,8 +176,7 @@
     "id": "05",
     "carousel": false,
     "active": false,
-    "category": ["buying", "rent"],
-    "filter":"Retail",
+    "category": ["buying", "women"],
     "featured": true,
     "reviews": [
       {
@@ -205,7 +200,7 @@
     ]
   },
   {
-    "title": "Buy a home",
+    "title": "Sell a home",
     "designation": "Web Design & Development, Branding",
     "shortDescription": "over 1 million+ homes for sale available on the website, we can match you with a house you will want to call home.",
     "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione.",
@@ -221,8 +216,7 @@
     "id": "06",
     "carousel": false,
     "active": false,
-    "category": ["buying", "rent"],
-    "filter":"Retail",
+    "category": ["buying", "women"],
     "featured": true,
     "reviews": [
       {
@@ -262,8 +256,7 @@
     "id": "07",
     "carousel": false,
     "active": false,
-    "category": ["buying", "rent"],
-    "filter":"Condos",
+    "category": ["buying", "women"],
     "featured": true,
     "reviews": [
       {
@@ -298,13 +291,12 @@
       "captionFullDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione.",
       "captionShortDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
     },
-    "thumbImage": "8.jpg",
-    "img": "8.jpg",
+    "thumbImage": "21.jpg",
+    "img": "21.jpg",
     "id": "08",
     "carousel": true,
     "active": false,
-    "category": ["buying", "rent"],
-    "filter":"Condos",
+    "category": ["buying", "women"],
     "featured": true,
     "reviews": [
       {
@@ -339,13 +331,12 @@
       "captionFullDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione.",
       "captionShortDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
     },
-    "thumbImage": "9.jpg",
-    "img": "9.jpg",
+    "thumbImage": "22.jpg",
+    "img": "22.jpg",
     "id": "09",
     "carousel": true,
     "active": true,
-    "category": ["buying", "rent"],
-    "filter":"Houses",
+    "category": ["buying", "women"],
     "featured": true,
     "reviews": [
       {
@@ -380,13 +371,12 @@
       "captionFullDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione.",
       "captionShortDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
     },
-    "thumbImage": "10.jpg",
-    "img": "10.jpg",
+    "thumbImage": "23.jpg",
+    "img": "23.jpg",
     "id": "10",
     "carousel": true,
     "active": false,
-    "category": ["buying", "rent"],
-    "filter":"Condos",
+    "category": ["buying", "women"],
     "featured": true,
     "reviews": [
       {
@@ -421,13 +411,12 @@
       "captionFullDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione.",
       "captionShortDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
     },
-    "thumbImage": "11.jpg",
-    "img": "11.jpg",
+    "thumbImage": "24.jpg",
+    "img": "24.jpg",
     "id": "11",
     "carousel": true,
     "active": false,
-    "category": ["buying", "rent"],
-    "filter":"Houses",
+    "category": ["buying", "women"],
     "featured": true,
     "reviews": [
       {
@@ -462,13 +451,12 @@
       "captionFullDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione.",
       "captionShortDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
     },
-    "thumbImage": "12.jpg",
-    "img": "12.jpg",
+    "thumbImage": "22.jpg",
+    "img": "22.jpg",
     "id": "12",
     "carousel": true,
     "active": false,
-    "category": ["buying", "rent"],
-    "filter":"Condos",
+    "category": ["buying", "women"],
     "featured": true,
     "reviews": [
       {

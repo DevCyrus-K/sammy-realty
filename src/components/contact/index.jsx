@@ -1,4 +1,7 @@
 import { Form } from "react-bootstrap";
+import { useForm } from 'react-hook-form';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   FaDribbble,
   FaInstagram,
@@ -16,9 +19,24 @@ import {
 } from "react-icons/fa";
 
 const Contact = () => {
+
+  const { register, handleSubmit, formState: { errors }, reset } = useForm(); // Ensure reset is destructured here
+
+  const onSubmit = (data) => {
+    console.log(data);
+    toast("Form data has been submited. Please check in console")
+    reset(); // Reset form fields after submission
+  };
+
+
+  const onSubmitWithPreventDefault = (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
+    handleSubmit(onSubmit)();
+  };
   return (
     <>
       {/* <!-- CONTACT ADDRESS AREA START --> */}
+      <ToastContainer />
       <div className="ltn__contact-address-area mb-90">
         <div className="container">
           <div className="row">
@@ -69,76 +87,81 @@ const Contact = () => {
             <div className="col-lg-12">
               <div className="ltn__form-box contact-form-box box-shadow white-bg">
                 <h4 className="title-2">Get A Quote</h4>
-                <form id="contact-form" action="#" method="post">
+                <form id="contact-form" onSubmit={onSubmitWithPreventDefault}>
                   <div className="row">
                     <div className="col-md-6">
                       <div className="input-item input-item-name ltn__custom-icon">
                         <input
                           type="text"
-                          name="name"
+                          {...register('name', { required: true })}
                           placeholder="Enter your name"
                         />
                         <span className="inline-icon">
                           <FaUserAlt />
                         </span>
+                        {errors.name && <span className="d-inline-block mb-2 error">This field is required</span>}
                       </div>
                     </div>
                     <div className="col-md-6">
                       <div className="input-item input-item-email ltn__custom-icon">
                         <input
                           type="email"
-                          name="email"
+                          {...register('email', { required: true })}
                           placeholder="Enter email address"
                         />
                         <span className="inline-icon">
                           <FaEnvelope />
                         </span>
+                        {errors.email && <span className="d-inline-block mb-2 error">This field is required</span>}
                       </div>
                     </div>
                     <div className="col-md-6">
-                      <div className="input-item input-item input-item-email ltn__custom-icon">
-                        <Form.Select className="nice-select">
-                          <option>Select Service Type</option>
-                          <option>Property Management </option>
-                          <option>Mortgage Service </option>
-                          <option>Consulting Service</option>
-                          <option>Home Buying</option>
-                          <option>Home selling</option>
-                          <option>Escrow Services</option>
+                      <div className="input-item input-item-email ltn__custom-icon">
+                        <Form.Select {...register('serviceType', { required: true })} className="nice-select">
+                          <option value="">Select Service Type</option>
+                          <option value="Property Management">Property Management</option>
+                          <option value="Mortgage Service">Mortgage Service</option>
+                          <option value="Consulting Service">Consulting Service</option>
+                          <option value="Home Buying">Home Buying</option>
+                          <option value="Home Selling">Home Selling</option>
+                          <option value="Escrow Services">Escrow Services</option>
                         </Form.Select>
                         <span className="inline-icon">
                           <FaArrowDown />
                         </span>
+                        {errors.serviceType && <span className="d-inline-block mb-2 error">This field is required</span>}
                       </div>
                     </div>
                     <div className="col-md-6">
                       <div className="input-item input-item-phone ltn__custom-icon">
                         <input
                           type="text"
-                          name="phone"
+                          {...register('phone', { required: true })}
                           placeholder="Enter phone number"
                         />
                         <span className="inline-icon">
                           <FaPhoneAlt />
                         </span>
+                        {errors.phone && <span className="d-inline-block mb-2 error">This field is required</span>}
                       </div>
                     </div>
                   </div>
                   <div className="input-item input-item-textarea ltn__custom-icon">
                     <textarea
-                      name="message"
+                      {...register('message', { required: true })}
                       placeholder="Enter message"
                     ></textarea>
                     <span className="inline-icon">
                       <FaPencilAlt />
                     </span>
+                    {errors.message && <span className="d-inline-block mb-2 error">This field is required</span>}
                   </div>
                   <p>
                     <label className="input-info-save mb-0">
-                      <input type="checkbox" name="agree" /> Save my name,
-                      email, and website in this browser for the next time I
-                      comment.
+                      <input type="checkbox" {...register('agree', { required: true })} /> Save my name,
+                      email, and website in this browser for the next time I comment.
                     </label>
+                    {errors.agree && <span className="d-inline-block mb-2 error">This field is required</span>}
                   </p>
                   <div className="btn-wrapper mt-0">
                     <button
