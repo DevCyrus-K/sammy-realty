@@ -15,7 +15,6 @@ export default function Navigation() {
     };
 
     const handleResize = () => {
-      // Close mobile menu when resizing to desktop
       if (window.innerWidth >= 768) {
         setIsOpen(false);
       }
@@ -30,10 +29,9 @@ export default function Navigation() {
     };
   }, []);
 
-  // Close mobile menu when clicking outside
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (isOpen && !event.target.closest('nav')) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isOpen && !(event.target as Element).closest('nav')) {
         setIsOpen(false);
       }
     };
@@ -60,8 +58,11 @@ export default function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16 lg:h-18">
-          {/* Logo - responsive sizing */}
-          <Link href="/" className="flex items-center space-x-1.5 sm:space-x-2 flex-shrink-0">
+          {/* Logo - now with proper Link usage */}
+          <Link
+            href="/"
+            className="flex items-center space-x-1.5 sm:space-x-2 flex-shrink-0"
+          >
             <div className="w-8 h-8 sm:w-10 sm:h-10 bg-luxury-green rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg sm:text-xl">S</span>
             </div>
@@ -142,7 +143,6 @@ export default function Navigation() {
           )}
         </AnimatePresence>
       </div>
-
       {/* Mobile menu overlay */}
       <AnimatePresence>
         {isOpen && (

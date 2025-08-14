@@ -147,7 +147,6 @@ export default function Properties() {
   return (
     <div className="min-h-screen">
       <Navigation />
-      
       {/* Header */}
       <section className="pt-24 pb-12 bg-luxury-green text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -166,7 +165,6 @@ export default function Properties() {
           </motion.div>
         </div>
       </section>
-
       {/* Filters */}
       <section className="py-8 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -220,7 +218,6 @@ export default function Properties() {
           </motion.div>
         </div>
       </section>
-
       {/* Properties Grid */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -271,7 +268,7 @@ export default function Properties() {
                       <span className="font-bold text-2xl luxury-green">
                         {property.price}
                       </span>
-                      <Link href={`/properties/${property.id}`}>
+                      <Link href={`/properties/${property.id}`} legacyBehavior>
                         <Button size="sm" className="bg-luxury-green hover:bg-luxury-green/90">
                           View Details
                         </Button>
@@ -294,7 +291,6 @@ export default function Properties() {
           )}
         </div>
       </section>
-
       <Footer />
     </div>
   );

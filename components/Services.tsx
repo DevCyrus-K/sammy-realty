@@ -54,7 +54,6 @@ export default function Services() {
         <div className="absolute bottom-10 right-10 w-48 h-48 bg-luxury-green rounded-full filter blur-xl"></div>
         <div className="absolute top-1/2 right-1/4 w-24 h-24 bg-luxury-gold rounded-full filter blur-xl"></div>
       </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -85,7 +84,7 @@ export default function Services() {
               transition={{ duration: 0.8, delay: index * 0.1 }}
               whileHover={{ y: -10 }}
             >
-              <Link href={service.link}>
+              <Link href={service.link} passHref legacyBehavior={false}>
                 <Card className="h-full hover:shadow-xl transition-all duration-300 group cursor-pointer border border-gray-200/50 hover:border-luxury-green/20 bg-white/70 backdrop-blur-sm overflow-hidden">
                   <div className="relative h-48 overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
@@ -127,7 +126,7 @@ export default function Services() {
           transition={{ delay: 0.4 }}
           className="text-center mt-16"
         >
-          <Link href="/services">
+          <Link href="/services" passHref legacyBehavior={false}>
             <Button className="bg-luxury-green hover:bg-luxury-green/90 px-8 py-6 text-lg rounded-full shadow-lg hover:shadow-xl transition-all">
               View Our Portfolio
               <FaArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />

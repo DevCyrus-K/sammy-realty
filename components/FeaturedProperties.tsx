@@ -191,67 +191,65 @@ export default function FeaturedProperties() {
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 className="flex-shrink-0 w-96 snap-start"
               >
-                <Link href={`/properties/${property.id}`} passHref legacyBehavior>
-                  <a className="block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-luxury-green focus-visible:ring-offset-4 rounded-lg">
-                    <Card className="h-full hover:shadow-xl transition-all duration-300 group cursor-pointer border border-gray-200/50 hover:border-luxury-green/20 bg-white/70 backdrop-blur-sm overflow-hidden">
-                      <div className="relative h-64 overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
-                        <div className="absolute top-4 left-4 z-20">
-                          <span className={`inline-block px-4 py-2 rounded-full text-sm font-medium ${
-                            property.type === 'For Sale' ? 'bg-luxury-green text-white' :
-                            property.type === 'For Rent' ? 'bg-blue-600 text-white' : 
-                            'bg-luxury-gold text-white'
-                          }`}>
-                            {property.type}
-                          </span>
-                        </div>
-                        <Image 
-                          src={property.image} 
-                          alt={property.title}
-                          fill
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                          className="object-cover transition-transform duration-700 group-hover:scale-105"
-                          priority={index < 3} // Only prioritize first 3 images
-                        />
+                <Link 
+                  href={`/properties/${property.id}`}
+                  className="block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-luxury-green focus-visible:ring-offset-4 rounded-lg"
+                >
+                  <Card className="h-full hover:shadow-xl transition-all duration-300 group cursor-pointer border border-gray-200/50 hover:border-luxury-green/20 bg-white/70 backdrop-blur-sm overflow-hidden">
+                    <div className="relative h-64 overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+                      <div className="absolute top-4 left-4 z-20">
+                        <span className={`inline-block px-4 py-2 rounded-full text-sm font-medium ${
+                          property.type === 'For Sale' ? 'bg-luxury-green text-white' :
+                          property.type === 'For Rent' ? 'bg-blue-600 text-white' : 
+                          'bg-luxury-gold text-white'
+                        }`}>
+                          {property.type}
+                        </span>
                       </div>
-                      <CardHeader className="px-6 pt-6 pb-0">
-                        <CardTitle className="font-playfair text-2xl text-gray-900 group-hover:text-luxury-green transition-colors duration-300">
-                          {property.title}
-                        </CardTitle>
-                        <p className="text-luxury-gold mt-2">{property.location}</p>
-                      </CardHeader>
-                      <CardContent className="px-6 pb-6 pt-4">
-                        <div className="flex items-center space-x-4 mb-4 text-gray-600">
-                          <div className="flex items-center">
-                            <FaBed className="mr-2 text-luxury-green" aria-hidden="true" />
-                            <span>{property.beds} Beds</span>
-                          </div>
-                          <div className="flex items-center">
-                            <FaBath className="mr-2 text-luxury-green" aria-hidden="true" />
-                            <span>{property.baths} Baths</span>
-                          </div>
-                          <div className="flex items-center">
-                            <FaRulerCombined className="mr-2 text-luxury-green" aria-hidden="true" />
-                            <span>{property.sqft} sqft</span>
-                          </div>
+                      <Image 
+                        src={property.image} 
+                        alt={property.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        priority={index < 3}
+                      />
+                    </div>
+                    <CardHeader className="px-6 pt-6 pb-0">
+                      <CardTitle className="font-playfair text-2xl text-gray-900 group-hover:text-luxury-green transition-colors duration-300">
+                        {property.title}
+                      </CardTitle>
+                      <p className="text-luxury-gold mt-2">{property.location}</p>
+                    </CardHeader>
+                    <CardContent className="px-6 pb-6 pt-4">
+                      <div className="flex items-center space-x-4 mb-4 text-gray-600">
+                        <div className="flex items-center">
+                          <FaBed className="mr-2 text-luxury-green" aria-hidden="true" />
+                          <span>{property.beds} Beds</span>
                         </div>
-                        <div className="flex items-center justify-between mt-6">
-                          <span className="font-bold text-2xl text-luxury-green">
-                            {property.price}
-                          </span>
-                          <Button 
-                            variant="ghost" 
-                            className="rounded-full group-hover:bg-luxury-green/10 text-luxury-green hover:text-luxury-green px-4 border border-luxury-green/20 hover:border-luxury-green/40 transition-all"
-                            asChild
-                          >
-                            <div>
-                              View <FaArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
-                            </div>
-                          </Button>
+                        <div className="flex items-center">
+                          <FaBath className="mr-2 text-luxury-green" aria-hidden="true" />
+                          <span>{property.baths} Baths</span>
                         </div>
-                      </CardContent>
-                    </Card>
-                  </a>
+                        <div className="flex items-center">
+                          <FaRulerCombined className="mr-2 text-luxury-green" aria-hidden="true" />
+                          <span>{property.sqft} sqft</span>
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-between mt-6">
+                        <span className="font-bold text-2xl text-luxury-green">
+                          {property.price}
+                        </span>
+                        <Button 
+                          variant="ghost" 
+                          className="rounded-full group-hover:bg-luxury-green/10 text-luxury-green hover:text-luxury-green px-4 border border-luxury-green/20 hover:border-luxury-green/40 transition-all"
+                        >
+                          View <FaArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </Link>
               </motion.div>
             ))}
@@ -275,15 +273,10 @@ export default function FeaturedProperties() {
           transition={{ delay: 0.4 }}
           className="text-center mt-12"
         >
-          <Link href="/properties" passHref legacyBehavior>
-            <Button 
-              asChild
-              className="bg-luxury-green hover:bg-luxury-green/90 px-8 py-6 text-lg rounded-full shadow-lg hover:shadow-xl transition-all"
-            >
-              <a>
-                Browse All Properties
-                <FaArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
-              </a>
+          <Link href="/properties">
+            <Button className="bg-luxury-green hover:bg-luxury-green/90 px-8 py-6 text-lg rounded-full shadow-lg hover:shadow-xl transition-all">
+              Browse All Properties
+              <FaArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
           </Link>
         </motion.div>
