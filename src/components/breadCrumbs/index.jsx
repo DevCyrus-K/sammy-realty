@@ -2,7 +2,13 @@ import Link from "next/link";
 import { Col, Container, Row } from "react-bootstrap";
 import { FaHome, FaAngleRight } from "react-icons/fa";
 
-const BreadCrumb = ({ title, currentSlug, sectionPace }) => {
+const BreadCrumb = ({
+  title,
+  currentSlug,
+  sectionPace,
+  parentHref = "/shop",
+  parentLabel = "Shop",
+}) => {
   return (
     <>
       <div
@@ -26,8 +32,8 @@ const BreadCrumb = ({ title, currentSlug, sectionPace }) => {
                       </Link>
                     </li>
                     <li>
-                      <Link href="/shop">
-                        <span className="me-2">Shop</span>
+                      <Link href={parentHref}>
+                        <span className="me-2">{parentLabel}</span>
                         <FaAngleRight />
                       </Link>
                     </li>

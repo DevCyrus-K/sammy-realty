@@ -8,7 +8,7 @@ import CallToAction from "@/components/callToAction";
 const comingSoon = () => {
   return (
     <>
-      <LayoutOne topbar={true}>
+      <LayoutOne topbar={false}>
         <ShopBreadCrumb title="404 Page" sectionPace="" currentSlug="404" />
 
         {/* <!-- 404 area start --> */}

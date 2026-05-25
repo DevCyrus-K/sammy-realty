@@ -13,12 +13,12 @@ const callToActionstyleTwo = () => {
             <Col xs={12}>
               <div className="call-to-action-inner call-to-action-inner-4 text-center">
                 <div className="section-title-area ltn__section-title-2">
-                  <h6 className="section-subtitle ltn__secondary-color">{`//  any question you have  //`}</h6>
-                  <h1 className="section-title white-color">897-876-987-90</h1>
+                  <h6 className="section-subtitle ltn__secondary-color">{`// direct enquiry //`}</h6>
+                  <h1 className="section-title white-color">+234-814-841-4913</h1>
                 </div>
                 <div className="btn-wrapper">
                   <Link
-                    href="tel:+123456789"
+                    href="tel:+2348148414913"
                     className="theme-btn-1 btn btn-effect-1"
                   >
                     MAKE A CALL

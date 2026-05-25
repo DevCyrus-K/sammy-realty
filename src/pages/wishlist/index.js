@@ -17,7 +17,7 @@ const Wishlist = () => {
     let cartTotalPrice = 0;
     return (
         <>
-            <LayoutOne topbar={true}>
+            <LayoutOne topbar={false}>
                 {/* <!-- BREADCRUMB AREA START --> */}
                 <ShopBreadCrumb title="Wishlist" sectionPace="" currentSlug="wishlist" />
                 {/* <!-- BREADCRUMB AREA END --> */}

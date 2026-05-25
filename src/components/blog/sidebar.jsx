@@ -309,7 +309,7 @@ const BlogSideBar = ({ popularProducts, topRatedProducts, latestdBlogs }) => {
         {/* <!-- Popular Post Widget --> */}
         <div className="widget ltn__popular-post-widget">
           <h4 className="ltn__widget-title ltn__widget-title-border-2">
-            Leatest Blogs
+            Latest Blogs
           </h4>
           <ul>
             {latestdBlogs.map((blog, key) => {

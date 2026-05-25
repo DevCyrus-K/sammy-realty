@@ -99,7 +99,7 @@ const HeaderStyleFive = function ({ SetToggleClassName }) {
                 <div className="site-logo-wrap">
                   <div className="site-logo">
                     <Link href="/">
-                      <img src="/img/logo.png" alt="Logo" />
+                      <img src="/img/main-logo.png" alt="Sammy Realty" />
                     </Link>
                   </div>
                 </div>
@@ -115,7 +115,7 @@ const HeaderStyleFive = function ({ SetToggleClassName }) {
                     <div className="header-feature-info">
                       <h6>Phone</h6>
                       <p>
-                        <Link href="tel:0123456789">+0123-456-789</Link>
+                        <Link href="tel:+234-814-841-4913">+234-814-841-4913</Link>
                       </p>
                     </div>
                   </div>
@@ -148,7 +148,7 @@ const HeaderStyleFive = function ({ SetToggleClassName }) {
                             const slug = productSlug(product.title);
                             return (
                               <li key={key} className="list-group-item">
-                                <Link href={`/shop/${slug}`}>
+                                <Link href={`/properties/${slug}`}>
                                   {product.title}
                                 </Link>
                               </li>
@@ -283,7 +283,7 @@ const HeaderStyleFive = function ({ SetToggleClassName }) {
                 <div className="sticky-logo">
                   <div className="site-logo">
                     <Link href="/">
-                      <img src="/img/logo.png" alt="Logo" />
+                      <img src="/img/main-logo.png" alt="Sammy Realty" />
                     </Link>
                   </div>
                 </div>

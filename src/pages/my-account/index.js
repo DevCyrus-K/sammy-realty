@@ -28,7 +28,7 @@ import Link from "next/link";
 function MyAccount() {
   return (
     <>
-      <LayoutOne topbar={true}>
+      <LayoutOne topbar={false}>
         <ShopBreadCrumb
           title="My Account"
           sectionPace=""
@@ -137,7 +137,7 @@ function MyAccount() {
                                       alt="Author Image"
                                     />
                                   </div>
-                                  <div className="author-info">
+                                    <div className="author-info">
                                     <h6>Agent of Property</h6>
                                     <h2>Rosalina D. William</h2>
                                     <div className="footer-address">
@@ -148,7 +148,7 @@ function MyAccount() {
                                           </div>
                                           <div className="footer-address-info">
                                             <p>
-                                              Brooklyn, New York, United States
+                                              Greenville Estate, Ajah, Lagos, Nigeria
                                             </p>
                                           </div>
                                         </li>
@@ -158,8 +158,8 @@ function MyAccount() {
                                           </div>
                                           <div className="footer-address-info">
                                             <p>
-                                              <Link href="tel:+0123-456789">
-                                                +0123-456789
+                                              <Link href="tel:+234-814-841-4913">
+                                                +234-814-841-4913
                                               </Link>
                                             </p>
                                           </div>
@@ -170,8 +170,8 @@ function MyAccount() {
                                           </div>
                                           <div className="footer-address-info">
                                             <p>
-                                              <Link href="mailto:example@example.com">
-                                                example@example.com
+                                              <Link href="mailto:info@sammyrealty.com">
+                                                info@sammyrealty.com
                                               </Link>
                                             </p>
                                           </div>
@@ -407,7 +407,7 @@ function MyAccount() {
                                   <tbody>
                                     <tr>
                                       <td className="ltn__my-properties-img">
-                                        <Link href="https://quarter-nextjs.netlify.app/shop/new-apartment-nice-view">
+                                        <Link href="https://sammyrealty.com/shop/new-apartment-nice-view">
                                           <img
                                             src="/img/product-3/2.jpg"
                                             alt="#"
@@ -417,13 +417,13 @@ function MyAccount() {
                                       <td>
                                         <div className="ltn__my-properties-info">
                                           <h6 className="mb-10">
-                                            <Link href="https://quarter-nextjs.netlify.app/shop/new-apartment-nice-view">
+                                            <Link href="https://sammyrealty.com/shop/new-apartment-nice-view">
                                               sdfasdfdsfsdafs
                                             </Link>
                                           </h6>
                                           <small>
                                             <i className="icon-placeholder"></i>
-                                            Brooklyn, New York, United States
+                                            Greenville Estate, Ajah, Lagos, Nigeria
                                           </small>
                                           <div className="product-ratting">
                                             <ul>
@@ -483,7 +483,7 @@ function MyAccount() {
                                     </tr>
                                     <tr>
                                       <td className="ltn__my-properties-img">
-                                        <Link href="https://quarter-nextjs.netlify.app/shop/new-apartment-nice-view">
+                                        <Link href="https://sammyrealty.com/shop/new-apartment-nice-view">
                                           <img
                                             src="/img/product-3/3.jpg"
                                             alt="#"
@@ -493,13 +493,13 @@ function MyAccount() {
                                       <td>
                                         <div className="ltn__my-properties-info">
                                           <h6 className="mb-10">
-                                            <Link href="https://quarter-nextjs.netlify.app/shop/new-apartment-nice-view">
+                                            <Link href="https://sammyrealty.com/shop/new-apartment-nice-view">
                                               sdfasdfdsfsdafs
                                             </Link>
                                           </h6>
                                           <small>
                                             <i className="icon-placeholder"></i>
-                                            Brooklyn, New York, United States
+                                            Greenville Estate, Ajah, Lagos, Nigeria
                                           </small>
                                           <div className="product-ratting">
                                             <ul>
@@ -559,7 +559,7 @@ function MyAccount() {
                                     </tr>
                                     <tr>
                                       <td className="ltn__my-properties-img">
-                                        <Link href="https://quarter-nextjs.netlify.app/shop/new-apartment-nice-view">
+                                        <Link href="https://sammyrealty.com/shop/new-apartment-nice-view">
                                           <img
                                             src="/img/product-3/7.jpg"
                                             alt="#"
@@ -569,13 +569,13 @@ function MyAccount() {
                                       <td>
                                         <div className="ltn__my-properties-info">
                                           <h6 className="mb-10">
-                                            <Link href="https://quarter-nextjs.netlify.app/shop/new-apartment-nice-view">
+                                            <Link href="https://sammyrealty.com/shop/new-apartment-nice-view">
                                               sdfasdfdsfsdafs
                                             </Link>
                                           </h6>
                                           <small>
                                             <i className="icon-placeholder"></i>
-                                            Brooklyn, New York, United States
+                                            Greenville Estate, Ajah, Lagos, Nigeria
                                           </small>
                                           <div className="product-ratting">
                                             <ul>
@@ -685,7 +685,7 @@ function MyAccount() {
                                   <tbody>
                                     <tr>
                                       <td className="ltn__my-properties-img">
-                                        <Link href="https://quarter-nextjs.netlify.app/shop/new-apartment-nice-view">
+                                        <Link href="https://sammyrealty.com/shop/new-apartment-nice-view">
                                           <img
                                             src="/img/product-3/2.jpg"
                                             alt="#"
@@ -695,13 +695,13 @@ function MyAccount() {
                                       <td>
                                         <div className="ltn__my-properties-info">
                                           <h6 className="mb-10">
-                                            <Link href="https://quarter-nextjs.netlify.app/shop/new-apartment-nice-view">
+                                            <Link href="https://sammyrealty.com/shop/new-apartment-nice-view">
                                               sdfasdfdsfsdafs
                                             </Link>
                                           </h6>
                                           <small>
                                             <i className="icon-placeholder"></i>
-                                            Brooklyn, New York, United States
+                                            Greenville Estate, Ajah, Lagos, Nigeria
                                           </small>
                                           <div className="product-ratting">
                                             <ul>
@@ -761,7 +761,7 @@ function MyAccount() {
                                     </tr>
                                     <tr>
                                       <td className="ltn__my-properties-img">
-                                        <Link href="https://quarter-nextjs.netlify.app/shop/new-apartment-nice-view">
+                                        <Link href="https://sammyrealty.com/shop/new-apartment-nice-view">
                                           <img
                                             src="/img/product-3/3.jpg"
                                             alt="#"
@@ -771,13 +771,13 @@ function MyAccount() {
                                       <td>
                                         <div className="ltn__my-properties-info">
                                           <h6 className="mb-10">
-                                            <Link href="https://quarter-nextjs.netlify.app/shop/new-apartment-nice-view">
+                                            <Link href="https://sammyrealty.com/shop/new-apartment-nice-view">
                                               sdfasdfdsfsdafs
                                             </Link>
                                           </h6>
                                           <small>
                                             <i className="icon-placeholder"></i>
-                                            Brooklyn, New York, United States
+                                            Greenville Estate, Ajah, Lagos, Nigeria
                                           </small>
                                           <div className="product-ratting">
                                             <ul>
@@ -837,7 +837,7 @@ function MyAccount() {
                                     </tr>
                                     <tr>
                                       <td className="ltn__my-properties-img">
-                                        <Link href="https://quarter-nextjs.netlify.app/shop/new-apartment-nice-view">
+                                        <Link href="https://sammyrealty.com/shop/new-apartment-nice-view">
                                           <img
                                             src="/img/product-3/7.jpg"
                                             alt="#"
@@ -847,13 +847,13 @@ function MyAccount() {
                                       <td>
                                         <div className="ltn__my-properties-info">
                                           <h6 className="mb-10">
-                                            <Link href="https://quarter-nextjs.netlify.app/shop/new-apartment-nice-view">
+                                            <Link href="https://sammyrealty.com/shop/new-apartment-nice-view">
                                               sdfasdfdsfsdafs
                                             </Link>
                                           </h6>
                                           <small>
                                             <i className="icon-placeholder"></i>
-                                            Brooklyn, New York, United States
+                                            Greenville Estate, Ajah, Lagos, Nigeria
                                           </small>
                                           <div className="product-ratting">
                                             <ul>
@@ -1221,7 +1221,7 @@ function MyAccount() {
                                 <div className="col-lg-12">
                                   <div className="property-details-google-map mb-60">
                                     <iframe
-                                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9334.271551495209!2d-73.97198251485975!3d40.668170674982946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b0456b5a2e7%3A0x68bdf865dda0b669!2sBrooklyn%20Botanic%20Garden%20Shop!5e0!3m2!1sen!2sbd!4v1590597267201!5m2!1sen!2sbd"
+                                      src="https://www.google.com/maps?q=Greenville%20Estate%2C%20Ajah%2C%20Lagos%2C%20Nigeria&output=embed"
                                       width="100%"
                                       height="100%"
                                     ></iframe>

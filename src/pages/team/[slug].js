@@ -19,7 +19,7 @@ import ServiceItemOne from "@/components/service/serviceItemOne";
 function TeamDetails({ team }) {
   return (
     <>
-      <LayoutOne topbar={true}>
+      <LayoutOne topbar={false}>
         {/* <!-- BREADCRUMB AREA START --> */}
 
         <ShopBreadCrumb

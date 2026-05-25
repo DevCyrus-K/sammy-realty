@@ -14,6 +14,20 @@ function Feature({
 }) {
   return (
     <>
+      <style>{`
+        .ltn__feature-item-6 {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          min-height: 400px;
+        }
+        .ltn__feature-info {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+      `}</style>
       <div className={`ltn__feature-area pt-115 pb-90 ${classes}`}>
         <Container>
           <Row>
@@ -29,7 +43,7 @@ function Feature({
             {data.map((item, key) => {
               const slug = productSlug(item.title);
               return (
-                <Col key={key} xs={12} sm={6} lg={4}>
+                <Col key={key} xs={12} sm={6} lg={3}>
                   <div
                     className={`ltn__feature-item ltn__feature-item-6 text-center bg-white  box-shadow-1 ${
                       item.active ? "active" : ""

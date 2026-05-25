@@ -2,11 +2,21 @@ import Link from "next/link";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { FaPlay } from "react-icons/fa";
+import { FaPlay, FaCheckCircle } from "react-icons/fa";
 import ModalVideo from "react-modal-video";
 import { useState } from "react";
 function AboutUsStyleOne({ sectionSpace }) {
   const [isOpen, setOpen] = useState(false);
+
+  const whyChooseReasons = [
+    "Verified Listings - Every property is verified for authenticity",
+    "Area-Based Search - Find properties by location with ease",
+    "Direct Seller Contact - Connect immediately with property owners",
+    "Local Market Guidance - Expert advice on Lagos neighborhoods",
+    "Fast Response Time - Quick turnaround on all enquiries",
+    "Professional Support - Experienced team guiding you throughout"
+  ];
+
   return (
     <>
       <ModalVideo
@@ -39,47 +49,39 @@ function AboutUsStyleOne({ sectionSpace }) {
               <div className="about-us-info-wrap">
                 <div className="section-title-area mb-20">
                   <h6 className="section-subtitle section-subtitle-2 ltn__secondary-color">
-                    About Us
+                    Why Choose Us
                   </h6>
                   <h1 className="section-title">
-                    The Leading Real Estate Rental Marketplace<span>.</span>
+                    Real Estate Help Built Around Faster Contact<span>.</span>
                   </h1>
                   <p>
-                    Over 39,000 people work for us in more than 70 countries all
-                    over the This breadth of global coverage, combined with
-                    specialist services
+                    From Greenville Estate in Ajah, we connect serious buyers,
+                    renters, landlords, and sellers with trusted property options
+                    across Lagos.
                   </p>
                 </div>
-                <ul className="ltn__list-item-half clearfix">
-                  <li>
-                    <i className="flaticon-home-2"></i>
-                    Smart Home Design
-                  </li>
-                  <li>
-                    <i className="flaticon-mountain"></i>
-                    Beautiful Scene Around
-                  </li>
-                  <li>
-                    <i className="flaticon-heart"></i>
-                    Exceptional Lifestyle
-                  </li>
-                  <li>
-                    <i className="flaticon-secure"></i>
-                    Complete 24/7 Security
-                  </li>
+                <ul style={{ listStyle: 'none', padding: '0', margin: '0 0 30px 0' }}>
+                  {whyChooseReasons.map((reason, index) => (
+                    <li key={index} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', marginBottom: '12px' }}>
+                      <span style={{ color: '#0B5D3B', fontSize: '18px', flexShrink: 0, marginTop: '2px' }}>
+                        <FaCheckCircle />
+                      </span>
+                      <span style={{ color: '#333', fontSize: '0.95rem', lineHeight: '1.6' }}>{reason}</span>
+                    </li>
+                  ))}
                 </ul>
                 <div className="ltn__callout bg-overlay-theme-05  mt-30">
                   <p>
-                    Enimad minim veniam quis nostrud exercitation <br />
-                    llamco laboris. Lorem ipsum dolor sit amet
+                    Find a property, understand the location, <br />
+                    and contact Sammy Realty in one clear flow.
                   </p>
                 </div>
                 <div className="btn-wrapper animated">
                   <Link
-                    href="/service"
+                    href="/service#faq"
                     className="theme-btn-1 btn btn-effect-1"
                   >
-                    OUR SERVICES
+                    Learn More
                   </Link>
                 </div>
               </div>

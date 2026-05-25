@@ -1,240 +1,50 @@
-import { useState } from "react";
 import { LayoutOne } from "@/layouts";
 import { Container, Row, Col } from "react-bootstrap";
-import {
-  FaArrowRight,
-  FaArrowLeft,
-  FaPlay,
-  FaSearch,
-  FaRegEnvelopeOpen,
-  FaPhoneAlt,
-} from "react-icons/fa";
-import Slider from "react-slick";
-import { productSlug } from "@/lib/product";
-import TitleSection from "@/components/titleSection";
+import { FaPhoneAlt } from "react-icons/fa";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
-import BlogItem from "@/components/blog";
-import blogData from "@/data/blog";
 import CallToAction from "@/components/callToAction";
 import Accordion from "react-bootstrap/Accordion";
-import ModalVideo from "react-modal-video";
 import Link from "next/link";
-import CounterUp from "@/components/counterUp";
 
 function Faq() {
-  const [isOpen, setOpen] = useState(false);
-
-  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
-    <button
-      {...props}
-      className={
-        "slick-prev slick-arrow" + (currentSlide === 0 ? " slick-disabled" : "")
-      }
-      aria-hidden="true"
-      aria-disabled={currentSlide === 0 ? true : false}
-      type="button"
-    >
-      <FaArrowLeft />
-    </button>
-  );
-  const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
-    <button
-      {...props}
-      className={
-        "slick-next slick-arrow" +
-        (currentSlide === slideCount - 1 ? " slick-disabled" : "")
-      }
-      aria-hidden="true"
-      aria-disabled={currentSlide === slideCount - 1 ? true : false}
-      type="button"
-    >
-      <FaArrowRight />
-    </button>
-  );
-  const blogSettings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    prevArrow: <SlickArrowLeft />,
-    nextArrow: <SlickArrowRight />,
-  };
+  const faqItems = [
+    { id: "1", question: "How do I book a property inspection?", answer: "Open a listing, tap View Details, then call or send a WhatsApp message to Sammy Realty. We will confirm availability and help you schedule a viewing." },
+    { id: "2", question: "Can Sammy Realty help me sell my property?", answer: "Yes. Use the Sell Your Property button and share the county, sub-county, area, price expectation, and basic property details. We keep the listing process simple." },
+    { id: "3", question: "Do I need latitude and longitude to list a property?", answer: "No. Sammy Realty works with simple location details: county, sub-county, and area. Extra map links or GPS details are optional." },
+    { id: "4", question: "Which locations do you cover?", answer: "We are based at Greenville Estate, Ajah, Lagos, and support property enquiries across Ajah, Sangotedo, Lekki, Ibeju-Lekki, and wider Lagos corridors." },
+    { id: "5", question: "Do you handle shortlets and rentals?", answer: "Yes. We help renters find available homes and shortlet options, then move quickly to inspection and contact." },
+    { id: "6", question: "Can you manage my rental property?", answer: "Yes. Sammy Realty supports landlords with tenant coordination, vacancy follow-up, and practical property management." },
+    { id: "7", question: "How do I contact Sammy Realty?", answer: "Call +234-814-841-4913, send WhatsApp to the same number, or email info@sammyrealty.com." },
+  ];
 
   return (
     <>
-      <LayoutOne topbar={true}>
-        <ModalVideo
-          channel="youtube"
-          autoplay
-          isOpen={isOpen}
-          videoId="LjCzPp-MK48"
-          onClose={() => setOpen(false)}
-        />
+      <LayoutOne topbar={false}>
         <ShopBreadCrumb
-          title="Frequently asked questions"
+          title="Frequently Asked Questions"
           sectionPace=""
-          currentSlug="About UsFAQ"
+          currentSlug="FAQs"
         />
 
         {/* <!-- FAQ AREA START (faq-2) (ID > accordion_2) --> */}
         <div className="ltn__faq-area mb-100">
           <div className="container">
             <Row>
-              <Col xs={12} lg={8}>
+              <Col xs={12}>
                 <div className="ltn__faq-inner ltn__faq-inner-2">
-                  <Accordion defaultActiveKey="2">
-                    <Accordion.Item eventKey="1">
-                      <Accordion.Header>How to buy a product?</Accordion.Header>
-                      <Accordion.Body>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua. Scelerisque eleifend donec
-                          pretium vulputate sapien nec sagittis. Proin libero
-                          nunc consequat interdum. Condimentum lacinia quis vel
-                          eros donec ac. Mauris sit amet massa vitae tortor.
-                          Quisque id diam vel quam elementum pulvinar. Gravida
-                          in fermentum et sollicitudin ac orci phasellus.
-                          Facilisis gravida neque convallis a cras semper. Non
-                          arcu risus quis varius quam quisque id.
-                        </p>
-                      </Accordion.Body>
-                    </Accordion.Item>
-
-                    <Accordion.Item eventKey="2">
-                      <Accordion.Header>
-                        How can i make refund from your website?
-                      </Accordion.Header>
-                      <Accordion.Body>
-                        <div className="ltn__video-img alignleft">
-                          <img
-                            src="/img/bg/17.jpg"
-                            alt="video popup bg image"
-                          />
-                          <button
-                            className="ltn__video-icon-2 ltn__video-icon-2-small"
-                            onClick={() => setOpen(true)}
-                          >
-                            <FaPlay />
-                          </button>
-                        </div>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua. Scelerisque eleifend donec
-                          pretium vulputate sapien nec sagittis. Proin libero
-                          nunc consequat interdum. Condimentum lacinia quis vel
-                          eros donec ac. Mauris sit amet massa vitae tortor.
-                          Quisque id diam vel quam elementum pulvinar. Gravida
-                          in fermentum et sollicitudin ac orci phasellus.
-                          Facilisis gravida neque convallis a cras semper. Non
-                          arcu risus quis varius quam quisque id.
-                        </p>
-                      </Accordion.Body>
-                    </Accordion.Item>
-
-                    <Accordion.Item eventKey="3">
-                      <Accordion.Header>
-                        I am a new user. How should I start?
-                      </Accordion.Header>
-                      <Accordion.Body>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua. Scelerisque eleifend donec
-                          pretium vulputate sapien nec sagittis. Proin libero
-                          nunc consequat interdum. Condimentum lacinia quis vel
-                          eros donec ac. Mauris sit amet massa vitae tortor.
-                          Quisque id diam vel quam elementum pulvinar. Gravida
-                          in fermentum et sollicitudin ac orci phasellus.
-                          Facilisis gravida neque convallis a cras semper. Non
-                          arcu risus quis varius quam quisque id.
-                        </p>
-                      </Accordion.Body>
-                    </Accordion.Item>
-
-                    <Accordion.Item eventKey="4">
-                      <Accordion.Header>Returns and refunds</Accordion.Header>
-                      <Accordion.Body>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua. Scelerisque eleifend donec
-                          pretium vulputate sapien nec sagittis. Proin libero
-                          nunc consequat interdum. Condimentum lacinia quis vel
-                          eros donec ac. Mauris sit amet massa vitae tortor.
-                          Quisque id diam vel quam elementum pulvinar. Gravida
-                          in fermentum et sollicitudin ac orci phasellus.
-                          Facilisis gravida neque convallis a cras semper. Non
-                          arcu risus quis varius quam quisque id.
-                        </p>
-                      </Accordion.Body>
-                    </Accordion.Item>
-
-                    <Accordion.Item eventKey="5">
-                      <Accordion.Header>
-                        Are my details secured?
-                      </Accordion.Header>
-                      <Accordion.Body>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua. Scelerisque eleifend donec
-                          pretium vulputate sapien nec sagittis. Proin libero
-                          nunc consequat interdum. Condimentum lacinia quis vel
-                          eros donec ac. Mauris sit amet massa vitae tortor.
-                          Quisque id diam vel quam elementum pulvinar. Gravida
-                          in fermentum et sollicitudin ac orci phasellus.
-                          Facilisis gravida neque convallis a cras semper. Non
-                          arcu risus quis varius quam quisque id.
-                        </p>
-                      </Accordion.Body>
-                    </Accordion.Item>
-
-                    <Accordion.Item eventKey="6">
-                      <Accordion.Header>
-                        Sale code is not working
-                      </Accordion.Header>
-                      <Accordion.Body>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua. Scelerisque eleifend donec
-                          pretium vulputate sapien nec sagittis. Proin libero
-                          nunc consequat interdum. Condimentum lacinia quis vel
-                          eros donec ac. Mauris sit amet massa vitae tortor.
-                          Quisque id diam vel quam elementum pulvinar. Gravida
-                          in fermentum et sollicitudin ac orci phasellus.
-                          Facilisis gravida neque convallis a cras semper. Non
-                          arcu risus quis varius quam quisque id.
-                        </p>
-                      </Accordion.Body>
-                    </Accordion.Item>
-
-                    <Accordion.Item eventKey="7">
-                      <Accordion.Header>
-                        How do I make payment by my credit card
-                      </Accordion.Header>
-                      <Accordion.Body>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua. Scelerisque eleifend donec
-                          pretium vulputate sapien nec sagittis. Proin libero
-                          nunc consequat interdum. Condimentum lacinia quis vel
-                          eros donec ac. Mauris sit amet massa vitae tortor.
-                          Quisque id diam vel quam elementum pulvinar. Gravida
-                          in fermentum et sollicitudin ac orci phasellus.
-                          Facilisis gravida neque convallis a cras semper. Non
-                          arcu risus quis varius quam quisque id.
-                        </p>
-                      </Accordion.Body>
-                    </Accordion.Item>
+                  <Accordion>
+                    {faqItems.map((item) => (
+                      <Accordion.Item key={item.id} eventKey={item.id}>
+                        <Accordion.Header>{item.question}</Accordion.Header>
+                        <Accordion.Body>
+                          <p>{item.answer}</p>
+                        </Accordion.Body>
+                      </Accordion.Item>
+                    ))}
                   </Accordion>
 
                   <div className="need-support text-center mt-100">
-                    <h2>Still need help? Reach out to support 24/7:</h2>
+                    <h2>Still need help? Speak with Sammy Realty:</h2>
                     <div className="btn-wrapper mb-30">
                       <Link href="/contact" className="theme-btn-1 btn">
                         Contact Us
@@ -242,78 +52,15 @@ function Faq() {
                     </div>
                     <h3>
                       <FaPhoneAlt />
-                      +0123-456-789
+                      +234-814-841-4913
                     </h3>
                   </div>
                 </div>
-              </Col>
-              <Col xs={12} lg={4}>
-                <aside className="sidebar-area ltn__right-sidebar">
-                  {/* <!-- Newsletter Widget --> */}
-                  <div className="widget ltn__search-widget ltn__newsletter-widget">
-                    <h6 className="ltn__widget-sub-title">{`// subscribe`}</h6>
-                    <h4 className="ltn__widget-title">Get Newsletter</h4>
-                    <form action="#">
-                      <input type="text" name="search" placeholder="Search" />
-                      <button type="submit">
-                        <FaSearch />
-                      </button>
-                    </form>
-                    <div className="ltn__newsletter-bg-icon">
-                      <FaRegEnvelopeOpen />
-                    </div>
-                  </div>
-                  {/* <!-- Banner Widget --> */}
-                  <div className="widget ltn__banner-widget">
-                    <Link href="/shop">
-                      <img src="/img/banner/banner-3.jpg" alt="Banner Image" />
-                    </Link>
-                  </div>
-                </aside>
               </Col>
             </Row>
           </div>
         </div>
         {/* <!-- FAQ AREA START --> */}
-
-        {/* <!-- COUNTER UP AREA START -->  */}
-        <CounterUp />
-        {/* <!-- COUNTER UP AREA END -->
-
-        {/* <!-- BLOG AREA START (blog-3) -->  */}
-        <div className="ltn__blog-area pt-120 pb-70">
-          <Container>
-            <Row>
-              <Col lg={12}>
-                <TitleSection
-                sectionClasses="text-center"
-                headingClasses="section-subtitle-2"
-                  titleSectionData={{
-                    subTitle: "News & Blogs",
-                    title: "Leatest News Feeds",
-                  }}
-                />
-              </Col>
-            </Row>
-            <Slider
-              {...blogSettings}
-              className="ltn__blog-slider-one-active slick-arrow-1 ltn__blog-item-3-normal"
-            >
-              {blogData.map((data, key) => {
-                const slug = productSlug(data.title);
-                return (
-                  <BlogItem
-                  key={key}
-                  baseUrl="blog"
-                  data={data}
-                  slug={slug}
-                />
-                );
-              })}
-            </Slider>
-          </Container>
-        </div>
-        {/* <!-- BLOG AREA END --> */}
 
         <div className="ltn__call-to-action-area call-to-action-6 before-bg-bottom">
           <Container>

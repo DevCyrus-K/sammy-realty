@@ -86,7 +86,7 @@ function ShopRightSideBar() {
 
 
   return (
-    <LayoutOne topbar={true}>
+    <LayoutOne topbar={false}>
       {/* <!-- BREADCRUMB AREA START --> */}
 
       <ShopBreadCrumb

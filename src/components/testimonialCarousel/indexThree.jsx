@@ -5,6 +5,7 @@ import {
   FaArrowLeft,
   FaRegComments
 } from "react-icons/fa";
+import InitialAvatar from "./InitialAvatar";
 
 function TestimonialStyleThree({ data }) {
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
@@ -144,7 +145,7 @@ function TestimonialStyleThree({ data }) {
                     <FaRegComments/>
                 </div>
                 <div className="ltn__testimonial-image">
-                    <img src={`/img/testimonial/${item.img}`} alt="quote"/>
+                    <InitialAvatar name={item.name} />
                 </div>
                 <div className="ltn__testimonial-info">
                     <p>{item.description}</p>
@@ -165,7 +166,9 @@ function TestimonialStyleThree({ data }) {
             >
               {data.map((item, key) => {
                 return (
-                  <img key={key} src={`/img/testimonial/${item.img}`} alt="#" />
+                  <div key={key} className="ltn__testimonial-quote-avatar">
+                    <InitialAvatar name={item.name} />
+                  </div>
                 );
               })}
             </Slider>

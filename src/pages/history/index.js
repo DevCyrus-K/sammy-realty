@@ -4,11 +4,6 @@ import { LayoutOne } from "@/layouts";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
 import CallToAction from "@/components/callToAction";
 import TitleSection from "@/components/titleSection";
-import Slider from "react-slick";
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
-import { productSlug } from "@/lib/product";
-import BlogItem from "@/components/blog";
-import blogData from "@/data/blog";
 import {
     FaTrophy,
     FaAward,
@@ -17,63 +12,8 @@ import {
 
 
 function HistoryPage() {
-
-    const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
-        <button
-            {...props}
-            className={
-                "slick-prev slick-arrow" + (currentSlide === 0 ? " slick-disabled" : "")
-            }
-            aria-hidden="true"
-            aria-disabled={currentSlide === 0 ? true : false}
-            type="button"
-        >
-            <FaArrowLeft />
-        </button>
-    );
-    const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
-        <button
-            {...props}
-            className={
-                "slick-next slick-arrow" +
-                (currentSlide === slideCount - 1 ? " slick-disabled" : "")
-            }
-            aria-hidden="true"
-            aria-disabled={currentSlide === slideCount - 1 ? true : false}
-            type="button"
-        >
-            <FaArrowRight />
-        </button>
-    );
-
-    const blogSettings = {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        prevArrow: <SlickArrowLeft />,
-        nextArrow: <SlickArrowRight />,
-
-        responsive: [
-            {
-                breakpoint: 1199,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                },
-            },
-            {
-                breakpoint: 575,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                },
-            },
-        ],
-    };
     return (
-        <LayoutOne topbar={true}>
+        <LayoutOne topbar={false}>
             <ShopBreadCrumb title="Our History" sectionPace="" currentSlug="History" />
 
             <div className="ltn__our-history-area pb-100">
@@ -250,7 +190,7 @@ function HistoryPage() {
                                     <div className="ltn__feature-icon">
                                         <span><i className="flaticon-house-4"></i></span>
                                     </div>
-                                    <h3 className="animated fadeIn"><Link href="https://quarter-nextjs.netlify.app/service/buy-a-home">The Perfect Residency</Link></h3>
+                                    <h3 className="animated fadeIn"><Link href="https://sammyrealty.com/service/buy-a-home">The Perfect Residency</Link></h3>
                                 </div>
                                 <div className="ltn__feature-info">
                                     <p>Lorem ipsum dolor sit ame it, consectetur adipisicing elit, sed do eiusmod te mp or incididunt ut labore.</p>
@@ -263,7 +203,7 @@ function HistoryPage() {
                                     <div className="ltn__feature-icon">
                                         <span><i className="icon-mechanic"></i></span>
                                     </div>
-                                    <h3 className="animated fadeIn"><Link href="https://quarter-nextjs.netlify.app/service/buy-a-home">Global Architect Experts</Link></h3>
+                                    <h3 className="animated fadeIn"><Link href="https://sammyrealty.com/service/buy-a-home">Global Architect Experts</Link></h3>
                                 </div>
                                 <div className="ltn__feature-info">
                                     <p>Lorem ipsum dolor sit ame it, consectetur adipisicing elit, sed do eiusmod te mp or incididunt ut labore.</p>
@@ -276,7 +216,7 @@ function HistoryPage() {
                                     <div className="ltn__feature-icon">
                                         <span><i className="icon-repair-1"></i></span>
                                     </div>
-                                    <h3 className="animated fadeIn"><Link href="https://quarter-nextjs.netlify.app/service/buy-a-home">Built-in Storage Cupboards</Link></h3>
+                                    <h3 className="animated fadeIn"><Link href="https://sammyrealty.com/service/buy-a-home">Built-in Storage Cupboards</Link></h3>
                                 </div>
                                 <div className="ltn__feature-info">
                                     <p>Lorem ipsum dolor sit ame it, consectetur adipisicing elit, sed do eiusmod te mp or incididunt ut labore.</p>
@@ -293,44 +233,12 @@ function HistoryPage() {
                     <Row>
                         <Col xs={12}>
                             <div className="call-to-action-inner call-to-action-inner-5 text-decoration text-center">
-                                <h2 className="white-color">24/7 Availability, Make <Link href="https://quarter-nextjs.netlify.app/team/kelian-anderson">An Appointment</Link></h2>
+                                <h2 className="white-color">24/7 Availability, Make <Link href="https://sammyrealty.com/team/kelian-anderson">An Appointment</Link></h2>
                             </div>
                         </Col>
                     </Row>
                 </Container>
             </div>
-
-
-            {/* <!-- BLOG AREA START (blog-3) -->  */}
-            <div className="ltn__blog-area pt-120 pb-70">
-                <Container>
-                    <Row>
-                        <Col lg={12}>
-                            <TitleSection
-                                sectionClasses="text-center"
-                                headingClasses="section-subtitle-2"
-                                titleSectionData={{
-                                    subTitle: "News & Blogs",
-                                    title: "Leatest News Feeds",
-                                }}
-                            />
-                        </Col>
-                    </Row>
-                    <Slider
-                        {...blogSettings}
-                        className="ltn__blog-slider-one-active slick-arrow-1 ltn__blog-item-3-normal"
-                    >
-                        {blogData.map((data, key) => {
-                            const slug = productSlug(data.title);
-                            return (
-                                <BlogItem key={key} baseUrl="blog" data={data} slug={slug} />
-                            );
-                        })}
-                    </Slider>
-                </Container>
-            </div>
-            {/* <!-- BLOG AREA END --> */}
-
 
 
             <div className="ltn__call-to-action-area call-to-action-6 before-bg-bottom">

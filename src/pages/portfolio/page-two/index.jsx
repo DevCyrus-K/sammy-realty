@@ -11,9 +11,6 @@ import CallToActionstyleTwo from "@/components/callToAction/callToActionstyleTwo
 import brandLogoData from "@/data/brand-logo";
 import { getProducts, productSlug } from "@/lib/product";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
-import TitleSection from "@/components/titleSection";
-import BlogItem from "@/components/blog";
-import blogData from "@/data/blog";
 import Lightbox from "yet-another-react-lightbox";
 import Counter from "yet-another-react-lightbox/plugins/counter";
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
@@ -76,15 +73,6 @@ function PortFolioPageTwo() {
       <FaArrowRight />
     </button>
   );
-  const blogSettings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    prevArrow: <SlickArrowLeft />,
-    nextArrow: <SlickArrowRight />,
-  };
   const LogoSettings = {
     dots: false,
     infinite: true,
@@ -109,7 +97,7 @@ function PortFolioPageTwo() {
         plugins={[Zoom, Counter, Fullscreen, Download]}
       />
 
-      <LayoutOne topbar={true}>
+      <LayoutOne topbar={false}>
         <ShopBreadCrumb
           title="Our Portfolio"
           sectionPace=""
@@ -196,35 +184,6 @@ function PortFolioPageTwo() {
         </div>
 
         <CallToActionstyleTwo />
-
-        {/* <!-- BLOG AREA START (blog-3) -->  */}
-        <div className="ltn__blog-area pt-120 pb-70">
-          <Container>
-            <Row>
-              <Col lg={12}>
-                <TitleSection
-                  sectionClasses="text-center"
-                  titleSectionData={{
-                    subTitle: "News & Blogs",
-                    title: "Leatest News Feeds",
-                  }}
-                />
-              </Col>
-            </Row>
-            <Slider
-              {...blogSettings}
-              className="ltn__blog-slider-one-active slick-arrow-1 ltn__blog-item-3-normal"
-            >
-              {blogData.map((data, key) => {
-                const slug = productSlug(data.title);
-                return (
-                  <BlogItem key={key} baseUrl="blog" data={data} slug={slug} />
-                );
-              })}
-            </Slider>
-          </Container>
-        </div>
-        {/* <!-- BLOG AREA END --> */}
 
         {/* <!-- BRAND LOGO AREA START --> */}
         <div className="ltn__brand-logo-area ltn__brand-logo-1 pt-80--- pb-110 plr--9">

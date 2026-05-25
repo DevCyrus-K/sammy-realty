@@ -1,22 +1,24 @@
 import Link from 'next/link';
 
-import { FaDribbble,FaInstagram,FaTwitter,FaFacebookF} from 'react-icons/fa';
+import { FaInstagram, FaTiktok, FaWhatsapp } from 'react-icons/fa';
 const HeaderSocialLinks = function () {
   return (
     <div className="ltn__social-media">
       <ul>
         <li>
-          <Link href="#">  <FaFacebookF /> </Link>
+          <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram">
+            <FaInstagram />
+          </Link>
         </li>
         <li>
-          <Link href="#">  <FaTwitter /> </Link>
-        </li>
-
-        <li>
-          <Link href="#">  <FaInstagram /> </Link>
+          <Link href="https://tiktok.com" target="_blank" rel="noopener noreferrer" title="TikTok">
+            <FaTiktok />
+          </Link>
         </li>
         <li>
-          <Link href="#">  <FaDribbble /> </Link>
+          <Link href="https://wa.me/2348148414913" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+            <FaWhatsapp />
+          </Link>
         </li>
       </ul>
     </div>

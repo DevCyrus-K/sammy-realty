@@ -37,7 +37,7 @@ function BlogtDetails({ blog }) {
 
   return (
     <>
-      <LayoutOne topbar={true}>
+      <LayoutOne topbar={false}>
         {/* <!-- BREADCRUMB AREA START --> */}
 
         <ShopBreadCrumb
@@ -268,7 +268,7 @@ function BlogtDetails({ blog }) {
                         <li>
                           <div className="ltn__comment-item clearfix">
                             <div className="ltn__commenter-img">
-                              <img src="/img/testimonial/1.jpg" alt="Image" />
+                              <div className="testimonial-initial-avatar">JD</div>
                             </div>
                             <div className="ltn__commenter-comment">
                               <h6>
@@ -291,10 +291,7 @@ function BlogtDetails({ blog }) {
                             <li>
                               <div className="ltn__comment-item clearfix">
                                 <div className="ltn__commenter-img">
-                                  <img
-                                    src="/img/testimonial/3.jpg"
-                                    alt="Image"
-                                  />
+                                  <div className="testimonial-initial-avatar">TM</div>
                                 </div>
                                 <div className="ltn__commenter-comment">
                                   <h6>
@@ -322,7 +319,7 @@ function BlogtDetails({ blog }) {
                         <li>
                           <div className="ltn__comment-item clearfix">
                             <div className="ltn__commenter-img">
-                              <img src="/img/testimonial/4.jpg" alt="Image" />
+                              <div className="testimonial-initial-avatar">CO</div>
                             </div>
                             <div className="ltn__commenter-comment">
                               <h6>

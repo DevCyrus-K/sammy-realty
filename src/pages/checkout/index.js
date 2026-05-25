@@ -20,7 +20,7 @@ const Wishlist = () => {
   const [vissible, setVissible] = useState(false);
   return (
     <>
-      <LayoutOne topbar={true}>
+      <LayoutOne topbar={false}>
         {/* <!-- BREADCRUMB AREA START --> */}
         <ShopBreadCrumb
           title="Checkout"

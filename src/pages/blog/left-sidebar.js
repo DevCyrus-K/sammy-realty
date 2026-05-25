@@ -37,7 +37,7 @@ function BlogLeftSideBar() {
 
   return (
     <>
-      <LayoutOne topbar={true}>
+      <LayoutOne topbar={false}>
         <ShopBreadCrumb title="Blog Left Sidebar" sectionPace="" currentSlug="Blog" />
 
         <div class="ltn__blog-area mb-120">

@@ -56,6 +56,17 @@ const HeaderTransparentTwo = function ({ SetToggleClassName, topbar }) {
 
   return (
     <>
+      <style>{`
+        .special-link a {
+          border: 2px solid #0B5D3B;
+          transition: all 0.3s ease;
+        }
+        .special-link a:hover {
+          border-color: #0B5D3B !important;
+          color: #0B5D3B !important;
+          background-color: #ffffff !important;
+        }
+      `}</style>
       <header className="ltn__header-area ltn__header-5 ltn__header-logo-and-mobile-menu-in-mobile ltn__header-logo-and-mobile-menu ltn__header-transparent">
         {/* <!-- ltn__header-top-area start --> */}
         {topbar ? <HeaderTopBarThree /> : null}
@@ -65,7 +76,7 @@ const HeaderTransparentTwo = function ({ SetToggleClassName, topbar }) {
         {/* <!-- ltn__header-middle-area start --> */}
         <div
           className={clsx(
-            "ltn__header-middle-area ltn__header-sticky ltn__sticky-bg-black",
+            "ltn__header-middle-area ltn__header-sticky ltn__sticky-bg-white",
             scroll > headerHeight && "sticky-active"
           )}
         >
@@ -75,12 +86,12 @@ const HeaderTransparentTwo = function ({ SetToggleClassName, topbar }) {
                 <div className="site-logo-wrap">
                   <div className="site-logo">
                     <Link href="/">
-                      <img src="/img/logo-2.png" alt="Logo" />
+                      <img src="/img/main-logo.png" alt="Sammy Realty" />
                     </Link>
                   </div>
                 </div>
               </Col>
-              <Col className="header-menu-column menu-color-white">
+              <Col className="header-menu-column menu-color-dark">
                 <div className="header-menu d-none d-xl-block">
                   <nav>
                     <div className="ltn__main-menu">

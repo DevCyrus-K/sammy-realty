@@ -18,7 +18,7 @@ import Link from "next/link";
 function Register() {
   return (
     <>
-      <LayoutOne topbar={true}>
+      <LayoutOne topbar={false}>
         <ShopBreadCrumb title="Account" sectionPace="" currentSlug="Register" />
 
         {/* <!-- LOGIN AREA START (Register) --> */}

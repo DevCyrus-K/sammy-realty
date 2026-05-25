@@ -1,228 +1,101 @@
-import { Container, Row, Col, Nav, Tab, Form } from "react-bootstrap";
-import {
-  FaCalendarAlt,
-  FaCarAlt,
-  FaCookie,
-  FaHome,
-} from "react-icons/fa";
-import Link from "next/link";
+import { useState } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import { FaPhone, FaCalendarAlt } from "react-icons/fa";
 
 function HeroSectionStyleSix({ navMenuClass }) {
   return (
     <>
-      <div className="ltn__slider-area ltn__slider-4 position-relative  ltn__primary-bg fix">
-        <div className="ltn__slide-animation-active">
-          {/* <!-- HTML5 VIDEO --> */}
+      <style>{`
+        .hero-cta-buttons {
+          display: flex;
+          gap: 16px;
+          margin-bottom: 30px;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+        .hero-cta-button {
+          padding: 14px 28px;
+          background-color: white;
+          color: #0B5D3B;
+          border: none;
+          border-radius: 0px;
+          font-weight: 600;
+          cursor: pointer;
+          font-size: 15px;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          transition: all 0.3s;
+          text-decoration: none;
+        }
+        .hero-cta-button:hover {
+          background-color: #f0f0f0;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .hero-cta-button.primary {
+          background-color: #0B5D3B;
+          color: white;
+          border: none;
+        }
+        .hero-cta-button.primary:hover {
+          background-color: #084630;
+          color: white;
+        }
+        .hero-cta-button.outline {
+          background-color: transparent;
+          color: white;
+          border: 2px solid white;
+        }
+        .hero-cta-button.outline:hover {
+          background-color: white;
+          color: #0B5D3B;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        @media (max-width: 767px) {
+          .hero-cta-buttons {
+            margin-bottom: 20px;
+          }
+          .hero-cta-button {
+            padding: 12px 20px;
+            font-size: 13px;
+          }
+        }
+      `}</style>
 
+      <div className="ltn__slider-area ltn__slider-4 position-relative ltn__primary-bg fix" style={{ borderBottom: '1px solid #ccc' }}>
+        <div className="ltn__slide-animation-active">
           <video autoPlay muted loop id="myVideo">
             <source src="/media/3.mp4" type="video/mp4" />
           </video>
 
-          {/* <!-- YouTube VIDEO --> */}
-
           <div className="ltn__slide-item ltn__slide-item-2 ltn__slide-item-7 bg-overlay-theme-black-30">
-            <div className="ltn__slide-item-inner text-center">
-              <Container>
+            <div className="ltn__slide-item-inner text-center" style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%'}}>
+              <Container style={{flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                 <Row>
                   <Col xs={12} className="align-self-center">
-                    <div className="slide-item-car-dealer-form">
-                      <div className="section-title-area ltn__section-title-2 text-center">
-                        <h1 className="section-title  text-color-white">
-                          Find Your
-                          <span className="ltn__secondary-color-3">
-                            Perfect
-                          </span>
-                          Home
-                        </h1>
-                      </div>
-                      <div className="ltn__car-dealer-form-tab">
-                        <Tab.Container
-                          id="left-tabs-example"
-                          defaultActiveKey="first"
-                        >
-                          <div
-                            className={`ltn__tab-menu text-uppercase ${navMenuClass}`}
-                          >
-                            <Nav
-                              variant="pills"
-                              className="justify-content-center"
-                            >
-                              <Nav.Item className="me-2">
-                                <Nav.Link eventKey="first">
-                                  <FaHome />
-                                  sell home
-                                </Nav.Link>
-                              </Nav.Item>
-                              <Nav.Item>
-                                <Nav.Link eventKey="second">
-                                  <FaHome />
-                                  rent home
-                                </Nav.Link>
-                              </Nav.Item>
-                            </Nav>
-                          </div>
-
-                          <Tab.Content className="tab-content bg-white box-shadow-1 ltn__border position-relative pb-10">
-                            <Tab.Pane eventKey="first">
-                              <div className="car-dealer-form-inner">
-                                <form
-                                  action="#"
-                                  className="ltn__car-dealer-form-box row mb--30"
-                                >
-                                  <Col
-                                    xs={12}
-                                    md={6}
-                                    lg={3}
-                                    className="ltn__car-dealer-form-item ltn__custom-icon"
-                                  >
-                                    <span className="inline-icon">
-                                      <FaCalendarAlt />
-                                    </span>
-                                    <Form.Select className="nice-select">
-                                      <option>Choose Area</option>
-                                      <option value="1">Chicago</option>
-                                      <option value="2">London</option>
-                                      <option value="3">Los Angeles</option>
-                                      <option value="4">New York</option>
-                                      <option value="5">New Jersey</option>
-                                    </Form.Select>
-                                  </Col>
-                                  <Col
-                                    xs={12}
-                                    md={6}
-                                    lg={3}
-                                    className="ltn__car-dealer-form-item ltn__custom-icon"
-                                  >
-                                    <span className="inline-icon">
-                                      <FaCarAlt />
-                                    </span>
-                                    <Form.Select className="nice-select">
-                                      <option>Property Status</option>
-                                      <option value="1">Open house</option>
-                                      <option value="2">Rent</option>
-                                      <option value="3">Sale</option>
-                                      <option value="4">Sold</option>
-                                    </Form.Select>
-                                  </Col>
-                                  <Col
-                                    xs={12}
-                                    md={6}
-                                    lg={3}
-                                    className="ltn__car-dealer-form-item ltn__custom-icon"
-                                  >
-                                    <span className="inline-icon">
-                                      <FaCookie />
-                                    </span>
-                                    <Form.Select className="nice-select">
-                                      <option>Property Type</option>
-                                      <option value="1">Apartment</option>
-                                      <option value="2">Co-op</option>
-                                      <option value="3">Condo</option>
-                                      <option value="4">
-                                        Single Family Home
-                                      </option>
-                                    </Form.Select>
-                                  </Col>
-                                  <Col
-                                    xs={12}
-                                    md={6}
-                                    lg={3}
-                                    className="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar"
-                                  >
-                                    <div className="btn-wrapper text-center mt-0">
-                                      <Link
-                                        href="/shop/right-sidebar"
-                                        className="btn theme-btn-1 btn-effect-1 text-uppercase"
-                                      >
-                                        Search
-                                      </Link>
-                                    </div>
-                                  </Col>
-                                </form>
-                              </div>
-                            </Tab.Pane>
-                            <Tab.Pane eventKey="second">
-                              <div className="car-dealer-form-inner">
-                                <form
-                                  action="#"
-                                  className="ltn__car-dealer-form-box row mb--30"
-                                >
-                                  <Col
-                                    xs={12}
-                                    md={6}
-                                    lg={3}
-                                    className="ltn__car-dealer-form-item ltn__custom-icon"
-                                  >
-                                    <span className="inline-icon">
-                                      <FaCalendarAlt />
-                                    </span>
-                                    <Form.Select className="nice-select">
-                                      <option>Choose Area</option>
-                                      <option value="1">Chicago</option>
-                                      <option value="2">London</option>
-                                      <option value="3">Los Angeles</option>
-                                      <option value="4">New York</option>
-                                      <option value="5">New Jersey</option>
-                                    </Form.Select>
-                                  </Col>
-                                  <Col
-                                    xs={12}
-                                    md={6}
-                                    lg={3}
-                                    className="ltn__car-dealer-form-item ltn__custom-icon"
-                                  >
-                                    <span className="inline-icon">
-                                      <FaCarAlt />
-                                    </span>
-                                    <Form.Select className="nice-select">
-                                      <option>Property Status</option>
-                                      <option value="1">Open house</option>
-                                      <option value="2">Rent</option>
-                                      <option value="3">Sale</option>
-                                      <option value="4">Sold</option>
-                                    </Form.Select>
-                                  </Col>
-                                  <Col
-                                    xs={12}
-                                    md={6}
-                                    lg={3}
-                                    className="ltn__car-dealer-form-item ltn__custom-icon"
-                                  >
-                                    <span className="inline-icon">
-                                      <FaCookie />
-                                    </span>
-                                    <Form.Select className="nice-select">
-                                      <option>Property Type</option>
-                                      <option value="1">Apartment</option>
-                                      <option value="2">Co-op</option>
-                                      <option value="3">Condo</option>
-                                      <option value="4">
-                                        Single Family Home
-                                      </option>
-                                    </Form.Select>
-                                  </Col>
-                                  <Col
-                                    xs={12}
-                                    md={6}
-                                    lg={3}
-                                    className="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar"
-                                  >
-                                    <div className="btn-wrapper text-center mt-0">
-                                      <Link
-                                        href="/shop/right-sidebar"
-                                        className="btn theme-btn-1 btn-effect-1 text-uppercase"
-                                      >
-                                        Search
-                                      </Link>
-                                    </div>
-                                  </Col>
-                                </form>
-                              </div>
-                            </Tab.Pane>
-                          </Tab.Content>
-                        </Tab.Container>
+                    <div style={{color: 'white', textAlign: 'center'}}>
+                      <h1 style={{fontSize: 'clamp(2.55rem, 7vw, 3.5rem)', fontWeight: 'bold', marginBottom: '20px', color: 'white'}}>Find Your Perfect Property</h1>
+                      <p style={{fontSize: 'clamp(1rem, 3vw, 1.25rem)', color: 'rgba(255, 255, 255, 0.9)', marginBottom: '0'}}>Discover properties that match your lifestyle, budget, and dreams</p>
+                      
+                      <div className="hero-cta-buttons">
+                        <a href="/contact" className="hero-cta-button primary">
+                          <FaCalendarAlt />
+                          Schedule a Tour
+                        </a>
+                        <a href="/contact" className="hero-cta-button outline">
+                          <FaPhone />
+                          Get in Touch
+                        </a>
                       </div>
                     </div>
+                  </Col>
+                </Row>
+              </Container>
+
+              <Container style={{paddingBottom: '0'}}>
+                <Row>
+                  <Col xs={12} className="align-self-center">
                   </Col>
                 </Row>
               </Container>

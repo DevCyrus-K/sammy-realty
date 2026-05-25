@@ -2,23 +2,20 @@ import { LayoutOne } from "@/layouts";
 import { Container, Row, Col } from "react-bootstrap";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import Slider from "react-slick";
-import { getProducts, productSlug } from "@/lib/product";
+import { getProducts } from "@/lib/product";
 import TitleSection from "@/components/titleSection";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
 import TestimonialCarouselItem from "@/components/testimonialCarousel";
 import testimonialData from "@/data/testimonial";
-import BlogItem from "@/components/blog";
-import blogData from "@/data/blog";
 import CallToAction from "@/components/callToAction";
 import AboutUsStyleOne from "@/components/aboutUs/aboutUsStyleOne";
+import AboutUsStyleTwo from "@/components/aboutUs/aboutUsStyleTwo";
 import Feature from "@/components/features";
+import CounterUp from "@/components/counterUp";
 import featureData from "@/data/service"
-import TeamItem from "@/components/team";
-import TeamData from '@/data/team';
 
 function AboutUs() {
-  const agents = getProducts(TeamData, "buying", "featured", 3);
-  const featureDataSorted = getProducts(featureData, "buying", "featured", 3);
+  const featureDataSorted = getProducts(featureData, "buying", "featured", 4);
 
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
     <button
@@ -59,26 +56,16 @@ function AboutUs() {
     nextArrow: <SlickArrowRight />,
   };
 
-  const blogSettings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    prevArrow: <SlickArrowLeft />,
-    nextArrow: <SlickArrowRight />,
-  };
-
   return (
     <>
-      <LayoutOne topbar={true}>
+      <LayoutOne topbar={false}>
         <ShopBreadCrumb
           title="About Us"
           sectionPace=""
           currentSlug="About Us"
         />
 
-        <AboutUsStyleOne sectionSpace="pb-90" />
+        <AboutUsStyleTwo sectionSpace="pb-90" />
 
         <Feature
           classes="section-bg-1"
@@ -87,45 +74,14 @@ function AboutUs() {
           data={featureDataSorted}
           titleSectionData={{
             sectionClasses: "text-center",
-            subTitle: "Our Services",
-            title: "Our Main Focus",
+            subTitle: "What We Do",
+            title: "How Sammy Realty Helps Clients Move Faster",
           }}
         />
 
+        <CounterUp />
 
-
-
-        <div className="ltn__team-area pt-115 pb-90">
-          <Container>
-            <Row>
-              <Col lg={12}>
-                <TitleSection
-                  sectionClasses="text-center"
-                  headingClasses="section-subtitle-2"
-                  titleSectionData={{
-                    subTitle: "Team",
-                    title: "Property Agents",
-                  }}
-                />
-              </Col>
-            </Row>
-
-            <Row>
-              {agents.map((data, key) => {
-                const slug = productSlug(data.name);
-                return (
-                  <Col key={key} xs={12} sm={6} lg={4} >
-                    <TeamItem baseUrl="blog" data={data} slug={slug} additionalClassname="" />
-                  </Col>
-                );
-              })}
-            </Row>
-
-
-          </Container>
-        </div>
-
-
+        <AboutUsStyleOne sectionSpace="pt-90 pb-70" />
 
         {/* <!-- TESTIMONIAL AREA START (testimonial-7) -->  */}
         <div
@@ -140,7 +96,7 @@ function AboutUs() {
                   headingClasses="section-subtitle-2"
                   titleSectionData={{
                     subTitle: "Our Testimonial",
-                    title: "Clients Feedback",
+                    title: "What Clients Say About Sammy Realty",
                   }}
                 />
               </Col>
@@ -159,36 +115,6 @@ function AboutUs() {
           </Container>
         </div>
         {/* <!-- TESTIMONIAL AREA END --> */}
-
-        {/* <!-- BLOG AREA START (blog-3) -->  */}
-        <div className="ltn__blog-area pb-70">
-          <Container>
-            <Row>
-              <Col lg={12}>
-                <TitleSection
-                  sectionClasses="text-center"
-                  headingClasses="section-subtitle-2"
-                  titleSectionData={{
-                    subTitle: "News & Blogs",
-                    title: "Leatest News Feeds",
-                  }}
-                />
-              </Col>
-            </Row>
-            <Slider
-              {...blogSettings}
-              className="ltn__blog-slider-one-active slick-arrow-1 ltn__blog-item-3-normal"
-            >
-              {blogData.map((data, key) => {
-                const slug = productSlug(data.title);
-                return (
-                  <BlogItem key={key} baseUrl="blog" data={data} slug={slug} />
-                );
-              })}
-            </Slider>
-          </Container>
-        </div>
-        {/* <!-- BLOG AREA END --> */}
 
         <div className="ltn__call-to-action-area call-to-action-6 before-bg-bottom">
           <Container>

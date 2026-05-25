@@ -3,18 +3,15 @@ import { useSelector } from "react-redux";
 import { productSlug } from "@/lib/product";
 import Link from "next/link";
 import HeaderTopBarOne from "./headerTopBar/headerTopBarStyleOne";
-import HeaderCartMenu from "./elements/headerCartMenu";
 import MobileMenu from "./elements/mobileMennu";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import clsx from "clsx";
-import { FaCartArrowDown, FaRegUser, FaSearch, FaTimes } from "react-icons/fa";
+import { FaSearch, FaTimes } from "react-icons/fa";
 import MenuList from "@/components/header/elements/menuList";
 const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
   const [searchFormOpener, searchFormOpenerSet] = useState(false);
-
-  const [cartMenuOpener, cartMenuOpenerSet] = useState(false);
   const [overlayBtn, SetoverlayBtn] = useState(false);
   const [offCanVastoggleBtn, SetOffCanVastoggleBtn] = useState(false);
 
@@ -28,26 +25,16 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
     searchFormOpenerSet((searchFormOpener) => !searchFormOpener);
   }
 
-  function cartMenu() {
-    SetoverlayBtn(true);
-    cartMenuOpenerSet((cartMenuOpener) => !cartMenuOpener);
-    SetToggleClassName(false);
-  }
-
   function closeSideBar() {
     SetoverlayBtn(false);
-    cartMenuOpenerSet(false);
     SetOffCanVastoggleBtn(false);
   }
 
   function overlay() {
     SetoverlayBtn((overlayBtn) => !overlayBtn);
-    cartMenuOpenerSet(false);
     SetOffCanVastoggleBtn(false);
     SetToggleClassName(false);
   }
-
-  const { cartItems } = useSelector((state) => state.cart);
 
   const [scroll, setScroll] = useState(0);
   const [headerHeight, setHeaderHeight] = useState(0);
@@ -102,7 +89,7 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
                 <div className="site-logo-wrap">
                   <div className="site-logo">
                     <Link href="/">
-                      <img src="/img/logo.png" alt="Logo" />
+                      <img src="/img/main-logo.png" alt="Sammy Realty" />
                     </Link>
                   </div>
                 </div>
@@ -111,7 +98,7 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
                 <div className="header-menu d-none d-xl-block">
                   <nav>
                     <div className="ltn__main-menu">
-                      <MenuList addListing={false} />
+                      <MenuList addListing={true} />
                     </div>
                   </nav>
                 </div>
@@ -159,7 +146,7 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
                           const slug = productSlug(product.title);
                           return (
                             <li key={key} className="list-group-item">
-                              <Link href={`/shop/${slug}`}>
+                              <Link href={`/properties/${slug}`}>
                                 {product.title}
                               </Link>
                             </li>
@@ -171,49 +158,6 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
                     </ul>
                   </div>
                 </div>
-                {/* <!-- user-menu --> */}
-                <div className="ltn__drop-menu user-menu">
-                  <ul>
-                    <li>
-                      <Link href="#">
-                        <FaRegUser />
-                      </Link>
-                      <ul>
-                        <li>
-                          <Link href="/login">Sign in</Link>
-                        </li>
-                        <li>
-                          <Link href="/register">Register</Link>
-                        </li>
-                        <li>
-                          <Link href="/my-account">My Account</Link>
-                        </li>
-                        <li>
-                          <Link href="/wishlist">Wishlist</Link>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-                {/* <!-- mini-cart --> */}
-                <div className="mini-cart-icon">
-                  <button
-                    onClick={cartMenu}
-                    className={`ltn__utilize-toggle ${
-                      cartMenuOpener ? "close" : ""
-                    }`}
-                  >
-                    <FaCartArrowDown />
-                    {/* <sup>6</sup> */}
-
-                    {cartItems.length > 0 ? (
-                      <sup>{cartItems.length}</sup>
-                    ) : (
-                      <sup>0</sup>
-                    )}
-                  </button>
-                </div>
-                {/* <!-- mini-cart --> */}
                 {/* <!-- Mobile Menu Button --> */}
                 <div className="mobile-menu-toggle d-xl-none">
                   <button
@@ -242,16 +186,6 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
         </div>
         {/* <!-- ltn__header-middle-area end --> */}
       </header>
-
-      {/* <!-- Utilize Cart Menu Start --> */}
-
-      <HeaderCartMenu
-        cartMenu={cartMenu}
-        cartMenuOpener={cartMenuOpener}
-        closeSideBar={closeSideBar}
-      />
-
-      {/* <!-- Utilize Cart Menu End --> */}
 
       {/* <!-- Utilize Mobile Menu Start --> */}
       <MobileMenu

@@ -140,6 +140,10 @@
     position: relative;
     top: -2px;
   }
+  img {
+    max-width: 150px;
+    height: auto;
+  }
 }
 
 .ltn__header-1 {
@@ -1259,6 +1263,12 @@
 .menu-color-white {
   .ltn__main-menu > ul > li > a {
     color: var(--white);
+  }
+}
+
+.menu-color-green {
+  .ltn__main-menu > ul > li > a {
+    color: var(--ltn__primary-color);
   }
 }
 

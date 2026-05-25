@@ -3,11 +3,9 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import {
-  FaFacebookF,
-  FaTwitter,
-  FaLinkedin,
-  FaYoutube,
-  FaPaperPlane,
+  FaInstagram,
+  FaTiktok,
+  FaWhatsapp,
   FaEnvelope,
   FaMapMarkerAlt,
   FaPhoneAlt,
@@ -16,6 +14,60 @@ import {
 const Footer = function () {
   return (
     <>
+      <style>{`
+        .ltn__copyright-design ul {
+          display: flex;
+          gap: 30px;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          flex-wrap: wrap;
+        }
+        .ltn__copyright-design {
+          display: flex;
+          align-items: center;
+          gap: 24px;
+          flex-wrap: wrap;
+        }
+        .ltn__copyright-design ul li {
+          margin: 0;
+        }
+        .ltn__copyright-design p {
+          color: #666;
+          margin: 0;
+          flex: 0 0 auto;
+        }
+        .ltn__copyright-design ul li a {
+          color: #666;
+          text-decoration: none;
+          transition: color 0.3s;
+        }
+        .ltn__copyright-design ul li a:hover {
+          color: #0B5D3B;
+        }
+        .ltn__copyright-menu p {
+          margin: 0;
+          color: #666;
+        }
+        .ltn__copyright-menu a {
+          color: #0B5D3B;
+          text-decoration: none;
+          font-weight: 600;
+          transition: color 0.3s;
+        }
+        .ltn__copyright-menu a:hover {
+          color: #084630;
+        }
+        @media (max-width: 768px) {
+          .ltn__copyright-design ul {
+            gap: 20px;
+          }
+          .ltn__copyright-menu {
+            text-align: left !important;
+            margin-top: 15px;
+          }
+        }
+      `}</style>
       {/* <!-- FOOTER AREA START --> */}
       <footer className="ltn__footer-area  ">
         <div className="footer-top-area  section-bg-2 plr--5">
@@ -25,68 +77,28 @@ const Footer = function () {
                 <div className="footer-widget footer-about-widget">
                   <div className="footer-logo">
                     <div className="site-logo">
-                      {/* <img src="/img/logo.png" alt="Logo" /> */}
-                      <img src="/img/logo-2.png" alt="Logo" />
+                      <img src="/img/main-logo.png" alt="Sammy Realty" style={{maxWidth: "120px", height: "auto"}} />
                     </div>
                   </div>
                   <p>
-                    Lorem Ipsum is simply dummy text of the and typesetting
-                    industry. Lorem Ipsum is dummy text of the printing.
+                    Sammy Realty helps people find, view, and contact sellers
+                    faster across Ajah and Lagos.
                   </p>
-                  <div className="footer-address">
-                    <ul>
-                      <li>
-                        <div className="footer-address-icon">
-                          <FaMapMarkerAlt />
-                        </div>
-                        <div className="footer-address-info">
-                          <p>Brooklyn, New York, United States</p>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="footer-address-icon">
-                          <FaPhoneAlt />
-                        </div>
-                        <div className="footer-address-info">
-                          <p>
-                            <Link href="tel:+0123-456789">+0123-456789</Link>
-                          </p>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="footer-address-icon">
-                          <FaEnvelope />
-                        </div>
-                        <div className="footer-address-info">
-                          <p>
-                            <Link href="mailto:example@example.com">
-                              example@example.com
-                            </Link>
-                          </p>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
                   <div className="ltn__social-media mt-20">
                     <ul>
                       <li>
-                        <Link href="#" title="Facebook">
-                          <FaFacebookF />
+                        <Link href="https://instagram.com" target="_blank" title="Instagram">
+                          <FaInstagram />
                         </Link>
                       </li>
                       <li>
-                        <Link href="#" title="Twitter">
-                          <FaTwitter />
+                        <Link href="https://tiktok.com" target="_blank" title="TikTok">
+                          <FaTiktok />
                         </Link>
                       </li>
                       <li>
-                        <Link href="#" title="Linkedin">
-                          <FaLinkedin />
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="#" title="Youtube">
-                          <FaYoutube />
+                        <Link href="https://wa.me/2348148414913" target="_blank" title="WhatsApp">
+                          <FaWhatsapp />
                         </Link>
                       </li>
                     </ul>
@@ -99,22 +111,16 @@ const Footer = function () {
                   <div className="footer-menu">
                     <ul>
                       <li>
-                        <Link href="/about">About</Link>
+                        <Link href="/about">About Us</Link>
                       </li>
                       <li>
-                        <Link href="/blog">Blog</Link>
+                        <Link href="/testimonials">Testimonials</Link>
                       </li>
                       <li>
-                        <Link href="/shop">All Products</Link>
+                        <Link href="/careers">Careers</Link>
                       </li>
                       <li>
-                        <Link href="/locations">Locations Map</Link>
-                      </li>
-                      <li>
-                        <Link href="/faq">FAQ</Link>
-                      </li>
-                      <li>
-                        <Link href="/contact">Contact us</Link>
+                        <Link href="/faq">FAQs</Link>
                       </li>
                     </ul>
                   </div>
@@ -126,22 +132,16 @@ const Footer = function () {
                   <div className="footer-menu">
                     <ul>
                       <li>
-                        <Link href="/order-tracking">Order tracking</Link>
+                        <Link href="/service/property-sales">Property Sales</Link>
                       </li>
                       <li>
-                        <Link href="/wishlist">Wish List</Link>
+                        <Link href="/service/property-management">Property Management</Link>
                       </li>
                       <li>
-                        <Link href="/login">Login</Link>
+                        <Link href="/service/real-estate-consulting">Real Estate Consulting</Link>
                       </li>
                       <li>
-                        <Link href="/my-account">My account</Link>
-                      </li>
-                      <li>
-                        <Link href="/about">Terms & Conditions</Link>
-                      </li>
-                      <li>
-                        <Link href="/about">Promotional Offers</Link>
+                        <Link href="/service/rental-and-shortlets">Rental & Shortlets</Link>
                       </li>
                     </ul>
                   </div>
@@ -149,51 +149,62 @@ const Footer = function () {
               </Col>
               <Col xs={12} sm={6} xl={2}>
                 <div className="footer-widget footer-menu-widget clearfix">
-                  <h4 className="footer-title">Customer Care</h4>
+                  <h4 className="footer-title">Properties</h4>
                   <div className="footer-menu">
                     <ul>
                       <li>
-                        <Link href="/login">Login</Link>
+                        <Link href="/properties/all">All Properties</Link>
                       </li>
                       <li>
-                        <Link href="/my-account">My account</Link>
+                        <Link href="/properties/for-sale">For Sale</Link>
                       </li>
                       <li>
-                        <Link href="/wishlist">Wish List</Link>
+                        <Link href="/properties/for-rent">For Rent</Link>
                       </li>
                       <li>
-                        <Link href="/order-tracking">Order tracking</Link>
-                      </li>
-                      <li>
-                        <Link href="/faq">FAQ</Link>
-                      </li>
-                      <li>
-                        <Link href="/contact">Contact us</Link>
+                        <Link href="/lands/for-sale">Lands</Link>
                       </li>
                     </ul>
                   </div>
                 </div>
               </Col>
               <Col xs={12} sm={6} xl={3}>
-                <div className="footer-widget footer-newsletter-widget">
-                  <h4 className="footer-title">Newsletter</h4>
-                  <p>
-                    Subscribe to our weekly Newsletter and receive updates via
-                    email.
-                  </p>
-                  <div className="footer-newsletter">
-                    <form action="#">
-                      <input type="email" name="email" placeholder="Email*" />
-                      <div className="btn-wrapper">
-                        <button className="theme-btn-1 btn" type="submit">
-                          {" "}
-                          <FaPaperPlane />
-                        </button>
-                      </div>
-                    </form>
+                <div className="footer-widget footer-menu-widget clearfix">
+                  <h4 className="footer-title">Get In Touch</h4>
+                  <div className="footer-address">
+                    <ul>
+                      <li>
+                        <div className="footer-address-icon">
+                          <FaMapMarkerAlt />
+                        </div>
+                        <div className="footer-address-info">
+                          <p>Greenville Estate, Ajah, Lagos, Nigeria</p>
+                        </div>
+                      </li>
+                      <li>
+                        <div className="footer-address-icon">
+                          <FaPhoneAlt />
+                        </div>
+                        <div className="footer-address-info">
+                          <p>
+                            <Link href="tel:+2348148414913">+234-814-841-4913</Link>
+                          </p>
+                        </div>
+                      </li>
+                      <li>
+                        <div className="footer-address-icon">
+                          <FaEnvelope />
+                        </div>
+                        <div className="footer-address-info">
+                          <p>
+                            <Link href="mailto:info@sammyrealty.com">
+                              info@sammyrealty.com
+                            </Link>
+                          </p>
+                        </div>
+                      </li>
+                    </ul>
                   </div>
-                  <h5 className="mt-30">We Accept</h5>
-                  <img src="/img/icons/payment-4.png" alt="Payment Image" />
                 </div>
               </Col>
             </Row>
@@ -204,25 +215,26 @@ const Footer = function () {
             <Row>
               <Col xs={12} md={6}>
                 <div className="ltn__copyright-design clearfix">
-                  <p>
-                    All Rights Reserved @ Company{" "}
-                    <span className="current-year"></span>
-                  </p>
+                  <p>&copy; 2026 Sammy Realty. All rights reserved.</p>
+                  <ul>
+                    <li>
+                      <Link href="/privacy-policy">Privacy Policy</Link>
+                    </li>
+                    <li>
+                      <Link href="/terms-conditions">Terms & Conditions</Link>
+                    </li>
+                  </ul>
                 </div>
               </Col>
               <Col xs={12} md={6} className="align-self-center">
                 <div className="ltn__copyright-menu text-end">
-                  <ul>
-                    <li>
-                      <Link href="#">Terms & Conditions</Link>
-                    </li>
-                    <li>
-                      <Link href="#">Claim</Link>
-                    </li>
-                    <li>
-                      <Link href="#">Privacy & Policy</Link>
-                    </li>
-                  </ul>
+                  <p>
+                    Designed and developed by{" "}
+                    <Link href="https://hydrasoft.co.ke" target="_blank">
+                      Hydrasoft Technologies
+                    </Link>{" "}
+                  
+                  </p>
                 </div>
               </Col>
             </Row>

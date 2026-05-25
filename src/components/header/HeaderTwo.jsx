@@ -74,7 +74,7 @@ const HeaderStyleTwo = function ({ SetToggleClassName, topbar }) {
                 <div className="site-logo-wrap">
                   <div className="site-logo">
                     <Link href="/">
-                      <img src="/img/logo-2.png" alt="Logo" />
+                      <img src="/img/main-logo.png" alt="Sammy Realty" />
                     </Link>
                   </div>
                 </div>

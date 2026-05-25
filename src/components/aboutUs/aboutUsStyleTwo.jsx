@@ -13,20 +13,20 @@ function AboutUsStyleTwo({ sectionSpace }) {
               <div className="about-us-info-wrap">
                 <div className="section-title-area ltn__section-title-2--- mb-30">
                   <h6 className="section-subtitle section-subtitle-2 ltn__secondary-color">
-                    About Us
+                    Who We Are
                   </h6>
-                  <h1 className="section-title">Today Sells Properties</h1>
+                  <h1 className="section-title">Ajah Property Search Without the Stress</h1>
                   <p>
-                    Houzez allow you to design unlimited panels and real estate
-                    custom forms to capture leads and keep record of all
-                    information
+                    Sammy Realty helps buyers, renters, sellers, and landlords
+                    move from interest to inspection faster with clear listings,
+                    simple location details, and immediate contact options.
                   </p>
                 </div>
                 <ul className="ltn__list-item-1 ltn__list-item-1-before clearfix">
-                  <li> Live Music Cocerts at Luviana</li>
-                  <li>Our SecretIsland Boat Tour is Just for You</li>
-                  <li>Live Music Cocerts at Luviana</li>
-                  <li>Live Music Cocerts at Luviana</li>
+                  <li>Property sales support across Ajah and Lagos</li>
+                  <li>Rental and shortlet enquiries handled quickly</li>
+                  <li>Management support for landlords and estates</li>
+                  <li>Practical consulting before you buy, sell, or lease</li>
                 </ul>
                 <ul className="ltn__list-item-2 ltn__list-item-2-before ltn__flat-info">
                   <li>
@@ -45,7 +45,7 @@ function AboutUsStyleTwo({ sectionSpace }) {
                     <span>
                       2 <i className="flaticon-car"></i>
                     </span>
-                    Car parking
+                    Parking
                   </li>
                   <li>
                     <span>

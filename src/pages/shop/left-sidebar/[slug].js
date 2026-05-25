@@ -17,8 +17,7 @@ import {
   FaUserAlt,
   FaEnvelope,
   FaGlobe,
-  FaPencilAlt,
-  FaCalendarAlt
+  FaPencilAlt
 } from "react-icons/fa";
 import BreadCrumb from "@/components/breadCrumbs";
 import { LayoutOne } from "@/layouts";
@@ -29,7 +28,6 @@ import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
 import RelatedProduct from "@/components/product/related-product";
 import FollowUs from "@/components/followUs";
 import Tags from "@/components/tags";
-import blogData from "@/data/blog";
 import CallToAction from "@/components/callToAction";
 
 function ProductDetails({ product, baseUrl }) {
@@ -62,7 +60,6 @@ function ProductDetails({ product, baseUrl }) {
     product.price,
     product.discount
   ).toFixed(2);
-  const latestdBlogs = getProducts(blogData, "buying", "featured", 4);
   const productPrice = product.price.toFixed(2);
   const cartItem = cartItems.find((cartItem) => cartItem.id === product.id);
   const wishlistItem = wishlistItems.find(
@@ -172,7 +169,7 @@ function ProductDetails({ product, baseUrl }) {
   const [isOpen, setOpen] = useState(false);
   return (
     <>
-      <LayoutOne topbar={true}>
+      <LayoutOne topbar={false}>
         <ModalVideo
           channel="youtube"
           autoplay
@@ -502,7 +499,7 @@ function ProductDetails({ product, baseUrl }) {
                   <h4 className="title-2">Location</h4>
                   <div className="property-details-google-map mb-60">
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9334.271551495209!2d-73.97198251485975!3d40.668170674982946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b0456b5a2e7%3A0x68bdf865dda0b669!2sBrooklyn%20Botanic%20Garden%20Shop!5e0!3m2!1sen!2sbd!4v1590597267201!5m2!1sen!2sbd"
+                      src="https://www.google.com/maps?q=Greenville%20Estate%2C%20Ajah%2C%20Lagos%2C%20Nigeria&output=embed"
                       width="100%"
                       height="100%"
                       frameBorder="0"
@@ -813,7 +810,7 @@ function ProductDetails({ product, baseUrl }) {
                           <li>
                             <div className="ltn__comment-item clearfix">
                               <div className="ltn__commenter-img">
-                                <img src="/img/testimonial/1.jpg" alt="Image" />
+                                <div className="testimonial-initial-avatar">JD</div>
                               </div>
                               <div className="ltn__commenter-comment">
                                 <h6>
@@ -862,7 +859,7 @@ function ProductDetails({ product, baseUrl }) {
                           <li>
                             <div className="ltn__comment-item clearfix">
                               <div className="ltn__commenter-img">
-                                <img src="/img/testimonial/3.jpg" alt="Image" />
+                                <div className="testimonial-initial-avatar">TM</div>
                               </div>
                               <div className="ltn__commenter-comment">
                                 <h6>
@@ -911,7 +908,7 @@ function ProductDetails({ product, baseUrl }) {
                           <li>
                             <div className="ltn__comment-item clearfix">
                               <div className="ltn__commenter-img">
-                                <img src="/img/testimonial/2.jpg" alt="Image" />
+                                <div className="testimonial-initial-avatar">AY</div>
                               </div>
                               <div className="ltn__commenter-comment">
                                 <h6>
@@ -1373,53 +1370,6 @@ function ProductDetails({ product, baseUrl }) {
                       })}
                     </Slider>
                   </div>
-                  {/* <!-- Popular Post Widget --> */}
-                  <div className="widget ltn__popular-post-widget">
-                    <h4 className="ltn__widget-title ltn__widget-title-border-2">
-                      Leatest Blogs
-                    </h4>
-                    <ul>
-                      {latestdBlogs.map((blog, key) => {
-                        const slug = productSlug(blog.title);
-                        let imagecount = key + 1;
-
-                        return (
-                          <li key={key}>
-                            <div className="popular-post-widget-item clearfix">
-                              <div className="popular-post-widget-img">
-                                <Link href={`/blog/${slug}`}>
-                                  <img
-                                    src={`/img/team/${imagecount}.jpg`}
-                                    alt="#"
-                                  />
-                                </Link>
-                              </div>
-                              <div className="popular-post-widget-brief">
-                                <h6>
-                                  <Link href={`/blog/${slug}`}>
-                                    {blog.title}
-                                  </Link>
-                                </h6>
-                                <div className="ltn__blog-meta">
-                                  <ul>
-                                    <li className="ltn__blog-date">
-                                      <Link href={`/blog/${slug}`}>
-                                        <span>
-                                          <FaCalendarAlt />
-                                        </span>
-                                        <span>{blog.date}</span>
-                                      </Link>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
-
                   <FollowUs title="Follow Us" />
 
                   {/* <!-- Tagcloud Widget --> */}

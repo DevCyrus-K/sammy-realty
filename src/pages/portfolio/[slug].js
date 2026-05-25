@@ -11,6 +11,7 @@ import { productSlug } from "@/lib/product";
 import { Container, Row, Col } from "react-bootstrap";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
 import CallToAction from "@/components/callToAction";
+import InitialAvatar from "@/components/testimonialCarousel/InitialAvatar";
 
 function portfolioDetails({ portfolio }) {
   const firstLetter = portfolio.shortDescription.slice(0, 1);
@@ -18,7 +19,7 @@ function portfolioDetails({ portfolio }) {
 
   return (
     <>
-      <LayoutOne topbar={true}>
+      <LayoutOne topbar={false}>
         {/* <!-- BREADCRUMB AREA START --> */}
 
         <ShopBreadCrumb
@@ -64,10 +65,7 @@ function portfolioDetails({ portfolio }) {
                               <p>{review.author.description}</p>
                               <div className="ltn__testimoni-info-inner">
                                 <div className="ltn__testimoni-img">
-                                  <img
-                                    src={`/img/testimonial/${review.author.img}`}
-                                    alt="Image"
-                                  />
+                                  <InitialAvatar name={review.author.name} />
                                 </div>
                                 <div className="ltn__testimoni-name-designation">
                                   <h4>{review.author.name}</h4>

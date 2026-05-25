@@ -17,15 +17,14 @@ function AboutUsSectionOne() {
             <div className="about-us-info-wrap">
               <div className="section-title-area ltn__section-title-2--- mb-30">
                 <h6 className="section-subtitle section-subtitle-2--- ltn__secondary-color">
-                  About Us
+                  About Sammy Realty
                 </h6>
                 <h1 className="section-title">
-                  Dream Living Spaces Setting New Build
+                  Faster Property Decisions in Ajah and Lagos
                 </h1>
                 <p>
-                  Over 39,000 people work for us in more than 70 countries all
-                  over the This breadth of global coverage, combined with
-                  specialist services
+                  We keep the property journey simple: location clarity,
+                  trustworthy details, and direct contact when a client is ready.
                 </p>
               </div>
               <div className="ltn__feature-item ltn__feature-item-3">
@@ -36,13 +35,12 @@ function AboutUsSectionOne() {
                 </div>
                 <div className="ltn__feature-info">
                   <h4>
-                    <Link href="https://quarter-nextjs.netlify.app/service/buy-a-home">
-                      The Perfect Residency
+                    <Link href="/service/property-sales">
+                      Property Sales
                     </Link>
                   </h4>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisic do eiusmod
-                    tempor incididunt ut labore et
+                    Market, inspect, and close property with fewer delays.
                   </p>
                 </div>
               </div>
@@ -54,13 +52,12 @@ function AboutUsSectionOne() {
                 </div>
                 <div className="ltn__feature-info">
                   <h4>
-                    <Link href="https://quarter-nextjs.netlify.app/service/buy-a-home">
-                      Global Architect Experts
+                    <Link href="/service/property-management">
+                      Property Management
                     </Link>
                   </h4>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisic do eiusmod
-                    tempor incididunt ut labore et
+                    Keep rentals visible, occupied, and easier to manage.
                   </p>
                 </div>
               </div>
@@ -72,13 +69,12 @@ function AboutUsSectionOne() {
                 </div>
                 <div className="ltn__feature-info">
                   <h4>
-                    <Link href="https://quarter-nextjs.netlify.app/service/buy-a-home">
-                      Built-in Storage Cupboards
+                    <Link href="/service/real-estate-consulting">
+                      Real Estate Consulting
                     </Link>
                   </h4>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisic do eiusmod
-                    tempor incididunt ut labore et
+                    Compare locations, demand, pricing, and next steps.
                   </p>
                 </div>
               </div>

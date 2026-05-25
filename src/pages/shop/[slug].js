@@ -1,24 +1,23 @@
 import { useState } from "react";
 import ModalVideo from "react-modal-video";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import Slider from "react-slick";
 import {
   FaArrowRight,
   FaArrowLeft,
   FaPlay,
   FaStar,
-  FaStarHalfAlt,
   FaSearch,
   FaRegStar,
-  FaDribbble,
-  FaInstagram,
-  FaTwitter,
-  FaFacebookF,
   FaUserAlt,
   FaEnvelope,
   FaGlobe,
   FaPencilAlt,
-  FaCalendarAlt,
+  FaPhone,
+  FaWhatsapp,
+  FaInstagram,
+  FaTiktok,
 } from "react-icons/fa";
 import BreadCrumb from "@/components/breadCrumbs";
 
@@ -26,19 +25,35 @@ import { LayoutOne } from "@/layouts";
 import { useSelector } from "react-redux";
 import { getProducts, productSlug, getDiscountPrice } from "@/lib/product";
 import products from "@/data/products.json";
-import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import RelatedProduct from "@/components/product/related-product";
-import FollowUs from "@/components/followUs";
-import Tags from "@/components/tags";
-import blogData from "@/data/blog";
 import CallToAction from "@/components/callToAction";
 
 function ProductDetails({ product }) {
+  const router = useRouter();
   const { products } = useSelector((state) => state.product);
-  const { cartItems } = useSelector((state) => state.cart);
-  const { wishlistItems } = useSelector((state) => state.wishlist);
-  const { compareItems } = useSelector((state) => state.compare);
-  const latestdBlogs = getProducts(blogData, "buying", "featured", 4);
+  const isLandRoute = router.pathname.startsWith("/lands");
+  const isPropertyRoute = router.pathname.startsWith("/properties");
+  const detailParentHref = isLandRoute
+    ? "/lands/for-sale"
+    : isPropertyRoute
+    ? "/properties/all"
+    : "/shop";
+  const detailParentLabel = isLandRoute
+    ? "Lands"
+    : isPropertyRoute
+    ? "Properties"
+    : "Shop";
+  const detailTitle = isLandRoute
+    ? "Lands"
+    : isPropertyRoute
+    ? "Properties"
+    : "Product Details";
+  const relatedBaseUrl = isLandRoute
+    ? "lands"
+    : isPropertyRoute
+    ? "properties"
+    : "shop";
 
   const relatedProducts = getProducts(
     products,
@@ -59,21 +74,6 @@ function ProductDetails({ product }) {
     "popular",
     4
   );
-
-  const discountedPrice = getDiscountPrice(
-    product.price,
-    product.discount
-  ).toFixed(2);
-
-  const productPrice = product.price.toFixed(2);
-  const cartItem = cartItems.find((cartItem) => cartItem.id === product.id);
-  const wishlistItem = wishlistItems.find(
-    (wishlistItem) => wishlistItem.id === product.id
-  );
-  const compareItem = compareItems.find(
-    (compareItem) => compareItem.id === product.id
-  );
-
 
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
     <button
@@ -168,7 +168,7 @@ function ProductDetails({ product }) {
 
   return (
     <>
-      <LayoutOne topbar={true}>
+      <LayoutOne topbar={false}>
         <ModalVideo
           channel="youtube"
           autoplay
@@ -179,9 +179,11 @@ function ProductDetails({ product }) {
         {/* <!-- BREADCRUMB AREA START --> */}
 
         <BreadCrumb
-          title="Product Details"
+          title={detailTitle}
           sectionPace="mb-0"
           currentSlug={product.title}
+          parentHref={detailParentHref}
+          parentLabel={detailParentLabel}
         />
 
         {/* <!-- BREADCRUMB AREA END --> */}
@@ -228,8 +230,8 @@ function ProductDetails({ product }) {
                         ),
                           product.rent ? (
                             <li className="ltn__blog-category">
-                              <Link className="bg-orange" href="#">
-                                For Rent
+                              <Link style={{ backgroundColor: '#0B5D3B' }} href="#">
+                                For Sale
                               </Link>
                             </li>
                           ) : (
@@ -243,9 +245,9 @@ function ProductDetails({ product }) {
                       </li>
                       <li>
                         <a href="#">
-                          <i className="far fa-comments"></i>
+                          <FaStar className="me-1" />
                           {product.comments}
-                          Comments
+                          Reviews
                         </a>
                       </li>
                     </ul>
@@ -496,261 +498,13 @@ function ProductDetails({ product }) {
                   <h4 className="title-2">Location</h4>
                   <div className="property-details-google-map mb-60">
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9334.271551495209!2d-73.97198251485975!3d40.668170674982946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b0456b5a2e7%3A0x68bdf865dda0b669!2sBrooklyn%20Botanic%20Garden%20Shop!5e0!3m2!1sen!2sbd!4v1590597267201!5m2!1sen!2sbd"
+                      src="https://www.google.com/maps?q=Greenville%20Estate%2C%20Ajah%2C%20Lagos%2C%20Nigeria&output=embed"
                       width="100%"
                       height="100%"
                       frameBorder="0"
                       allowFullScreen=""
                     ></iframe>
                   </div>
-
-                  <h4 className="title-2">Floor Plans</h4>
-                  {/* <!-- APARTMENTS PLAN AREA START --> */}
-
-                  <div className="ltn__apartments-plan-area product-details-apartments-plan mb-60">
-                    <Tab.Container defaultActiveKey="first">
-                      <div className="ltn__tab-menu ltn__tab-menu-3">
-                        <Nav className="nav">
-                          <Nav.Link eventKey="first">First Floor</Nav.Link>
-                          <Nav.Link eventKey="second">Second Floor</Nav.Link>
-                          <Nav.Link eventKey="third">Third Floor</Nav.Link>
-                          <Nav.Link eventKey="fourth">Top Garden</Nav.Link>
-                        </Nav>
-                      </div>
-                      <Tab.Content>
-                        <Tab.Pane eventKey="first">
-                          <div className="ltn__apartments-tab-content-inner">
-                            <div className="row">
-                              <div className="col-lg-7">
-                                <div className="apartments-plan-img">
-                                  <img src="/img/others/10.png" alt="#" />
-                                </div>
-                              </div>
-                              <div className="col-lg-5">
-                                <div className="apartments-plan-info">
-                                  <h2>First Floor</h2>
-                                  <p>
-                                    Enimad minim veniam quis nostrud
-                                    exercitation ullamco laboris. Lorem ipsum
-                                    dolor sit amet cons aetetur adipisicing elit
-                                    sedo eiusmod tempor.Incididunt labore et
-                                    dolore magna aliqua. sed ayd minim veniam.
-                                  </p>
-                                </div>
-                              </div>
-                              <div className="col-lg-12">
-                                <div className="product-details-apartments-info-list  section-bg-1">
-                                  <div className="row">
-                                    <div className="col-lg-6">
-                                      <div className="apartments-info-list apartments-info-list-color">
-                                        <ul>
-                                          <li>
-                                            <label>Total Area</label>{" "}
-                                            <span>2800 Sq. Ft</span>
-                                          </li>
-                                          <li>
-                                            <label>Bedroom</label>{" "}
-                                            <span>150 Sq. Ft</span>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                    <div className="col-lg-6">
-                                      <div className="apartments-info-list apartments-info-list-color">
-                                        <ul>
-                                          <li>
-                                            <label>Belcony/Pets</label>
-                                            <span>Allowed</span>
-                                          </li>
-                                          <li>
-                                            <label>Lounge</label>
-                                            <span>650 Sq. Ft</span>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </Tab.Pane>
-                        <Tab.Pane eventKey="second">
-                          <div className="ltn__product-tab-content-inner">
-                            <div className="row">
-                              <div className="col-lg-7">
-                                <div className="apartments-plan-img">
-                                  <img src="/img/others/10.png" alt="#" />
-                                </div>
-                              </div>
-                              <div className="col-lg-5">
-                                <div className="apartments-plan-info">
-                                  <h2>Second Floor</h2>
-                                  <p>
-                                    Enimad minim veniam quis nostrud
-                                    exercitation ullamco laboris. Lorem ipsum
-                                    dolor sit amet cons aetetur adipisicing elit
-                                    sedo eiusmod tempor.Incididunt labore et
-                                    dolore magna aliqua. sed ayd minim veniam.
-                                  </p>
-                                </div>
-                              </div>
-                              <div className="col-lg-12">
-                                <div className="product-details-apartments-info-list  section-bg-1">
-                                  <div className="row">
-                                    <div className="col-lg-6">
-                                      <div className="apartments-info-list apartments-info-list-color">
-                                        <ul>
-                                          <li>
-                                            <label>Total Area</label>{" "}
-                                            <span>2800 Sq. Ft</span>
-                                          </li>
-                                          <li>
-                                            <label>Bedroom</label>{" "}
-                                            <span>150 Sq. Ft</span>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                    <div className="col-lg-6">
-                                      <div className="apartments-info-list apartments-info-list-color">
-                                        <ul>
-                                          <li>
-                                            <label>Belcony/Pets</label>{" "}
-                                            <span>Allowed</span>
-                                          </li>
-                                          <li>
-                                            <label>Lounge</label>{" "}
-                                            <span>650 Sq. Ft</span>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </Tab.Pane>
-                        <Tab.Pane eventKey="third">
-                          <div className="ltn__product-tab-content-inner">
-                            <div className="row">
-                              <div className="col-lg-7">
-                                <div className="apartments-plan-img">
-                                  <img src="/img/others/10.png" alt="#" />
-                                </div>
-                              </div>
-                              <div className="col-lg-5">
-                                <div className="apartments-plan-info">
-                                  <h2>Third Floor</h2>
-                                  <p>
-                                    Enimad minim veniam quis nostrud
-                                    exercitation ullamco laboris. Lorem ipsum
-                                    dolor sit amet cons aetetur adipisicing elit
-                                    sedo eiusmod tempor.Incididunt labore et
-                                    dolore magna aliqua. sed ayd minim veniam.
-                                  </p>
-                                </div>
-                              </div>
-                              <div className="col-lg-12">
-                                <div className="product-details-apartments-info-list  section-bg-1">
-                                  <div className="row">
-                                    <div className="col-lg-6">
-                                      <div className="apartments-info-list apartments-info-list-color">
-                                        <ul>
-                                          <li>
-                                            <label>Total Area</label>{" "}
-                                            <span>2800 Sq. Ft</span>
-                                          </li>
-                                          <li>
-                                            <label>Bedroom</label>{" "}
-                                            <span>150 Sq. Ft</span>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                    <div className="col-lg-6">
-                                      <div className="apartments-info-list apartments-info-list-color">
-                                        <ul>
-                                          <li>
-                                            <label>Belcony/Pets</label>{" "}
-                                            <span>Allowed</span>
-                                          </li>
-                                          <li>
-                                            <label>Lounge</label>{" "}
-                                            <span>650 Sq. Ft</span>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </Tab.Pane>
-                        <Tab.Pane eventKey="fourth">
-                          <div className="ltn__product-tab-content-inner">
-                            <div className="row">
-                              <div className="col-lg-7">
-                                <div className="apartments-plan-img">
-                                  <img src="/img/others/10.png" alt="#" />
-                                </div>
-                              </div>
-                              <div className="col-lg-5">
-                                <div className="apartments-plan-info">
-                                  <h2>Top Garden</h2>
-                                  <p>
-                                    Enimad minim veniam quis nostrud
-                                    exercitation ullamco laboris. Lorem ipsum
-                                    dolor sit amet cons aetetur adipisicing elit
-                                    sedo eiusmod tempor.Incididunt labore et
-                                    dolore magna aliqua. sed ayd minim veniam.
-                                  </p>
-                                </div>
-                              </div>
-                              <div className="col-lg-12">
-                                <div className="product-details-apartments-info-list  section-bg-1">
-                                  <div className="row">
-                                    <div className="col-lg-6">
-                                      <div className="apartments-info-list apartments-info-list-color">
-                                        <ul>
-                                          <li>
-                                            <label>Total Area</label>{" "}
-                                            <span>2800 Sq. Ft</span>
-                                          </li>
-                                          <li>
-                                            <label>Bedroom</label>{" "}
-                                            <span>150 Sq. Ft</span>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                    <div className="col-lg-6">
-                                      <div className="apartments-info-list apartments-info-list-color">
-                                        <ul>
-                                          <li>
-                                            <label>Belcony/Pets</label>{" "}
-                                            <span>Allowed</span>
-                                          </li>
-                                          <li>
-                                            <label>Lounge</label>{" "}
-                                            <span>650 Sq. Ft</span>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </Tab.Pane>
-                      </Tab.Content>
-                    </Tab.Container>
-                  </div>
-
-                  {/* <!-- APARTMENTS PLAN AREA END --> */}
 
                   <h4 className="title-2">Property Video</h4>
                   <div
@@ -766,7 +520,7 @@ function ProductDetails({ product }) {
                   </div>
 
                   <div className="ltn__shop-details-tab-content-inner--- ltn__shop-details-tab-inner-2 ltn__product-details-review-inner mb-60">
-                    <h4 className="title-2">Customer Reviews</h4>
+                    <h4 className="title-2">Reviews</h4>
                     <div className="product-ratting">
                       <ul>
                         <li>
@@ -800,14 +554,14 @@ function ProductDetails({ product }) {
                       </ul>
                     </div>
                     <hr />
-                    {/* <!-- comment-area --> */}
+                    {/* <!-- review-area --> */}
                     <div className="ltn__comment-area mb-30">
                       <div className="ltn__comment-inner">
                         <ul>
                           <li>
                             <div className="ltn__comment-item clearfix">
                               <div className="ltn__commenter-img">
-                                <img src="/img/testimonial/1.jpg" alt="Image" />
+                                <div className="testimonial-initial-avatar">JD</div>
                               </div>
                               <div className="ltn__commenter-comment">
                                 <h6>
@@ -856,7 +610,7 @@ function ProductDetails({ product }) {
                           <li>
                             <div className="ltn__comment-item clearfix">
                               <div className="ltn__commenter-img">
-                                <img src="/img/testimonial/3.jpg" alt="Image" />
+                                <div className="testimonial-initial-avatar">TM</div>
                               </div>
                               <div className="ltn__commenter-comment">
                                 <h6>
@@ -905,7 +659,7 @@ function ProductDetails({ product }) {
                           <li>
                             <div className="ltn__comment-item clearfix">
                               <div className="ltn__commenter-img">
-                                <img src="/img/testimonial/2.jpg" alt="Image" />
+                                <div className="testimonial-initial-avatar">AY</div>
                               </div>
                               <div className="ltn__commenter-comment">
                                 <h6>
@@ -954,7 +708,7 @@ function ProductDetails({ product }) {
                         </ul>
                       </div>
                     </div>
-                    {/* <!-- comment-reply --> */}
+                    {/* <!-- review-reply --> */}
                     <div className="ltn__comment-reply-area ltn__form-box mb-30">
                       <form action="#">
                         <h4>Add a Review</h4>
@@ -993,7 +747,7 @@ function ProductDetails({ product }) {
                           </div>
                         </div>
                         <div className="input-item input-item-textarea ltn__custom-icon">
-                          <textarea placeholder="Type your comments...."></textarea>
+                          <textarea placeholder="Type your review..."></textarea>
                           <span className="inline-icon">
                             <FaPencilAlt />
                           </span>
@@ -1026,7 +780,7 @@ function ProductDetails({ product }) {
                         <label className="mb-0">
                           <input type="checkbox" name="agree" /> Save my name,
                           email, and website in this browser for the next time I
-                          comment.
+                          review.
                         </label>
                         <div className="btn-wrapper">
                           <button
@@ -1044,31 +798,12 @@ function ProductDetails({ product }) {
                   <Row>
                     {relatedProducts.map((data, key) => {
                       const slug = productSlug(data.title);
-                      const discountedPrice = getDiscountPrice(
-                        product.price,
-                        product.discount
-                      ).toFixed(2);
-                      const productPrice = product.price.toFixed(2);
-                      const cartItem = cartItems.find(
-                        (cartItem) => cartItem.id === product.id
-                      );
-                      const wishlistItem = wishlistItems.find(
-                        (wishlistItem) => wishlistItem.id === product.id
-                      );
-                      const compareItem = compareItems.find(
-                        (compareItem) => compareItem.id === product.id
-                      );
                       return (
                         <Col xs={12} sm={6} key={key}>
                           <RelatedProduct
                             productData={data}
                             slug={slug}
-                            baseUrl="shop"
-                            discountedPrice={discountedPrice}
-                            productPrice={productPrice}
-                            cartItem={cartItem}
-                            wishlistItem={wishlistItem}
-                            compareItem={compareItem}
+                            baseUrl={relatedBaseUrl}
                           />
                         </Col>
                       );
@@ -1079,84 +814,10 @@ function ProductDetails({ product }) {
 
               <Col xs={12} lg={4}>
                 <aside className="sidebar ltn__shop-sidebar ltn__right-sidebar---">
-                  {/* <!-- Author Widget --> */}
-                  <div className="widget ltn__author-widget">
-                    <div className="ltn__author-widget-inner text-center">
-                      <img
-                        src={`/img/team/${product.agent.img}`}
-                        alt={`${product.agent.fullName}`}
-                      />
-                      <h5>{product.agent.fullName}</h5>
-                      <small>{product.agent.designation}</small>
-                      <div className="product-ratting">
-                        <ul>
-                          <li>
-                            <a href="#">
-                              <FaStar />
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <FaStar />
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <FaStar />
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <FaStar />
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <FaRegStar />
-                            </a>
-                          </li>
-                          <li className="review-total">
-                            {" "}
-                            <Link href="#">
-                              {" "}
-                              ( {product.agent.raiting} Reviews )
-                            </Link>
-                          </li>
-                        </ul>
-                      </div>
-                      <p>{product.agent.description}</p>
-
-                      <div className="ltn__social-media">
-                        <ul>
-                          <li>
-                            <a href="#" title="Facebook">
-                              <FaFacebookF />
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#" title="Twitter">
-                              <FaTwitter />
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#" title="Linkedin">
-                              <FaInstagram />
-                            </a>
-                          </li>
-
-                          <li>
-                            <a href="#" title="Youtube">
-                              <FaDribbble />
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
                   {/* <!-- Search Widget --> */}
                   <div className="widget ltn__search-widget">
                     <h4 className="ltn__widget-title ltn__widget-title-border-2">
-                      Search Objects
+                      Search Properties
                     </h4>
                     <form action="#">
                       <input
@@ -1169,45 +830,64 @@ function ProductDetails({ product }) {
                       </button>
                     </form>
                   </div>
-                  {/* <!-- Form Widget --> */}
+                  {/* <!-- Contact Widget --> */}
                   <div className="widget ltn__form-widget">
                     <h4 className="ltn__widget-title ltn__widget-title-border-2">
-                      Drop Messege For Book
+                      Contact Agent
                     </h4>
-                    <form action="#">
-                      <input
-                        type="text"
-                        name="yourname"
-                        placeholder="Your Name*"
-                      />
-                      <input
-                        type="text"
-                        name="youremail"
-                        placeholder="Your e-Mail*"
-                      />
-                      <textarea
-                        name="yourmessage"
-                        placeholder="Write Message..."
-                      ></textarea>
-                      <button type="submit" className="btn theme-btn-1">
-                        Send Messege
-                      </button>
-                    </form>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                      <a href="tel:+234-814-841-4913" style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        padding: '12px',
+                        backgroundColor: '#0B5D3B',
+                        color: 'white',
+                        textDecoration: 'none',
+                        borderRadius: '0px',
+                        fontWeight: 'bold',
+                        gap: '8px'
+                      }}>
+                        <FaPhone /> Call Now
+                      </a>
+                      <a href="https://wa.me/234814841491" target="_blank" rel="noopener noreferrer" style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        padding: '12px',
+                        backgroundColor: '#25D366',
+                        color: 'white',
+                        textDecoration: 'none',
+                        borderRadius: '0px',
+                        fontWeight: 'bold',
+                        gap: '8px'
+                      }}>
+                        <FaWhatsapp /> WhatsApp
+                      </a>
+                    </div>
+                    <div style={{ textAlign: 'center', marginTop: '20px', paddingTop: '20px', borderTop: '1px solid #ddd' }}>
+                      <p style={{ fontSize: '16px', fontWeight: 'bold', color: '#0B5D3B', marginBottom: '8px' }}>Ask About This Property</p>
+                      <p style={{ fontSize: '13px', color: '#666' }}>Contact Sammy Realty for more information about this property.</p>
+                    </div>
                   </div>
-                  {/* <!-- Top Rated Product Widget --> */}
+                  {/* <!-- Top Rated Properties Widget --> */}
                   <div className="widget ltn__top-rated-product-widget">
                     <h4 className="ltn__widget-title ltn__widget-title-border-2">
-                      Top Rated Product
+                      Top Rated Properties
                     </h4>
                     <ul>
                       {topRatedProducts.map((product, keys) => {
                         const slug = productSlug(product.title);
+                        const discountedPrice = getDiscountPrice(
+                          product.price,
+                          product.discount
+                        ).toFixed(2);
                         let key = keys + 1;
                         return (
                           <li key={product.id}>
                             <div className="top-rated-product-item clearfix">
                               <div className="top-rated-product-img">
-                                <a href={`/shop/${slug}`}>
+                                <a href={`/${relatedBaseUrl}/${slug}`}>
                                   <img
                                     src={`/img/product/${key}.png`}
                                     alt={product.title}
@@ -1245,7 +925,9 @@ function ProductDetails({ product }) {
                                   </ul>
                                 </div>
                                 <h6>
-                                  <a href={`/shop/${slug}`}>{product.title}</a>
+                                  <a href={`/${relatedBaseUrl}/${slug}`}>
+                                    {product.title}
+                                  </a>
                                 </h6>
                                 <div className="product-price">
                                   <span>${product.price}</span>
@@ -1311,19 +993,12 @@ function ProductDetails({ product }) {
                             className="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---"
                           >
                             <div className="product-img">
-                              <Link href={`/shop/${slug}`}>
+                              <Link href={`/${relatedBaseUrl}/${slug}`}>
                                 <img
                                   src={`/img/product-3/${product.productImg}`}
                                   alt={slug}
                                 />
                               </Link>
-                              <div className="real-estate-agent">
-                                <div className="agent-img">
-                                  <Link href="#">
-                                    <img src={`/img/blog/author.jpg`} alt="#" />
-                                  </Link>
-                                </div>
-                              </div>
                             </div>
                             <div className="product-info">
                               <div className="product-price">
@@ -1333,7 +1008,7 @@ function ProductDetails({ product }) {
                                 </span>
                               </div>
                               <h2 className="product-title">
-                                <Link href={`/shop/${slug}`}>
+                                <Link href={`/${relatedBaseUrl}/${slug}`}>
                                   {product.title}
                                 </Link>
                               </h2>
@@ -1369,58 +1044,50 @@ function ProductDetails({ product }) {
                       })}
                     </Slider>
                   </div>
-                  {/* <!-- Popular Post Widget --> */}
-                  <div className="widget ltn__popular-post-widget">
+                  {/* <!-- Social Links Widget --> */}
+                  <div className="widget">
                     <h4 className="ltn__widget-title ltn__widget-title-border-2">
-                      Leatest Blogs
+                      Follow Us
                     </h4>
-                    <ul>
-                      {latestdBlogs.map((blog, key) => {
-                        const slug = productSlug(blog.title);
-                        let imagecount = key + 1;
-
-                        return (
-                          <li key={key}>
-                            <div className="popular-post-widget-item clearfix">
-                              <div className="popular-post-widget-img">
-                                <Link href={`/blog/${slug}`}>
-                                  <img
-                                    src={`/img/team/${imagecount}.jpg`}
-                                    alt="#"
-                                  />
-                                </Link>
-                              </div>
-                              <div className="popular-post-widget-brief">
-                                <h6>
-                                  <Link href={`/blog/${slug}`}>
-                                    {blog.title}
-                                  </Link>
-                                </h6>
-                                <div className="ltn__blog-meta">
-                                  <ul>
-                                    <li className="ltn__blog-date">
-                                      <Link href={`/blog/${slug}`}>
-                                        <span>
-                                          <FaCalendarAlt />
-                                        </span>
-                                        <span>{blog.date}</span>
-                                      </Link>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
-                          </li>
-                        );
-                      })}
-                    </ul>
+                    <div style={{ display: 'flex', gap: '15px', justifyContent: 'center' }}>
+                      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" style={{
+                        width: '40px',
+                        height: '40px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        backgroundColor: '#0B5D3B',
+                        color: 'white',
+                        borderRadius: '50%',
+                        textDecoration: 'none',
+                        fontSize: '18px'
+                      }}><FaInstagram /></a>
+                      <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" style={{
+                        width: '40px',
+                        height: '40px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        backgroundColor: '#0B5D3B',
+                        color: 'white',
+                        borderRadius: '50%',
+                        textDecoration: 'none',
+                        fontSize: '18px'
+                      }}><FaTiktok /></a>
+                      <a href="https://wa.me/234814841491" target="_blank" rel="noopener noreferrer" style={{
+                        width: '40px',
+                        height: '40px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        backgroundColor: '#25D366',
+                        color: 'white',
+                        borderRadius: '50%',
+                        textDecoration: 'none',
+                        fontSize: '18px'
+                      }}><FaWhatsapp /></a>
+                    </div>
                   </div>
-
-                  <FollowUs title="Follow Us" />
-
-                  {/* <!-- Tagcloud Widget --> */}
-
-                  <Tags title="Popular Tags" />
                 </aside>
               </Col>
             </Row>

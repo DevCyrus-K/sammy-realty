@@ -1673,7 +1673,7 @@
     padding: 30px 20px 30px;
   }
 
-  .ltn__blog-meta li:before {
+  .ltn__blog-meta li {
     height: 15px;
     width: 2px;
     top: 50%;
@@ -2312,6 +2312,7 @@ blockquote {
 
     input[type="text"],
     input[type="email"],
+    input[type="tel"],
     input[type="password"],
     input[type="submit"],
     textarea {
@@ -2685,6 +2686,26 @@ blockquote {
   }
 }
 
+.testimonial-initial-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #0B5D3B;
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0;
+}
+
+.ltn__testimonial-image .testimonial-initial-avatar,
+.ltn__testimonial-quote-avatar .testimonial-initial-avatar {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* testimonial-item-2 */
 .ltn__testimonial-item-2 {
   max-width: 60%;
@@ -2970,14 +2991,33 @@ blockquote {
 }
 
 /* testimonial-item-7 */
+.ltn__testimonial-slider-5-active {
+  .slick-track {
+    display: flex;
+  }
+
+  .slick-slide {
+    height: auto;
+
+    > div {
+      display: flex;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
 .ltn__testimonial-item-7 {
   background-color: var(--white);
   padding: 30px 35px 40px;
   max-width: 100%;
+  height: 100%;
   border-radius: 10px;
   box-shadow: var(--ltn__box-shadow-4);
   border: 1px solid;
   border-color: var(--border-color-13);
+  display: flex;
+  flex-direction: column;
   position: relative;
 
   .ltn__testimonial-img {
@@ -2985,7 +3025,12 @@ blockquote {
   }
 
   .ltn__testimoni-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
     p {
+      flex: 1;
       font-size: 18px;
 
       i {
@@ -3053,6 +3098,48 @@ blockquote {
   }
 }
 
+.testimonials-page-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+}
+
+.testimonials-share-story-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+
+  svg {
+    flex: 0 0 auto;
+    font-size: 18px;
+  }
+}
+
+.testimonials-page-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 30px;
+}
+
+.testimonials-page-card {
+  display: flex;
+  min-width: 0;
+
+  .ltn__testimonial-item {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+}
+
+.testimonials-page-pagination {
+  margin-top: 35px;
+}
+
 /* testimonial-item-8 */
 .ltn__testimonial-item-8 {
   padding: 35px 35px 35px;
@@ -3076,6 +3163,10 @@ blockquote {
 }
 
 @media (max-width: 991px) {
+  .testimonials-page-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .ltn__testimonial-item-2 {
     max-width: 70%;
 
@@ -3118,6 +3209,18 @@ blockquote {
 }
 
 @media (max-width: 767px) {
+  .testimonials-page-actions {
+    justify-content: center;
+  }
+
+  .testimonials-share-story-btn {
+    max-width: 100%;
+  }
+
+  .testimonials-page-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .ltn__testimonial-item-2 {
     max-width: 95%;
 
@@ -6139,10 +6242,55 @@ input.cart-plus-minus-box {
 
   input[type="text"],
   input[type="email"],
+  input[type="tel"],
   input[type="password"],
   input[type="submit"],
   textarea {
     margin-bottom: 0px;
+  }
+}
+
+.hero-property-search {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 0;
+
+  .hero-property-search-field {
+    position: relative;
+    flex: 1 1 auto;
+
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      color: var(--ltn__secondary-color);
+      z-index: 1;
+    }
+  }
+
+  input[type="text"] {
+    height: 60px;
+    margin-bottom: 0;
+    padding-left: 50px;
+    padding-right: 20px;
+    background-color: var(--white);
+    border: 1px solid var(--border-color-1);
+    color: var(--ltn__heading-color);
+    font-family: var(--ltn__heading-font);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .btn {
+    flex: 0 0 auto;
+    min-width: 170px;
+    height: 60px;
+    margin-bottom: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -6168,6 +6316,14 @@ input.cart-plus-minus-box {
 @media (max-width: 767px) {
   .ltn__car-dealer-form-tab .tab-content {
     padding: 40px 25px;
+  }
+
+  .hero-property-search {
+    flex-direction: column;
+
+    .btn {
+      width: 100%;
+    }
   }
 
   .ltn__car-dealer-form-box .nice-select .list {
@@ -7633,7 +7789,7 @@ input.cart-plus-minus-box {
 }
 
 .cardealer-track.cardealer-track-1 {
-  background: #ff5a3c;
+  background: #0B5D3B;
   border-radius: 5px;
 }
 
@@ -7650,7 +7806,7 @@ input.cart-plus-minus-box {
   border-radius: 50%;
   font-size: 0;
   text-align: center;
-  background-color: #ff5a3c;
+  background-color: #0B5D3B;
   color: white;
   cursor: pointer;
   box-sizing: border-box;
@@ -7685,7 +7841,7 @@ input.cart-plus-minus-box {
 }
 
 .filter-by-price-track.filter-by-price-track-1 {
-  background: #ff5a3c;
+  background: #0B5D3B;
   border-radius: 5px;
 }
 
@@ -7702,7 +7858,7 @@ input.cart-plus-minus-box {
   border-radius: 50%;
   font-size: 0;
   text-align: center;
-  background-color: #ff5a3c;
+  background-color: #0B5D3B;
   color: white;
   cursor: pointer;
   box-sizing: border-box;

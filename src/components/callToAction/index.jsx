@@ -5,12 +5,12 @@ const CallToAction = () => {
     <>
       <div className="call-to-action-inner call-to-action-inner-6 ltn__secondary-bg position-relative">
         <div className="coll-to-info text-color-white">
-          <h1>Looking for a dream home?</h1>
-          <p>We can help you realize your dream of a new home</p>
+          <h1>Ready to sell or inspect a property?</h1>
+          <p>Call or message Sammy Realty and move from enquiry to action faster.</p>
         </div>
         <div className="btn-wrapper">
-          <Link className="btn btn-effect-3 btn-white" href="contact">
-            Explore Properties <i className="icon-next"></i>
+          <Link className="btn btn-effect-3 btn-white" href="/add-listing">
+            Sell Your Property <i className="icon-next"></i>
           </Link>
         </div>
       </div>

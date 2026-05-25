@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaArrowRight, FaSearch, FaRegEnvelopeOpen } from "react-icons/fa";
+import { FaArrowRight, FaPhone } from "react-icons/fa";
 import serviceData from "@/data/service";
 import { LayoutOne } from "@/layouts";
 import { productSlug } from "@/lib/product";
@@ -13,13 +13,13 @@ function ServiceDetails({ service }) {
 
   return (
     <>
-      <LayoutOne topbar={true}>
+      <LayoutOne topbar={false}>
         {/* <!-- BREADCRUMB AREA START --> */}
 
         <ShopBreadCrumb
-          title="Service Details"
+          title={service.title}
           sectionPace=""
-          currentSlug="Property Management"
+          currentSlug={service.title}
         />
 
         {/* <!-- BREADCRUMB AREA END --> */}
@@ -65,73 +65,138 @@ function ServiceDetails({ service }) {
                   {/* <!-- Menu Widget --> */}
                   <div className="widget-2 ltn__menu-widget ltn__menu-widget-2 text-uppercase">
                     <ul>
-                      <li>
-                        <Link href="#">
-                          Property Management
-                          <span>
-                            <FaArrowRight />
-                          </span>
-                        </Link>
-                      </li>
-                      <li className="active">
-                        <Link href="#">
-                          Mortgage Service
-                          <span>
-                            <FaArrowRight />
-                          </span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="#">
-                          Consulting Service
-                          <span>
-                            <FaArrowRight />
-                          </span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="#">
-                          Home Buying
-                          <span>
-                            <FaArrowRight />
-                          </span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="#">
-                          Home selling
-                          <span>
-                            <FaArrowRight />
-                          </span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="#">
-                          Escrow Services
-                          <span>
-                            <FaArrowRight />
-                          </span>
-                        </Link>
-                      </li>
+                      {serviceData.map((item) => {
+                        const slug = productSlug(item.title);
+                        return (
+                          <li
+                            key={item.id}
+                            className={item.title === service.title ? "active" : ""}
+                          >
+                            <Link href={`/service/${slug}`}>
+                              {item.title}
+                              <span>
+                                <FaArrowRight />
+                              </span>
+                            </Link>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
-                  {/* <!-- Newsletter Widget --> */}
+                  {/* <!-- Call CTA Widget --> */}
                   <div className="widget ltn__search-widget ltn__newsletter-widget">
-                    <h6 className="ltn__widget-sub-title">{`// subscribe`}</h6>
-                    <h4 className="ltn__widget-title">Get Newsletter</h4>
-                    <form action="#">
-                      <input type="text" name="search" placeholder="Search" />
-                      <button type="submit">
-                        <FaSearch />
-                      </button>
-                    </form>
-                    <div className="ltn__newsletter-bg-icon">
-                      <FaRegEnvelopeOpen />
+                    <style>{`
+                      .service-contact-widget {
+                        background-color: #0B5D3B;
+                        padding: 30px;
+                        border-radius: 4px;
+                        text-align: center;
+                        color: white;
+                      }
+                      .service-contact-widget h6 {
+                        font-size: 12px;
+                        color: rgba(255, 255, 255, 0.8);
+                        text-transform: uppercase;
+                        margin-bottom: 15px;
+                        letter-spacing: 1px;
+                      }
+                      .service-contact-text {
+                        font-size: 20px;
+                        color: white;
+                        font-weight: 700;
+                        margin-bottom: 20px;
+                      }
+                      .service-contact-button {
+                        display: inline-block;
+                        padding: 12px 28px;
+                        background-color: white;
+                        color: #0B5D3B;
+                        border: 2px solid white;
+                        border-radius: 0px;
+                        text-decoration: none;
+                        font-weight: 600;
+                        font-size: 14px;
+                        transition: all 0.3s ease;
+                        margin-bottom: 20px;
+                      }
+                      .service-contact-button:hover {
+                        background-color: transparent;
+                        color: white;
+                        border: 2px solid white;
+                      }
+                      .service-email-text {
+                        font-size: 14px;
+                        color: rgba(255, 255, 255, 0.9);
+                        margin-bottom: 20px;
+                      }
+                      .service-email-link {
+                        color: white;
+                        text-decoration: none;
+                        font-weight: 600;
+                        transition: color 0.3s ease;
+                      }
+                      .service-email-link:hover {
+                        color: #f0f0f0;
+                        text-decoration: underline;
+                      }
+                      .service-call-cta {
+                        display: inline-block;
+                        padding: 12px 28px;
+                        background-color: transparent;
+                        color: white;
+                        border: 2px solid white;
+                        border-radius: 0px;
+                        text-decoration: none;
+                        font-weight: 600;
+                        font-size: 14px;
+                        transition: all 0.3s ease;
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 8px;
+                      }
+                      .service-call-cta:hover {
+                        background-color: white;
+                        color: #0B5D3B;
+                        border: 2px solid white;
+                      }
+                      .ltn__newsletter-bg-icon {
+                        position: absolute;
+                        right: 30px;
+                        top: 30px;
+                        font-size: 40px;
+                        opacity: 0.1;
+                        color: white;
+                      }
+                    `}</style>
+                    <div className="service-contact-widget" style={{ position: "relative" }}>
+                      <p className="service-contact-text">Need this service?</p>
+                      <Link
+                        href="/contact"
+                        className="service-contact-button"
+                      >
+                        Contact
+                      </Link>
+                      <div className="service-email-text">
+                        Or email us at{" "}
+                        <Link href="mailto:info@sammyrealty.com" className="service-email-link">
+                          info@sammyrealty.com
+                        </Link>
+                      </div>
+                      <Link
+                        href="tel:+2348148414913"
+                        className="service-call-cta"
+                      >
+                        <FaPhone />
+                        Call Us Now
+                      </Link>
+                      <div className="ltn__newsletter-bg-icon">
+                        <FaPhone />
+                      </div>
                     </div>
                   </div>
                   {/* <!-- Banner Widget --> */}
                   <div className="widget ltn__banner-widget">
-                    <Link href="/shop">
+                    <Link href="/properties/all">
                       <img src="/img/banner/banner-1.jpg" alt="Banner Image" />
                     </Link>
                   </div>

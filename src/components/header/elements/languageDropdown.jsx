@@ -6,7 +6,7 @@ const LanguageDropDown = function () {
       <div className="ltn__drop-menu ltn__currency-menu ltn__language-menu">
         <ul>
           <li>
-            <a href="#" className="dropdown-toggle">
+            <a href="/contact" className="dropdown-toggle">
               <span className="active-currency">English</span>
               <span>
                 <IoArrowDownOutline />
@@ -14,22 +14,22 @@ const LanguageDropDown = function () {
             </a>
             <ul>
               <li>
-                <a href="#">Arabic</a>
+                <a href="/contact">Arabic</a>
               </li>
               <li>
-                <a href="#">Bengali</a>
+                <a href="/contact">Bengali</a>
               </li>
               <li>
-                <a href="#">Chinese</a>
+                <a href="/contact">Chinese</a>
               </li>
               <li>
-                <a href="#">English</a>
+                <a href="/contact">English</a>
               </li>
               <li>
-                <a href="#">French</a>
+                <a href="/contact">French</a>
               </li>
               <li>
-                <a href="#">Hindi</a>
+                <a href="/contact">Hindi</a>
               </li>
             </ul>
           </li>

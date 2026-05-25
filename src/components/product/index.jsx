@@ -1,26 +1,10 @@
-import { useState } from "react";
 import Link from "next/link";
-import { FaFilm, FaCamera } from "react-icons/fa";
-import QuickViewtModal from "@/components/modals/quickViewModal";
-import { useDispatch } from "react-redux";
-import { addToCart } from "@/store/slices/cart-slice";
-import {
-  addToWishlist,
-  deleteFromWishlist,
-} from "@/store/slices/wishlist-slice";
-
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
+import { FaFilm, FaCamera, FaArrowRight } from "react-icons/fa";
 
 const ProductItem = ({
   productData,
   slug,
   baseUrl,
-  discountedPrice,
-  productPrice,
-  cartItem,
-  wishlistItem,
-  compareItem,
 }) => {
   let badgeText = "";
 
@@ -29,26 +13,6 @@ const ProductItem = ({
   } else {
     badgeText = "For Sale";
   }
-
-  const dispatch = useDispatch();
-
-  const [modalShow, setModalShow] = useState(false);
-
-  const wishListTooltip = (props) => (
-    <Tooltip id="button-tooltip" {...props}>
-      Wishlist
-    </Tooltip>
-  );
-  const quickViewTooltip = (props) => (
-    <Tooltip id="button-tooltip" {...props}>
-      Quick View
-    </Tooltip>
-  );
-  const addToCartTooltip = (props) => (
-    <Tooltip id="button-tooltip" {...props}>
-     Add To Cart
-    </Tooltip>
-  );
 
   return (
     <>
@@ -73,7 +37,7 @@ const ProductItem = ({
             <div className="product-img-location">
               <ul>
                 <li>
-                  <Link href="/locations">
+                  <Link href="/map/all">
                     <i className="flaticon-pin"></i>
                     {productData.locantion}
                   </Link>
@@ -142,81 +106,11 @@ const ProductItem = ({
           </ul>
         </div>
         <div className="product-info-bottom">
-          <div className="real-estate-agent">
-            <div className="agent-img">
-              <Link href="/team-details">
-                <img
-                  src={`/img/blog/${productData.agent.img}`}
-                  alt={`${productData.agent.fullName}`}
-                />
-              </Link>
-            </div>
-            <div className="agent-brief">
-              <h6>
-                <Link href="/team-details">{productData.agent.firstName}</Link>
-              </h6>
-              <small>{productData.agent.type}</small>
-            </div>
-          </div>
-          <div className="product-hover-action">
-            <ul>
-              <li>
-              <OverlayTrigger
-                  placement="right"
-                  delay={{ show: 250, hide: 400 }}
-                  overlay={quickViewTooltip}
-                >
-                <button onClick={() => setModalShow(true)}>
-                  <i className="flaticon-expand"></i>
-                </button>
-
-
-                </OverlayTrigger>
-              </li>
-              <li>
-                <OverlayTrigger
-                  placement="right"
-                  delay={{ show: 250, hide: 400 }}
-                  overlay={wishListTooltip}
-                >
-                  <button
-                    onClick={
-                      wishlistItem !== undefined
-                        ? () => dispatch(deleteFromWishlist(productData.id))
-                        : () => dispatch(addToWishlist(productData))
-                    }
-                  >
-                    <i className="flaticon-heart-1"></i>
-                  </button>
-                </OverlayTrigger>
-              </li>
-              <li>
-                <OverlayTrigger
-                  placement="right"
-                  delay={{ show: 250, hide: 400 }}
-                  overlay={addToCartTooltip}
-                >
-                  <button onClick={() => dispatch(addToCart(productData))}>
-                    <i className="flaticon-add"></i>
-                  </button>
-                </OverlayTrigger>
-              </li>
-            </ul>
-          </div>
+          <Link className="property-card-details-btn" href={`/${baseUrl}/${slug}`}>
+            View Details <FaArrowRight />
+          </Link>
         </div>
       </div>
-
-      <QuickViewtModal
-        productData={productData}
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-        slug={slug}
-        discountedprice={discountedPrice}
-        productprice={productPrice}
-        cartitem={cartItem}
-        wishlistitem={wishlistItem}
-        compareitem={compareItem}
-      />
     </>
   );
 };
