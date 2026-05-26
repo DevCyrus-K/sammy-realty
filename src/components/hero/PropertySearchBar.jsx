@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { productSlug } from "@/lib/product";
+import { formatPrice } from "@/lib/utils";
+import { getPropertyImageSrc } from "@/lib/listing-format";
 
 function PropertySearchBar() {
   const router = useRouter();
@@ -527,12 +529,12 @@ function PropertySearchBar() {
                           ) : searchResults.length > 0 ? (
                             <>
                               {searchResults.map((result) => {
-                                const slug = productSlug(result.title);
+                                const slug = result.slug || productSlug(result.title);
                                 const priceLabel = result.rent ? "per month" : "";
                                 return (
                                   <div key={result.id} className="search-result-item">
                                     <img
-                                      src={`/img/product-3/${result.productImg}`}
+                                      src={getPropertyImageSrc(result.image || result.productImg)}
                                       alt={result.title}
                                       className="search-result-image"
                                       onError={(event) => {
@@ -542,7 +544,7 @@ function PropertySearchBar() {
                                     <div className="search-result-content">
                                       <div className="search-result-title">{result.title}</div>
                                       <div className="search-result-location">{result.locantion || result.district || "Lagos"}</div>
-                                      <div className="search-result-price">${result.price?.toLocaleString() || "N/A"} {priceLabel}</div>
+                                      <div className="search-result-price">{formatPrice(Number(result.price || 0))} {priceLabel}</div>
                                     </div>
                                     <Link href={`/properties/${slug}`} className="search-result-button">
                                       View Details

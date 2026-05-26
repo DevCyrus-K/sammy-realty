@@ -89,14 +89,25 @@ export default function ListingRequestsPage() {
         id: "actions",
         header: "Actions",
         cell: ({ row }) => (
-          <Dropdown
-            items={[
-              { label: "View Details", icon: <Eye size={14} />, onClick: () => setSelectedRequest(row.original) },
-              { label: "Approve", icon: <ThumbsUp size={14} />, onClick: () => approveRequest(row.original) },
-              { label: "Reject", icon: <ThumbsDown size={14} />, danger: true, onClick: () => setRejectTarget(row.original) },
-              { label: "Delete", icon: <Trash2 size={14} />, danger: true, separatorBefore: true, onClick: () => setDeleteTarget(row.original) },
-            ]}
-          />
+          <div className="flex items-center justify-end gap-1" onClick={(event) => event.stopPropagation()}>
+            <Button variant="ghost" className="size-9 px-0" aria-label="View request" onClick={() => setSelectedRequest(row.original)}>
+              <Eye size={15} />
+            </Button>
+            <Button variant="ghost" className="size-9 px-0" aria-label="Approve request" onClick={() => approveRequest(row.original)}>
+              <ThumbsUp size={15} />
+            </Button>
+            <Button variant="ghost" className="size-9 px-0 text-[var(--brand-danger)]" aria-label="Delete request" onClick={() => setDeleteTarget(row.original)}>
+              <Trash2 size={15} />
+            </Button>
+            <Dropdown
+              items={[
+                { label: "View Details", icon: <Eye size={14} />, onClick: () => setSelectedRequest(row.original) },
+                { label: "Approve", icon: <ThumbsUp size={14} />, onClick: () => approveRequest(row.original) },
+                { label: "Reject", icon: <ThumbsDown size={14} />, danger: true, onClick: () => setRejectTarget(row.original) },
+                { label: "Delete", icon: <Trash2 size={14} />, danger: true, separatorBefore: true, onClick: () => setDeleteTarget(row.original) },
+              ]}
+            />
+          </div>
         ),
       },
     ],

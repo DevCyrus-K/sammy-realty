@@ -17,12 +17,13 @@ import ProductList from "@/components/product/list";
 import Search from "@/components/search";
 import CallToAction from "@/components/callToAction";
 import { productSlug } from "@/lib/product";
+import { toStorefrontProduct } from "@/lib/listing-format";
 
 const filters = {
   all: (product) => product,
-  sale: (product) => !product.rent,
+  sale: (product) => !product.rent && product.propertyType !== "Land",
   rent: (product) => product.rent,
-  land: (product) => !product.rent,
+  land: (product) => product.propertyType === "Land",
 };
 
 const statusFilters = {
@@ -96,6 +97,9 @@ const SidebarFilterGroup = ({ title, options, selectedValue, onSelect }) => (
 const PropertyListingPage = ({ title, currentSlug, filter = "all" }) => {
   const router = useRouter();
   const { products } = useSelector((state) => state.product);
+  const [listingProducts, setListingProducts] = useState(products || []);
+  const [isLoadingListings, setIsLoadingListings] = useState(false);
+  const [listingError, setListingError] = useState("");
   const [query, setQuery] = useState("");
   const [searchFieldValue, setSearchFieldValue] = useState("");
   const [sort, setSort] = useState("default");
@@ -114,6 +118,54 @@ const PropertyListingPage = ({ title, currentSlug, filter = "all" }) => {
   }, []);
 
   useEffect(() => {
+    if (products?.length) {
+      setListingProducts(products);
+    }
+  }, [products]);
+
+  useEffect(() => {
+    let active = true;
+
+    async function loadListings() {
+      setIsLoadingListings(true);
+      setListingError("");
+
+      try {
+        const response = await fetch("/api/v1/listings?limit=100&status=active");
+        const payload = await response.json();
+
+        if (!response.ok) {
+          throw new Error(payload.error || "Failed to load listings");
+        }
+
+        const liveListings = Array.isArray(payload.data)
+          ? payload.data.map(toStorefrontProduct)
+          : [];
+
+        if (active) {
+          setListingProducts(liveListings);
+        }
+      } catch (error) {
+        console.error("Property listings fetch failed:", error);
+        if (active) {
+          setListingError("Listings could not load. Please call or WhatsApp Sammy Realty for current availability.");
+          setListingProducts([]);
+        }
+      } finally {
+        if (active) {
+          setIsLoadingListings(false);
+        }
+      }
+    }
+
+    loadListings();
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  useEffect(() => {
     if (!router.isReady) {
       return;
     }
@@ -124,8 +176,8 @@ const PropertyListingPage = ({ title, currentSlug, filter = "all" }) => {
   }, [router.isReady, routeSearch]);
 
   const scopedProducts = useMemo(
-    () => products.filter(filters[filter] || filters.all),
-    [filter, products]
+    () => listingProducts.filter(filters[filter] || filters.all),
+    [filter, listingProducts]
   );
 
   const typeOptions = useMemo(
@@ -280,7 +332,14 @@ const PropertyListingPage = ({ title, currentSlug, filter = "all" }) => {
   const currentItems = filteredProducts.slice(offset, offset + pageLimit);
   const pageCount = Math.ceil(filteredProducts.length / pageLimit);
 
+  useEffect(() => {
+    if (offset >= filteredProducts.length) {
+      setOffset(0);
+    }
+  }, [filteredProducts.length, offset]);
+
   const handlePageClick = (event) => {
+    if (!filteredProducts.length) return;
     const nextOffset = (event.selected * pageLimit) % filteredProducts.length;
     setOffset(nextOffset);
   };
@@ -288,7 +347,7 @@ const PropertyListingPage = ({ title, currentSlug, filter = "all" }) => {
   const renderGrid = (baseUrl) => (
     <Row>
       {currentItems.map((product) => {
-        const slug = productSlug(product.title);
+        const slug = product.slug || productSlug(product.title);
 
         return (
           <Col key={product.id} xs={12} sm={6} lg={6}>
@@ -302,7 +361,7 @@ const PropertyListingPage = ({ title, currentSlug, filter = "all" }) => {
   const renderList = (baseUrl) => (
     <Row>
       {currentItems.map((product) => {
-        const slug = productSlug(product.title);
+        const slug = product.slug || productSlug(product.title);
 
         return (
           <Col key={product.id} xs={12}>
@@ -379,18 +438,41 @@ const PropertyListingPage = ({ title, currentSlug, filter = "all" }) => {
                   </ul>
                 </div>
 
-                <Tab.Content>
-                  <Tab.Pane eventKey="first">
-                    <div className="ltn__product-tab-content-inner ltn__product-grid-view">
-                      {renderGrid(baseUrl)}
-                    </div>
-                  </Tab.Pane>
-                  <Tab.Pane eventKey="second">
-                    <div className="ltn__product-tab-content-inner ltn__product-list-view">
-                      {renderList(baseUrl)}
-                    </div>
-                  </Tab.Pane>
-                </Tab.Content>
+                {listingError ? (
+                  <div className="alert alert-warning" role="alert">
+                    {listingError}
+                  </div>
+                ) : null}
+
+                {isLoadingListings ? (
+                  <div className="alert alert-light" role="status">
+                    Loading latest properties...
+                  </div>
+                ) : null}
+
+                {!isLoadingListings && !filteredProducts.length ? (
+                  <div className="alert alert-info" role="status">
+                    No matching listings are available right now.{" "}
+                    <a href="tel:+2348148414913">Call</a> or{" "}
+                    <a href="https://wa.me/2348148414913" target="_blank" rel="noreferrer">
+                      WhatsApp
+                    </a>{" "}
+                    Sammy Realty for current options.
+                  </div>
+                ) : (
+                  <Tab.Content>
+                    <Tab.Pane eventKey="first">
+                      <div className="ltn__product-tab-content-inner ltn__product-grid-view">
+                        {renderGrid(baseUrl)}
+                      </div>
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="second">
+                      <div className="ltn__product-tab-content-inner ltn__product-list-view">
+                        {renderList(baseUrl)}
+                      </div>
+                    </Tab.Pane>
+                  </Tab.Content>
+                )}
               </Tab.Container>
 
               {pageCount > 1 ? (

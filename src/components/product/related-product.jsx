@@ -1,11 +1,16 @@
 import Link from "next/link";
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRight, FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
+import { formatPrice } from "@/lib/utils";
+import { getCallHref, getPropertyImageSrc, getWhatsappHref } from "@/lib/listing-format";
 const RelatedProduct = ({
   productData,
   slug,
   baseUrl,
 }) => {
   let badgeText = "";
+  const imageSrc = getPropertyImageSrc(productData.image || productData.productImg);
+  const phone = productData.phone || productData.agent?.phone || "+2348148414913";
+  const whatsappMessage = `Hello, I am interested in ${productData.title}`;
 
   if (productData.rent) {
     badgeText = "For Rent";
@@ -18,7 +23,7 @@ const RelatedProduct = ({
         <div className="product-img">
           <Link href={`/${baseUrl}/${slug}`}>
             <img
-              src={`/img/product-3/${productData.productImg}`}
+              src={imageSrc}
               alt={`${productData.title}`}
             />
           </Link>
@@ -48,25 +53,35 @@ const RelatedProduct = ({
           </div>
           <ul className="ltn__plot-brief">
             <li>
-              <span>{productData.propertyDetails.bedrooms}</span>
+              <span>{productData.propertyDetails?.bedrooms || 0}</span>
               <span className="ms-1">Bedrooms</span>
             </li>
             <li>
-              <span>{productData.propertyDetails.baths}</span>
+              <span>{productData.propertyDetails?.baths || 0}</span>
               <span className="ms-1">Bathrooms</span>
             </li>
             <li>
-              <span>{productData.propertyDetails.area}</span>
-              <span className="ms-1">square Ft</span>
+              <span>{productData.propertyDetails?.area || 0}</span>
+              <span className="ms-1">sqm</span>
             </li>
           </ul>
         </div>
         <div className="product-info-bottom">
           <div className="product-price">
             <span>
-              {`$ ${productData.price}`}
-              <label>/Month</label>
+              {formatPrice(Number(productData.price || 0))}
+              {productData.rent ? <label>/Month</label> : null}
             </span>
+          </div>
+          <div className="property-card-contact-actions">
+            <a className="property-card-contact-btn" href={getCallHref(phone)}>
+              <FaPhoneAlt />
+              Call
+            </a>
+            <a className="property-card-contact-btn whatsapp" href={getWhatsappHref(phone, whatsappMessage)} target="_blank" rel="noreferrer">
+              <FaWhatsapp />
+              WhatsApp
+            </a>
           </div>
           <Link className="property-card-details-btn" href={`/${baseUrl}/${slug}`}>
             View Details <FaArrowRight />

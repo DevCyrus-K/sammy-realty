@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { FaFilm, FaCamera, FaArrowRight } from "react-icons/fa";
+import { FaFilm, FaCamera, FaArrowRight, FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
+import { formatPrice } from "@/lib/utils";
+import { getCallHref, getPropertyImageSrc, getWhatsappHref } from "@/lib/listing-format";
 
 const ProductItem = ({
   productData,
@@ -7,6 +9,9 @@ const ProductItem = ({
   baseUrl,
 }) => {
   let badgeText = "";
+  const imageSrc = getPropertyImageSrc(productData.image || productData.productImg);
+  const phone = productData.phone || productData.agent?.phone || "+2348148414913";
+  const whatsappMessage = `Hello, I am interested in ${productData.title}`;
 
   if (productData.rent) {
     badgeText = "For Rent";
@@ -20,7 +25,7 @@ const ProductItem = ({
         <div className="product-img">
           <Link href={`/${baseUrl}/${slug}`}>
             <img
-              src={`/img/product-3/${productData.productImg}`}
+              src={imageSrc}
               alt={`${productData.title}`}
             />
           </Link>
@@ -52,7 +57,7 @@ const ProductItem = ({
                     href={`/${baseUrl}/${slug}`}
                   >
                     <FaCamera className="me-2" />
-                    {productData.photo.length}
+                    {productData.photo?.length || 1}
                   </Link>
                 </li>
                 <li>
@@ -61,7 +66,7 @@ const ProductItem = ({
                     href={`/${baseUrl}/${slug}`}
                   >
                     <FaFilm className="me-2" />
-                    {productData.video.length}
+                    {productData.video?.length || 0}
                   </Link>
                 </li>
               </ul>
@@ -71,8 +76,8 @@ const ProductItem = ({
         <div className="product-info">
           <div className="product-price">
             <span>
-              {`$ ${productData.price}`}
-              <label>/Month</label>
+              {formatPrice(Number(productData.price || 0))}
+              {productData.rent ? <label>/Month</label> : null}
             </span>
           </div>
           <h2 className="product-title">
@@ -84,28 +89,38 @@ const ProductItem = ({
           <ul className="ltn__list-item-2 ltn__list-item-2-before">
             <li>
               <span>
-                {productData.propertyDetails.bedrooms}
+                {productData.propertyDetails?.bedrooms || 0}
                 <i className="flaticon-bed"></i>
               </span>
               Bedrooms
             </li>
             <li>
               <span>
-                {productData.propertyDetails.baths}
+                {productData.propertyDetails?.baths || 0}
                 <i className="flaticon-clean"></i>
               </span>
               Bathrooms
             </li>
             <li>
               <span>
-                {productData.propertyDetails.area}
+                {productData.propertyDetails?.area || 0}
                 <i className="flaticon-square-shape-design-interface-tool-symbol"></i>
               </span>
-              square Ft
+              sqm
             </li>
           </ul>
         </div>
         <div className="product-info-bottom">
+          <div className="property-card-contact-actions">
+            <a className="property-card-contact-btn" href={getCallHref(phone)}>
+              <FaPhoneAlt />
+              Call
+            </a>
+            <a className="property-card-contact-btn whatsapp" href={getWhatsappHref(phone, whatsappMessage)} target="_blank" rel="noreferrer">
+              <FaWhatsapp />
+              WhatsApp
+            </a>
+          </div>
           <Link className="property-card-details-btn" href={`/${baseUrl}/${slug}`}>
             View Details <FaArrowRight />
           </Link>

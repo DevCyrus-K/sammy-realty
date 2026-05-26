@@ -20,7 +20,7 @@ export function useProperties(options = {}) {
           ...(options.featured && { featured: true }),
         });
 
-        const response = await fetch(`/api/properties?${params}`);
+        const response = await fetch(`/api/v1/listings?${params}`);
         const data = await response.json();
 
         if (!response.ok) {

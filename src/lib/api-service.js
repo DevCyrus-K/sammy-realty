@@ -13,7 +13,7 @@ export async function fetchProperties(options = {}) {
     ...(featured && { featured: true }),
   });
 
-  const response = await fetch(`/api/properties?${params}`);
+  const response = await fetch(`/api/v1/listings?${params}`);
   if (!response.ok) {
     throw new Error("Failed to fetch properties");
   }
@@ -22,7 +22,7 @@ export async function fetchProperties(options = {}) {
 
 // Single property
 export async function fetchProperty(id) {
-  const response = await fetch(`/api/properties/${id}`);
+  const response = await fetch(`/api/v1/listings?id=${encodeURIComponent(id)}`);
   if (!response.ok) {
     throw new Error("Failed to fetch property");
   }

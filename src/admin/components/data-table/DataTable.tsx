@@ -250,12 +250,14 @@ export function DataTable<TData>({
           ) : null}
         </div>
 
-        {selectedCount ? (
+        {selectedCount && (onBulkStatusChange || selectedBulkDelete) ? (
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-sm text-[var(--brand-muted)]">{selectedCount} selected</span>
-            <Button variant="outline" onClick={runBulkStatusChange}>
-              Change Status
-            </Button>
+            {onBulkStatusChange ? (
+              <Button variant="outline" onClick={runBulkStatusChange}>
+                Change Status
+              </Button>
+            ) : null}
             {selectedBulkDelete ? (
               <Button variant="danger" onClick={runBulkDelete}>
                 <Trash2 size={16} />

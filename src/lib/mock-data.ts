@@ -6,6 +6,7 @@ export type TestimonialStatus = "published" | "hidden" | "pending";
 
 export type Property = {
   id: string;
+  slug?: string;
   title: string;
   address: string;
   price: number;
@@ -18,6 +19,9 @@ export type Property = {
   owner: string;
   phone: string;
   image?: string;
+  description?: string;
+  featured?: boolean;
+  photos?: { id: number; url: string; order: number }[];
 };
 
 export type ListingRequest = {

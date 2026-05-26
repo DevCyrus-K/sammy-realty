@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MessageCircle, Phone, Pencil } from "lucide-react";
-import { Property } from "@/lib/mock-data";
+import type { Property } from "@/lib/mock-data";
 import { formatDate, formatPhone, formatPrice } from "@/lib/utils";
 import { Button } from "../ui/Button";
 import { Drawer } from "../ui/Drawer";
@@ -12,9 +12,13 @@ const tabs = ["Details", "Description", "Contact"] as const;
 export function PropertyDrawer({
   property,
   onClose,
+  onEdit,
+  onStatusChange,
 }: {
   property: Property | null;
   onClose: () => void;
+  onEdit?: (property: Property) => void;
+  onStatusChange?: (property: Property, status: Property["status"]) => void;
 }) {
   const [activeTab, setActiveTab] = useState<(typeof tabs)[number]>("Details");
 
@@ -27,11 +31,16 @@ export function PropertyDrawer({
       footer={
         property ? (
           <>
-            <Button variant="outline">
+            <Button variant="outline" onClick={() => onEdit?.(property)}>
               <Pencil size={16} />
               Edit
             </Button>
-            <Select className="w-40" defaultValue={property.status} aria-label="Change status">
+            <Select
+              className="w-40"
+              value={property.status}
+              aria-label="Change status"
+              onChange={(event) => onStatusChange?.(property, event.target.value as Property["status"])}
+            >
               {["active", "pending", "sold", "draft", "hidden"].map((status) => (
                 <option key={status} value={status}>
                   {status}
@@ -77,14 +86,14 @@ export function PropertyDrawer({
               <Info label="Type" value={property.type} />
               <Info label="Beds" value={property.beds} />
               <Info label="Baths" value={property.baths} />
-              <Info label="Sqft" value={property.sqft.toLocaleString()} />
+              <Info label="Area" value={`${property.sqft.toLocaleString()} sqm`} />
               <Info label="Listed" value={formatDate(property.listedDate)} />
             </dl>
           ) : null}
 
           {activeTab === "Description" ? (
             <div className="rounded-[var(--brand-radius)] border border-[var(--brand-border)] p-4 text-sm leading-6 text-[var(--brand-muted)]">
-              A conversion-ready listing in {property.address}. Keep the page focused on price, location, and the fastest possible seller contact.
+              {property.description || `A conversion-ready listing in ${property.address}. Keep the page focused on price, location, and the fastest possible seller contact.`}
             </div>
           ) : null}
 

@@ -5,18 +5,24 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import toast from "react-hot-toast";
 import {
+  BarChart2,
   Bell,
   Building2,
   ChevronRight,
+  CheckCircle2,
   Home,
   LogOut,
   Menu as MenuIcon,
   Moon,
+  MessageCircle,
   Search,
   Settings,
+  Star,
   Sun,
   User,
   X,
+  AlertCircle,
+  FileText,
 } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { clearAdminAuthenticated } from "../../lib/auth";
@@ -158,47 +164,122 @@ export function Topbar({ onMenu }: { onMenu: () => void }) {
           <PopoverButton as={Button} variant="ghost" className="relative size-9 px-0" aria-label="Notifications">
             <Bell size={18} />
             {unreadCount ? (
-              <span className="absolute -right-0.5 -top-0.5 min-w-4 rounded-full bg-[var(--brand-danger)] px-1 text-[10px] font-bold leading-4 text-white">
-                {unreadCount}
+              <span className="absolute -right-0.5 -top-0.5 min-w-5 rounded-full bg-[var(--brand-danger)] px-1 text-[10px] font-bold leading-5 text-white">
+                {unreadCount > 9 ? "9+" : unreadCount}
               </span>
             ) : null}
           </PopoverButton>
           <PopoverPanel
             anchor="bottom end"
-            className="z-50 mt-2 w-80 rounded-[var(--brand-radius)] border border-[var(--brand-border)] bg-[var(--brand-card)] shadow-xl"
-            style={{ width: "min(90vw, 20rem)" }}
+            className="z-[100] mt-1 overflow-hidden rounded-lg border border-[var(--brand-border)] bg-[var(--brand-card)] shadow-lg"
+            style={{ width: "min(90vw, 22rem)" }}
           >
-            <div className="flex items-center justify-between border-b border-[var(--brand-border)] px-4 py-3">
-              <p className="font-semibold text-[var(--brand-primary)]">Notifications</p>
-              <button
-                type="button"
-                className="text-xs font-semibold text-[var(--brand-accent)]"
-                onClick={() => toast.success("Changes saved successfully")}
-              >
-                Mark all read
-              </button>
+            {/* Compact Header */}
+            <div className="flex items-center justify-between gap-2 border-b border-[var(--brand-border)] bg-[var(--brand-surface)] px-3 py-2.5">
+              <h3 className="text-xs font-semibold uppercase tracking-wide text-[var(--brand-primary)]">Notifications</h3>
+              {unreadCount > 0 && (
+                <span className="inline-flex items-center gap-1 rounded-full bg-[var(--brand-danger)]/10 px-1.5 py-0.5 text-[10px] font-medium text-[var(--brand-danger)]">
+                  <span className="size-1 rounded-full bg-[var(--brand-danger)]" />
+                  {unreadCount}
+                </span>
+              )}
             </div>
-            <div className="max-h-80 overflow-y-auto">
-              {notificationItems.slice(0, 5).map((item) => (
-                <div
-                  key={item.id}
-                  className={`flex gap-3 border-b border-[var(--brand-border)] px-4 py-3 last:border-0 ${
-                    item.unread ? "bg-[var(--brand-surface)] font-medium" : ""
-                  }`}
-                >
-                  <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-[var(--brand-primary)]/10 text-[var(--brand-primary)]">
-                    <Building2 size={15} />
-                  </span>
-                  <span className="min-w-0">
-                    <span className="block text-sm">{item.description}</span>
-                    <span className="text-xs text-[var(--brand-muted)]">{item.timestamp}</span>
-                  </span>
+
+            {/* Compact Notifications List */}
+            <div className="max-h-72 overflow-y-auto">
+              {notificationItems.length > 0 ? (
+                <div className="flex flex-col divide-y divide-[var(--brand-border)]">
+                  {notificationItems.slice(0, 5).map((item) => {
+                    const getIcon = (type: string) => {
+                      switch (type) {
+                        case "message":
+                          return MessageCircle;
+                        case "listing":
+                          return Building2;
+                        case "review":
+                          return Star;
+                        case "report":
+                          return FileText;
+                        default:
+                          return AlertCircle;
+                      }
+                    };
+
+                    const getColor = (type: string) => {
+                      switch (type) {
+                        case "message":
+                          return "bg-blue-500/10 text-blue-600 dark:text-blue-400";
+                        case "listing":
+                          return "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400";
+                        case "review":
+                          return "bg-amber-500/10 text-amber-600 dark:text-amber-400";
+                        case "report":
+                          return "bg-purple-500/10 text-purple-600 dark:text-purple-400";
+                        default:
+                          return "bg-slate-500/10 text-slate-600 dark:text-slate-400";
+                      }
+                    };
+
+                    const Icon = getIcon(item.type);
+
+                    return (
+                      <div
+                        key={item.id}
+                        className={`group flex gap-2.5 px-3 py-2.5 transition-colors duration-150 ${
+                          item.unread
+                            ? "bg-[var(--brand-surface)] hover:bg-[var(--brand-surface)]/80"
+                            : "hover:bg-[var(--brand-surface)]/40"
+                        }`}
+                      >
+                        {/* Icon */}
+                        <div className={`mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-md ${getColor(item.type)}`}>
+                          <Icon size={16} />
+                        </div>
+
+                        {/* Content */}
+                        <div className="min-w-0 flex-1">
+                          <p className={`text-xs ${item.unread ? "font-semibold text-[var(--brand-primary)]" : "text-[var(--brand-text)]"}`}>
+                            {item.description}
+                          </p>
+                          <p className="text-[10px] text-[var(--brand-muted)] mt-0.5">{item.timestamp}</p>
+                        </div>
+
+                        {/* Unread dot */}
+                        {item.unread && (
+                          <div className="mt-1.5 flex size-1.5 shrink-0 rounded-full bg-[var(--brand-danger)]" />
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
-              ))}
+              ) : (
+                <div className="flex flex-col items-center justify-center gap-1.5 py-8 px-3">
+                  <Bell size={24} className="text-[var(--brand-muted)] opacity-40" />
+                  <p className="text-xs text-[var(--brand-muted)]">No new notifications</p>
+                </div>
+              )}
             </div>
-            <Link href="/admin" className="block border-t border-[var(--brand-border)] px-4 py-3 text-center text-sm font-medium text-[var(--brand-primary)]">
-              View all notifications
-            </Link>
+
+            {/* Compact Footer */}
+            {notificationItems.length > 0 && (
+              <div className="flex gap-1.5 border-t border-[var(--brand-border)] px-3 py-2">
+                {unreadCount > 0 && (
+                  <button
+                    type="button"
+                    className="flex-1 rounded-md bg-[var(--brand-surface)] px-2 py-1.5 text-[10px] font-medium text-[var(--brand-accent)] transition-colors hover:bg-[var(--brand-surface)]/80"
+                    onClick={() => toast.success("All marked as read")}
+                  >
+                    Mark read
+                  </button>
+                )}
+                <Link
+                  href="/admin"
+                  className="flex-1 rounded-md bg-[var(--brand-primary)] px-2 py-1.5 text-center text-[10px] font-medium text-white transition-colors hover:bg-[var(--brand-primary)]/90"
+                >
+                  View all
+                </Link>
+              </div>
+            )}
           </PopoverPanel>
         </Popover>
 
@@ -215,8 +296,9 @@ export function Topbar({ onMenu }: { onMenu: () => void }) {
               <p className="text-xs text-[var(--brand-muted)]">demo@sammy-realty.com</p>
             </div>
             {[
-              { label: "Profile", href: "/admin/settings?tab=account", icon: User },
+              { label: "My Account", href: "/admin/settings?tab=account", icon: User },
               { label: "Settings", href: "/admin/settings?tab=app-settings", icon: Settings },
+              { label: "Reports", href: "/admin/reports", icon: BarChart2 },
               { label: "Log out", icon: LogOut, danger: true, onClick: handleLogout },
             ].map((item) => {
               const Icon = item.icon;

@@ -11,10 +11,9 @@ import AboutUsStyleTwo from "@/components/aboutUs/aboutUsStyleTwo";
 import AboutUsStyleOne from "@/components/aboutUs/aboutUsStyleOne";
 import Feature from "@/components/features";
 import TitleSection from "@/components/titleSection";
-import ProductItem from "@/components/product";
+import FeaturedPropertiesSection from "@/components/property/FeaturedPropertiesSection";
 import CallToAction from "@/components/callToAction";
-import TestimonialCarouselItem from "@/components/testimonialCarousel";
-import testimonialData from "@/data/testimonial";
+import TestimonialsSection from "@/components/testimonialCarousel/TestimonialsSection";
 import featuresData from "@/data/service";
 import portfolioData from "@/data/portfolio";
 import PortfolioitemThree from "@/components/portfolio/itemThree";
@@ -196,46 +195,7 @@ function HomePageSeven() {
                 <CounterUp />
 
                 {/* PRODUCT SLIDER AREA START */}
-                <div className="ltn__product-slider-area ltn__product-gutter pt-115 pb-90 plr--7">
-                    <Container>
-                        <Row>
-                            <Col lg={12}>
-                                <TitleSection
-                                    sectionClasses="text-center"
-                                    headingClasses="section-subtitle-2"
-                                    titleSectionData={{
-                                        subTitle: "Available Properties",
-                                        title: "Featured Homes in Lagos",
-                                    }}
-                                />
-                            </Col>
-                        </Row>
-
-                        <Row>
-                            <Col lg={12}>
-                                {!!featuredProducts?.length ? (
-                                    <Slider
-                                        {...productCarouselsettings}
-                                        className="ltn__product-slider-item-four-active-full-width slick-arrow-1"
-                                    >
-                                        {featuredProducts.map((product) => {
-                                            const slug = productSlug(product.title);
-
-                                            return (
-                                                <ProductItem
-                                                    key={product.id}
-                                                    productData={product}
-                                                    slug={slug}
-                                                    baseUrl="properties"
-                                                />
-                                            );
-                                        })}
-                                    </Slider>
-                                ) : null}
-                            </Col>
-                        </Row>
-                    </Container>
-                </div>
+                <FeaturedPropertiesSection limit={5} />
                 {/* PRODUCT SLIDER AREA END */}
 
 
@@ -269,34 +229,7 @@ function HomePageSeven() {
 
 
                 {/* <!-- TESTIMONIAL AREA START (testimonial-7) -->  */}
-                <div
-                    className="ltn__testimonial-area bg-image-top pt-115 pb-70"
-                    style={{ backgroundImage: `url("../img/bg/20.jpg")` }}
-                >
-                    <Container>
-                        <Row>
-                            <Col lg={12}>
-                                <TitleSection
-                                    sectionClasses="text-center"
-                                    headingClasses="section-subtitle-2"
-                                    titleSectionData={{
-                                        subTitle: "Testimonials",
-                                        title: "What Clients Say About Sammy Realty",
-                                    }}
-                                />
-                            </Col>
-                        </Row>
-
-                        <Slider
-                            {...testiMonialsettings}
-                            className="ltn__testimonial-slider-5-active slick-arrow-1"
-                        >
-                            {testimonialData.map((data, key) => {
-                                return <TestimonialCarouselItem key={key} data={data} />;
-                            })}
-                        </Slider>
-                    </Container>
-                </div>
+                <TestimonialsSection />
                 {/* <!-- TESTIMONIAL AREA END --> */}
 
                 <div className="ltn__call-to-action-area call-to-action-6 before-bg-bottom">

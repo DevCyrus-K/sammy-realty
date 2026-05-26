@@ -13,7 +13,7 @@ export default async function handler(req, res) {
 
   try {
     // Find valid reset token
-    const resetToken = await prisma.passwordReset.findUnique({
+    const resetToken = await prisma.passwordReset.findFirst({
       where: { token },
     });
 
@@ -35,7 +35,7 @@ export default async function handler(req, res) {
     });
 
     // Delete used reset token
-    await prisma.passwordReset.delete({
+    await prisma.passwordReset.deleteMany({
       where: { token },
     });
 

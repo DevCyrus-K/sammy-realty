@@ -16,6 +16,7 @@ export default function MessagesPage() {
   const [filter, setFilter] = useState<(typeof filters)[number]>("all");
   const [activeId, setActiveId] = useState(messages[0]?.id);
   const [reply, setReply] = useState("");
+  const [sendingReply, setSendingReply] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [mobileView, setMobileView] = useState<"list" | "detail">("list");
 
@@ -25,13 +26,44 @@ export default function MessagesPage() {
   );
   const selected = messages.find((message) => message.id === activeId) || filteredMessages[0] || messages[0];
 
-  const sendReply = () => {
+  const sendReply = async () => {
     if (!reply.trim()) {
       toast.error("Something went wrong - please try again");
       return;
     }
-    toast.success("Message sent");
-    setReply("");
+
+    if (!selected) return;
+
+    setSendingReply(true);
+    try {
+      const response = await fetch("/api/messages/reply", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          to: selected.email,
+          senderName: selected.sender,
+          subject: selected.subject,
+          message: reply,
+        }),
+      });
+      const payload = await response.json();
+
+      if (!response.ok) {
+        throw new Error(payload.error || "Failed to send message");
+      }
+
+      if (payload.emailDelivery?.skipped) {
+        toast.error("Add RESEND_API_KEY to deliver this email");
+      } else {
+        toast.success("Message sent");
+      }
+      setReply("");
+    } catch (error) {
+      console.error("Reply send failed:", error);
+      toast.error("Message delivery failed");
+    } finally {
+      setSendingReply(false);
+    }
   };
 
   const openThread = (id: string) => {
@@ -109,9 +141,9 @@ export default function MessagesPage() {
               <footer className="sticky bottom-0 border-t border-[var(--brand-border)] bg-[var(--brand-card)] p-4">
                 <Textarea value={reply} onChange={(event) => setReply(event.target.value)} placeholder="Write a fast, helpful reply..." />
                 <div className="mt-3 flex justify-end">
-                  <Button onClick={sendReply}>
+                  <Button onClick={sendReply} disabled={sendingReply}>
                     <Send size={16} />
-                    Send
+                    {sendingReply ? "Sending..." : "Send"}
                   </Button>
                 </div>
               </footer>

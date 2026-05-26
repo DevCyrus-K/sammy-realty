@@ -143,7 +143,7 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
                     <ul className="searched-product-lists list-group">
                       {currentItems && currentItems ? (
                         currentItems.map((product, key) => {
-                          const slug = productSlug(product.title);
+                          const slug = product.slug || productSlug(product.title);
                           return (
                             <li key={key} className="list-group-item">
                               <Link href={`/properties/${slug}`}>

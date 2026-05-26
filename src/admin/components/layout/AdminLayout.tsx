@@ -38,7 +38,13 @@ export function AdminLayout({
   }, [router.asPath]);
 
   const adminShell = (
-    <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="light"
+      value={{ light: "admin-light", dark: "dark" }}
+      enableSystem
+      disableTransitionOnChange
+    >
       <div className={`${styles.adminSurface} admin-surface bg-[var(--brand-surface)] dark:text-slate-100`}>
         {authChecked ? (
           <div className="flex min-h-screen">

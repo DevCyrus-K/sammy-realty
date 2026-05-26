@@ -101,14 +101,25 @@ export default function CustomersPage() {
         id: "actions",
         header: "Actions",
         cell: ({ row }) => (
-          <Dropdown
-            items={[
-              { label: "View", icon: <Eye size={14} />, onClick: () => setSelectedCustomer(row.original) },
-              { label: "Edit", icon: <Pencil size={14} />, onClick: () => setEditingCustomer(row.original) },
-              { label: "Send Message", icon: <MessageSquare size={14} />, onClick: () => toast.success("Message sent") },
-              { label: "Delete", icon: <Trash2 size={14} />, danger: true, separatorBefore: true, onClick: () => setDeleteTarget(row.original) },
-            ]}
-          />
+          <div className="flex items-center justify-end gap-1" onClick={(event) => event.stopPropagation()}>
+            <Button variant="ghost" className="size-9 px-0" aria-label="View customer" onClick={() => setSelectedCustomer(row.original)}>
+              <Eye size={15} />
+            </Button>
+            <Button variant="ghost" className="size-9 px-0" aria-label="Edit customer" onClick={() => setEditingCustomer(row.original)}>
+              <Pencil size={15} />
+            </Button>
+            <Button variant="ghost" className="size-9 px-0 text-[var(--brand-danger)]" aria-label="Delete customer" onClick={() => setDeleteTarget(row.original)}>
+              <Trash2 size={15} />
+            </Button>
+            <Dropdown
+              items={[
+                { label: "Send Message", icon: <MessageSquare size={14} />, onClick: () => toast.success("Message sent") },
+                { label: "View", icon: <Eye size={14} />, onClick: () => setSelectedCustomer(row.original) },
+                { label: "Edit", icon: <Pencil size={14} />, onClick: () => setEditingCustomer(row.original) },
+                { label: "Delete", icon: <Trash2 size={14} />, danger: true, separatorBefore: true, onClick: () => setDeleteTarget(row.original) },
+              ]}
+            />
+          </div>
         ),
       },
     ],

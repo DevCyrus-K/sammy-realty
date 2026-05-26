@@ -1,4 +1,4 @@
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 const { createSlice } = require("@reduxjs/toolkit");
 import { HYDRATE } from "next-redux-wrapper";
 

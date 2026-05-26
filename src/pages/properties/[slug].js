@@ -1,1 +1,5 @@
-export { default, getStaticPaths, getStaticProps } from "../shop/[slug]";
+import PropertyDetailPage from "@/components/propertyListings/PropertyDetailPage";
+
+export default function PropertyDetails() {
+  return <PropertyDetailPage backHref="/properties/all" parentLabel="Properties" />;
+}

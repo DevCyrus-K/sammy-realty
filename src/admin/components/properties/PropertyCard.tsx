@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Bath, BedDouble, Home, Maximize, Pencil, Trash2 } from "lucide-react";
-import { Property } from "@/lib/mock-data";
+import type { Property } from "@/lib/mock-data";
 import { formatPrice } from "@/lib/utils";
 import { Button } from "../ui/Button";
 import { Dropdown } from "../ui/Dropdown";
@@ -54,7 +54,7 @@ export function PropertyCard({
           </span>
           <span className="inline-flex items-center gap-1">
             <Maximize size={15} />
-            {property.sqft.toLocaleString()} sqft
+            {property.sqft.toLocaleString()} sqm
           </span>
         </div>
       </div>

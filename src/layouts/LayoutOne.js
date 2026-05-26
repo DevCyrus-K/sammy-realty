@@ -2,7 +2,6 @@ import { Fragment, useState } from "react";
 import { HeaderTransparentTwo } from "@/components/header";
 import Footer from "@/components/footer/footer";
 import ScrollToTop from "@/components/scroll-to-top";
-import { ToastContainer } from "react-toastify";
 import { Nunito_Sans,Poppins } from "next/font/google";
 
 export const nunito = Nunito_Sans({
@@ -42,7 +41,6 @@ const LayoutOne = ({ children, navPositionClass, topbar }) => {
 
 
       `}</style>
-       <ToastContainer />
       <div
         className={`body-wrapper ${toggleClassName ? "ltn__utilize-open" : ""}`}
       >

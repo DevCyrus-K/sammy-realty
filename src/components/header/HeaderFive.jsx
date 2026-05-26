@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDiscountPrice, productSlug } from "@/lib/product";
+import { formatPrice } from "@/lib/utils";
 import Link from "next/link";
 import HeaderCartMenu from "./elements/headerCartMenu";
 import MobileMenu from "./elements/mobileMennu";
@@ -145,7 +146,7 @@ const HeaderStyleFive = function ({ SetToggleClassName }) {
                       <ul className="searched-product-lists list-group">
                         {currentItems && currentItems ? (
                           currentItems.map((product, key) => {
-                            const slug = productSlug(product.title);
+                            const slug = product.slug || productSlug(product.title);
                             return (
                               <li key={key} className="list-group-item">
                                 <Link href={`/properties/${slug}`}>
@@ -185,7 +186,7 @@ const HeaderStyleFive = function ({ SetToggleClassName }) {
                           <h6>
                             <span>Your Cart</span>
                             <span className="ltn__secondary-color text-start">
-                              ${cartTotalPrice.toFixed(2)}
+                              {formatPrice(cartTotalPrice)}
                             </span>
                           </h6>
                         </button>

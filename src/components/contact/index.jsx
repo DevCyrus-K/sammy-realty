@@ -1,7 +1,6 @@
 import { Form } from "react-bootstrap";
 import { useForm } from 'react-hook-form';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import toast from 'react-hot-toast';
 import {
   FaUserAlt,
   FaEnvelope,
@@ -27,7 +26,6 @@ const Contact = () => {
   return (
     <>
       {/* <!-- CONTACT ADDRESS AREA START --> */}
-      <ToastContainer />
       <div className="ltn__contact-address-area mb-90">
         <style>{`
           .ltn__contact-address-item-3 {

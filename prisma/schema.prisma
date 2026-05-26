@@ -33,25 +33,43 @@ model PasswordReset {
 }
 
 model Property {
-  id           Int       @id @default(autoincrement())
-  image        String    @db.VarChar(255)
-  title        String    @db.VarChar(255)
-  status       String    @db.VarChar(50)
-  location     String    @db.VarChar(255)
+  id           Int             @id @default(autoincrement())
+  image        String          @db.VarChar(500)
+  title        String          @db.VarChar(255)
+  slug         String?         @db.VarChar(255)
+  status       String          @db.VarChar(50)
+  location     String          @db.VarChar(255)
   description  String?
-  locationId   Int       @map("location_id")
+  locationId   Int             @map("location_id")
   bedrooms     Int
   bathrooms    Int
-  amenities    String?   @db.VarChar(255)
-  price        Decimal   @db.Decimal(15, 2)
-  agentId      Int       @map("agent_id")
-  agentImage   String?   @map("agent_image") @db.VarChar(255)
-  propertyType String    @map("property_type") @db.VarChar(50)
-  featured     Boolean   @default(false)
-  createdAt    DateTime  @default(now()) @map("created_at") @db.Timestamptz
+  amenities    String?         @db.VarChar(255)
+  areaSqm      Int?            @map("area_sqm")
+  price        Decimal         @db.Decimal(15, 2)
+  agentId      Int             @map("agent_id")
+  agentImage   String?         @map("agent_image") @db.VarChar(255)
+  propertyType String          @map("property_type") @db.VarChar(50)
+  featured     Boolean         @default(false)
+  owner        String          @default("Sammy Realty") @db.VarChar(255)
+  phone        String          @default("+2348148414913") @db.VarChar(50)
+  createdAt    DateTime        @default(now()) @map("created_at") @db.Timestamptz
   inquiries    Inquiry[]
+  photos       PropertyPhoto[]
 
+  @@index([slug], map: "properties_slug_idx")
   @@map("properties")
+}
+
+model PropertyPhoto {
+  id         Int      @id @default(autoincrement())
+  propertyId Int      @map("property_id")
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  url        String   @db.VarChar(500)
+  order      Int      @default(0)
+  createdAt  DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  @@index([propertyId], map: "property_photos_property_id_idx")
+  @@map("property_photos")
 }
 
 model User {

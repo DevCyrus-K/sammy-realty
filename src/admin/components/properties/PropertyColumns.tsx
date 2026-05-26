@@ -1,7 +1,8 @@
 import type { ColumnDef } from "@tanstack/react-table";
-import { Eye, Pencil, Trash2 } from "lucide-react";
-import { Property } from "@/lib/mock-data";
+import { Copy, Eye, Pencil, Trash2 } from "lucide-react";
+import type { Property } from "@/lib/mock-data";
 import { formatDate, formatPrice } from "@/lib/utils";
+import { Button } from "../ui/Button";
 import { Dropdown } from "../ui/Dropdown";
 import { DataTableColumnHeader } from "../data-table/DataTableColumnHeader";
 import { StatusBadge } from "../shared/StatusBadge";
@@ -60,13 +61,24 @@ export function getPropertyColumns(actions: {
       id: "actions",
       header: "Actions",
       cell: ({ row }) => (
-        <Dropdown
-          items={[
-            { label: "View", icon: <Eye size={14} />, onClick: () => actions.onView(row.original) },
-            { label: "Edit", icon: <Pencil size={14} />, onClick: () => actions.onEdit(row.original) },
-            { label: "Delete", icon: <Trash2 size={14} />, danger: true, separatorBefore: true, onClick: () => actions.onDelete(row.original) },
-          ]}
-        />
+        <div className="flex items-center justify-end gap-1" onClick={(event) => event.stopPropagation()}>
+          <Button variant="ghost" className="size-9 px-0" aria-label="View property" onClick={() => actions.onView(row.original)}>
+            <Eye size={15} />
+          </Button>
+          <Button variant="ghost" className="size-9 px-0" aria-label="Edit property" onClick={() => actions.onEdit(row.original)}>
+            <Pencil size={15} />
+          </Button>
+          <Button variant="ghost" className="size-9 px-0 text-[var(--brand-danger)]" aria-label="Delete property" onClick={() => actions.onDelete(row.original)}>
+            <Trash2 size={15} />
+          </Button>
+          <Dropdown
+            items={[
+              { label: "Duplicate", icon: <Copy size={14} />, onClick: () => actions.onEdit(row.original) },
+              { label: "View", icon: <Eye size={14} />, onClick: () => actions.onView(row.original) },
+              { label: "Delete", icon: <Trash2 size={14} />, danger: true, separatorBefore: true, onClick: () => actions.onDelete(row.original) },
+            ]}
+          />
+        </div>
       ),
     },
   ];

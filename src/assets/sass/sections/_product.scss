@@ -520,6 +520,50 @@
     color: #0B5D3B !important;
   }
 }
+
+.property-card-contact-actions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-right: auto;
+}
+
+.property-card-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid #0B5D3B;
+  background-color: var(--white);
+  color: #0B5D3B !important;
+  padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  transition: all 0.3s ease 0s;
+
+  &:hover {
+    background-color: #0B5D3B;
+    color: var(--white) !important;
+  }
+
+  &.whatsapp {
+    border-color: #25D366;
+    color: #128C4A !important;
+
+    &:hover {
+      background-color: #25D366;
+      color: var(--white) !important;
+    }
+  }
+}
+
+.ltn__product-item-4 {
+  .product-info-bottom {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+}
+
 .ltn__product-list-view {
   .ltn__product-item-5 {
     padding: 30px 30px 30px;

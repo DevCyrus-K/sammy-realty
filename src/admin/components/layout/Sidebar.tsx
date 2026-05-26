@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { Dialog, DialogPanel, Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
+  BarChart2,
   Building2,
   ChevronLeft,
   LogOut,
@@ -118,8 +119,9 @@ function SidebarContent({
   };
 
   const accountItems = [
-    { label: "Profile", icon: User, href: "/admin/settings?tab=account" },
+    { label: "My Account", icon: User, href: "/admin/settings?tab=account" },
     { label: "Settings", icon: Settings, href: "/admin/settings?tab=app-settings" },
+    { label: "Reports", icon: BarChart2, href: "/admin/reports" },
     { label: "Log out", icon: LogOut, danger: true, onClick: handleLogout },
   ];
 
@@ -214,6 +216,7 @@ function SidebarContent({
                     item.href ? (
                       <Link
                         href={item.href}
+                        onClick={onNavigate}
                         className={`flex items-center gap-2 px-3 py-2 text-sm ${
                           focus ? "bg-[var(--brand-surface)]" : ""
                         } ${item.danger ? "text-[var(--brand-danger)]" : "text-inherit"}`}
