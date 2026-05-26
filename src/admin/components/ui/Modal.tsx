@@ -35,7 +35,7 @@ export function Modal({
           <div className="fixed inset-0 bg-black/50 backdrop-blur-sm" />
         </TransitionChild>
         <div className="fixed inset-0 overflow-y-auto p-4">
-          <div className="flex min-h-full items-center justify-center">
+          <div className="flex min-h-full items-end justify-center md:items-center">
             <TransitionChild
               as={Fragment}
               enter="ease-out duration-150"
@@ -47,7 +47,7 @@ export function Modal({
             >
               <DialogPanel
                 className={cn(
-                  "w-full max-w-lg rounded-[var(--brand-radius)] bg-[var(--brand-card)] p-6 shadow-xl",
+                  "mx-4 w-full max-w-full rounded-[var(--brand-radius)] bg-[var(--brand-card)] p-4 shadow-xl md:mx-auto md:max-w-lg md:p-6",
                   className
                 )}
               >
@@ -58,7 +58,7 @@ export function Modal({
                   </Button>
                 </div>
                 <div className="max-h-[65vh] overflow-y-auto">{children}</div>
-                {footer ? <div className="mt-6 flex justify-end gap-2 border-t border-[var(--brand-border)] pt-4">{footer}</div> : null}
+                {footer ? <div className="mt-6 flex flex-wrap justify-end gap-2 border-t border-[var(--brand-border)] pt-4">{footer}</div> : null}
               </DialogPanel>
             </TransitionChild>
           </div>

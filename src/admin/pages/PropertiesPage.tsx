@@ -57,7 +57,7 @@ export default function PropertiesPage() {
         actions={<Button onClick={() => toast.success("Changes saved successfully")}><Plus size={16} />Add Property</Button>}
       />
 
-      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+      <div className="mb-4 flex flex-col flex-wrap items-stretch justify-between gap-3 sm:flex-row sm:items-center">
         <div className="flex rounded-[var(--brand-radius)] border border-[var(--brand-border)] bg-[var(--brand-card)] p-1">
           <Button variant={view === "grid" ? "primary" : "ghost"} className="min-h-9" onClick={() => setView("grid")}>
             <Grid2X2 size={16} />
@@ -68,12 +68,12 @@ export default function PropertiesPage() {
             Table
           </Button>
         </div>
-        <div className="flex flex-1 flex-wrap justify-end gap-2">
-          <Input className="max-w-xs bg-[var(--brand-surface)]" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search properties" />
-          <Select className="w-40 bg-[var(--brand-surface)]" value={statusFilter} onChange={(event) => setStatusFilter(event.target.value)} aria-label="Filter by status">
+        <div className="flex flex-1 flex-col gap-2 sm:flex-row sm:flex-wrap sm:justify-end">
+          <Input className="bg-[var(--brand-surface)] sm:w-64" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search properties" />
+          <Select className="w-full bg-[var(--brand-surface)] sm:w-48" value={statusFilter} onChange={(event) => setStatusFilter(event.target.value)} aria-label="Filter by status">
             {["all", "active", "pending", "sold", "draft", "hidden"].map((status) => <option key={status} value={status}>{status}</option>)}
           </Select>
-          <Select className="w-40 bg-[var(--brand-surface)]" value={typeFilter} onChange={(event) => setTypeFilter(event.target.value)} aria-label="Filter by type">
+          <Select className="w-full bg-[var(--brand-surface)] sm:w-48" value={typeFilter} onChange={(event) => setTypeFilter(event.target.value)} aria-label="Filter by type">
             {["all", "Sale", "Rent", "Commercial", "Land"].map((type) => <option key={type} value={type}>{type}</option>)}
           </Select>
         </div>

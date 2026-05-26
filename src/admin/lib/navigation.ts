@@ -30,7 +30,7 @@ export type AdminNavGroup = {
 export const adminNavGroups: AdminNavGroup[] = [
   {
     label: "MAIN",
-    items: [{ title: "Dashboard", href: "/admin/dashboard", icon: LayoutDashboard }],
+    items: [{ title: "Dashboard", href: "/admin", icon: LayoutDashboard }],
   },
   {
     label: "INVENTORY",

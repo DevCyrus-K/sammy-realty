@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/router";
 import { useTheme } from "next-themes";
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
@@ -49,6 +50,7 @@ type AppForm = z.infer<typeof appSchema>;
 type TabId = (typeof tabs)[number]["id"];
 
 export default function SettingsPage() {
+  const router = useRouter();
   const { theme, setTheme } = useTheme();
   const [activeTab, setActiveTab] = useState<TabId>("account");
   const [primaryColor, setPrimaryColor] = useState("#0B5D3B");
@@ -95,6 +97,18 @@ export default function SettingsPage() {
   const saveAccount = accountForm.handleSubmit(() => toast.success("Changes saved successfully"));
   const saveApp = appForm.handleSubmit(() => toast.success("Changes saved successfully"));
 
+  useEffect(() => {
+    const routeTab = typeof router.query.tab === "string" ? router.query.tab : "";
+    if (tabs.some((tab) => tab.id === routeTab)) {
+      setActiveTab(routeTab as TabId);
+    }
+  }, [router.query.tab]);
+
+  const changeTab = (tab: TabId) => {
+    setActiveTab(tab);
+    router.push(`/admin/settings?tab=${tab}`, undefined, { shallow: true });
+  };
+
   return (
     <AdminLayout title="Settings">
       <PageHeader title="Settings" description="Manage your account and application preferences" />
@@ -105,7 +119,7 @@ export default function SettingsPage() {
             <button
               key={tab.id}
               type="button"
-              onClick={() => setActiveTab(tab.id)}
+              onClick={() => changeTab(tab.id)}
               className={`mb-1 flex w-full rounded-[var(--brand-radius)] px-3 py-2 text-left text-sm transition last:mb-0 ${
                 activeTab === tab.id
                   ? "bg-[var(--brand-primary)]/10 font-medium text-[var(--brand-primary)]"

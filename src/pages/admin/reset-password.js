@@ -3,14 +3,55 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Container, Row, Col } from "react-bootstrap";
+import { toast, ToastContainer } from "react-toastify";
 
 function AdminResetPassword() {
   const router = useRouter();
   const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    router.push("/admin/reset-link-sent");
+    if (isSubmitting) return;
+    setError("");
+
+    if (!email) {
+      setError("Email is required.");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/admin/password-reset", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error || "Failed to send reset link.");
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Show success message
+      toast.success("Reset link sent! Check your email.");
+      
+      // Redirect after a short delay
+      setTimeout(() => {
+        router.push("/admin/login");
+      }, 2000);
+    } catch (err) {
+      console.error("Reset password error:", err);
+      setError("Network error. Please try again.");
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -18,6 +59,7 @@ function AdminResetPassword() {
       <Head>
         <title>Reset Admin Password | Sammy Realty</title>
       </Head>
+      <ToastContainer position="top-right" autoClose={1200} />
 
       <main className="admin-auth-page">
         <Container>
@@ -29,6 +71,10 @@ function AdminResetPassword() {
                   <p>Enter your admin email to receive a reset link.</p>
                 </div>
 
+                {error && (
+                  <div className="admin-auth-error" role="alert">{error}</div>
+                )}
+
                 <form onSubmit={handleSubmit}>
                   <label htmlFor="reset-email">Email</label>
                   <input
@@ -37,13 +83,18 @@ function AdminResetPassword() {
                     name="email"
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
-                    placeholder="demo@sammy-realty.com"
+                    placeholder="Enter your admin email"
                     autoComplete="email"
                     required
+                    className={error ? "input-error" : ""}
                   />
 
-                  <button className="theme-btn-1 btn btn-block" type="submit">
-                    SEND RESET LINK
+                  <button 
+                    className="theme-btn-1 btn btn-block" 
+                    type="submit"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "SENDING..." : "SEND RESET LINK"}
                   </button>
                 </form>
 
@@ -85,16 +136,38 @@ function AdminResetPassword() {
           margin-bottom: 0;
         }
 
+        .admin-auth-error {
+          color: #e53935;
+          background: transparent;
+          font-weight: 700;
+          padding: 8px 0;
+          border-radius: 0;
+          margin-bottom: 12px;
+          text-align: left;
+          border: none;
+          font-size: 0.95em;
+          box-shadow: none;
+        }
+
         .admin-auth-panel label {
           color: #071c1f;
           font-weight: 700;
           margin-bottom: 8px;
         }
 
-        .admin-auth-panel input[type="email"] {
+        .admin-auth-panel input[type="email"],
+        .admin-auth-panel input[type="text"] {
           border: 1px solid #dfe8e3;
           border-radius: 0;
           margin-bottom: 18px;
+          padding: 10px 12px;
+          width: 100%;
+          font-size: 1rem;
+          transition: border 0.2s;
+        }
+
+        .admin-auth-panel input.input-error {
+          border: 1px solid #e53935;
         }
 
         .admin-auth-link {

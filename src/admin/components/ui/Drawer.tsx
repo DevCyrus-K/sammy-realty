@@ -1,8 +1,24 @@
-import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from "@headlessui/react";
-import { Fragment } from "react";
+import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
+import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Button } from "./Button";
 import styles from "../../styles/admin.module.css";
+
+function useDesktopDrawer() {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const query = window.matchMedia("(min-width: 768px)");
+    const sync = () => setIsDesktop(query.matches);
+
+    sync();
+    query.addEventListener("change", sync);
+    return () => query.removeEventListener("change", sync);
+  }, []);
+
+  return isDesktop;
+}
 
 export function Drawer({
   open,
@@ -19,35 +35,39 @@ export function Drawer({
   footer?: React.ReactNode;
   widthClass?: string;
 }) {
+  const isDesktop = useDesktopDrawer();
+
   return (
-    <Transition show={open} as={Fragment}>
-      <Dialog className={`${styles.adminSurface} relative z-50`} onClose={onClose}>
-        <TransitionChild as={Fragment} enter="duration-150" enterFrom="opacity-0" enterTo="opacity-100" leave="duration-100" leaveFrom="opacity-100" leaveTo="opacity-0">
-          <div className="fixed inset-0 bg-black/40 backdrop-blur-sm" />
-        </TransitionChild>
-        <div className="fixed inset-0 overflow-hidden">
-          <TransitionChild
-            as={Fragment}
-            enter="transform transition duration-200"
-            enterFrom="translate-x-full"
-            enterTo="translate-x-0"
-            leave="transform transition duration-150"
-            leaveFrom="translate-x-0"
-            leaveTo="translate-x-full"
+    <AnimatePresence>
+      {open ? (
+        <Dialog static className={`${styles.adminSurface} relative z-50`} open={open} onClose={onClose}>
+          <motion.div
+            className="fixed inset-0 bg-black/40 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          />
+          <motion.div
+            className={isDesktop ? `fixed right-0 top-0 h-full w-full ${widthClass}` : "fixed bottom-0 left-0 right-0 max-h-[90vh]"}
+            initial={isDesktop ? { x: "100%" } : { y: "100%" }}
+            animate={isDesktop ? { x: 0 } : { y: 0 }}
+            exit={isDesktop ? { x: "100%" } : { y: "100%" }}
+            transition={{ type: "spring", stiffness: 380, damping: 34 }}
           >
-            <DialogPanel className={`fixed right-0 top-0 flex h-full w-full ${widthClass} flex-col bg-[var(--brand-card)] shadow-2xl`}>
-              <div className="sticky top-0 flex items-center justify-between border-b border-[var(--brand-border)] bg-[var(--brand-card)] p-5">
+            <DialogPanel className={`flex ${isDesktop ? "h-full" : "max-h-[90vh] rounded-t-2xl"} flex-col overflow-hidden bg-[var(--brand-card)] shadow-2xl`}>
+              {!isDesktop ? <div className="mx-auto mt-3 h-1 w-8 rounded-full bg-[var(--brand-border)]" /> : null}
+              <div className="sticky top-0 flex items-center justify-between border-b border-[var(--brand-border)] bg-[var(--brand-card)] p-4 md:p-5">
                 <DialogTitle className="text-lg font-semibold text-[var(--brand-primary)]">{title}</DialogTitle>
                 <Button variant="ghost" className="size-9 px-0" onClick={onClose} aria-label="Close drawer">
                   <X size={18} />
                 </Button>
               </div>
-              <div className="flex-1 overflow-y-auto p-6">{children}</div>
-              {footer ? <div className="sticky bottom-0 flex justify-end gap-2 border-t border-[var(--brand-border)] bg-[var(--brand-card)] p-5">{footer}</div> : null}
+              <div className="flex-1 overflow-y-auto p-4 md:p-6">{children}</div>
+              {footer ? <div className="sticky bottom-0 flex flex-wrap justify-end gap-2 border-t border-[var(--brand-border)] bg-[var(--brand-card)] p-4 md:p-5">{footer}</div> : null}
             </DialogPanel>
-          </TransitionChild>
-        </div>
-      </Dialog>
-    </Transition>
+          </motion.div>
+        </Dialog>
+      ) : null}
+    </AnimatePresence>
   );
 }

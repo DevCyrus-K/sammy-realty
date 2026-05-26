@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/router";
 import type { ColumnDef } from "@tanstack/react-table";
 import { BarChart3, Mail, MousePointerClick, Send } from "lucide-react";
@@ -22,6 +22,15 @@ export default function ReportsPage() {
   const routeType = typeof router.query.type === "string" ? router.query.type : "";
   const initialTab = tabs.includes(routeType as (typeof tabs)[number]) ? (routeType as (typeof tabs)[number]) : "listings";
   const [activeTab, setActiveTab] = useState<(typeof tabs)[number]>(initialTab);
+
+  useEffect(() => {
+    setActiveTab(initialTab);
+  }, [initialTab]);
+
+  const changeTab = (tab: (typeof tabs)[number]) => {
+    setActiveTab(tab);
+    router.push(tab === "listings" ? "/admin/reports" : `/admin/reports/${tab}`);
+  };
 
   const emailSeries = useMemo(
     () => [
@@ -52,7 +61,7 @@ export default function ReportsPage() {
 
       <div className="mb-4 flex flex-wrap gap-2">
         {tabs.map((tab) => (
-          <Button key={tab} variant={activeTab === tab ? "primary" : "outline"} onClick={() => setActiveTab(tab)}>
+          <Button key={tab} variant={activeTab === tab ? "primary" : "outline"} onClick={() => changeTab(tab)}>
             {tab}
           </Button>
         ))}

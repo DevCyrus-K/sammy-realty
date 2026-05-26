@@ -1,13 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-
-const DEMO_EMAIL = "demo@sammy-realty.com";
-const DEMO_PASSWORD = "demo123";
-
+import { isAdminAuthenticated, setAdminAuthenticated } from "@/admin/lib/auth";
 
 function AdminLogin() {
   const router = useRouter();
@@ -18,19 +15,54 @@ function AdminLogin() {
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (event) => {
+  useEffect(() => {
+    if (!router.isReady || !isAdminAuthenticated()) return;
+    router.replace("/admin");
+  }, [router]);
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (isSubmitting) return;
     setError("");
-    if (email !== DEMO_EMAIL || password !== DEMO_PASSWORD) {
-      setError("Invalid email or password.");
+
+    if (!email || !password) {
+      setError("Email and password are required.");
       return;
     }
+
     setIsSubmitting(true);
-    toast.success("Login successful");
-    setTimeout(() => {
-      router.push("/admin/welcome");
-    }, 1000);
+
+    try {
+      const response = await fetch("/api/admin/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error || "Login failed. Please try again.");
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Store user data and set authenticated
+      localStorage.setItem("adminUser", JSON.stringify(data.user));
+      localStorage.setItem("adminToken", data.user.id.toString());
+      setAdminAuthenticated(true);
+
+      toast.success("Login successful");
+      setTimeout(() => {
+        router.push("/admin/welcome");
+      }, 1000);
+    } catch (err) {
+      console.error("Login error:", err);
+      setError("Network error. Please try again.");
+      setIsSubmitting(false);
+    }
   };
 
   return (

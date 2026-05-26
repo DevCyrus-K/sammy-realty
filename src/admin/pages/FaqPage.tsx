@@ -100,6 +100,11 @@ export default function FaqPage() {
     toast.success("Changes saved successfully");
   });
 
+  const closeAddModal = () => {
+    form.reset();
+    setAddOpen(false);
+  };
+
   const confirmDelete = () => {
     if (!deleteTarget) return;
     setItems((current) => current.filter((item) => item.id !== deleteTarget.id).map((item, index) => ({ ...item, order: index + 1 })));
@@ -142,11 +147,11 @@ export default function FaqPage() {
 
       <Modal
         open={addOpen}
-        onClose={() => setAddOpen(false)}
+        onClose={closeAddModal}
         title="Add FAQ"
         footer={
           <>
-            <Button variant="outline" onClick={() => setAddOpen(false)}>
+            <Button variant="outline" onClick={closeAddModal}>
               Cancel
             </Button>
             <Button onClick={addFaq} disabled={!form.formState.isValid}>

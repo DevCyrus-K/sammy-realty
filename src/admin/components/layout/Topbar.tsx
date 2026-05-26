@@ -19,6 +19,7 @@ import {
   X,
 } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { clearAdminAuthenticated } from "../../lib/auth";
 import { notificationItems } from "../../lib/navigation";
 import { Avatar } from "../ui/Avatar";
 import { Button } from "../ui/Button";
@@ -53,6 +54,11 @@ export function Topbar({ onMenu }: { onMenu: () => void }) {
   const isDark = resolvedTheme === "dark";
   const unreadCount = notificationItems.filter((item) => item.unread).length;
 
+  const handleLogout = () => {
+    clearAdminAuthenticated();
+    router.replace("/admin/login");
+  };
+
   useEffect(() => {
     if (searchOpen) {
       requestAnimationFrame(() => searchRef.current?.focus());
@@ -66,7 +72,7 @@ export function Topbar({ onMenu }: { onMenu: () => void }) {
 
     return normalized.map((segment, index) => ({
       label: titleize(segment),
-      href: `/admin/${normalized.slice(0, index + 1).join("/")}`,
+      href: normalized[0] === "dashboard" && index === 0 ? "/admin" : `/admin/${normalized.slice(0, index + 1).join("/")}`,
       current: index === normalized.length - 1,
     }));
   }, [router.asPath]);
@@ -74,11 +80,11 @@ export function Topbar({ onMenu }: { onMenu: () => void }) {
   return (
     <header className="sticky top-0 z-30 flex h-14 items-center justify-between gap-4 border-b border-[var(--brand-border)] bg-[var(--brand-card)]/80 px-4 backdrop-blur-md lg:px-6">
       <div className="flex min-w-0 items-center gap-3">
-        <Button variant="ghost" className="size-9 px-0 lg:hidden" onClick={onMenu} aria-label="Open navigation">
+        <Button variant="ghost" className="size-9 px-0 md:hidden" onClick={onMenu} aria-label="Open navigation">
           <MenuIcon size={19} />
         </Button>
-        <nav className="flex min-w-0 items-center gap-1 text-sm" aria-label="Breadcrumb">
-          <Link href="/admin/dashboard" className="inline-flex items-center text-[var(--brand-muted)] hover:text-[var(--brand-primary)]">
+        <nav className="hidden min-w-0 items-center gap-1 text-sm md:flex" aria-label="Breadcrumb">
+          <Link href="/admin" className="inline-flex items-center text-[var(--brand-muted)] hover:text-[var(--brand-primary)]">
             <Home size={16} />
           </Link>
           {breadcrumbs.map((crumb) => (
@@ -97,6 +103,10 @@ export function Topbar({ onMenu }: { onMenu: () => void }) {
         </nav>
       </div>
 
+      <Link href="/admin" className="absolute left-1/2 -translate-x-1/2 text-sm font-semibold text-[var(--brand-primary)] md:hidden">
+        Sammy Admin
+      </Link>
+
       <div className="relative flex items-center gap-2">
         <AnimatePresence>
           {searchOpen ? (
@@ -104,7 +114,7 @@ export function Topbar({ onMenu }: { onMenu: () => void }) {
               initial={{ opacity: 0, x: 24 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 24 }}
-              className="absolute right-0 top-1/2 z-20 flex w-[min(72vw,520px)] -translate-y-1/2 items-center gap-2 rounded-[var(--brand-radius)] border border-[var(--brand-border)] bg-[var(--brand-card)] p-1 shadow-lg"
+              className="absolute right-0 top-1/2 z-20 flex w-[min(72vw,520px)] -translate-y-1/2 items-center gap-2 rounded-[var(--brand-radius)] border border-[var(--brand-border)] bg-[var(--brand-card)] p-1 shadow-lg md:hidden"
             >
               <Search size={16} className="ml-2 text-[var(--brand-muted)]" />
               <Input
@@ -121,12 +131,23 @@ export function Topbar({ onMenu }: { onMenu: () => void }) {
           ) : null}
         </AnimatePresence>
 
-        <Button variant="ghost" className="size-9 px-0" onClick={() => setSearchOpen(true)} aria-label="Open search">
+        <label className="relative hidden md:block">
+          <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[var(--brand-muted)]" />
+          <Input
+            value={searchValue}
+            onChange={(event) => setSearchValue(event.target.value)}
+            placeholder="Search admin..."
+            className="w-64 bg-[var(--brand-surface)] pl-9"
+            aria-label="Search admin"
+          />
+        </label>
+
+        <Button variant="ghost" className="size-9 px-0 md:hidden" onClick={() => setSearchOpen(true)} aria-label="Open search">
           <Search size={18} />
         </Button>
         <Button
           variant="ghost"
-          className="size-9 px-0"
+          className="hidden size-9 px-0 md:inline-flex"
           onClick={() => setTheme(isDark ? "light" : "dark")}
           aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
         >
@@ -145,6 +166,7 @@ export function Topbar({ onMenu }: { onMenu: () => void }) {
           <PopoverPanel
             anchor="bottom end"
             className="z-50 mt-2 w-80 rounded-[var(--brand-radius)] border border-[var(--brand-border)] bg-[var(--brand-card)] shadow-xl"
+            style={{ width: "min(90vw, 20rem)" }}
           >
             <div className="flex items-center justify-between border-b border-[var(--brand-border)] px-4 py-3">
               <p className="font-semibold text-[var(--brand-primary)]">Notifications</p>
@@ -174,14 +196,14 @@ export function Topbar({ onMenu }: { onMenu: () => void }) {
                 </div>
               ))}
             </div>
-            <Link href="/admin/dashboard" className="block border-t border-[var(--brand-border)] px-4 py-3 text-center text-sm font-medium text-[var(--brand-primary)]">
+            <Link href="/admin" className="block border-t border-[var(--brand-border)] px-4 py-3 text-center text-sm font-medium text-[var(--brand-primary)]">
               View all notifications
             </Link>
           </PopoverPanel>
         </Popover>
 
         <Menu as="div" className="relative">
-          <MenuButton className="inline-flex rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-accent)]" aria-label="User menu">
+          <MenuButton className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-accent)]" aria-label="User menu">
             <Avatar name="Admin User" className="size-8 bg-[var(--brand-primary)] text-white" />
           </MenuButton>
           <MenuItems
@@ -195,21 +217,34 @@ export function Topbar({ onMenu }: { onMenu: () => void }) {
             {[
               { label: "Profile", href: "/admin/settings?tab=account", icon: User },
               { label: "Settings", href: "/admin/settings?tab=app-settings", icon: Settings },
-              { label: "Log out", href: "/admin/login", icon: LogOut, danger: true },
+              { label: "Log out", icon: LogOut, danger: true, onClick: handleLogout },
             ].map((item) => {
               const Icon = item.icon;
               return (
                 <MenuItem key={item.label}>
                   {({ focus }) => (
-                    <Link
-                      href={item.href}
-                      className={`flex items-center gap-2 px-3 py-2 text-sm ${
-                        focus ? "bg-[var(--brand-surface)]" : ""
-                      } ${item.danger ? "text-[var(--brand-danger)]" : ""}`}
-                    >
-                      <Icon size={14} />
-                      {item.label}
-                    </Link>
+                    item.href ? (
+                      <Link
+                        href={item.href}
+                        className={`flex items-center gap-2 px-3 py-2 text-sm ${
+                          focus ? "bg-[var(--brand-surface)]" : ""
+                        } ${item.danger ? "text-[var(--brand-danger)]" : ""}`}
+                      >
+                        <Icon size={14} />
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={item.onClick}
+                        className={`flex w-full items-center gap-2 px-3 py-2 text-left text-sm ${
+                          focus ? "bg-[var(--brand-surface)]" : ""
+                        } ${item.danger ? "text-[var(--brand-danger)]" : ""}`}
+                      >
+                        <Icon size={14} />
+                        {item.label}
+                      </button>
+                    )
                   )}
                 </MenuItem>
               );

@@ -10,6 +10,7 @@ import {
   User,
   X,
 } from "lucide-react";
+import { clearAdminAuthenticated } from "../../lib/auth";
 import { adminNavGroups, type AdminNavItem } from "../../lib/navigation";
 import { Avatar } from "../ui/Avatar";
 import { Button } from "../ui/Button";
@@ -18,6 +19,10 @@ import styles from "../../styles/admin.module.css";
 
 function isActivePath(asPath: string, pathname: string, item: AdminNavItem) {
   const hrefPath = item.href.split("?")[0];
+
+  if (hrefPath === "/admin") {
+    return asPath === "/admin" || asPath === "/admin/dashboard" || pathname === "/admin/dashboard";
+  }
 
   if (item.href.includes("?")) {
     return asPath === item.href;
@@ -46,7 +51,7 @@ function SidebarNavItem({
     <Link
       href={item.href}
       onClick={onNavigate}
-      className={`group relative mx-2 flex min-h-10 items-center gap-3 overflow-hidden rounded-[var(--brand-radius)] px-3 py-2.5 text-sm transition-all duration-150 ${
+      className={`group relative mx-2 flex min-h-11 items-center gap-3 overflow-hidden rounded-[var(--brand-radius)] px-3 py-2.5 text-sm transition-all duration-150 ${
         collapsed ? "justify-center px-0" : ""
       } ${
         active
@@ -94,21 +99,38 @@ function SidebarContent({
   collapsed,
   onToggle,
   onNavigate,
+  showToggle = true,
+  panelWidth = 256,
 }: {
   collapsed: boolean;
   onToggle: () => void;
   onNavigate?: () => void;
+  showToggle?: boolean;
+  panelWidth?: number;
 }) {
   const router = useRouter();
+  const width = collapsed ? 72 : panelWidth;
+
+  const handleLogout = () => {
+    clearAdminAuthenticated();
+    onNavigate?.();
+    router.replace("/admin/login");
+  };
+
+  const accountItems = [
+    { label: "Profile", icon: User, href: "/admin/settings?tab=account" },
+    { label: "Settings", icon: Settings, href: "/admin/settings?tab=app-settings" },
+    { label: "Log out", icon: LogOut, danger: true, onClick: handleLogout },
+  ];
 
   return (
     <motion.aside
-      animate={{ width: collapsed ? 72 : 256 }}
+      animate={{ width }}
       transition={{ type: "spring", stiffness: 360, damping: 34 }}
       className="sticky top-0 flex h-screen flex-col overflow-hidden border-r border-[var(--brand-border)] bg-[var(--brand-card)]"
     >
       <Link
-        href="/admin/dashboard"
+        href="/admin"
         onClick={onNavigate}
         className="flex h-16 items-center gap-3 border-b border-[var(--brand-border)] px-4"
       >
@@ -156,20 +178,22 @@ function SidebarContent({
       </nav>
 
       <div className="border-t border-[var(--brand-border)] p-3">
-        <Button
-          variant="ghost"
-          className="mb-3 w-full justify-center"
-          onClick={onToggle}
-          aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
-        >
-          <motion.span animate={{ rotate: collapsed ? 180 : 0 }} transition={{ duration: 0.2 }}>
-            <ChevronLeft size={16} />
-          </motion.span>
-          {!collapsed ? "Collapse" : null}
-        </Button>
+        {showToggle ? (
+          <Button
+            variant="ghost"
+            className="mb-3 w-full justify-center"
+            onClick={onToggle}
+            aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+          >
+            <motion.span animate={{ rotate: collapsed ? 180 : 0 }} transition={{ duration: 0.2 }}>
+              <ChevronLeft size={16} />
+            </motion.span>
+            {!collapsed ? "Collapse" : null}
+          </Button>
+        ) : null}
 
         <Menu as="div" className="relative">
-          <MenuButton className={`flex w-full items-center gap-3 rounded-[var(--brand-radius)] p-2 text-left hover:bg-[var(--brand-surface)] ${collapsed ? "justify-center" : ""}`}>
+          <MenuButton className={`flex min-h-11 w-full items-center gap-3 rounded-[var(--brand-radius)] p-2 text-left hover:bg-[var(--brand-surface)] ${collapsed ? "justify-center" : ""}`}>
             <Avatar name="Admin User" className="bg-[var(--brand-primary)] text-white" />
             {!collapsed ? (
               <span className="min-w-0">
@@ -182,24 +206,33 @@ function SidebarContent({
             anchor="top end"
             className="z-50 mb-2 min-w-44 rounded-[var(--brand-radius)] border border-[var(--brand-border)] bg-[var(--brand-card)] py-1 shadow-lg focus:outline-none"
           >
-            {[
-              { label: "Profile", icon: User, href: "/admin/settings?tab=account" },
-              { label: "Settings", icon: Settings, href: "/admin/settings?tab=app-settings" },
-              { label: "Log out", icon: LogOut, href: "/admin/login", danger: true },
-            ].map((item) => {
+            {accountItems.map((item) => {
               const Icon = item.icon;
               return (
                 <MenuItem key={item.label}>
                   {({ focus }) => (
-                    <Link
-                      href={item.href}
-                      className={`flex items-center gap-2 px-3 py-2 text-sm ${
-                        focus ? "bg-[var(--brand-surface)]" : ""
-                      } ${item.danger ? "text-[var(--brand-danger)]" : "text-inherit"}`}
-                    >
-                      <Icon size={14} />
-                      {item.label}
-                    </Link>
+                    item.href ? (
+                      <Link
+                        href={item.href}
+                        className={`flex items-center gap-2 px-3 py-2 text-sm ${
+                          focus ? "bg-[var(--brand-surface)]" : ""
+                        } ${item.danger ? "text-[var(--brand-danger)]" : "text-inherit"}`}
+                      >
+                        <Icon size={14} />
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={item.onClick}
+                        className={`flex w-full items-center gap-2 px-3 py-2 text-left text-sm ${
+                          focus ? "bg-[var(--brand-surface)]" : ""
+                        } ${item.danger ? "text-[var(--brand-danger)]" : "text-inherit"}`}
+                      >
+                        <Icon size={14} />
+                        {item.label}
+                      </button>
+                    )
                   )}
                 </MenuItem>
               );
@@ -224,23 +257,44 @@ export function Sidebar({
 }) {
   return (
     <>
+      <div className="hidden md:block lg:hidden">
+        <SidebarContent collapsed onToggle={() => undefined} showToggle={false} />
+      </div>
       <div className="hidden lg:block">
         <SidebarContent collapsed={collapsed} onToggle={onToggle} />
       </div>
-      <Dialog open={mobileOpen} onClose={onMobileClose} className={`${styles.adminSurface} relative z-50 lg:hidden`}>
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm" />
-        <DialogPanel className="fixed inset-y-0 left-0 bg-[var(--brand-card)] shadow-2xl">
-          <Button
-            variant="ghost"
-            className="absolute right-3 top-3 z-10 size-9 px-0"
-            onClick={onMobileClose}
-            aria-label="Close navigation"
-          >
-            <X size={18} />
-          </Button>
-          <SidebarContent collapsed={false} onToggle={onMobileClose} onNavigate={onMobileClose} />
-        </DialogPanel>
-      </Dialog>
+      <AnimatePresence>
+        {mobileOpen ? (
+          <Dialog static open={mobileOpen} onClose={onMobileClose} className={`${styles.adminSurface} relative z-50 md:hidden`}>
+            <motion.div
+              className="fixed inset-0 bg-black/40"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={onMobileClose}
+            />
+            <motion.div
+              className="fixed inset-y-0 left-0 z-50 w-72 bg-[var(--brand-card)] shadow-2xl"
+              initial={{ x: -288 }}
+              animate={{ x: 0 }}
+              exit={{ x: -288 }}
+              transition={{ type: "spring", stiffness: 380, damping: 34 }}
+            >
+              <DialogPanel className="h-full">
+                <Button
+                  variant="ghost"
+                  className="absolute right-3 top-3 z-10 size-9 px-0"
+                  onClick={onMobileClose}
+                  aria-label="Close navigation"
+                >
+                  <X size={18} />
+                </Button>
+                <SidebarContent collapsed={false} onToggle={onMobileClose} onNavigate={onMobileClose} showToggle={false} panelWidth={288} />
+              </DialogPanel>
+            </motion.div>
+          </Dialog>
+        ) : null}
+      </AnimatePresence>
     </>
   );
 }

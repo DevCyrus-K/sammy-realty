@@ -1,0 +1,104 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model LoginOtp {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @map("user_id")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  otp       String   @db.VarChar(10)
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  expiresAt DateTime @map("expires_at") @db.Timestamptz
+
+  @@index([userId], map: "login_otps_user_id_idx")
+  @@map("login_otps")
+}
+
+model PasswordReset {
+  id        Int      @id @default(autoincrement())
+  email     String   @db.VarChar(255)
+  token     String   @db.VarChar(255)
+  expiresAt DateTime @map("expires_at") @db.Timestamptz
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  @@index([email], map: "password_resets_email_index")
+  @@index([token], map: "password_resets_token_index")
+  @@map("password_resets")
+}
+
+model Property {
+  id           Int       @id @default(autoincrement())
+  image        String    @db.VarChar(255)
+  title        String    @db.VarChar(255)
+  status       String    @db.VarChar(50)
+  location     String    @db.VarChar(255)
+  description  String?
+  locationId   Int       @map("location_id")
+  bedrooms     Int
+  bathrooms    Int
+  amenities    String?   @db.VarChar(255)
+  price        Decimal   @db.Decimal(15, 2)
+  agentId      Int       @map("agent_id")
+  agentImage   String?   @map("agent_image") @db.VarChar(255)
+  propertyType String    @map("property_type") @db.VarChar(50)
+  featured     Boolean   @default(false)
+  createdAt    DateTime  @default(now()) @map("created_at") @db.Timestamptz
+  inquiries    Inquiry[]
+
+  @@map("properties")
+}
+
+model User {
+  id        Int        @id @default(autoincrement())
+  email     String     @unique @db.VarChar(255)
+  password  String     @db.VarChar(255) // NOTE: never select this field in ORM queries
+  createdAt DateTime   @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime   @default(now()) @updatedAt @map("updated_at") @db.Timestamptz
+  loginOtps LoginOtp[]
+
+  @@map("users")
+}
+
+model Agent {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  phone     String?
+  photoUrl  String?  @map("photo_url")
+  bio       String?
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  @@map("agents")
+}
+
+model Inquiry {
+  id         Int       @id @default(autoincrement())
+  propertyId Int?      @map("property_id")
+  property   Property? @relation(fields: [propertyId], references: [id])
+  name       String
+  email      String
+  phone      String?
+  message    String
+  createdAt  DateTime  @default(now()) @map("created_at") @db.Timestamptz
+
+  @@index([propertyId], map: "inquiries_property_id_idx")
+  @@map("inquiries")
+}
+
+model Testimonial {
+  id             Int      @id @default(autoincrement())
+  clientName     String   @map("client_name")
+  clientLocation String   @map("client_location")
+  clientPhotoUrl String?  @map("client_photo_url")
+  rating         Int      @default(5)
+  body           String
+  createdAt      DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  @@map("testimonials")
+}

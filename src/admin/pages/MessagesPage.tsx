@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import toast from "react-hot-toast";
-import { Archive, MessageSquare, PenSquare, Send, Trash2 } from "lucide-react";
+import { Archive, ArrowLeft, MessageSquare, PenSquare, Send, Trash2 } from "lucide-react";
 import { messages, Message } from "@/lib/mock-data";
 import { formatDate } from "@/lib/utils";
 import { AdminLayout } from "../components/layout/AdminLayout";
@@ -17,6 +17,7 @@ export default function MessagesPage() {
   const [activeId, setActiveId] = useState(messages[0]?.id);
   const [reply, setReply] = useState("");
   const [deleteOpen, setDeleteOpen] = useState(false);
+  const [mobileView, setMobileView] = useState<"list" | "detail">("list");
 
   const filteredMessages = useMemo(
     () => (filter === "all" ? messages : messages.filter((message) => message.status === filter)),
@@ -33,12 +34,17 @@ export default function MessagesPage() {
     setReply("");
   };
 
+  const openThread = (id: string) => {
+    setActiveId(id);
+    setMobileView("detail");
+  };
+
   return (
     <AdminLayout title="Messages">
       <PageHeader title="Messages" description={`${messages.filter((message) => message.status === "unread").length} unread messages`} />
 
-      <div className="grid min-h-[640px] grid-cols-1 overflow-hidden rounded-[var(--brand-radius)] border border-[var(--brand-border)] bg-[var(--brand-card)] md:grid-cols-[300px_1fr]">
-        <aside className="border-b border-[var(--brand-border)] md:border-b-0 md:border-r">
+      <div className="grid min-h-[640px] grid-cols-1 overflow-hidden rounded-[var(--brand-radius)] border border-[var(--brand-border)] bg-[var(--brand-card)] md:grid-cols-[320px_1fr]">
+        <aside className={`${mobileView === "detail" ? "hidden md:block" : "block"} border-b border-[var(--brand-border)] md:border-b-0 md:border-r`}>
           <div className="flex items-center justify-between border-b border-[var(--brand-border)] p-4">
             <h2 className="font-semibold text-[var(--brand-primary)]">Inbox</h2>
             <Button variant="ghost" className="size-9 px-0" aria-label="Compose message" onClick={() => toast.success("Changes saved successfully")}>
@@ -64,18 +70,23 @@ export default function MessagesPage() {
           </div>
           <div className="max-h-[586px] overflow-y-auto">
             {filteredMessages.map((message) => (
-              <MessageThreadButton key={message.id} message={message} active={selected?.id === message.id} onClick={() => setActiveId(message.id)} />
+              <MessageThreadButton key={message.id} message={message} active={selected?.id === message.id} onClick={() => openThread(message.id)} />
             ))}
           </div>
         </aside>
 
-        <section className="flex min-h-[520px] flex-col">
+        <section className={`${mobileView === "list" ? "hidden md:flex" : "flex"} min-h-[520px] flex-col`}>
           {selected ? (
             <>
               <header className="flex items-start justify-between gap-3 border-b border-[var(--brand-border)] p-4">
-                <div>
-                  <p className="font-semibold text-[var(--brand-primary)]">{selected.sender}</p>
-                  <p className="text-sm text-[var(--brand-muted)]">{selected.subject}</p>
+                <div className="flex min-w-0 gap-3">
+                  <Button variant="ghost" className="size-9 px-0 md:hidden" aria-label="Back to messages" onClick={() => setMobileView("list")}>
+                    <ArrowLeft size={17} />
+                  </Button>
+                  <div className="min-w-0">
+                    <p className="truncate font-semibold text-[var(--brand-primary)]">{selected.sender}</p>
+                    <p className="truncate text-sm text-[var(--brand-muted)]">{selected.subject}</p>
+                  </div>
                 </div>
                 <div className="flex gap-2">
                   <Button variant="outline" className="size-9 px-0" aria-label="Archive conversation" onClick={() => toast.success("Changes saved successfully")}>

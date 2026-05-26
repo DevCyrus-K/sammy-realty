@@ -23,7 +23,7 @@ export function Dropdown({
     <Menu as="div" className="relative inline-block text-left">
       <MenuButton
         className={cn(
-          "inline-flex min-h-9 items-center justify-center gap-2 rounded-[var(--brand-radius)] border border-[var(--brand-border)] bg-[var(--brand-card)] text-sm text-[var(--brand-primary)] hover:bg-[var(--brand-surface)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-accent)]",
+          "inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-[var(--brand-radius)] border border-[var(--brand-border)] bg-[var(--brand-card)] text-sm text-[var(--brand-primary)] hover:bg-[var(--brand-surface)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-accent)]",
           label ? "px-3 py-1.5" : "size-8 px-0"
         )}
         aria-label={label ? undefined : "Open row actions"}

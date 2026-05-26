@@ -39,6 +39,11 @@ export default function ListingRequestsPage() {
     setSelectedRequest(null);
   };
 
+  const cancelReject = () => {
+    setReason("");
+    setRejectTarget(null);
+  };
+
   const confirmDelete = () => {
     toast.success("Item deleted");
     setDeleteTarget(null);
@@ -221,7 +226,7 @@ export default function ListingRequestsPage() {
         title="Reject listing?"
         description="Add a short reason so the requester knows what to fix."
         confirmLabel="Reject"
-        onCancel={() => setRejectTarget(null)}
+        onCancel={cancelReject}
         onConfirm={confirmReject}
       >
         <Textarea value={reason} onChange={(event) => setReason(event.target.value)} placeholder="Reason for rejection" />

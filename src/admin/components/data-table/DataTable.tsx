@@ -99,6 +99,10 @@ export function DataTable<TData>({
     return () => window.clearTimeout(timer);
   }, [searchDraft]);
 
+  useEffect(() => {
+    setRowSelection({});
+  }, [data]);
+
   const tableColumns = useMemo<ColumnDef<TData>[]>(
     () => [
       {
@@ -173,6 +177,16 @@ export function DataTable<TData>({
     table.resetColumnFilters();
   };
 
+  const runBulkStatusChange = () => {
+    onBulkStatusChange?.();
+    setRowSelection({});
+  };
+
+  const runBulkDelete = () => {
+    selectedBulkDelete?.();
+    setRowSelection({});
+  };
+
   return (
     <div className="overflow-hidden rounded-[var(--brand-radius)] border border-[var(--brand-border)] bg-[var(--brand-card)] shadow-sm">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--brand-border)] px-4 py-3">
@@ -183,7 +197,7 @@ export function DataTable<TData>({
               value={searchDraft}
               onChange={(event) => setSearchDraft(event.target.value)}
               placeholder={searchPlaceholder}
-              className="min-h-10 w-full rounded-[var(--brand-radius)] border border-[var(--brand-border)] bg-[var(--brand-surface)] px-9 py-2 text-sm outline-none transition focus:ring-2 focus:ring-[var(--brand-accent)]/30"
+              className="min-h-11 w-full rounded-[var(--brand-radius)] border border-[var(--brand-border)] bg-[var(--brand-surface)] px-9 py-2 text-base outline-none transition focus:ring-2 focus:ring-[var(--brand-accent)]/30"
             />
             {searchDraft ? (
               <button
@@ -210,7 +224,7 @@ export function DataTable<TData>({
                 aria-label={filter.label}
                 value={value}
                 onChange={(event) => column.setFilterValue(event.target.value === "all" ? undefined : event.target.value)}
-                className={`min-h-9 rounded-full border px-3 py-1.5 text-xs outline-none transition ${
+                className={`min-h-11 rounded-full border px-3 py-1.5 text-sm outline-none transition ${
                   active
                     ? "border-transparent bg-[var(--brand-primary)] text-white"
                     : "border-[var(--brand-border)] bg-[var(--brand-card)] text-[var(--brand-muted)] hover:bg-[var(--brand-surface)]"
@@ -239,11 +253,11 @@ export function DataTable<TData>({
         {selectedCount ? (
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-sm text-[var(--brand-muted)]">{selectedCount} selected</span>
-            <Button variant="outline" onClick={onBulkStatusChange || (() => undefined)}>
+            <Button variant="outline" onClick={runBulkStatusChange}>
               Change Status
             </Button>
             {selectedBulkDelete ? (
-              <Button variant="danger" onClick={selectedBulkDelete}>
+              <Button variant="danger" onClick={runBulkDelete}>
                 <Trash2 size={16} />
                 Delete
               </Button>
@@ -253,7 +267,7 @@ export function DataTable<TData>({
       </div>
 
       <div className="overflow-x-auto">
-        <table className="w-full text-sm">
+        <table className="w-full min-w-[640px] text-sm">
           <thead>
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id} className="border-b border-[var(--brand-border)] bg-[var(--brand-surface)]">
