@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@source "../**/*.{ts,tsx}";
+
+/*
+  Sammy Realty admin brand tokens.
+
+  Extracted from:
+  - src/assets/sass/global/_global.scss
+  - src/assets/sass/elements/_button.scss
+  - public home/about/services/properties pages
+
+  Public brand language: deep green CTAs, warm orange highlights,
+  square controls, white listing cards, Nunito Sans body copy, and
+  Poppins headings.
+*/
+
+:root {
+  --brand-primary: #0B5D3B;
+  --brand-accent: #ff5a3c;
+  --brand-success: #77c720;
+  --brand-warning: #f6bc3e;
+  --brand-danger: #db483b;
+  --brand-surface: #f7faf8;
+  --brand-card: #ffffff;
+  --brand-muted: #5c727d;
+  --brand-border: #dfe8e3;
+  --brand-radius: 0px;
+  --brand-font: "Nunito Sans", sans-serif;
+}
+
+.dark {
+  --brand-primary: #3ecf8e;
+  --brand-accent: #ff8a70;
+  --brand-success: #77c720;
+  --brand-warning: #f6bc3e;
+  --brand-danger: #ff7568;
+  --brand-surface: #0F172A;
+  --brand-card: #1E293B;
+  --brand-border: rgba(255,255,255,0.08);
+  --brand-muted: #94A3B8;
+}
+
+.admin-surface {
+  background: var(--brand-surface);
+  color: #071c1f;
+  font-family: var(--brand-font);
+}
+
+.dark .admin-surface {
+  color: #e8f4ee;
+}
+
+.admin-surface * {
+  box-sizing: border-box;
+}

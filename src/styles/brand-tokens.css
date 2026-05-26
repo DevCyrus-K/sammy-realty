@@ -1,0 +1,49 @@
+/*
+  Sammy Realty brand tokens extracted from the existing public codebase.
+
+  Phase 0 scan summary:
+  - Routing: Next.js Pages Router under src/pages.
+  - React: 18.3.1.
+  - Path alias: @/* -> ./src/*.
+  - Public UI: Bootstrap + Sass + Tailwind utilities.
+  - Typography: Nunito Sans body, Poppins headings.
+  - Color source: src/assets/sass/global/_global.scss and admin inline CSS.
+  - UI shape: square controls/cards; existing border radius is 0px.
+  - Spacing rhythm: Bootstrap 15px gutters, public sections commonly use pt-115/pb-90/pb-120.
+*/
+
+:root {
+  --brand-primary: #0B5D3B;
+  --brand-accent: #ff5a3c;
+  --brand-success: #77c720;
+  --brand-warning: #f6bc3e;
+  --brand-danger: #db483b;
+  --brand-surface: #f7faf8;
+  --brand-card: #ffffff;
+  --brand-muted: #5c727d;
+  --brand-border: #dfe8e3;
+  --brand-radius: 0px;
+  --brand-font: "Nunito Sans", sans-serif;
+}
+
+.dark {
+  --brand-primary: #3ecf8e;
+  --brand-accent: #ff8a70;
+  --brand-success: #77c720;
+  --brand-warning: #f6bc3e;
+  --brand-danger: #ff7568;
+  --brand-surface: #0f1714;
+  --brand-card: #16221d;
+  --brand-muted: #a9b7b0;
+  --brand-border: #294039;
+}
+
+.admin-surface {
+  background: var(--brand-surface);
+  color: #071c1f;
+  font-family: var(--brand-font);
+}
+
+.dark .admin-surface {
+  color: #e8f4ee;
+}
